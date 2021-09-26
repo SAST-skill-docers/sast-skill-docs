@@ -1,0 +1,112 @@
+# Project Information
+site_name: 2021计算机类新生手册
+site_description: 2021计算机类新生手册
+site_author: 计算机科学与技术系学生会 软件学院学生会 交叉信息研究院联席会
+site_url: https://stu.cs.tsinghua.edu.cn/docs
+strict: false
+
+# # Repository
+# repo_name: ''
+# repo_url: ''
+# edit_uri: 'blob/master/docs/'
+
+# Copyright
+copyright: 'Copyright &copy; 2021 计算机科学与技术系学生会 软件学院学生会 交叉信息研究院联席会'
+
+# Theme
+theme:
+  name: 'material'
+  language: 'zh'
+  palette:
+    primary: white
+    accent: red
+    scheme: preference
+  icon:
+    repo: fontawesome/brands/github
+  favicon: 'static/img/favicon.png'
+  features:
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+  font:
+    text: Source Sans Pro
+    code: Source Code Pro
+  custom_dir: docs/overrides
+
+plugins:
+  - search:
+      lang: ja
+  - minify:
+      minify_html: true
+  # - git-revision-date-localized:
+  #     fallback_to_build_date: true
+  # - git-authors:
+  #     show_contribution: true
+  #     show_line_count: true
+
+# Contents
+nav:
+  - 2021计算机类新生手册:
+    - 第一章 大学初印象: 1.md
+    - 第二章 新生生存指南: 2.md
+    - 第三章 学霸之路: 3.md
+    - 第四章 文艺范儿: 4.md
+    - 第五章 体育达人盛会: 5.md
+    - 第六章 生活攻略 : 6.md
+    - 附录: extra.md
+    - 编委: editor.md
+  - 选课攻略+学习体验分享: 
+    - 简介: info.md
+    - 大二秋季: 大二秋季.md
+    - 大三秋季: 大三秋季.md
+    - 大四秋季: 大四秋季.md
+    - 任选课、体育课评价: 任选课、体育课评价.md
+  # - 简介:
+  #   - Getting Started: index.md
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - md_in_html
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  search:
+    language: 'jp'
+
+extra_javascript:
+    - 'https://cdnjs.loli.net/ajax/libs/pangu/3.3.0/pangu.min.js'
+    - 'static/js/extra.js'
+    - 'https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
+
+extra_css:
+  - 'static/css/extra.css'
