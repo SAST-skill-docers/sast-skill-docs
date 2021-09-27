@@ -10,16 +10,20 @@ nav:
     - VSCode 配置: basic/vscode.md
     - Git 入门: basic/git.md
     - Linux 入门: basic/linux.md
+    - Markdown 入门: basic/md.md
   - 编程语言:
     - C 语言基础: languages/c-basic.md
     - 现代 C++ 语言: languages/modern-cpp.md
     - Python 语言基础: languages/python.md
-    - JavaScript 入门: languages/javascript.md
-    - TypeScript 入门: languages/typescript.md
-    - Rust 入门: languages/rust.md
+    - JavaScript 语言基础: languages/javascript.md
+    - TypeScript 语言基础: languages/typescript.md
+    - Rust 语言基础: languages/rust.md
   - 前端框架:
     - React 框架入门: frontend/react-easy.md
     - 现代 React 框架: frontend/react-more.md
   - 人工智能 & 机器学习:
     - Pytorch 入门: ai-ml/pytorch.md
+
+markdown_extensions:
+  - admonition
   
