@@ -142,6 +142,6 @@ TODO: 找链接 当然最好是完善一下给更加详细的指导
 
 ## 资源链接
 
-+ [Python Docs](https://www.python.org/doc/)
-+ [Runoob](https://www.runoob.com/python3/python3-tutorial.html)
++ Python Docs <https://www.python.org/doc/>
++ Runoob <https://www.runoob.com/python3/python3-tutorial.html>
 
