@@ -1,6 +1,48 @@
 # Basics
 site_name: SAST skill docs
-theme: readthedocs
+repo_url: https://github.com/Ashitemaru/sast-skill-docs
+repo_name: SAST skill docs
+
+theme:
+  name: material
+  language: zh
+  custom_dir: theme/
+
+extra_javascript:
+  - 'https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      locale: zh
+  - git-authors:
+      show_contribution: true
+      show_line_count: true
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 # Contents
 nav:
@@ -23,7 +65,3 @@ nav:
     - 现代 React 框架: frontend/react-more.md
   - 人工智能 & 机器学习:
     - Pytorch 入门: ai-ml/pytorch.md
-
-markdown_extensions:
-  - admonition
-  
