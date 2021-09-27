@@ -1,6 +1,16 @@
 # Basics
 site_name: SAST skill docs
-theme: readthedocs
+repo_url: https://github.com/Ashitemaru/sast-skill-docs
+repo_name: SAST skill docs
+
+theme:
+  name: material
+  language: zh
+  custom_dir: theme/
+
+plugins:
+  - search
+  - git-authors:
 
 # Contents
 nav:
