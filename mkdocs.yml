@@ -48,6 +48,7 @@ markdown_extensions:
 nav:
   - Welcome to SAST skill docs: index.md
   - 课程指引: course.md
+  - 书目推荐: book.md
   - 基本技能:
     - 如何使用搜索引擎: basic/search-engine.md
     - VSCode 配置: basic/vscode.md
