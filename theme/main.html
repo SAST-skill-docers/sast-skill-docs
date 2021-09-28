@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ super() }}
+    {% if git_page_authors %}
+        <div class="md-source-date">
+            <small>
+                作者: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
+            </small>
+        </div>
+    {% endif %}
+{% endblock %}
