@@ -67,3 +67,4 @@ nav:
     - 现代 React 框架: frontend/react-more.md
   - 人工智能 & 机器学习:
     - Pytorch 入门: ai-ml/pytorch.md
+  - 外部链接: source.md
