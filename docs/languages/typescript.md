@@ -298,9 +298,9 @@ TypeScript 作为目前较为热门的 JavaScript 语言“补丁”，可以被
 
 后续可以阅读的文档有：
 
-- React 框架入门 <https://sast-skill-docers.github.io/sast-skill-docs/frontend/react-easy>
+- React 框架入门 <https://docs.net9.org/frontend/react-easy>
 
-- 现代 React 框架 <https://sast-skill-docers.github.io/sast-skill-docs/frontend/react-more>
+- 现代 React 框架 <https://docs.net9.org/frontend/react-more>
 
 ---
 
