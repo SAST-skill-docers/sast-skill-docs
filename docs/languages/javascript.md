@@ -42,6 +42,12 @@ weakType = "You are a string now!"; // OK
 
 JavaScript 语言支持五种基本类型，即数字、字符串、布尔值、`undefined` 类型和 `null` 类型。前三个类型是容易理解的，而后两者则会在最后讲解。
 
+!!! note "一些适当的简化"
+
+    实际上最新的 JavaScript 具有七种基本类型，多出的两种为 `Symbol` 类型和大整数类型。但由于这两者在实际工程之中使用较少，所以本文档作为入门文档并不会介绍，本文档默认 JavaScript 只有五种基本类型。
+
+    如果需要学习这两个拓展类型，可以参考文档末给出的链接。
+
 获取数据的类型可以使用 `typeof` 关键字：
 
 ```javascript
@@ -350,9 +356,59 @@ undefined?.anyProp; // undefined
 而直接访问 `null` 上的属性也会报错。同时，在处理这个问题的时候 `?.` 依然可以使用：
 
 ```javascript
-null.anyProp; // Uncaught TypeError: Cannot read properties of null、
+null.anyProp; // Uncaught TypeError: Cannot read properties of null
 null?.anyProp; // undefined
 ```
+
+??? note "一些和空类型相关的语法糖"
+
+    在实际的 JavaScript 工程之中，我们常常会遇到类似这样的需求：
+
+    > 将某一个变量设定为某一个值，当给定值未定义的时候，则设定为某一个默认值。
+
+    比如说要将字符串 `x` 设定为字符串 `y` 的值，但在 `y` 未定义或者为空字符串的时候 `x` 设定为默认值 `"default"`。一般而言可以写为：
+
+    ```javascript
+    if (y === undefined || y === "") x = "default";
+    else x = y;
+    ```
+
+    但实际上 JavaScript 的逻辑运算有一个类似语法糖的写法可以完成这一功能：
+
+    ```javascript
+    x = y || "default";
+    ```
+
+    !!! caution "注意不等价转换"
+
+        实际上这种语法糖写法和之前的 `if-else` 写法**并不完全等价**，具体原因可以参阅 JavaScript 的魔法指导书。
+
+        这种写法要求 `y` 一定是一个字符串，但考虑到大多数工程场景下 `y` 的类型都能得到保证，故还是可以在合适的条件下采用这种写法。
+
+    另外，有一个类似的运算符为 `??`。与 `x = y ?? "default"` 等价的代码块为：
+
+    ```javascript
+    if (y === undefined || y === null) x = "default";
+    else x = y;
+    ```
+
+    此外，还有一种常见的需求：
+
+    > 检查某个函数是否定义，如果定义，则执行。
+
+    这个需求可以这样实现：
+
+    ```javascript
+    if (foo !== undefined) foo();
+    ```
+
+    而 JavaScript 所提供的一种语法糖写法是：
+
+    ```javascript
+    foo && foo();
+    ```
+
+    但和上述一样，这个转换并非完全等价，但考虑工程实际，一般而言是可以采用这种写法的。
 
 ??? note "空的三个境界"
 
@@ -480,7 +536,13 @@ null?.anyProp; // undefined
 
 我们一般把 JavaScript 的函数也认为是一种变量，因为在 JavaScript 之中，函数的行为很大程度上和变量类似。
 
+JavaScript 语言之中声明一个函数的语法为：
 
+```javascript
+function sum(x, y) {
+    return x + y;
+}
+```
 
 ??? note "变量提升"
 
