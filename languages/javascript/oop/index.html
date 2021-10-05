@@ -1,0 +1,1574 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
+    
+    
+      
+        <title>JavaScript 的面向对象 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1c75ef36.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript 的面向对象
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index/" class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../frontend/" class="md-tabs__link">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../index/">欢迎来到 SAST skill docs</a>
+          <label for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../source/">资源链接</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/course/" class="md-nav__link">
+        课程指引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../basic/">基本技能</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/md/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">编程语言</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c-basic/" class="md-nav__link">
+        C 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        Python 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">JavaScript 语言基础</a>
+          <label for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JavaScript 的面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JavaScript 的面向对象
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript 的面向对象
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript 的面向对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this 的指向问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    箭头函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/" class="md-nav__link">
+        Rust 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../frontend/">前端框架</a>
+          <label for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react-easy/" class="md-nav__link">
+        React 框架入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react-more/" class="md-nav__link">
+        现代 React 框架
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript 的面向对象
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript 的面向对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this 的指向问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    箭头函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/javascript/oop.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>JavaScript 的面向对象</h1>
+                
+                <h2 id="javascript">JavaScript 的面向对象<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">别想学会 JavaScript 的 OOP！</p>
+<p>JavaScript 的面向对象的实现逻辑并非是类封装逻辑，而是原型链逻辑。最初的 JavaScript 并不支持类语法，但由于原型链实在太过于特立独行，目前 ES6 标准将类语法作为<strong>语法糖</strong>加入了语言标准。这也就是说，JavaScript 的面向对象的底层依然是原型链而非类封装，如果真的想弄明白 JavaScript 的原型链机制，可以查看文档末尾的原型链章节。但对于初学者，我们建议只是用类语法，除非遇到不可解决的 bug，否则不要花时间钻研原型链。</p>
+</div>
+<p>使用类语法的 JavaScript 很大程度上和 C++ 语言类似，这里我们编写一个简易的复数类作为演示，内部已经包含了构造函数、定义成员方法和静态方法等 OOP 基础内容：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">Complex</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">_real</span><span class="p">,</span> <span class="nx">_imaginary</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">real</span> <span class="o">=</span> <span class="nx">_real</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">=</span> <span class="nx">_imaginary</span><span class="p">;</span> <span class="c1">// Declare members &amp; initialize</span>
+    <span class="p">}</span>
+
+    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="s2">&quot;+&quot;</span> <span class="o">:</span> <span class="s2">&quot;-&quot;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="p">)</span><span class="si">}</span><span class="sb"> i`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kr">static</span> <span class="nx">printInfo</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This is a complex class.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">com</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">com</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span> <span class="c1">// &quot;1 + 2 i&quot;</span>
+<span class="nx">Complex</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span> <span class="c1">// &quot;This is a complex class.&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>有一些细节需要注意：</p>
+<ul>
+<li>类方法内使用类成员的时候必须使用 <code>this</code> 调用</li>
+<li>JavaScript 的所有类成员和类方法均是公有的，JavaScript 不具有访问权限修饰符</li>
+</ul>
+<h3 id="this"><code>this</code> 的指向问题<a class="headerlink" href="#this" title="Permanent link">&para;</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">你的 JavaScript 成人礼</p>
+<p><code>this</code> 的指向问题是 JavaScript 语言设计里可以说是影响最为深远的的一个缺陷，深远到即使要弄明白这个问题需要花费很长时间，但你不得不投入这些精力，否则你可能会在未来的代码实践中遇到很多 <code>this</code> 相关的问题。</p>
+<p>另一方面，即使后来人针对 <code>this</code> 指向问题打了很多的补丁，这个问题依然萦绕在前端开发者心中。比如说 React 函数组件支持者的一个很重要的论点就是使用函数组件不会遇到 <code>this</code> 指向问题。</p>
+</div>
+<p>严格来说，JavaScript 的 <code>this</code> 指向规则只有一条，即 <strong><code>this</code> 永远指向最近的调用者</strong>。观察这样的代码（浏览器运行）：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="p">};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// { foo: foo }</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里两次调用的都是同一个 <code>foo</code> 函数，不同的是前者是全局调用（即直接调用），而后者是把函数作为一个对象 <code>obj</code> 的属性后通过 <code>obj</code> 调用。而 <code>this</code> 的指向就是在函数调用的时候确定的。全局调用 <code>foo</code> 函数，那 <code>this</code> 就指向全局对象，通过 <code>obj</code> 调用，那 <code>this</code> 就指向 <code>obj</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">全局对象</p>
+<p>事实上 JavaScript 的全局变量都是全局对象的属性，每一个 JavaScript 运行环境都有一个全局对象。比如说浏览器的全局对象往往是 <code>window</code>。你声明的每一个全局变量都会绑定为全局对象的属性（下述代码在浏览器运行）：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// 1</span>
+</code></pre></div>
+</td></tr></table>
+<p>而在全局环境下调用函数 <code>foo()</code>，实际上等价于通过全局对象在调用：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">foo</span><span class="p">();</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>上述两个语句没有差别。</p>
+</div>
+<p>对于更为复杂的对象嵌套，<code>this</code> 的指向也遵循着指向最近的调用者的规则：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">foo</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">inner</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">foo</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">fn</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span> <span class="c1">// 2</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span> <span class="c1">// 1</span>
+
+<span class="kd">let</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span>
+<span class="nx">fn</span><span class="p">();</span> <span class="c1">// undefined</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里的 <code>fn</code> 函数被三个对象分别调用，从上到下为 <code>obj.inner, obj, window</code>，可以看出这三次调用中的 <code>this</code> 就分别指向这三个对象。</p>
+<div class="admonition note">
+<p class="admonition-title">一些补充</p>
+<p>虽说 <code>this</code> 的指向规则只有一条，但实际上在写程序的时候，一些函数是比较难弄明白调用者的。比如说传给前端组件的事件监听函数、传给计时器的回调、类函数。这些函数的 <code>this</code> 的指向问题实际上已经脱离了本节讨论的范畴，比如说类环境下的 <code>this</code> 问题就应该认真学习原型链逻辑才能真正掌握。</p>
+</div>
+<p><code>this</code> 的缺陷就在于其指向是动态的，有些函数可能内部使用了 <code>this</code> 但开发者并不知晓，从而在不同情况下应用这个函数的时候会产生不可理解的错误。而现在的一些补丁就是允许开发者硬性指定 <code>this</code> 的指向或者永久绑定 <code>this</code> 的指向以防止未知错误。</p>
+<p>比如说 <code>call(), apply()</code> 方法就允许我们手动指定 <code>this</code> 的指向，其接受的第一个参数就会成为 <code>this</code> 的指向：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">another</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="p">};</span>
+
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">// 2</span>
+</code></pre></div>
+</td></tr></table>
+<p>而 <code>bind()</code> 方法则允许我们将 <code>this</code> 的指向永久绑定于某一个对象上。无论后续使用哪一个对象调用这个函数，其 <code>this</code> 都保持原先 <code>bind()</code> 设定的指向：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="p">};</span>
+
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// 1</span>
+
+<span class="kd">let</span> <span class="nx">another</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="p">};</span>
+<span class="nx">another</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// 1</span>
+</code></pre></div>
+</td></tr></table>
+<p>在这些补丁出现之前，为了硬性规定 <code>this</code> 的指向，程序员甚至会在函数中使用 <code>var that = this</code> 语句先捕获 <code>this</code>，之后使用 <code>that</code> 代替 <code>this</code> 来防止 bug。</p>
+<p>而现在更常用的一种解决方法是箭头函数，这种新特性值得专门开出一节来讲讲。</p>
+<h3 id="_1">箭头函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>这一个章节本应该在函数部分讲解，但是由于箭头函数的出现很大的原因是为了解决 <code>this</code> 问题，编者还是将其放到了 OOP 章节。</p>
+<p>箭头函数只是函数的另外一种写法：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div>
+</td></tr></table>
+<p>同时，对于一些函数体没有中间操作的函数，可以直接在箭头右侧写返回值：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div>
+</td></tr></table>
+<p>而在回调函数里面写箭头函数将会让代码更可读：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">val</span><span class="p">,</span> <span class="nx">ind</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">({</span>
+        <span class="p">...</span><span class="nx">val</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="nx">ind</span><span class="p">,</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">subscriberNum</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">subscriberNum</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>唯一要注意的是，如果一个箭头函数直接返回一个对象，这个对象的花括号可能会和代码块的花括号混淆，所以如果直接返回一个对象，记得在对象的花括号外再套一层小括号防止出现 Syntax Error。</p>
+<p>箭头函数和 <code>function</code> 函数最大不同的地方是其 <code>this</code> 的指向跟随上下文的 <code>this</code>，也就是说其本身不具有 <code>this</code>，在箭头函数体里使用的 <code>this</code> 实际上是其上下文（一般是其所在的函数作用域）的 <code>this</code>。换句话说，<strong>箭头函数的 <code>this</code> 在定义的时候就完成了绑定</strong>，这样的性质就解决了 <code>this</code> 指向不明的问题。</p>
+<p>考虑这样的代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+
+<span class="c1">// Changing caller will not change &#39;this&#39;</span>
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="p">};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+
+<span class="c1">// &#39;call&#39; &amp; &#39;bind&#39; may fail</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// window</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+</code></pre></div>
+</td></tr></table>
+<p>可以看出，在全局环境下设定的箭头函数的 <code>this</code> 永远跟随全局环境指向全局对象。</p>
+<p>但另外一方面：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">foo</span><span class="p">;</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">();</span>
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// obj</span>
+
+<span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span>
+<span class="nx">bar</span><span class="p">()();</span> <span class="c1">// window</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里前面获取 <code>foo</code> 的时候是使用的 <code>obj</code> 调用的普通函数 <code>bar</code>，所以 <code>bar</code> 的 <code>this</code> 指向 <code>obj</code>，跟随着的 <code>foo</code> 的 <code>this</code> 就指向 <code>obj</code>。而后面获取的时候 <code>bar</code> 是被全局对象调用的，其 <code>this</code> 就被自然绑定到了全局对象上，所以内部箭头函数的 <code>this</code> 也就绑定到了全局对象上。</p>
+<div class="admonition note">
+<p class="admonition-title">我该如何使用 <code>this</code></p>
+<p>实际上只要遵循一定的代码规范（比如说在学习一个前端框架的时候按照其教程和样例代码进行实践）编写代码，<code>this</code> 并不会成为一个很大的问题。但是编者依然建议读者应当了解 <code>this</code> 的机制，这样才能应对可能出现的意外。</p>
+</div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+            </small>
+        </div>
+    
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../function/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript 的函数" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              JavaScript 的函数
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../async/" class="md-footer__link md-footer__link--next" aria-label="下一页: JavaScript 的异步" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              JavaScript 的异步
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c7d1b464.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

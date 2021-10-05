@@ -1,0 +1,1817 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
+    
+    
+      
+        <title>JavaScript 的函数 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1c75ef36.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript 的函数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index/" class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../frontend/" class="md-tabs__link">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../index/">欢迎来到 SAST skill docs</a>
+          <label for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../source/">资源链接</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/course/" class="md-nav__link">
+        课程指引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../basic/">基本技能</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/md/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">编程语言</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c-basic/" class="md-nav__link">
+        C 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        Python 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">JavaScript 语言基础</a>
+          <label for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JavaScript 的函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JavaScript 的函数
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript 的函数
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript 的函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    函数声明和调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    回调模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    闭包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/" class="md-nav__link">
+        Rust 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../frontend/">前端框架</a>
+          <label for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react-easy/" class="md-nav__link">
+        React 框架入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react-more/" class="md-nav__link">
+        现代 React 框架
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript 的函数
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript 的函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    函数声明和调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    回调模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    闭包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/javascript/function.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>JavaScript 的函数</h1>
+                
+                <h2 id="javascript">JavaScript 的函数<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h2>
+<h3 id="_1">函数声明和调用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>我们一般把 JavaScript 的函数也认为是一种变量，因为在 JavaScript 之中，函数的行为很大程度上和变量类似。</p>
+<p>JavaScript 语言之中声明一个函数的语法为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>而另外一种声明方式如下，这种方式的内涵就是把函数当成一种变量：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>函数调用的语法则和 C/C++ 语言一致：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">无用的参数列表</p>
+<p>实际上 JavaScript 从来不检查你函数调用是不是符合参数列表，本身 JavaScript 就不检查变量类型，实际上 JavaScript 还不检查你函数调用的时候传入的参数个数。比如说你给 <code>sum</code> 函数传入一个参数还是三个参数，其都正常工作：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// NaN</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div>
+</td></tr></table>
+<p>其处理逻辑为<strong>声明了却没有传入的参数当成 <code>undefined</code>，多余的参数则需要手动捕获</strong>。也就是说 <code>sum(1)</code> 在执行的时候，参数 <code>x</code> 是 <code>1</code>，而参数 <code>y</code> 是 <code>undefined</code>，结果自然是 <code>NaN</code>。</p>
+<p>而捕获多余参数的方法有两种，一种是在参数列表中加入可变长参数 <code>...rest</code>。不过注意，可变长参数会被赋值为一个数组，并且在没有多于参数的时候被赋值为<strong>空数组</strong>而非 <code>undefined</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">rest</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">s</span> <span class="o">+=</span> <span class="nx">rest</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>另外一种是在函数之中使用 <code>arguments</code> 变量，这个变量存储了函数所接受的所有参数，并将其包装为一个数组。所以理论上甚至都不需要声明参数列表：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">s</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">消失的返回值</p>
+<p>JavaScript 不强制要求语句以分号结尾，而其引擎会在每一行没有以分号结尾的语句后面自动添加分号。但是，这可能会导致一些意想不到的结果。</p>
+<p>部分 C/C++ 程序编写者可能在返回值较为庞大的时候将返回值换行写，这样美观度较好，但是在 JavaScript 语言中，这样很可能出现问题：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>实际上调用函数得到的返回值是 <code>undefined</code>。这个 bug 的原因在上面已经解释了，因为 <code>return</code> 语句单独成一行，所以 JavaScript 引擎会给 <code>return</code> 后面加一个分号，从而上述代码实际上是：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+        <span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个函数就没有返回值了（也就是返回值是 <code>undefined</code>）。</p>
+<p>正确写法应当是：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个时候 JavaScript 引擎并不认为 <code>return {</code> 是一个完整语句，所以不会在其末尾添加分号。</p>
+</div>
+<details class="note"><summary>变量提升</summary><p>我们说过 JavaScript 由于工期短，具有一些设计上的缺陷（一部分已经转变为语言特性）。变量提升就是这些缺陷之一，其关系到 JavaScript 的变量作用域问题。</p>
+<p>C/C++ 语言使用大括号代码块 <code>{...}</code> 来标记变量作用域，这被称为<strong>块作用域</strong>。但最初始的 JavaScript 并不具有块作用域，其只具有<strong>函数作用域</strong>。也就是说，控制语句块 <code>for, if</code> 等等都不会形成作用域，真正限定变量作用于的是函数：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// i is *not* visible here </span>
+<span class="c1">// j is *not* visible here </span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// i *is* visible here </span>
+    <span class="c1">// j *is* visible here</span>
+
+    <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// i *is* visible here </span>
+        <span class="c1">// j *is* visible here</span>
+    <span class="p">}</span>
+
+    <span class="c1">// i *is* visible here </span>
+    <span class="c1">// j *is* visible here</span>
+<span class="p">}</span>
+<span class="c1">// i is *not* visible here </span>
+<span class="c1">// j is *not* visible here </span>
+</code></pre></div>
+</td></tr></table>
+<p>这种作用域形成的原理是 <strong>JavaScript 语言会将每一个变量的声明提升到其所属函数最顶部，原先的声明语句变为赋值语句</strong>，当然在所有函数外声明的变量就会具有全局作用域。</p>
+<p>比如下面的代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Mike&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Helen&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>这段代码的执行结果为 <code>"Hello, undefined!"</code>。</p>
+<p>要理解为什么，我们首先需要手动帮 JavaScript 做一步变量提升。注意到这里有两个声明语句，那么我们将其声明提升到函数最顶部，原先的声明改成赋值：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+<span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Mike&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Helen&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样就不难理解 <code>undefined</code> 出现的原因了。</p>
+<p>事实上不仅是变量，函数也会被提升。比如说：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">greet</span><span class="p">();</span> <span class="c1">// &quot;Hello!&quot;</span>
+<span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个程序会正常输出 <code>"Hello!"</code>。函数提升的特点是其会将函数体跟随着向上提升，而变量提升并不会把其初始值跟随着提升。</p>
+<p>但另外一个方面，如果我们使用类似声明变量的方式声明函数，<strong>其函数体不会跟随着提升</strong>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">greet</span><span class="p">();</span> <span class="c1">// Uncaught TypeError: greet is not a function</span>
+<span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>之后再补充一点有关提升顺序的规则，就是<strong>变量和函数同时提升的时候，变量声明按照声明顺序整体放在作用域最开头，之后函数声明按照声明顺序整体紧接着变量声明整体，按照变量形式声明的函数当作变量声明</strong>，以及<strong>如果某一个符号同时用在多个变量声明中，视作一次声明。用在多个函数声明中，后者覆盖前者。同时用在函数和变量声明之中，采用函数的声明</strong>。比如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span> <span class="c1">// function f() {}</span>
+<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>  <span class="c1">// function f() {}</span>
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里无论如何调整顺序，函数的声明会覆盖变量的声明。</p>
+<hr />
+<p>其实关于 JavaScript 变量作用域的问题，还有一个值得注意的是<strong>隐式全局变量</strong>问题。如果不使用任何关键字直接编写一个变量赋值语句，而你所要赋值的变量根本没有定义，那么这个变量会被声明为全局变量。比如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">foo</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">fn</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// 100</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里函数体里的 <code>fn</code> 在赋值的时候没有定义，那么它就会被提升为隐式全局变量，即使在函数体外也可以访问。</p>
+<p>但是这个问题很快被解决了，只需要使用 JavaScript 的严格模式就可以禁止隐式全局变量。使用方式是直接在代码开头加入字符串 <code>"use strict"</code>。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">foo</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">fn</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// Uncaught ReferenceError: foo is not defined</span>
+</code></pre></div>
+</td></tr></table>
+<hr />
+<p>事实上，读者可以发现上面演示的所有变量声明均是使用 <code>var</code> 声明。其实，在最初的 JavaScript 语言只有 <code>var</code> 关键字可以用于声明变量，并且严格按照变量提升的规则转换。然而由于变量提升规则很反直觉，并且函数作用域粒度过大，可能导致使用不便（参见<strong>闭包</strong>章节），所以新标准引入了 <code>let, const</code> 关键字，通过这两个关键字声明的变量遵循块作用域，并且不发生提升：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// Uncaught ReferenceError: a is not defined</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p>这也是我们强烈推荐只使用 <code>let, const</code> 关键字的原因。</p>
+</details>
+<h3 id="_2">回调模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">你 JavaScript 真正的第一步</p>
+<p>回调模式可以认为是 JavaScript 的一大“灵魂”，这门语言的很多功能均基于这一设计模式。实际上，即使你可能没有听编者的话，偷偷看了不少 JavaScript 的魔法，深刻领悟一番之后觉得已经大彻大悟。但编者想要告诉你的是，那些魔法并不是 JavaScript 的核心，回调和到处飞的匿名函数才会是你实际接触 JavaScript 工程时处理最多的。</p>
+<p>这一部分将会讲解回调模式。如果读者已经理解掌握，则可以跳过这一部分。</p>
+</div>
+<p>回调模式从表面上讲，实际就是<strong>将函数作为参数传入另一个函数</strong>。</p>
+<p>我们首先需要理解什么是函数参数。当一个函数无法自己获取到某一些信息的时候，就需要通过外部将这些信息通过参数通知给函数。比如说这样的代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// We tell the function that it needs to add 1 &amp; 3 by passing parameters.</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>函数 <code>sum</code> 是没有办法自己获取其需要给哪两个数值求和，所以外部调用函数的时候需要传入这个信息。也就是说，函数参数的作用是补全函数所需要了解的信息。</p>
+<p>但是有一些函数，它欠缺的不一定是“某一个变量是什么”这样的信息，它欠缺的可能是“我们需要它做什么”这样的信息。比如说我们想把上面的 <code>sum</code> 函数拓展功能，升级为一个加减乘除都能算的函数。那么问题就出现在，我如何告诉这个函数，它应该对 <code>x, y</code> 做什么操作。</p>
+<p>一种解决方式是传入一个整数或者一个字符，表示这个函数应该进行什么样的运算：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">calculate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">op</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">op</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s2">&quot;+&quot;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;-&quot;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;*&quot;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;/&quot;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>但这种解决方法就需要我们事先约定 <code>op</code> 字符的值和函数进行的操作之间的关系，那为何我们不能直接告诉 <code>calculate</code> 函数它需要进行什么操作呢？</p>
+<p>我们通过函数描述对数据的操作，而告诉函数它需要进行什么操作，就是<strong>将描述操作的函数作为参数传入这个函数</strong>，这个被传入到其他函数里的函数就称为<strong>回调函数</strong>。其名称可以大致理解为“这个函数现在传进去但暂且不调用，需要的时候再调用”：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">calculate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">op</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">op</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">calculate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span> <span class="p">});</span> <span class="c1">// 3</span>
+<span class="nx">calculate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span><span class="p">;</span> <span class="p">});</span> <span class="c1">// -1</span>
+<span class="nx">calculate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="p">;</span> <span class="p">});</span> <span class="c1">// 1</span>
+</code></pre></div>
+</td></tr></table>
+<p>关于回调函数更深层次的运用会在 JavaScript 异步部分讲解。</p>
+<hr />
+<p>事实上，JavaScript 有关数组的各种操作几乎全都使用了回调模式，比如说遍历数组的操作：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">ind</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`The elem with index </span><span class="si">${</span><span class="nx">ind</span><span class="si">}</span><span class="sb"> is </span><span class="si">${</span><span class="nx">val</span><span class="si">}</span><span class="sb">.</span><span class="err">\</span><span class="sb">n`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p><code>forEach</code> 方法接受一个回调函数，并会把数组的每一项作为参数传入这个回调并执行。</p>
+<p>另外的例子还有数组的映射函数 <code>map</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">});</span> <span class="c1">// [2, 4, 6, 8]</span>
+
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">newArr</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">newArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</code></pre></div>
+</td></tr></table>
+<p>这两种写法是等价的，但是 JavaScript 更倾向于选择前者，因为这种回调式的链条可以很方便地加长，在处理数组的时候尤其方便。比如说我们需要将接收到的数据清洗格式之后筛选出合法数据并排序：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">ind</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="p">...</span><span class="nx">val</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="nx">ind</span><span class="p">,</span>
+        <span class="p">};</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">val</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">subscriberNum</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">subscriberNum</span><span class="p">;</span>
+    <span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>如果用 C/C++ 格式进行编写，则可能稍显复杂。</p>
+<h3 id="_3">闭包<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>函数既然是一个对象，那么我们也可以用一个函数返回一个函数。比如说：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getIncreaser</span><span class="p">(</span><span class="nx">increment</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">increment</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">increase5</span> <span class="o">=</span> <span class="nx">getIncreaser</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">increase5</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 15</span>
+</code></pre></div>
+</td></tr></table>
+<p>比如说上述的 <code>getIncreaser</code> 可以用于获取一个“数据增长器”，而具体给数据增加多少，则是这个函数接收的参数。<code>getIncreaser</code> 会把 <code>increment</code> 变量包装在其返回的匿名函数之中，这样就形成了一个<strong>闭包</strong>。闭包实际上就是一个包装了其所在环境的一些局部变量的函数。</p>
+<p>但闭包会带来一定的问题，比如说这样的代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getCounters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">counters</span> <span class="o">=</span> <span class="nx">getCounters</span><span class="p">();</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 9</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 9</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 9</span>
+</code></pre></div>
+</td></tr></table>
+<p>这些代码的预期执行结果应该是 <code>0, 1, 4</code>，因为在将函数打包的时候 <code>i</code> 的值应该分别是 <code>0, 1, 2</code>。但是要注意，函数打包成闭包的时候，只单纯存储了<strong>临时变量的引用</strong>，而到真正执行闭包函数的时候才会去访问这些临时变量的值。上面例子之中的闭包函数在真正执行的时候，所引用的 <code>i</code> 已经是 <code>3</code> 了，所以结果全为 <code>9</code>。</p>
+<div class="admonition caution">
+<p class="admonition-title">闭包引用会发生变化的量是危险的</p>
+<p>根据上面的例子，我们就已经可以看出，闭包所引用的临时变量最好是常量或确定不会发生变化的量，这样至少可以让闭包的行为可控。</p>
+</div>
+<p>我们来想想怎么解决这个问题，读者可能已经想到了一种解决方式，也就是把 <code>i</code> 包装到闭包之前首先使用其它变量捕获：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getCounters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="c1">// Capture i here</span>
+        <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span> <span class="o">*</span> <span class="nx">j</span><span class="p">);</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">counters</span> <span class="o">=</span> <span class="nx">getCounters</span><span class="p">();</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 4</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 4</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 4</span>
+</code></pre></div>
+</td></tr></table>
+<p>但依然有 bug，原因是 JavaScript 的变量提升，这一部分可以参考先前的讲解。由于 <code>j</code> 使用了 <code>var</code> 声明，所以其声明实际上会被提升到函数最前面，导致其还是跟随着 <code>i</code> 被修改了。</p>
+<p>为了防止变量提升，有一种解决方式再创建一个函数作用域防止过度提升：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getCounters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">((</span><span class="kd">function</span> <span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span> <span class="p">};</span>
+        <span class="p">})(</span><span class="nx">i</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">counters</span> <span class="o">=</span> <span class="nx">getCounters</span><span class="p">();</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 0</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 1</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 4</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里我们又创建了一个闭包，只不过这个闭包立刻执行，把 <code>i</code> 传进去，这样的话 <code>i</code> 就变成了这个闭包内部的参数 <code>i</code>，不会随着外面的循环变量 <code>i</code> 改变而改变。</p>
+<p>但实际上之前讲解变量提升的时候我们就提过，解决变量提升最好的方式就是不用 <code>var</code>。所以说解决这个问题的最好方案应该是：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getCounters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">counters</span> <span class="o">=</span> <span class="nx">getCounters</span><span class="p">();</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 0</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 1</span>
+<span class="nx">counters</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 4</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样的代码不仅正确了，可读性也很好。</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+            </small>
+        </div>
+    
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../control/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript 的控制语句" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              JavaScript 的控制语句
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../oop/" class="md-footer__link md-footer__link--next" aria-label="下一页: JavaScript 的面向对象" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              JavaScript 的面向对象
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c7d1b464.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
