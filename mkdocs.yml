@@ -7,6 +7,20 @@ theme:
   name: material
   language: zh
   custom_dir: theme/
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.indexes
+  palette:
+    - primary: white
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
 extra_javascript:
   - 'https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
@@ -57,25 +71,41 @@ markdown_extensions:
 
 # Contents
 nav:
-  - 简介: index.md
-  - 课程指引: course.md
-  - 书目推荐: book.md
+  - 欢迎来到 SAST skill docs:
+    - index/index.md
+    - 读者须知: index/reader.md
+    - 编辑者须知: index/editor.md
+  - 资源链接:
+    - source/index.md
+    - 课程指引: source/course.md
+    - 书目推荐: source/book.md
+    - 外部链接: source/source.md
   - 基本技能:
+    - basic/index.md
     - 如何使用搜索引擎: basic/search-engine.md
     - VSCode 配置: basic/vscode.md
     - Git 入门: basic/git.md
     - Linux 入门: basic/linux.md
     - Markdown 入门: basic/md.md
   - 编程语言:
+    - languages/index.md
     - C 语言基础: languages/c-basic.md
     - 现代 C++ 语言: languages/modern-cpp.md
     - Python 语言基础: languages/python.md
-    - JavaScript 语言基础: languages/javascript.md
+    - JavaScript 语言基础:
+      - languages/javascript/index.md
+      - JavaScript 的变量与变量类型: languages/javascript/variable.md
+      - JavaScript 的控制语句: languages/javascript/control.md
+      - JavaScript 的函数: languages/javascript/function.md
+      - JavaScript 的面向对象: languages/javascript/oop.md
+      - JavaScript 的异步: languages/javascript/async.md
+      - JavaScript 的面向对象进阶: languages/javascript/oop-advance.md
     - TypeScript 语言基础: languages/typescript.md
     - Rust 语言基础: languages/rust.md
   - 前端框架:
+    - frontend/index.md
     - React 框架入门: frontend/react-easy.md
     - 现代 React 框架: frontend/react-more.md
   - 人工智能 & 机器学习:
+    - ai-ml/index.md
     - Pytorch 入门: ai-ml/pytorch.md
-  - 外部链接: source.md
