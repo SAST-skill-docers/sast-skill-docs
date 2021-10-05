@@ -72,9 +72,9 @@ markdown_extensions:
 # Contents
 nav:
   - 欢迎来到 SAST skill docs:
-    - index/index.md
-    - 读者须知: index/reader.md
-    - 编辑者须知: index/editor.md
+    - index.md
+    - 读者须知: notes/reader.md
+    - 编辑者须知: notes/editor.md
   - 资源链接:
     - source/index.md
     - 课程指引: source/course.md
