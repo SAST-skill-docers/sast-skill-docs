@@ -164,7 +164,69 @@ git config --global user.email <email-address>
 
 现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
 
-附：分支的介绍 https://www.liaoxuefeng.com/wiki/896043488029600/896954848507552
+引用自《分支的介绍》 https://www.liaoxuefeng.com/wiki/896043488029600/896954848507552
+
+### 创建与合并分支
+
+我们可以将项目的进展理解成一条时间线，这条时间线就是一个分支，而项目的主进程线，则是 `master` 分支。我们之前提到的指针 `HEAD`，事实上是指向当前分支头部的指针。
+
+正如这一小节的标题所说，我们想要创建新分支与合并分支。
+
+比如我们可以举个例子。（引自 https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424）
+
+一开始的时候，`master`分支是一条线，Git用`master`指向最新的提交，再用`HEAD`指向`master`，就能确定当前分支，以及当前分支的提交点：
+
+![git-br-initial](https://www.liaoxuefeng.com/files/attachments/919022325462368/0)
+
+每次提交，`master` 分支都会向前移动一步，这样，随着你不断提交，`master` 分支的线也越来越长。
+
+现在我们使用命令创建新的分支 `dev` 并切换过去，使用`git checkout -b dev`。Git新建了一个指针叫 `dev`，指向 `master` 相同的提交，再把 `HEAD` 指向 `dev`，就表示当前分支在 `dev` 上：
+
+![git-br-create](https://www.liaoxuefeng.com/files/attachments/919022363210080/l)
+
+我们可以使用 `git branch` 命令来查看所有分支，在结果中，当前分支前面会多出一个 `*` 号。
+
+从现在开始，对工作区的修改和提交就是针对 `dev` 分支了，比如新提交一次后，`dev` 指针往前移动一步，而 `master` 指针不变：
+
+![git-br-dev-fd](https://www.liaoxuefeng.com/files/attachments/919022387118368/l)
+
+假如我们在 `dev` 上的工作完成了，就可以把 `dev` 合并到 `master` 上。怎么合并呢？首先我们要搞清楚，是谁要合并谁。这里我们应该理解成，`master` 要吃掉新建的 `dev` 分支，成为新的 `master`。于是，首先我们应该切换回 `master` 分支，`git checkout master`，以表明这是 `master` 分支的操作。然后，我们可以使用 `git merge dev`，进行分支合并。最后，我们可以通过 `git branch -d dev`，将 `dev` 分支删除。
+
+![git-br-ff-merge](https://www.liaoxuefeng.com/files/attachments/919022412005504/0)
+
+
+
+### 解决冲突
+
+假设我们设想出现这么一种情况，`master` 分支和新建的 `feature1` 分支均提交了新的更改，那么我们该怎么将其 Merge 呢？
+
+![git-br-feature1](https://www.liaoxuefeng.com/files/attachments/919023000423040/0)
+
+这种情况下，我们尝试用 `master` 去 Merge `feature1` 的时候，控制台便会提醒我们产生合并冲突。必须手动解决冲突后再提交。而我们根据提示信息去寻找对应的冲突文件，在冲突处 Git 也会将其显著的标出，例如：
+
+```
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes of files.
+<<<<<<< HEAD
+Creating a new branch is quick & simple.
+=======
+Creating a new branch is quick AND simple.
+>>>>>>> feature1
+```
+
+在这里我们手动修改后，再重新使用 `git add` 和 `git commit` 就可以成功将两个分支合并了。
+
+特别的，在分支合并之后，使用 `git log --graph` 可以看到分支合并图。
+
+### Rebase
+
+感觉版本树因为合并冲突，产生了环形结构，于是很不爽？`git rebase` 可以帮助你将版本树恢复线性。
+
+在这里我们给出教程链接，推荐大家自行阅读。
+
+附：https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648
 
 
 ## 远程 Git 仓库
@@ -193,9 +255,13 @@ git config --global user.email <email-address>
 
 + 推送更改
 
+![image-20211008201240601](https://i.loli.net/2021/10/08/rP13BOZjqCystTg.png)
 
+我们将所有的更改暂存(Add)和提交(Commit)后，便可以使用 `git push origin master` 申请向远端 `origin` 的 `master` 分支同步提交记录。
 
 + 拉取更改
+
+我们可以使用命令 `git pull origin master` 来从远端 `origin` 的 `master` 获取其最新的数据（可能是别人更新上去的）。正常的推送更改流程为：先 Add 和 Commit 本地修改，然后拉取远端更改，如果此时出现了合并冲突(Merge Conflict)，解决合并冲突。然后，在合并冲突解决后推送更改。
 
 
 
@@ -207,7 +273,10 @@ git config --global user.email <email-address>
 + Pro Git Book https://git-scm.com/book/zh/v2
 + 学习 Git 分支 https://learngitbranching.js.org/?locale=zh_CN
 
+学了 Git 不知该如何应用？
 
++ 程设大作业
++ 试着去入手一些软件工程项目...
 
 ## 参考资料
 
