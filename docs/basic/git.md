@@ -27,7 +27,7 @@
 	+ 通过 `git branch` （分支），开发者可以在不用担心影响主代码的情况下进行开发
 
 ## 前置知识
-+ （无特殊前置知识要求）
++ 命令行命令的使用操作
 + 愿意**动手实践**的决心（多尝试）
 + 做好笔记整理与总结的能力（遗忘后便于快速回忆）
 
@@ -112,6 +112,8 @@ git config --global user.email <email-address>
 
 ![image-20211008145833054](https://i.loli.net/2021/10/08/3onX9gIdY57cEMW.png)
 
+一次性添加工作环境目录下的所有文件，使用 `git add .`
+
 + 记录修改
 
 当所有的修改都用 `git add` 加入到暂存区后，就使用 `git commit –m "在这里输入你这次版本迭代都干了什么，注意是半角引号"` 将所有的暂存区里的修改提交至本地仓库。
@@ -132,12 +134,84 @@ git config --global user.email <email-address>
 
 ![image-20211008150040805](https://i.loli.net/2021/10/08/4mn5Jf9SBUlbpVF.png)
 
++ 版本回退
+
+首先，我们必须指定要回退到的版本。而指定版本有两种方式。
+
+(1) 相对寻址。在 Git 中，用`HEAD`表示当前版本，也就是最新的提交`1aada331...`（注意不同工程，不同次暂存(Commit)的版本 ID 肯定不同），上一个版本就是 `HEAD^`，上上一个版本就是 `HEAD^^`，当然往上 100 个版本写 100 个 `^` 比较容易数不过来，所以写成 `HEAD~100`。
+
+(2) ID 寻址。如上述 "modify test.py" 这个版本，可以用版本 SHA ID 的前几个字符来表示（只要没有歧义即可），比如 c9df5e。
+
+而了解了怎样指定版本后，我们便可以使用 `git reset --hard <Version>` 来恢复到之前的版本了。
+
++ 工作区，暂存区与分支的概念
+
+工作区(Working Directory)指你电脑上存储的当前项目文件（最新），版本库（Repository）中存了很多东西，其中最重要的就是暂存区（Index），还有 Git 为我们自动创建的第一个分支（Branch）`master`，以及指向`master`的一个指针叫`HEAD`。
+
+![image-20211008184709509](https://i.loli.net/2021/10/08/VZXzSgrhc8yFx75.png)
+
+`git add` 命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行 `git commit` 就可以一次性把暂存区的所有修改提交到分支。
+
+## 同步开发
+
+### 分支的简介
+
+分支(Branching)就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
+
+![learn-branches](https://www.liaoxuefeng.com/files/attachments/919021987875136/0)
+
+分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
+
+现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
+
+附：分支的介绍 https://www.liaoxuefeng.com/wiki/896043488029600/896954848507552
+
+
+## 远程 Git 仓库
+
+显然，大家不会都挤在你的电脑上开发。我们记得，Git 是分布式的版本控制软件。于是，我们需要一种方式进行同步。例如，把 Git 仓库放在网上。
+
+在这里我们介绍几种远程的 Git 仓库：
+
++ GitHub：<s>全球最大同性交流网站</s>一个基于Git的代码托管服务平台，开源社区交流代码的重要网站https://www.github.com/
++ GitLab：类似Github，但主要面向企业、组织等内部合作 https://www.gitlab.com/
++ Tsinghua Git：清华大学基于 GitLab 搭建的大学内部的 Git，适用于课程小组内部或者学生组织内部的合作 https://git.tsinghua.edu.cn/
+
+下面我们介绍一些在远程仓库控制时的基本操作：
+
++ 克隆仓库到本地
+
+比如，以[本技能引导文档](https://github.com/SAST-skill-docers/sast-skill-docs)所在的 Git 仓库为例。我们使用 `git clone git@github.com:SAST-skill-docers/sast-skill-docs.git `，这样便把远程仓库中的内容取到了本地，并创建了工作区。
+
+![image-20211008200605468](https://i.loli.net/2021/10/08/6sKx2NSBD98pcWE.png)
+
+![image-20211008200810881](https://i.loli.net/2021/10/08/EOyfHRC97DTQnk6.png)
+
++ 添加远程仓库地址
+
+有时，我们的项目是使用 `git init` 来创建的，并不是从 GitHub 上直接 clone 的别人的代码。这时我们要首先在 GitHub/GitLab/Tsinghua Git 上新建一个 Repo，然后按照提示，使用 `git remote add origin <你的 Repo 的 HTTP/SSH 地址>`。这样便是告诉本地的 Git 管理器，这个地址起一个简便的名字叫做 `origin`，方便今后使用。
+
++ 推送更改
+
+
+
++ 拉取更改
+
 
 
 ## 后续拓展
+
+想要学习更多 Git 内容？
+
++ `git help`
++ Pro Git Book https://git-scm.com/book/zh/v2
++ 学习 Git 分支 https://learngitbranching.js.org/?locale=zh_CN
+
+
 
 ## 参考资料
 
 + 2021 暑培讲义 by tshoigyr
 + 2020 暑培讲义 by rls
 + 2021 春季学期《面向对象程序设计基础》课程讲义
++ 廖雪峰的 Git 教程 https://www.liaoxuefeng.com/wiki/896043488029600
