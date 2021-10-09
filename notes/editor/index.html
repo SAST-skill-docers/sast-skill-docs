@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c75ef36.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -368,7 +368,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../..">欢迎来到 SAST skill docs</a>
           <label for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
@@ -558,7 +558,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../source/">资源链接</a>
           <label for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
@@ -657,7 +657,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../basic/">基本技能</a>
           <label for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
@@ -786,7 +786,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/">编程语言</a>
           <label for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
@@ -879,7 +879,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/javascript/">JavaScript 语言基础</a>
           <label for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
@@ -1049,7 +1049,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../frontend/">前端框架</a>
           <label for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
@@ -1126,7 +1126,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../ai-ml/">人工智能 & 机器学习</a>
           <label for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
@@ -1361,26 +1361,26 @@
 <p>正文的语言风格尽量正式，感悟、思考、启发、前言、补充性内容、Checkpoint 等非正文内容尽量纳入折叠框之中。</p>
 <p>附：<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/">折叠框使用教程</a></p>
 <h3 id="_10">使用公式<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>当行文遇到数学公式时，使用行内公式 <code>$a \times b$</code> 和行间公式 <code>$$ ... $$</code> 来进行数学形式的讲解，而不要使用 x^2 这种影响阅读美观程度的写法。正确示例：<span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>。</p>
+<p>当行文遇到数学公式时，使用行内公式 <code>$a \times b$</code> 和行间公式 <code>$$ ... $$</code> 来进行数学形式的讲解，而不要使用 x^2 这种影响阅读美观程度的写法。正确示例：<span class="arithmatex"><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>。</p>
 <p>附：<a href="https://oysz2016.github.io/post/8611e6fb.html">Mathjax 代码教程</a></p>
 <h3 id="_11">使用代码块<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>代码块在本技能引导文档中起到了举足轻重的地位。</p>
 <p>我们统一规定，行间代码使用 <code>`</code> 包裹。行间代码使用 <code>```</code> 包裹并在起始的三个反引号后标记代码的语言，例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sb">```cpp</span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="sb">```</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```cpp
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    cout &lt;&lt; &quot;Hello World&quot;;
+    return 0;
+}
+```
 </code></pre></div>
 </td></tr></table>
                 
@@ -1391,7 +1391,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月6日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月8日</span>
       
     
   </small>
@@ -1402,7 +1402,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:admin@cc7w.cf'>c7w</a> (99.04%), <a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (0.96%)</span>
             </small>
         </div>
     
@@ -1482,10 +1482,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c7d1b464.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

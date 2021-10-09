@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1c75ef36.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -366,7 +366,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../..">欢迎来到 SAST skill docs</a>
           <label for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
@@ -447,7 +447,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../source/">资源链接</a>
           <label for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
@@ -546,7 +546,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../basic/">基本技能</a>
           <label for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
@@ -677,7 +677,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../">编程语言</a>
           <label for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
@@ -772,7 +772,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../">JavaScript 语言基础</a>
           <label for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
@@ -1012,7 +1012,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../frontend/">前端框架</a>
           <label for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
@@ -1089,7 +1089,7 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../ai-ml/">人工智能 & 机器学习</a>
           <label for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
@@ -1235,39 +1235,39 @@
 <p>JavaScript 的事件循环在查看消息队列的时候，会首先查看微消息队列，如果存在回调则<strong>执行每一个回调直到微消息队列清空</strong>。之后再去查看宏消息队列，并且<strong>只执行队列第一个回调</strong>。</p>
 </div>
 <p>现在我们编写一个异步的代码。这里会用到 <code>setTimeout</code> 函数，其接受两个参数，第一个参数为一个回调函数，第二个参数为多长时间后执行上述回调函数。比如下列代码：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;1s has passed!&quot;</span><span class="p">);</span>
-<span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 <p>这个代码将会延迟一秒后输出 <code>"1s has passed!"</code>。这个函数的等待过程会异步于主线程执行，而其通过第一个参数接受的回调就会在等待完毕后放入消息队列。现在我们利用这个函数写出一个需要耗时的操作，以此模拟网络请求：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data got!&quot;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 </td></tr></table>
 <p>这个函数调用后会立刻返回，因为它的任务是派遣一个异步过程，而不负责等待异步结束和善后，善后工作应该写在回调函数之中等待主线程执行。</p>
 <p>在等待异步的过程中，主线程可以完成其他的任务：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data get!&quot;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">fetchData</span><span class="p">();</span> <span class="c1">// Dispatch async task</span>
@@ -1278,18 +1278,18 @@
 <h3 id="_2">回调函数的缺陷<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>回调函数不需要引入很多的其他语法就可以方便地使用到异步之中，但是其问题也是很突出的。回调函数本身可读性就不是很好，而且也并不能很好贴合我们的直观思维逻辑。而其最大的问题就是可能造成回调函数过分嵌套，导致代码难以维护。这一般被称为<strong>回调地狱</strong>。</p>
 <p>真正的异步业务逻辑可能并不会很单一，比如说前端要从多个数据源加载数据，但是后一个数据的加载需要依靠前一个数据的结果。这样就不能在主线程中同时派遣多个异步过程，而必须在前一个异步过程的回调之中派遣下一个异步过程。这里我们依然用 <code>setTimeout</code> 来模拟耗时操作：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// Get data #1</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// Get data #1</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data #1 get!&quot;</span><span class="p">);</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// Get data #2</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data #2 get!&quot;</span><span class="p">);</span>
@@ -1297,26 +1297,26 @@
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data #3 get!&quot;</span><span class="p">);</span>
             <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// Get data #4</span>
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data #4 get!&quot;</span><span class="p">);</span>
-            <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
-        <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
-<span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+            <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 <p>这样的代码很难阅读，也很难维护，而实际上的业务逻辑也不可能是 <code>setTimeout</code> 这样简单。另一方面，我们还需要处理异步异常的情况，如果发生错误，就应当立刻跳出异步，交由主线程做异常处理。而显然，我们很难给这样的代码添加异常处理功能。</p>
 <h3 id="promise"><code>Promise</code> 对象<a class="headerlink" href="#promise" title="Permanent link">&para;</a></h3>
 <p>为了解决回调函数不直观的问题，新版本的 JavaScript 设立了 <code>Promise</code> 对象，可以说这个对象完全改变了 JavaScript 异步代码编写的规范。</p>
 <p>创建一个 <code>Promise</code> 对象可以使用其构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">asyncSucceeded</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">;</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">asyncSucceeded</span><span class="p">)</span> <span class="p">{</span>
@@ -1324,7 +1324,7 @@
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;Async failed!&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 </td></tr></table>
@@ -1338,24 +1338,24 @@
 <p>但是构造函数之中虽然有了 <code>resolve</code> 和 <code>reject</code>，但实际上我们还没有具体规定这两个回调到底是啥。而指定这两个回调需要调用 <code>Promise</code> 的 <code>then</code> 和 <code>catch</code> 方法。这个我们在下面讲解。</p>
 </div>
 <p>给 <code>resolve</code> 和 <code>reject</code> 指定具体的函数体需要使用 <code>then</code> 和 <code>catch</code> 方法。这两个方法都会接受回调函数，并且返回 <code>Promise</code> 对象：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">asyncSucceeded</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">;</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">asyncSucceeded</span><span class="p">)</span> <span class="p">{</span>
@@ -1363,7 +1363,7 @@
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;Async failed!&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">})</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Then&quot;</span><span class="p">);</span>
@@ -1377,22 +1377,22 @@
 </td></tr></table>
 <p>通过这样的方式，我们就在 <code>Promise</code> 构造函数接受的回调函数的函数体中规定了异步过程的具体任务，在 <code>then</code> 和 <code>catch</code> 方法之中指派了异步过程的回调函数。这样，主线程就完整完成了异步过程的派遣。</p>
 <p><code>Promise</code> 比直接写回调模式优越的地方就是这种写法解决了回调地狱。我们依然考虑依次获取多数据源数据的业务场景，由于 <code>then</code> 方法依然返回 <code>Promise</code> 对象，所以实际上我们可以在 <code>then</code> 后面接着调用 <code>then</code>。而上一个 <code>then</code> 之中的回调函数的返回值会被传入下一个 <code>then</code> 之中的回调函数的第一个参数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="c1">// Get Data #1</span>
     <span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;Data #1&quot;</span><span class="p">);</span>
 <span class="p">})</span>
@@ -1412,18 +1412,18 @@
 </td></tr></table>
 <p>这种写法被称为 <code>then</code> 链，其好处是比回调函数写法更易读且易维护。</p>
 <p>另外，对于多依赖问题（需要多个异步全部结束后才能派遣下一个异步），<code>Promise</code> 提供了 <code>all</code> 方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
-    <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="sb">`Promise #</span><span class="si">${</span><span class="nx">val</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
         <span class="p">});</span>
@@ -1443,23 +1443,23 @@
 <li>创建 <code>Promise</code> 会写很多很长的回调，写完这些回调后很容易给编写者一种“异步已经执行结束”的错觉。实际上这么长的语句仅仅是<strong>定义了 <code>Promise</code> 对象</strong>，也就是仅仅只是派遣了异步。</li>
 </ul>
 <p>关于第二点，可以看下面的代码：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
 <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">resolve</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+    <span class="nx">resolve</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="p">})</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">i</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span>
+        <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
     <span class="p">})</span>
     <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
 
@@ -1477,17 +1477,17 @@
 <h3 id="async-await"><code>async</code> 与 <code>await</code><a class="headerlink" href="#async-await" title="Permanent link">&para;</a></h3>
 <p>在最新标准之中，JavaScript 引入了 <code>async, await</code> 这两个关键字，这两个关键字的作用是能够让异步代码写得和同步代码一样自然。</p>
 <p>我们可以用 <code>async</code> 关键字将一个函数声明为异步函数。调用异步函数的时候，其会立刻返回并派遣一个异步：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Async over!&quot;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">foo</span><span class="p">();</span>
@@ -1495,33 +1495,33 @@
 </code></pre></div>
 </td></tr></table>
 <p>而 <code>async</code> 关键字的的另外一个作用就是将函数的返回值包装为 <code>Promise</code> 对象：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Async over!&quot;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="k">typeof</span> <span class="nx">foo</span><span class="p">();</span> <span class="c1">// &quot;object&quot;, note &quot;undefined&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <p>那么我们也可以按照 <code>Promise</code> 的 <code>then</code> 链写法使用异步函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s2">&quot;Data #1&quot;</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -1539,19 +1539,19 @@
 <p>如果异步成功，这个时候 <code>await</code> 语句的返回值是 <code>Promise</code> 的 <code>resolve</code> 回调接受的参数，无论有没有通过 <code>then</code> 方法指定 <code>resolve</code> 回调。</p>
 <p>如果异步失败，首先确定这个 <code>Promise</code> 有没有通过 <code>catch</code> 方法规定 <code>reject</code> 回调。如果有，<code>await</code> 返回 <code>catch</code> 之中回调函数的返回值，如果没有，抛出 Uncaught Failure 错误。</p>
 <p>比如说：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">await</span> <span class="mf">1</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">await</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">a</span><span class="p">;</span> <span class="c1">// 1</span>
 
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">succeeded</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">succeeded</span><span class="p">)</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">);</span>
     <span class="k">else</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;Failure&quot;</span><span class="p">);</span>
@@ -1561,15 +1561,15 @@
 </code></pre></div>
 </td></tr></table>
 <p><code>async, await</code> 关键字实际上是针对 <code>then</code> 链可能过长导致可读性降低的问题而提出的。我们现在还是考虑依次从多个数据源获取数据的问题，事实上通过 <code>async, await</code> 关键字，这个异步过程甚至可以写得很像同步代码：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData_1</span><span class="p">(</span><span class="nx">initData</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData_2</span><span class="p">(</span><span class="nx">data_1</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">data_3</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData_3</span><span class="p">(</span><span class="nx">data_2</span><span class="p">);</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetchData_1</span><span class="p">(</span><span class="nx">initData</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetchData_2</span><span class="p">(</span><span class="nx">data_1</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">data_3</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetchData_3</span><span class="p">(</span><span class="nx">data_2</span><span class="p">);</span>
     <span class="k">return</span> <span class="p">[</span><span class="nx">data_1</span><span class="p">,</span> <span class="nx">data_2</span><span class="p">,</span> <span class="nx">data_3</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1582,26 +1582,26 @@
 <p><code>await</code> 关键字的使用有一个要求，也就是如果在函数中使用，那么这个函数必须是异步的。原因也是好理解的，因为 <code>await</code> 会阻塞代码运行，如果在主线程上阻塞，则会导致页面卡顿，这本来就和异步的初衷矛盾。</p>
 <p>那么进一步，调用了这个函数的外层函数中的语句为了防止异步可能带来的敏感变量问题（和 <code>Promise</code> 问题类似，异步函数如果修改了某一个变量，这个变量很有可能不会被及时修改），外层函数也很有可能给这个函数加上 <code>await</code>，这又会导致外层函数不可抗力地变为异步函数。这种传染会导致整片函数变为异步，从而让逻辑变得混乱。</p>
 <p>另外，<code>async, await</code> 关键字会降低我们对阻塞的敏感，从而编写出不必要的阻塞和串行代码。实际上，<code>async, await</code> 只是让<strong>依次</strong>拉取信息的代码变得简洁，对于本就可以多并发的信息拉取，反而会有让我们写出不必要的串行代码的可能，从而降低代码效率：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData_1</span><span class="p">();</span>
-    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchData_2</span><span class="p">();</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetchData_1</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetchData_2</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>如果 <code>data_1, data_2</code> 本就可以并发获取，这样的写法反而会降低效率，因为这样代码的实际含义是串行地获取数据。真正的写法应该是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">data_1_promise</span> <span class="o">=</span> <span class="nx">fetchData_1</span><span class="p">();</span>
     <span class="kd">let</span> <span class="nx">data_2_promise</span> <span class="o">=</span> <span class="nx">fetchData_2</span><span class="p">();</span>
-    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">data_1_promise</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">data_2_promise</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">data_1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">data_1_promise</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">data_2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">data_2_promise</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1622,7 +1622,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月5日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月8日</span>
       
     
   </small>
@@ -1633,7 +1633,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:admin@cc7w.cf'>c7w</a></span>
             </small>
         </div>
     
@@ -1713,10 +1713,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c7d1b464.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
