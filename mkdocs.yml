@@ -91,7 +91,10 @@ nav:
     - languages/index.md
     - C 语言基础: languages/c-basic.md
     - 现代 C++ 语言: languages/modern-cpp.md
-    - Python 语言基础: languages/python.md
+    - Python 语言基础:
+      - languages/python/index.md
+      - Python 包管理: languages/python/pip.md
+      - Python 网络请求与爬虫基础: languages/python/crawler.md
     - JavaScript 语言基础:
       - languages/javascript/index.md
       - JavaScript 的变量与变量类型: languages/javascript/variable.md
