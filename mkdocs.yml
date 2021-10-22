@@ -96,6 +96,10 @@ nav:
       - Python 包管理: languages/python/pip.md
       - Python 网络请求与爬虫基础: languages/python/crawler.md
     - HTML 语言基础: languages/html.md
+    - CSS 语言基础:
+      - languages/css/index.md
+      - Bootstrap 简介: languages/css/bootstrap.md
+      - MDUI 简介: languages/css/mdui.md
     - JavaScript 语言基础:
       - languages/javascript/index.md
       - JavaScript 的变量与变量类型: languages/javascript/variable.md

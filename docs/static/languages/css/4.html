@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+            background: red;
+        }
+
+        .main {
+            margin-top: 50px;
+        }
+
+        .left {
+            width: 25%;
+            background: lightgray;
+            height: 200px;
+            float: left;
+        }
+
+        .center {
+            width: 50%;
+            background: lightgreen;
+            height: 2000px;
+            float: left;
+        }
+
+        .right {
+            width: 25%;
+            background: lightgray;
+            height: 200px;
+            float: right;
+        }
+
+        .footer {
+            height: 50px;
+            width: 100%;
+            background: green;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <title>CSS 示例</title>
+</head>
+<body>
+<div class="top"></div>
+<div class="main">
+    <div class="row">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <div class="footer"></div>
+</div>
+</body>
+</html>
