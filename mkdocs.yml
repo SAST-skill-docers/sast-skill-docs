@@ -109,6 +109,9 @@ nav:
       - JavaScript 的异步: languages/javascript/async.md
       - JavaScript 的面向对象进阶: languages/javascript/oop-advance.md
     - TypeScript 语言基础: languages/typescript.md
+    - Node.js 基础:
+      - languages/node.js/index.md
+      - npm 简介: languages/node.js/npm.md
     - Rust 语言基础: languages/rust.md
   - 前端框架:
     - frontend/index.md
