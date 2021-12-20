@@ -106,10 +106,18 @@ nav:
       - JavaScript 的异步: languages/javascript/async.md
       - JavaScript 的面向对象进阶: languages/javascript/oop-advance.md
     - TypeScript 语言基础: languages/typescript.md
+    - Rust 语言基础: 
+      - languages/rust/index.md
+      - Rust 入门的一点经验: languages/rust/whyrust.md
+      - Rust 的变量与类型: languages/rust/variable.md
+      - Rust 中的流程控制: languages/rust/control.md
+      - Rust 的变量: languages/rust/function.md
+      - Rust 模式匹配: languages/rust/matching.md
+      - Rust 的结构体: languages/rust/struct.md
+      - Rust 的引用与借用: languages/rust/reference.md
     - Node.js 基础:
       - languages/node.js/index.md
       - npm 简介: languages/node.js/npm.md
-    - Rust 语言基础: languages/rust.md
   - 前端框架:
     - frontend/index.md
     - React 框架入门: frontend/react-easy.md
