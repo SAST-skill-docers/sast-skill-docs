@@ -75,11 +75,8 @@ nav:
     - index.md
     - 读者须知: notes/reader.md
     - 编辑者须知: notes/editor.md
-  - 资源链接:
-    - source/index.md
-    - 课程指引: source/course.md
-    - 书目推荐: source/book.md
-    - 外部链接: source/source.md
+  - 课程指引:
+    - courses/index.md
   - 基本技能:
     - basic/index.md
     - 如何使用搜索引擎: basic/search-engine.md
@@ -91,7 +88,15 @@ nav:
     - languages/index.md
     - C 语言基础: languages/c-basic.md
     - 现代 C++ 语言: languages/modern-cpp.md
-    - Python 语言基础: languages/python.md
+    - Python 语言基础:
+      - languages/python/index.md
+      - Python 包管理: languages/python/pip.md
+      - Python 网络请求与爬虫基础: languages/python/crawler.md
+    - HTML 语言基础: languages/html.md
+    - CSS 语言基础:
+      - languages/css/index.md
+      - Bootstrap 简介: languages/css/bootstrap.md
+      - MDUI 简介: languages/css/mdui.md
     - JavaScript 语言基础:
       - languages/javascript/index.md
       - JavaScript 的变量与变量类型: languages/javascript/variable.md
@@ -110,10 +115,17 @@ nav:
       - Rust 模式匹配: languages/rust/matching.md
       - Rust 的结构体: languages/rust/struct.md
       - Rust 的引用与借用: languages/rust/reference.md
+    - Node.js 基础:
+      - languages/node.js/index.md
+      - npm 简介: languages/node.js/npm.md
   - 前端框架:
     - frontend/index.md
     - React 框架入门: frontend/react-easy.md
     - 现代 React 框架: frontend/react-more.md
   - 人工智能 & 机器学习:
     - ai-ml/index.md
-    - Pytorch 入门: ai-ml/pytorch.md
+    - Pytorch 入门: ai-ml/pytorch.md  
+  - 资源链接:
+    - source/index.md
+    - 书目推荐: source/book.md
+    - 外部链接: source/source.md
