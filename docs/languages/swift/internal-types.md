@@ -24,8 +24,8 @@ Swift 中，字符串类型为 `String`，也是 `struct`。
 字符串字面值、字符常量均使用两个双引号表示：
 
 ```swift
-let greeting = "Hello, World!"  // String
-let myCharacter = "H"           // Character
+let greeting = "Hello, World!"      // String
+let myCharacter: Character = "H"    // Character
 ```
 
 多行字符串使用前后三个引号包围：
@@ -113,7 +113,7 @@ let removedValue = values.remove(at: 0) // [2, 3], removedValue == 1
 
 ```swift
 let values = [1, 2, 3]
-print(values[1])    // 1
+print(values[1])    // 2
 print(values.first) // Optional(1)
 print(values.last)  // Optional(3)
 print(values.count) // 3
