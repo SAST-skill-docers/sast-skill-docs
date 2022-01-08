@@ -71,7 +71,7 @@ struct MyIntArray: Sequence {
 在这里，我们使用 `typealias` 指出了 `Sequence` 中 `Element` 的类型为 `Int`。
 
 !!!note typealias
-    `typealias` 关键字用来给类型赋予别名，类似于 C 中的 `typedef` 和 C++ 中的 `typealias`。
+    `typealias` 关键字用来给类型赋予别名，类似于 C 中的 `typedef` 和 C++ 中的 `using`。
 
 ## 类型约束
 
