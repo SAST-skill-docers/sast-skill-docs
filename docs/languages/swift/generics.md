@@ -1,5 +1,3 @@
-## 泛型
-
 泛型对应 C++ 中模版的概念，函数、类型和协议均可进行泛型编程：
 
 ```swift
@@ -10,7 +8,7 @@ protocol View {
 }
 ```
 
-### 函数泛型
+## 函数泛型
 
 在函数名后加上 `<类型参数>`，参数可有一个或多个：
 
@@ -33,7 +31,7 @@ var b = 2
 swapTwoValues(&a, &b)
 ```
 
-### 类型泛型
+## 类型泛型
 
 在类型名后加上 `<类型参数>`，如之前介绍的 `Optional`：
 
@@ -52,7 +50,7 @@ struct Array<Element> {
 }
 ```
 
-### 协议泛型
+## 协议泛型
 
 协议的泛型与前两类有所不同，需要在协议体内用 `associatedtype` 声明：
 
@@ -75,7 +73,7 @@ struct MyIntArray: Sequence {
 !!!note typealias
     `typealias` 关键字用来给类型赋予别名，类似于 C 中的 `typedef` 和 C++ 中的 `typealias`。
 
-### 类型约束
+## 类型约束
 
 定义泛型时，可以对类型作一定约束，使得我们能够获得关于模版类型的更多信息。比如之前提到的 `Equatable`：
 
