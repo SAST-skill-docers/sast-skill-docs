@@ -118,6 +118,15 @@ nav:
     - Node.js 基础:
       - languages/node.js/index.md
       - npm 简介: languages/node.js/npm.md
+    - Swift 语言基础:
+      - languages/swift/index.md
+      - 基础知识: languages/swift/basic.md
+      - 变量和函数: languages/swift/variable-function.md
+      - 流程控制: languages/swift/control-flow.md
+      - 类型: languages/swift/types.md
+      - 泛型: languages/swift/generics.md
+      - 部分内置类型: languages/swift/internal-types.md
+      - 后续拓展: languages/swift/extensions.md
   - 前端框架:
     - frontend/index.md
     - React 框架入门: frontend/react-easy.md
