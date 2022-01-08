@@ -340,11 +340,10 @@ if case .hamburger(let calories) = breakfast {
 
 ```swift
 enum HTTPError: Int {
+    case unknown
     case badRequest = 400
     case notFound = 404
     case forbidden = 403
-    ...
-    case unknown
 
     init(code: Int) {
         if let error = HTTPError(rawValue: code) {
