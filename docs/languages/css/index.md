@@ -416,9 +416,9 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 
 后续可以阅读的文档有：
 
-- JavaScript 语言基础 [https://docs.net9.org/languages/javascript](https://docs.net9.org/languages/javascript)
-- Bootstrap 简介 [https://docs.net9.org/languages/css/bootstrap](https://docs.net9.org/languages/css/bootstrap)
-- MDUI 简介 [https://docs.net9.org/languages/css/mdui](https://docs.net9.org/languages/css/mdui)
+- JavaScript 语言基础 [/languages/javascript](/languages/javascript)
+- Bootstrap 简介 [/languages/css/bootstrap](/languages/css/bootstrap)
+- MDUI 简介 [/languages/css/mdui](/languages/css/mdui)
 
 ## 资源链接
 

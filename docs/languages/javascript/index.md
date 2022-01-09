@@ -20,7 +20,7 @@ JavaScript 是应用相当广泛的一门脚本语言，大量的 Web 应用或�
 
 后续可以阅读的文档有：
 
-- TypeScript 语言入门 <https://docs.net9.org/language/typescript>
+- TypeScript 语言入门 [/languages/typescript](/languages/typescript)
 
 ---
 

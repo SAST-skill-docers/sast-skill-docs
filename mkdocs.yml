@@ -105,6 +105,7 @@ nav:
       - JavaScript 的面向对象: languages/javascript/oop.md
       - JavaScript 的异步: languages/javascript/async.md
       - JavaScript 的面向对象进阶: languages/javascript/oop-advance.md
+      - 浏览器中的 JavaScript: languages/javascript/browser.md
     - TypeScript 语言基础: languages/typescript.md
     - Rust 语言基础: 
       - languages/rust/index.md

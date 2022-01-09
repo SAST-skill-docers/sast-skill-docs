@@ -155,8 +155,8 @@ HTML 可以描述有序和无序列表。
 
 后续可以阅读的文档有：
 
-- CSS 语言基础 [https://docs.net9.org/languages/css](https://docs.net9.org/languages/css)
-- JavaScript 语言基础 [https://docs.net9.org/languages/javascript](https://docs.net9.org/languages/javascript)
+- CSS 语言基础 [/languages/css](/languages/css)
+- JavaScript 语言基础 [/languages/javascript](/languages/javascript)
 
 ## 资源链接
 
