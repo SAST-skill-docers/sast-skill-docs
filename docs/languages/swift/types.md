@@ -1,6 +1,6 @@
 Swift 一个重要的概念是类型。类型是 Swift 中实现面向对象编程（object-oriented programming）、面向协议编程（protocol-oriented programming）以及泛型编程（generic programming）的基础。
 
-在 Swift 中，所有变量的类型要么属于某一种一等（first-class）类型：
+在 Swift 中，所有变量的类型要么属于：
 
 - `class`
 - `struct`
@@ -109,7 +109,7 @@ class A {
     static func foo() {...}
 }
 
-let a = A.share
+let a = A.shared
 A.foo()
 ```
 
@@ -186,8 +186,8 @@ let d = c as Base     // 类型为 Base，向下转换必然成功
         var count = 0
     }
 
-    let a = Counter()
-    let b = a   // b is a copy of a
+    var a = Counter()
+    var b = a   // b is a copy of a
 
     b.count += 1    // b.count == 1
     print(a.count)  // 0
@@ -284,16 +284,18 @@ for point in CompassPoint.allCases {
 
 ### 原始值
 
-`enum` 可以有一个原始值（raw value）类型，可以是 `Int`，`String` 等等，可以用来初始化 `enum` 类型。如果不指定值，编译期会自动设置对应的值，如 `Int` 是从 0 开始赋值，而 `String` 对应各个 `case` 的名称。
+`enum` 可以有一个原始值（raw value）类型，可以是 `Int`，`String` 等等，可以用来初始化 `enum` 类型。如果不指定值，编译期会自动设置对应的值，如 `Int` 是从 0 开始赋值并依次递增，而 `String` 对应各个 `case` 的名称。
 
 ```swift
 enum Status: Int {
-    case onVacation
+    case onVacation     // 0
     case atSchool = 10
+    case quit           // 11
 }
 
 print(Status.onVacation.rawValue)   // 0
-let status = Status(rawValue: 5)    // 类型为 Optional<Status>
+let status = Status(rawValue: 5)    // nil
+let status = Status(rawValue: 10)   // Optional(Status.atSchool)
 ```
 
 ### 关联值
@@ -322,13 +324,35 @@ if case .hamburger(let calories) = breakfast {
 }
 ```
 
-!!!note "Optional"
-    `Optional` 类型实际上就是一个带有 associated value 的 `enum`：
+!!!note "使用关联值处理互斥情况"
+    `enum` 关联值的一个重要的作用是处理若干互斥情况。
+
+    比如，`Optional` 类型实际上就是一个带有 associated value 的 `enum`（泛型稍后介绍）：
 
     ```swift
     enum Optional<Wrapped> {
         case .some(Wrapped)     // has value
         case .none              // nil
+    }
+    ```
+
+    再如，包装结果和错误的 `Result`：
+
+    ```swift
+    enum Result<Success, Failure> where Failure : Error {
+        case success(Success)
+        case failure(Failure)
+    }
+    ```
+
+    一个请求要么成功（此时返回有效的结果），要么失败（此时返回错误）。使用 `enum` 就可以在不使用 `Optional` 的情况下以类型安全的方法返回一个唯一的结果：
+
+    ```swift
+    switch result {
+    case .success(let data):
+        print("Request succeeded with data: \(data)")
+    case .failure(let error):
+        print("Request failed with error: \(error)")
     }
     ```
 
@@ -340,11 +364,10 @@ if case .hamburger(let calories) = breakfast {
 
 ```swift
 enum HTTPError: Int {
+    case unknown
     case badRequest = 400
     case notFound = 404
     case forbidden = 403
-    ...
-    case unknown
 
     init(code: Int) {
         if let error = HTTPError(rawValue: code) {
@@ -388,7 +411,7 @@ protocol Equatable {
 }
 ```
 
-如果一个类型想要**遵循** `Equatable`，需要：
+满足协议要求的类型称为**遵循**（conform to）此协议。如果一个类型想要遵循 `Equatable`，需要：
 
 1. 在类型名称后面加上 `Equatable`
 2. 实现 `==` 方法
@@ -513,11 +536,11 @@ struct: SomeStructure: B {
 !!!note "Potocol-oriented Programming"
     通过遵循协议、对协议进行默认的实现、协议的继承，使得 `struct` 和 `enum` 这些没有继承功能的类型可以因此实现类似于继承的效果。
 
-    现代 Swift 框架大量使用 `protocol` 进行 OOP 的一个变种——面向协议的编程，即 POP。其思想与 OOP 并无二致，但在某些问题的处理上比类继承要更加简洁，不易出错。
+    现代 Swift 框架大量使用 `protocol` 进行面向协议的编程（potocol-oriented programming）。其思想类似于 OOP，但在某些问题的处理上比类继承要更加简洁，且不易出错。
 
 ## extension
 
-一等类型（`class`、`struct`、`enum` 和 `protocol`）可以通过 `extension` 添加方法（计算变量或函数），包括所有的内置类型：
+`class`、`struct`、`enum` 和 `protocol` 可以通过 `extension` 添加方法（计算变量或函数），包括所有的内置类型：
 
 ```swift
 extension Int {
@@ -529,7 +552,7 @@ extension Int {
 print(1.string)
 ```
 
-使用 `extension` 可以便捷地以 OOP 的方式给内置类型添加方法。
+使用 `extension` 可以以面向对象的方式给任何类型添加方法。
 
 另外，一般为了区分不同的 `protocol` 的接口，在遵循不同的协议时，往往将各个协议规定的接口实现在不同的 `extension` 中：
 
@@ -571,21 +594,24 @@ var someHandler: (Int, Int) -> Void
 var optionalHandler: ((Int, Int) -> Void)?  // Optional
 ```
 
-使用大括号来生成匿名函数，在括号内使用 `参数列表 -> 返回类型 in` 给传入的各个参数命名：
+使用大括号来生成匿名函数（闭包，closure），在括号内使用 `参数列表 -> 返回类型 in` 给传入的各个参数命名：
 
 ```swift
-let incrementer: (Int) -> Int = { result -> Int in
-    print(result)
+let incrementer: (Int) -> Int = { value -> Int in
     return result + 1
 }
+```
 
-let result = incrementer(1)  // prints "1", result == 2
+调用方法与函数相同：
+
+```swift
+let result = incrementer(1)  // 2
 ```
 
 上下文明确时，可以省略括号内的 `-> Int`：
 
 ```swift
-let incrementer: (Int) -> Int = { result in
+let incrementer: (Int) -> Int = { value in
     return result + 1
 }
 ```
@@ -601,7 +627,7 @@ let incrementer: (Int) -> Int = {
 ```
 
 !!!note
-    函数对象的一个典型应用场景是作为参数传入函数中作为回调函数。如，进行网络请求，当请求完成时，调用传入的回调函数来进行结果的处理：
+    闭包的一个典型应用场景是作为参数传入函数中作为回调函数。如，进行网络请求，当请求完成时，调用传入的回调函数来进行结果的处理：
 
     ```swift
     let task = session.dataTask(with: url) { data, response, error in

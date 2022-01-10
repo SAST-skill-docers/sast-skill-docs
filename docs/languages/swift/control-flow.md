@@ -61,6 +61,53 @@ if let stringCount = b.a?.foo?.count {
 
 在一条“链” `b.a?.foo?.count` 中，`a` 和 `foo` 都有可能为空，当其中之一为空时，`stringCount` 为 `nil`；当均不为空时，`stringCount` 非空。
 
+## guard
+
+使用 `guard...else` 来处理需要跳出当前作用域的情形。`guard` 后可以是条件表达式，也可以是与 `if let` 类似的对 Optional 的解包：
+
+```swift
+func iterate(_ array: [Int]?) {
+    guard let array = array else { return }
+    // Proceed with a non-nil array
+    for element in array {
+        print(element)
+    }
+}
+```
+
+`guard` 后必须有 `else` 语句，表示条件不成立（`guard let` 语句中是值为 `nil`）时如何处理并退出。注意，`else` 语句中必须退出当前函数（`return`）、抛出异常或触发严重错误（`fatalError()`）。总之，**不成立时，函数不能够继续执行**。
+
+!!!note "何时使用 `guard`"
+    `guard` 语句其实可以用 `if` 语句替代：
+
+    ```swift
+    func iterate(_ array: [Int]?) {
+        if array == nil { return }
+        for element in array! {
+            // ...
+        }
+    }
+    ```
+
+    那么，为什么还需要 `guard` 语句呢？
+    
+    `guard` 语句要求不满足的情况不能继续向下执行，在**编译期**避免了需要立即返回但没有返回的情况，如：
+
+    ```swift
+    func unlockPaidItem() {
+        let userSubscribed = getSubscriptionStatus()
+        guard userSubscribed else {
+            showAlert("You have not subscribed yet!")
+            // Forget to return here!
+        }
+        paidItem.unlock()
+    }
+    // error: 'guard' body must not fall through,
+    // consider using a 'return' or 'throw' to exit the scope
+    ```
+
+    如果使用 `if`，上面的情况不会产生编译错误，可能要到运行期间出现问题才能发现错误。
+
 ## for
 
 [在 Swift 3 中，C 风格 for 循环被删除](https://github.com/apple/swift-evolution/blob/main/proposals/0007-remove-c-style-for-loops.md)，从此 Swift 只支持 `for ... in ...` 类型的 for 循环。
@@ -76,13 +123,12 @@ for i in 0..<10 {
     // Iterate through 1, 2, ..., 9
 }
 
-let minuteInterval = 5
-for tickMark in stride(from: 0, to: 60, by: minuteInterval) {
+for tickMark in stride(from: 0, to: 60, by: 5) {
     // render the tick mark every 5 minutes (0, 5, 10, 15 ... 45, 50, 55)
 }
 ```
 
-另外，数组等可迭代对象也可使用 `for` 循环进行遍历：
+另外，数组等也可使用 `for` 循环进行遍历：
 
 ```swift
 for value in [1, 2, 3] {
@@ -106,7 +152,9 @@ repeat {
 
 ## switch
 
-`switch` 语句用于匹配值，可以用范围表达式进行范匹配。除了没有语句需要执行的情况，不需要 `break` 语句，如果需要跳到下一个 case，使用 `fallthrough`。
+`switch` 语句用于匹配值，可以用范围表达式进行范围匹配。
+
+与 C/C++ 不同吗，匹配后跳出 `switch` 不需要 `break` 语句，如果需要跳到下一个 case，使用 `fallthrough`。
 
 ```swift
 let age = 21
@@ -129,7 +177,7 @@ default:
 
 ## 控制转移
 
-在循环中，使用 `continue` 转到下一个迭代对象：
+在循环中，使用 `continue` 转到下一次循环：
 
 ```swift
 var characters = ""
@@ -155,7 +203,7 @@ for character in "Swift Programming Language" {
 使用标签跨越多层循环进行控制：
 
 ```swift
-var words = ["Swift", "烫", "Programming", "Language"]
+let words = ["Swift", "烫", "Programming", "Language"]
 outerLoop: for word in words {
     // A stupid switch just to demostrate
     switch word.first {

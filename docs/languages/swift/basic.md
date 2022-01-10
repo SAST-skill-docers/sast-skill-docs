@@ -16,3 +16,4 @@
 ### 代码规范
 
 - 使用驼峰式命名，变量和函数小写开头，如 `myVariable`，类型名称大写开头，如 `MyStructure`
+- 尽量使用单词的全称而非缩写命名，无论名称有多长，如 UIKit 中的 [`UIAdaptivePresentationControllerDelegate`](https://developer.apple.com/documentation/uikit/uiadaptivepresentationcontrollerdelegate)
