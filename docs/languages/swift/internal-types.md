@@ -139,6 +139,10 @@ let sum = values.reduce(0, { $0 + $1 })   // 0 + 1 + 2 + 3 = 6
 for value in values {
     print(value)
 }
+
+for index in values.indices {
+    print("value at index \(index) is \(values[index])")
+}
 ```
 
 ### Dictionary

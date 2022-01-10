@@ -54,7 +54,7 @@ print(result!)
 // Fatal error: Unexpectedly found nil while unwrapping an Optional value
 ```
 
-另一种通过 Swift 的一个语法糖 `if let`（或 `if var`）实现：
+另一种是建议使用的方法，通过 Swift 的一个语法糖 `if let`（或 `if var`）实现：
 
 ```swift
 if let realResult = result {
@@ -76,7 +76,7 @@ if result != nil {
 
 ```swift
 if let result = result {
-    // 此时 result 类型为 Int，与原来的 result 没有关联
+    // 此时 result 类型为 Int，存在于括号作用域中
     print(result)
 }
 ```
@@ -97,7 +97,6 @@ print(result ?? 0)
 func add(a: Int, b: Int = 2) -> Int {
     return a + b
 }
-add(a: 1, b: 1)
 ```
 
 如果函数体只有一行，可以省略 `return`：
@@ -106,6 +105,12 @@ add(a: 1, b: 1)
 func add(a: Int, b: Int = 2) -> Int {
     a + b
 }
+```
+
+调用时，需要写出标签：
+
+```swift
+add(a: 1, b: 1)
 ```
 
 Swift 函数声明的特点是，其参数有两个“名称”：参数名（函数体内部使用）和标签（调用时指出），按照 `标签 参数名: 类型` 的形式声明。如果不区分标签和函数名，则使用 `参数名: 类型` 声明。

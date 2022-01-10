@@ -7,13 +7,17 @@
 
 ## 更多知识
 
-- [下标重载](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html)
 - [错误处理](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html)
 - [并发](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
-- [透明类型](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html)
+- [下标重载](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html)
 - [引用计数](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html)
 - [内存安全](https://docs.swift.org/swift-book/LanguageGuide/MemorySafety.html)
 - [高级运算符](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html)
+
+以下语法知识在 SwiftUI 中非常重要：
+
+- [Property Wrapper](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617)
+- [透明类型](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html)
 
 以上内容均来自于 [Swift 官方教程](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)。
 
