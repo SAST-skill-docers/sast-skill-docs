@@ -131,6 +131,13 @@ nav:
     - frontend/index.md
     - React 框架入门: frontend/react-easy.md
     - 现代 React 框架: frontend/react-more.md
+    - SwiftUI 与 iOS 开发入门:
+      - frontend/swiftui/index.md
+      - Hello World: frontend/swiftui/hello-world.md
+      - 构建 View: frontend/swiftui/build-views.md
+      - 数据流基础:  frontend/swiftui/data-flow.md
+      - 声明式 UI 与 MVVM: frontend/swiftui/declaritive-mvvm.md
+      - 后续拓展: frontend/swiftui/extensions.md
   - 人工智能 & 机器学习:
     - ai-ml/index.md
     - Pytorch 入门: ai-ml/pytorch.md  
