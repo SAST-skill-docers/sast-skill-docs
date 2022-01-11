@@ -598,7 +598,7 @@ var optionalHandler: ((Int, Int) -> Void)?  // Optional
 
 ```swift
 let incrementer: (Int) -> Int = { value -> Int in
-    return result + 1
+    return value + 1
 }
 ```
 
@@ -612,7 +612,7 @@ let result = incrementer(1)  // 2
 
 ```swift
 let incrementer: (Int) -> Int = { value in
-    return result + 1
+    return value + 1
 }
 ```
 
