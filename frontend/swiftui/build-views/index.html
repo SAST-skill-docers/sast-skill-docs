@@ -1,0 +1,3230 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>构建 View - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#view" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              构建 View
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/" class="md-tabs__link">
+        课程指引
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../languages/" class="md-tabs__link">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../..">欢迎来到 SAST skill docs</a>
+          <label for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../courses/">课程指引</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="课程指引" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          课程指引
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../basic/">基本技能</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/md/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/">编程语言</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-basic/" class="md-nav__link">
+        C 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/python/">Python 语言基础</a>
+          <label for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/pip/" class="md-nav__link">
+        Python 包管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/crawler/" class="md-nav__link">
+        Python 网络请求与爬虫基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/html/" class="md-nav__link">
+        HTML 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/css/">CSS 语言基础</a>
+          <label for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          CSS 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/bootstrap/" class="md-nav__link">
+        Bootstrap 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/mdui/" class="md-nav__link">
+        MDUI 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/javascript/">JavaScript 语言基础</a>
+          <label for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/browser/" class="md-nav__link">
+        浏览器中的 JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/rust/">Rust 语言基础</a>
+          <label for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Rust 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/whyrust/" class="md-nav__link">
+        Rust 入门的一点经验
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/variable/" class="md-nav__link">
+        Rust 的变量与类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/control/" class="md-nav__link">
+        Rust 中的流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/function/" class="md-nav__link">
+        Rust 的变量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/matching/" class="md-nav__link">
+        Rust 模式匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/struct/" class="md-nav__link">
+        Rust 的结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/reference/" class="md-nav__link">
+        Rust 的引用与借用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/node.js/">Node.js 基础</a>
+          <label for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js 基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/node.js/npm/" class="md-nav__link">
+        npm 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../languages/swift/">Swift 语言基础</a>
+          <label for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Swift 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/basic/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/variable-function/" class="md-nav__link">
+        变量和函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/control-flow/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/types/" class="md-nav__link">
+        类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/generics/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/internal-types/" class="md-nav__link">
+        部分内置类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../">前端框架</a>
+          <label for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react-easy/" class="md-nav__link">
+        React 框架入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../react-more/" class="md-nav__link">
+        现代 React 框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../">SwiftUI 与 iOS 开发入门</a>
+          <label for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SwiftUI 与 iOS 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello-world/" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          构建 View
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        构建 View
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View 的组合方式
+  </a>
+  
+    <nav class="md-nav" aria-label="View 的组合方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view_1" class="md-nav__link">
+    一些常用的 View
+  </a>
+  
+    <nav class="md-nav" aria-label="一些常用的 View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    组件
+  </a>
+  
+    <nav class="md-nav" aria-label="组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button" class="md-nav__link">
+    Button
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu" class="md-nav__link">
+    Menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    布局与排列
+  </a>
+  
+    <nav class="md-nav" aria-label="布局与排列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hstack" class="md-nav__link">
+    HStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vstack" class="md-nav__link">
+    VStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zstack" class="md-nav__link">
+    ZStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacer" class="md-nav__link">
+    Spacer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    组合
+  </a>
+  
+    <nav class="md-nav" aria-label="组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach" class="md-nav__link">
+    ForEach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier" class="md-nav__link">
+    Modifier
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier_1" class="md-nav__link">
+    Modifier 的种类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifier_2" class="md-nav__link">
+    自定义 modifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-flow/" class="md-nav__link">
+        数据流基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../declaritive-mvvm/" class="md-nav__link">
+        声明式 UI 与 MVVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../source/">资源链接</a>
+          <label for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View 的组合方式
+  </a>
+  
+    <nav class="md-nav" aria-label="View 的组合方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view_1" class="md-nav__link">
+    一些常用的 View
+  </a>
+  
+    <nav class="md-nav" aria-label="一些常用的 View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    组件
+  </a>
+  
+    <nav class="md-nav" aria-label="组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button" class="md-nav__link">
+    Button
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu" class="md-nav__link">
+    Menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    布局与排列
+  </a>
+  
+    <nav class="md-nav" aria-label="布局与排列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hstack" class="md-nav__link">
+    HStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vstack" class="md-nav__link">
+    VStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zstack" class="md-nav__link">
+    ZStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacer" class="md-nav__link">
+    Spacer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    组合
+  </a>
+  
+    <nav class="md-nav" aria-label="组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach" class="md-nav__link">
+    ForEach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier" class="md-nav__link">
+    Modifier
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier_1" class="md-nav__link">
+    Modifier 的种类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifier_2" class="md-nav__link">
+    自定义 modifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/frontend/swiftui/build-views.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>构建 View</h1>
+                
+                <p>接下来，我们将展开介绍如何构建 View。</p>
+<h2 id="view">View 的组合方式<a class="headerlink" href="#view" title="Permanent link">&para;</a></h2>
+<p>在 <code>body</code> 中，有一些非常方便的方式来组合不同的 View。另外，<code>body</code> 还对其中的表达式有一定的限制。</p>
+<h3 id="_1">组合<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在 <code>body</code> 中，你可以通过这几种方式组合多个 View，<strong>不需要写出 <code>return</code></strong>：</p>
+<p><strong>条件控制语句</strong></p>
+<p>你可以用 <code>if-else</code> 语句有条件地显示不同的 View：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">type</span> <span class="p">==</span> <span class="p">.</span><span class="n">text</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">type</span> <span class="p">==</span> <span class="p">.</span><span class="n">image</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>或者，只有 <code>if</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">revealGrade</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">gpa</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>当然，<code>if let</code> 语句也是可以的：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">npyName</span> <span class="p">=</span> <span class="n">student</span><span class="p">.</span><span class="n">npyName</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">npyName</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>你还可以用 <code>switch</code>：（实际上编译器将其转化为 <code>if-else</code> 语句）</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="n">type</span> <span class="p">{</span>
+<span class="k">case</span> <span class="p">.</span><span class="n">text</span><span class="p">:</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="p">.</span><span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span> <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p><strong>多个 View</strong></p>
+<p>你可以一次返回多个 View，这种 View 叫做 <code>TupleView</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
+</code></pre></div>
+</td></tr></table>
+<p>一般这种 <code>TupleView</code> 多用于 View 的排列。比如，将几个 View 在垂直方向依次排列：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>我们将在下面进一步介绍 View 的排列。</p>
+<div class="admonition note">
+<p class="admonition-title"><code>VStack</code> 构造函数的参数</p>
+<p>上面的 <code>VStack</code> 以及大括号包括的内容，实际上是 <code>VStack</code> 的构造函数。根据文档，<code>VStack</code> 构造函数的签名如下：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">init</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="n">HorizontalAlignment</span> <span class="p">=</span> <span class="p">.</span><span class="n">center</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Content</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>我们前两个参数使用了提供的默认值，我们提供的实际上是第三个参数 <code>content</code>：它是一个<strong>无参数、返回值为 <code>Content</code> 的匿名函数</strong>。（这里的 <code>Content</code> 是 <code>VStack</code> 的模版参数，表示「内容 View 的类型」）</p>
+<p>在 Swift 中，如果函数的最后一个参数为函数，那么它可以写到括号外面，并且省略标签。上面 <code>VStack</code> 的构造函数实际上是：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<p>顺便说一句，<code>content</code> 的返回值的类型是 <code>TupleView&lt;(Text, Image)&gt;</code>，并不是一个真正的 <code>Tuple</code>。</p>
+</div>
+<h3 id="_2">表达式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><code>body</code> 与普通函数不同，它对函数体内的允许的表达式有限制。</p>
+<p>同时进行变量的声明和赋值是允许的：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">description</span> <span class="p">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">127</span> <span class="p">?</span> <span class="s">&quot;overflow&quot;</span> <span class="p">:</span> <span class="s">&quot;normal&quot;</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>但 <code>var</code> 和 <code>let</code> 的声明、赋值表达式不被允许：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Error: Closure containing a declaration cannot be used with result builder &#39;ViewBuilder&#39;</span>
+<span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// Error: Type &#39;()&#39; cannot conform to &#39;View&#39;</span>
+<span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">description</span> <span class="p">=</span> <span class="s">&quot;hello&quot;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>另外，<code>for</code> 循环也是不被允许的。我们有另外的方法进行类似的迭代。</p>
+<p>上述例子中，类型遵循 <code>View</code> 的值（如 <code>Text(description)</code>）会作为部分结果（partial result）递归地参与 <code>body</code> 最后结果的计算，而其余允许的表达式（如 <code>let description = x &gt; 127 ? "overflow" : "normal"</code>）在计算 <code>body</code> 的值的时候会被忽略。</p>
+<div class="admonition note">
+<p class="admonition-title">简单介绍 <code>ViewBuilder</code></p>
+<p>实际上，<code>body</code> 之所以能够有这些特性，是因为 <code>body</code> 有隐式的 <a href="https://developer.apple.com/documentation/swiftui/viewbuilder/"><code>@ViewBuilder</code></a> 修饰：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">View</span> <span class="p">{</span>
+    <span class="kd">associatedtype</span> <span class="n">Body</span><span class="p">:</span> <span class="n">View</span>
+<span class="hll">    <span class="p">@</span><span class="n">ViewBuilder</span> <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">Body</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>被 <code>@ViewBuilder</code> 修饰的函数，不使用显式的 <code>return</code> 来返回，而是通过“收集”函数体中的<code>View</code> 来构建最终的返回值。比如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
+<span class="n">Text</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+<span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
+</code></pre></div>
+</td></tr></table>
+<p>编译器“收集”到两个 View：<code>Text</code> 和 <code>Color</code>（忽略 <code>let greeting = "Hello"</code>）。接着，调用 <code>ViewBuilder</code> 的一个构建 View 的函数：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">buildBlock</span><span class="p">&lt;</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">c0</span><span class="p">:</span> <span class="n">C0</span><span class="p">,</span> <span class="kc">_</span> <span class="n">c1</span><span class="p">:</span> <span class="n">C1</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">TupleView</span><span class="o">&lt;</span><span class="p">(</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="n">C0</span> <span class="p">:</span> <span class="n">View</span><span class="p">,</span> <span class="n">C1</span> <span class="p">:</span> <span class="n">View</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个函数接受两个 <code>View</code> 作为参数，最终生成<strong>单个</strong>返回值 <code>TupleView&lt;(Text, Color)&gt;</code>。</p>
+<p>其他的特性，比如 <code>if-else</code> 语句，都是由类似的机制来实现的。不难理解，只要不断递归地将 View 合并，最终就能生成一个单一的返回值。</p>
+<p><code>ViewBuilder</code> 的机制实际上是通过一种叫 result builder 的语法实现的。如果感兴趣可以参考 <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md">SE0289: Result builders</a>。</p>
+</div>
+<h2 id="view_1">一些常用的 View<a class="headerlink" href="#view_1" title="Permanent link">&para;</a></h2>
+<p>我们终于基本介绍完相关的语法规则了，接下来就是利用各种原生的 View 来构建我们的 UI 了。在这里只会介绍各种 View 最基本的用法，其余用法请参考开发者文档。</p>
+<p>你最好亲自尝试一下下面的代码，并在预览模式中实时查看。</p>
+<h3 id="_3">组件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="text">Text<a class="headerlink" href="#text" title="Permanent link">&para;</a></h4>
+<p>用于显示只读文本。</p>
+<p>你可以从字符串创建：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="s">&quot;Hello, world!&quot;</span>
+<span class="n">Text</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>结果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-text-2.webp" /></p>
+<p>也可以用 Markdown 字符串创建带格式的文本。注意只有字面值能够直接渲染为 Markdown 格式，对于字符串变量需要 <code>AttributedString</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, *world*!&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="s">&quot;Hello, *world*!&quot;</span>
+<span class="kd">let</span> <span class="nv">attrStr</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">AttributedString</span><span class="p">(</span><span class="n">markdown</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">Text</span><span class="p">(</span><span class="n">attrStr</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>结果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-text-1.webp" /></p>
+<p>可以使用 <code>.font(_:)</code>、<code>.foregroundColor(_:)</code>、<code>.italic(_:)</code> 等 modifier 改变字体、颜色等：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">system</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">bold</span><span class="p">,</span> <span class="n">design</span><span class="p">:</span> <span class="p">.</span><span class="n">serif</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">italic</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">blue</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">underline</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>最终的效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-text-3.webp" /></p>
+<p>最后，值得一提的是 <code>Text</code> 的加法运算符，它可以将两个样式不同的 <code>Text</code> 拼接在一起：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">start</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;L&quot;</span><span class="p">).</span><span class="n">bold</span><span class="p">().</span><span class="n">font</span><span class="p">(.</span><span class="n">title</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">remaining</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;orem ipsum dolor sit amet, consectetur adipiscing elit....&quot;</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">+</span> <span class="n">remaining</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-text-4.webp" /></p>
+<h4 id="image">Image<a class="headerlink" href="#image" title="Permanent link">&para;</a></h4>
+<p>显示图标或资源文件图片。</p>
+<div class="admonition note">
+<p class="admonition-title">添加图片资源的方法</p>
+<ul>
+<li>Swift Playgrounds：将图片拖动到文件目录中</li>
+<li>Xcode Project：将图片拖动到 <code>Assets.xcassets</code> 中。</li>
+</ul>
+</div>
+<p>使用 <code>Image(systemName:)</code> 显示系统图标：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>结果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-image-1.webp" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>关于系统内置图标的查询，请参考 <a href="https://developer.apple.com/sf-symbols/">SF Symbols</a>。</p>
+</div>
+<p>使用 <code>Image(_:)</code> 显示资源文件。</p>
+<p>比如，我们有一个如下图的名为 <code>wwdc21</code> 的图片文件：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-image-ori.webp" /></p>
+<p>以下几种不同的代码会产生不同的结果：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Case 1</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
+
+<span class="c1">// Case 2</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+
+<span class="c1">// Case 3</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="p">.</span><span class="n">fit</span><span class="p">)</span>
+
+<span class="c1">// Case 4</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="p">.</span><span class="n">fill</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<table>
+<thead>
+<tr>
+<th align="center">Case 1</th>
+<th align="center">Case 2</th>
+<th align="center">Case 3</th>
+<th align="center">Case 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">图片原有尺寸</td>
+<td align="center">占满可获得的空间</td>
+<td align="center">按原有比例适合空间</td>
+<td align="center">按原有比例占满空间</td>
+</tr>
+<tr>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-image-2.webp" /></td>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-image-3.webp" /></td>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-image-4.webp" /></td>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-image-5.webp" /></td>
+</tr>
+</tbody>
+</table>
+<p>一个 <code>Image</code> 如果不加上 <code>.resizable()</code> 的话只会按照固有像素显示，只有加上 <code>.resizable()</code> 才能进行缩放。<code>.aspectRatio(_:contentMode:)</code> 使得 <code>Image</code> 能够根据可用空间和长宽比进行缩放。</p>
+<div class="admonition note">
+<p class="admonition-title"><code>Image</code> 的布局性质</p>
+<p>注意，<code>Image</code> 所占的空间可能会超出可用的空间。对于上面的 Case 4，在 Xcode 预览中选中图片，可以看到其大小：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-image-6.webp" /></p>
+<p>这种性质在很多地方会有意想不到的效果，如即将介绍的 <code>ZStack</code>。如果需要将图片限制在可用空间内，可以使用 <code>Color</code>，它仅占据所有可用空间：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">clear</span><span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="p">.</span><span class="n">fill</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<h4 id="label">Label<a class="headerlink" href="#label" title="Permanent link">&para;</a></h4>
+<p>显示图标和文字。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Swift Programming Language&quot;</span><span class="p">,</span> <span class="n">systemImage</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-label-1.webp" /></p>
+<p>另外，你可以用 <code>.font(_:)</code> 修改其字体。</p>
+<div class="admonition note">
+<p class="admonition-title"><code>Label</code> 的特殊之处</p>
+<p><code>Label</code> 相较于普通的左右排布（接下来要介绍的 <code>HStack</code>）的特殊之处在于，在某些系统原生的排列中，多个 <code>Label</code> 的图标和文字会自动对齐。</p>
+</div>
+<h4 id="button">Button<a class="headerlink" href="#button" title="Permanent link">&para;</a></h4>
+<p>按钮。</p>
+<p>文字按钮：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>以一个 View 作为按钮：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>上面的代码也可以写成：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">Multiple Trailing Closures</p>
+<p>如果一个函数最后若干个参数均为函数，如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">func1</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func2</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func3</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>那么，调用时这些函数参数可以写到小括号外面，第一个可以省略标签，其余需要加上标签：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="mi">127</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// func1 goes here</span>
+<span class="p">}</span> <span class="n">func2</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// func2 goes here</span>
+<span class="p">}</span> <span class="n">func3</span><span class="p">:</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
+    <span class="c1">// func3 goes here</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这种写法是 Swift 中一种叫 <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0279-multiple-trailing-closures.md">multiple trailing closures</a> 的语法，详见<a href="https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID102">官方文档</a>。这种写法能提高代码的可读性，我们之后会尽量采用这种写法。</p>
+</div>
+<p>另外，我们可以用 <code>.buttonStyle(_:)</code> 来使用系统默认的一些样式：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">buttonStyle</span><span class="p">(.</span><span class="n">bordered</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-button-1.webp" /></p>
+<h4 id="menu">Menu<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h4>
+<p>创建点击显示的菜单。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Menu</span><span class="p">(</span><span class="s">&quot;Actions&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Duplicate&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+    <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Rename&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+    <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Delete…&quot;</span><span class="p">,</span> <span class="n">role</span><span class="p">:</span> <span class="p">.</span><span class="n">destructive</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+    <span class="n">Divider</span><span class="p">()</span>
+    <span class="n">Menu</span><span class="p">(</span><span class="s">&quot;Copy&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Copy&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Copy Formatted&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Copy Library Path&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>值得注意的是，可以在一个 <code>Menu</code> 中内嵌另一级 <code>Menu</code>。</p>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-menu-1.webp" /></p>
+<p>另外，可以用类似的方法给任何 View 添加长按菜单：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">contextMenu</span> <span class="p">{</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Duplicate&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Rename&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="_4">布局与排列<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="hstack">HStack<a class="headerlink" href="#hstack" title="Permanent link">&para;</a></h4>
+<p>水平布局。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Left&quot;</span><span class="p">)</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Middle&quot;</span><span class="p">)</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Right&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-hstack-1.webp" /></p>
+<!-- TODO: Spacer -->
+
+<p>另外，<code>HStack</code> 还有两个可选参数 <code>alignment</code> 和 <code>spacing</code>，用于设置对齐和间距。比如，<code>HStack(alignment: .top, spacing: 20)</code> 将使子 View 在顶部对齐，两两之间的间距为 <code>20</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">不同 View 具有不同的布局特性</p>
+<p>注意到，三个 <code>Text</code> 并没有占满所有所有空间，而是只占据了所需要的最小空间，这是由 <code>Text</code> 的布局特性决定的。与之相对，<code>Color</code> 将尽可能占据多的空间：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">red</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">orange</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-hstack-2.webp" /></p>
+<p>不同的布局特性对我们排布多个 View 有重要影响。</p>
+<p>限于篇幅，这部分内容无法展开叙述。总的来说，原生 View 有如下两类布局特性：</p>
+<ul>
+<li>仅占需要的空间，如 <code>Text</code>、<code>Label</code></li>
+<li>占据尽可能多的空间，如 <code>Color</code>、<code>Spacer</code>、<code>VStack</code> 等</li>
+</ul>
+<p>通过 <code>fixedSize</code>、<code>layoutPriority</code>、<code>frame</code> 等 modifier，可以更改 View 的布局特性，在此不再展开。</p>
+</div>
+<h4 id="vstack">VStack<a class="headerlink" href="#vstack" title="Permanent link">&para;</a></h4>
+<p>垂直布局，与 <code>HStack</code> 类似。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Top&quot;</span><span class="p">)</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Middle&quot;</span><span class="p">)</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Bottom&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-vstack-1.webp" /></p>
+<h4 id="zstack">ZStack<a class="headerlink" href="#zstack" title="Permanent link">&para;</a></h4>
+<p>上下布局，先写的 View 排布在底层。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ZStack</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-zstack-1.webp" /></p>
+<p>与 <code>HStack</code> 和 <code>VStack</code> 类似，你可以通过构造函数中的 <code>alignment</code> 参数指定这些 View 对齐的方式。</p>
+<div class="admonition note">
+<p class="admonition-title"><code>ZStack</code> 和 <code>.overlay(_:)</code></p>
+<p>我们还有另外一种方式进行 View 的层叠：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>看上去与 <code>ZStack</code> 并无二致，其实不然。我们用 <code>.frame()</code> 显示地指定 <code>Color.yellow</code> 的长宽，来比较一下这两种方式：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ZStack</span>
+<span class="n">ZStack</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+        <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">25</span><span class="p">)</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// overlay</span>
+<span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">25</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果分别为：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>ZStack</code></th>
+<th align="center"><code>.overlay()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-zstack-3.webp" /></td>
+<td align="center"><img alt="" src="../../../static/frontend/swiftui/build-views-zstack-2.webp" /></td>
+</tr>
+</tbody>
+</table>
+<p>可以看到，<code>ZStack</code> 以<strong>最大元素</strong>的大小作为其大小，而 <code>.overlay()</code> 始终限制在被其修饰的 View 的大小内。</p>
+</div>
+<h4 id="spacer">Spacer<a class="headerlink" href="#spacer" title="Permanent link">&para;</a></h4>
+<p>间距工具。</p>
+<p><code>Spacer</code> 是一个弹性的间距。它本身不会显示，只是占据<strong>大于或等于特定宽度/高度</strong>的空间。</p>
+<p>例如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span><span class="p">)</span>
+    <span class="n">Spacer</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">gray</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这里的 <code>.background(_:)</code> 只是为了更明显地显示 <code>HStack</code> 内部的排列。</p>
+</div>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-spacer-1.webp" /></p>
+<p>我们注意到，整个 <code>Text</code> 被“挤”到了左边。</p>
+<p>我们在上面提到了「大于或等于特定宽度/高度」。<code>Spacer</code> 构造函数有一个参数 <code>minLength</code>，就是用来指定这个距离的，上面我们忽略了这个参数，使用系统默认的距离。 </p>
+<p>需要注意的是，<code>Spacer</code> 会占据 View 所<strong>不需要</strong>的空间，但不会挤占 View <strong>需要</strong>的空间（即：<code>Spacer</code> 排布的优先级最低）。比如，对于之前提到的会占据所有空间的 <code>Color</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="n">Spacer</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p><code>Spacer</code> 只占据了默认的最小空间。实际上，如果你把 <code>Spacer</code> 的 <code>minLength</code> 参数设置为 0：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>对于 <code>Color</code> 的情况，<code>Spacer</code> 就不会占据任何空间。然而，对于上面 <code>Text</code> 的情况，它仍然会占据所有剩余的空间。</p>
+<p>另外，如果需要固定宽度/高度的 <code>Spacer</code>，可以使用 <code>.fixedSize()</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">fixedSize</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="_5">其他容器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以参考<a href="https://developer.apple.com/documentation/swiftui/view-layout-and-presentation">官方文档</a>。一些常用的 View 有：</p>
+<ul>
+<li><a href="https://developer.apple.com/documentation/swiftui/scrollview"><code>ScrollView</code></a>：可滑动视图</li>
+<li><a href="https://developer.apple.com/documentation/swiftui/list"><code>List</code></a>：设置等系统 app 使用的列表视图</li>
+<li><a href="https://developer.apple.com/documentation/swiftui/navigationview"><code>NavigationView</code></a>：设置等系统 app 使用的可滑动返回的导航视图</li>
+<li><a href="https://developer.apple.com/documentation/swiftui/tabview"><code>TabView</code></a>：时钟等系统 app 使用的分页视图</li>
+<li><a href="https://developer.apple.com/documentation/swiftui/lazyvstack"><code>LazyVStack</code></a> 和 <a href="https://developer.apple.com/documentation/swiftui/lazyhstack"><code>LazyHStack</code></a>：惰性 Stack 容器</li>
+<li><a href="https://developer.apple.com/documentation/swiftui/lazyvgrid"><code>LazyVGrid</code></a> 和 <a href="https://developer.apple.com/documentation/swiftui/lazyhgrid"><code>LazyHGrid</code></a>：网格容器</li>
+</ul>
+<details class="question"><summary>练习：原生 View 与基本布局</summary><p>利用 <code>VStack</code>、<code>HStack</code> 和其他原生 View，构建一个如下图所示的 View：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-ex-1.webp" /></p>
+<p><strong>提示：</strong></p>
+<ol>
+<li>一个固定大小的圆可以用 <code>Circle().frame(...)</code> 生成</li>
+<li>图标对应的 system name 为 <code>star</code></li>
+</ol>
+<details class="example"><summary>参考代码</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">leading</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HStack</span> <span class="p">{</span>
+        <span class="n">Circle</span><span class="p">()</span>
+            <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">37</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">yellow</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
+                <span class="n">Text</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">system</span><span class="p">(.</span><span class="n">body</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">heavy</span><span class="p">,</span> <span class="n">design</span><span class="p">:</span> <span class="p">.</span><span class="n">rounded</span><span class="p">))</span>
+                    <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">white</span><span class="p">)</span>
+            <span class="p">}</span>
+
+        <span class="n">VStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">leading</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;#123456&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">system</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">medium</span><span class="p">))</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;1小时前&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">system</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">semibold</span><span class="p">))</span>
+                <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">secondary</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">Spacer</span><span class="p">()</span>
+
+        <span class="n">Label</span><span class="p">(</span><span class="s">&quot;6&quot;</span><span class="p">,</span> <span class="n">systemImage</span><span class="p">:</span> <span class="s">&quot;star&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">Text</span><span class="p">(</span><span class="s">&quot;借助 SwiftUI...&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">padding</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意，最外层 <code>VStack</code> 的 <code>alignment</code> 参数为 <code>.leading</code>。请思考其中的原因。</p>
+</details>
+</details>
+<h3 id="_6">组合<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&para;</a></h4>
+<p>将多个 View 组合起来处理，或用于添加逻辑控制。</p>
+<p>一个 <code>Group</code> 对其中的子 View 没有任何影响，各个 View 仍然保持独立，对 <code>Group</code> 添加 modifier 相当于给每一个 View 添加 modifier：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+    <span class="n">Group</span> <span class="p">{</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: 0&quot;</span><span class="p">)</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: 1&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>效果为：</p>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-group-1.webp" /></p>
+<p>我们常用这种方法同时给多个 View 添加相同的 modifier。</p>
+<p>另外，<code>Group</code> 的参数为 <code>@ViewBuilder</code>，可用于在某些不支持 <code>if-else</code> 语句等地方添加逻辑控制。如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="p">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">Group</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">condition</span> <span class="p">{</span>
+            <span class="p">...</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="p">...</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>请查阅 <code>.overlay()</code> 的文档，找出这里的 <code>.overlay()</code> 和上面 <code>ZStack</code> 中提到的 <code>.overlay()</code> 的区别。</p>
+</div>
+<h4 id="foreach">ForEach<a class="headerlink" href="#foreach" title="Permanent link">&para;</a></h4>
+<p>迭代一个集合内的元素，并依次生成 View，类似于 for 循环。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+    <span class="n">ForEach</span><span class="p">(</span><span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: </span><span class="si">\(</span><span class="n">index</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>但是，不能简单地迭代任意一个数组：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
+
+<span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="p">{</span> <span class="n">student</span> <span class="k">in</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>编译器会报错：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Referencing initializer &#39;init(_:content:)&#39; on &#39;ForEach&#39; requires that &#39;String&#39; conform to &#39;Identifiable&#39;
+</code></pre></div>
+</td></tr></table>
+<p>意思是，所迭代数组的元素的类型必须遵循 <code>Identifiable</code>。简单来说，因为 SwiftUI 更新时需要确切知道<strong>哪个 View 依赖的数据更新了</strong>，生成 View 的数据必须是可以相互区分的。</p>
+<p>通过使数组元素的类型遵循 <code>Identifiable</code>，我们便可以安全地通过 <code>ForEach</code> 迭代数组，注意 <code>id</code> 必须互不相同，否则可能会导致崩溃：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Student</span><span class="p">:</span> <span class="n">Identifiable</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">studentID</span> <span class="p">}</span> <span class="c1">// Identifiable requirement</span>
+    <span class="kd">var</span> <span class="nv">studentID</span><span class="p">:</span> <span class="nb">Int</span>  <span class="c1">// 学号，必然互不相同</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="p">{</span> <span class="n">student</span> <span class="k">in</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>在<strong>数组固定</strong>的情况下，也可以使用 <code>count</code> 或 <code>indices</code> 进行迭代，此时需要显式指出用于区分的 <code>id</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
+
+<span class="n">ForEach</span><span class="p">(</span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">students</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="n">id</span><span class="p">:</span> <span class="err">\</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">.</span><span class="bp">indices</span><span class="p">,</span> <span class="n">id</span><span class="p">:</span> <span class="err">\</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
+    <span class="n">Text</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里 <code>\.self</code> 用到 Swift 的 <a href="https://developer.apple.com/documentation/swift/keypath"><code>KeyPath</code></a>，<code>\.self</code> 的意思是返回下标本身（<code>Int</code>），使用其所为区分不同元素的 id。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>关于不同 View 在底层是如何区分的，参考 <a href="https://developer.apple.com/videos/play/wwdc2021/10022/">WWDC21: Demystify SwiftUI</a>。</p>
+</div>
+<p>另外，需要注意的是 <code>ForEach</code> 和 <code>Group</code> 类似，并不把其中的 View 变成一整个 View；对其添加 modifier 相当于对各个子 View 添加。</p>
+<h2 id="modifier">Modifier<a class="headerlink" href="#modifier" title="Permanent link">&para;</a></h2>
+<h3 id="modifier_1">Modifier 的种类<a class="headerlink" href="#modifier_1" title="Permanent link">&para;</a></h3>
+<p>不同 View modifier 的不同效果常常令初学者迷惑。一般来说，View modifier 的类型有如下几类：</p>
+<p><strong>改变环境变量，对其作用范围内的所有 View 均有效</strong></p>
+<p>典型的例子是 <code>font</code>、<code>foregroundColor</code> 等。比如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
+    <span class="n">HStack</span> <span class="p">{</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">bold</span><span class="p">()</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">italic</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">title3</span><span class="p">)</span>
+<span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">orange</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-modifier-2.jpeg" /></p>
+<p>这里，<code>.font(.title3)</code> 和 <code>.foregroundColor(.orange)</code> 对 <code>VStack</code> 内处于任意层级的 View 均有效。</p>
+<p><strong>仅修饰最外层 View</strong></p>
+<p>典型的例子是 <code>padding</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span><span class="p">(</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+    <span class="n">Color</span><span class="p">.</span><span class="n">orange</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">padding</span><span class="p">()</span>
+<span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">gray</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="" src="../../../static/frontend/swiftui/build-views-modifier-1.jpeg" /></p>
+<p>在这里，<code>padding</code> 仅在 <code>HStack</code> 外添加了边距，而对其中的两个 <code>Color</code> 无影响。</p>
+<p><strong>返回特定类型的 View</strong></p>
+<p>这些 modifier 并不是返回 <code>some View</code> 而是特定类型，因此后续可使用的 modifier 更多，最典型的是 <code>Text</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">bold</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">italic</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">title</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">yellow</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>上面四个 modifier 的返回值均为 <code>Text</code>，因此可以使用如 <code>italic</code> 这类只能用于 <code>Text</code> 的 modifier。</p>
+<h3 id="modifier_2">自定义 modifier<a class="headerlink" href="#modifier_2" title="Permanent link">&para;</a></h3>
+<p>可以通过 <code>extension</code> 将一些样式组合成 modifier，方便重用：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">defaultContainerStyle</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">padding</span><span class="p">(.</span><span class="n">horizontal</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">padding</span><span class="p">(.</span><span class="n">vertical</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">VStack</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="n">defaultContainerStyle</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>另外，可以通过 <a href="https://developer.apple.com/documentation/swiftui/viewmodifier/"><code>ViewModifier</code></a> 协议定义作用更强的 modifier，可以拥有状态（见<a href="../data-flow/">数据流基础</a>），在这里不再赘述。</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+            </small>
+        </div>
+    
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../hello-world/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Hello World" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Hello World
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../data-flow/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据流基础" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              数据流基础
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
