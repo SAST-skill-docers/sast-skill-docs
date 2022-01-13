@@ -4,7 +4,7 @@
 
 CSS 的全称为 **C**ascading **S**tyle **S**heets（层叠样式表），可以系统地描述网页内容的布局与面貌。
 
-你可以点击<a href="/static/languages/css/0.html" target="blank">链接</a>来体会一下样式表的意义。在这个示例中，描述网页内容的 HTML 文本只有一份，但通过改变样式表，网页的布局就有了天翻地覆的变化。
+你可以点击 <a href="/static/languages/css/0.html" target="blank">链接</a> 来体会一下样式表的意义。在这个示例中，描述网页内容的 HTML 文本只有一份，但通过改变样式表，网页的布局就有了天翻地覆的变化。
 
 !!! info "引入 CSS"
 
@@ -165,7 +165,7 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 </html>
 ```
 
-你可以点击<a href="/static/languages/css/2.html" target="blank">链接</a>在浏览器中预览这段代码。
+你可以点击 <a href="/static/languages/css/2.html" target="blank">链接</a> 在浏览器中预览这段代码。
 
 观察上述代码，我们发现，`red`、`blue`、`green` 类的 CSS 定义中都有三条重复的属性。我们可以将公共部分提取为一个公共的类 `theme`，并给 HTML 中的每个 `<div>` 元素的 `class` 属性都额外添加一个 `theme` 类，如下所示：
 
@@ -215,7 +215,7 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 
     Firefox、Chrome、Edge、Safari 等浏览器均为开发者提供了用于查看和调试网页的工具。打开开发者工具的快捷键通常为 F12，当然这也可能因你的浏览器和操作系统而异。你可以借助搜索引擎进一步了解。
 
-    以上述示例代码的网页为例，点击<a href="/static/languages/css/2.html" target="blank">链接</a>，在打开的页面中启动开发者工具，动手查看一下元素的组织方式、元素的样式以及它们所属的类吧！
+    以上述示例代码的网页为例，点击 <a href="/static/languages/css/2.html" target="blank">链接</a>，在打开的页面中启动开发者工具，动手查看一下元素的组织方式、元素的样式以及它们所属的类吧！
 
     以下是使用 Firefox 浏览器调试上述示例代码网页的截屏。
 
@@ -233,7 +233,7 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 }
 ```
 
-`.theme` 是类选择器，`a` 是元素选择器，它们之间通过空格 **` `** 分隔，表示只对 `.theme` 类的 `<a>` 元素后代有效。
+`.theme` 是类选择器，`a` 是元素选择器，它们之间通过空格分隔，表示只对 `.theme` 类的 `<a>` 元素后代有效。
 
 完整代码如下所示：
 
@@ -266,7 +266,7 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 
 ```
 
-你可以点击<a href="/static/languages/css/3.html" target="blank">链接</a>在浏览器中预览这段代码。
+你可以点击 <a href="/static/languages/css/3.html" target="blank">链接</a> 在浏览器中预览这段代码。
 
 !!! info "不同的组合方式"
 
@@ -275,12 +275,12 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
     - 后代选择器(以空格 **` `** 分隔)
     - 子元素选择器(以大于号 **`>`** 分隔）
     - 相邻兄弟选择器（以加号 **`+`** 分隔）
-    - 普通兄弟选择器（以波浪号 **`～`** 分隔）
+    - 普通兄弟选择器（以波浪号 **`~`** 分隔）
 
 
 !!! info "参考手册"
 
-    CSS 选择器有多种多样的表达形式，你可以参阅[CSS 选择器参考手册](https://www.w3school.com.cn/cssref/css_selectors.ASP)来找到你所需要的选择器语法。
+    CSS 选择器有多种多样的表达形式，你可以参阅 [CSS 选择器参考手册](https://www.w3school.com.cn/cssref/css_selectors.ASP) 来找到你所需要的选择器语法。
 
 ## 盒模型
 
@@ -406,7 +406,7 @@ CSS 的语法格式非常简单，如下图所示。也正式这样一系列简�
 </html>
 ```
 
-你可以点击<a href="/static/languages/css/4.html" target="blank">链接</a>在浏览器中预览这段代码。
+你可以点击 <a href="/static/languages/css/4.html" target="blank">链接</a> 在浏览器中预览这段代码。
 
 ## 后续拓展
 
