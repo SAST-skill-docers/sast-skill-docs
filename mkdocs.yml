@@ -142,6 +142,7 @@ nav:
   - 人工智能 & 机器学习:
     - ai-ml/index.md
     - Pytorch 入门: ai-ml/pytorch.md  
+    - 对抗搜索: ai-ml/adversarial-search.md
   - 资源链接:
     - source/index.md
     - 书目推荐: source/book.md
