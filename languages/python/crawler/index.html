@@ -1887,6 +1887,8 @@
         
           
         
+          
+        
       
       
         
@@ -1916,6 +1918,20 @@
     <li class="md-nav__item">
       <a href="../../../ai-ml/pytorch/" class="md-nav__link">
         Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
       </a>
     </li>
   
@@ -2265,7 +2281,7 @@
 <ul>
 <li>IPython：理论上没有也行，但是使用 IPython 会提高大家测试的效率</li>
 <li>requests：我装 Python 的时候好像自带了但是这似乎不是标准库</li>
-<li>BeautifulSoup4：解析 HTML 的库，注意<strong>不要</strong>尝试用正则表达式来处理 HTML ，虽然小学期可能会这样做，但是正则表达式并不适于解决 HTML 这种格式</li>
+<li>BeautifulSoup4：解析 HTML 的库，注意<strong>不要</strong>尝试用正则表达式来处理 HTML，虽然小学期可能会这样做，但是正则表达式并不适于解决 HTML 这种格式</li>
 <li>fake_useragent：生成 User-Agent 的库</li>
 </ul>
 <h4 id="fake_useragent">关于 fake_useragent<a class="headerlink" href="#fake_useragent" title="Permanent link">&para;</a></h4>
@@ -2448,7 +2464,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 </code></pre></div>
 </td></tr></table>
 <h5 id="cookie">Cookie?<a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h5>
-<p>如果你点开了前面那个链接（而且你最近没有看过虎扑的话），你大概率会发现报了个错，不要怀疑，我没有写错 URL ，造成这样问题的原因大概是虎扑在切换新旧版面，直接点进去会莫名被转入旧版的页面，而旧版页面的 URL 大概不是这样写的。</p>
+<p>如果你点开了前面那个链接（而且你最近没有看过虎扑的话），你大概率会发现报了个错，不要怀疑，我没有写错 URL，造成这样问题的原因大概是虎扑在切换新旧版面，直接点进去会莫名被转入旧版的页面，而旧版页面的 URL 大概不是这样写的。</p>
 <p>那么这就要提到之前的一个问题，也就是“你是谁”的问题，虎扑会根据 Cookie 来判断你是否已经进入了新版页面，而这个 Cookie 显然是在首页被设置的，因此直接访问这一板块是行不通的。</p>
 <p>从浏览器中获取 Cookie 信息如下（因为内容太长所以我们直接保存在 Python 变量中）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Cookie</span> <span class="o">=</span> <span class="s1">&#39;smidV2=20210720104859f6c99288e1bccb891e9ca9ce9d7bb6fe0055f24f4e677eec0; csrfToken=iGeSrk669wqQBcY5fKk2Diue; sensorsdata2015jssdkcross=%7B</span><span class="si">%22d</span><span class="s1">istinct_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24device_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C%22props</span><span class="si">%22%</span><span class="s1">3A%7B</span><span class="si">%22%</span><span class="s1">24latest_referrer</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">22%2C</span><span class="si">%22%</span><span class="s1">24latest_traffic_source_type</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6%B5</span><span class="si">%81%</span><span class="s1">E9</span><span class="si">%87%</span><span class="s1">8F</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24latest_search_keyword</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E6%9C%AA</span><span class="si">%E</span><span class="s1">5</span><span class="si">%8F%96%</span><span class="s1">E5</span><span class="si">%88%</span><span class="s1">B0</span><span class="si">%E</span><span class="s1">5</span><span class="si">%80%</span><span class="s1">BC_</span><span class="si">%E</span><span class="s1">7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6</span><span class="si">%89%</span><span class="s1">93</span><span class="si">%E</span><span class="s1">5%BC</span><span class="si">%80%</span><span class="s1">22%7D%7D; acw_tc=2f624a6816268527794733860e071fa5c73b1f702b456ad494e04ecfb5dc53; bbs_2020=1&#39;</span>
@@ -2564,7 +2580,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;python-requests/2.25.1&#39;</span><span class="p">,</span> <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span> <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span><span class="p">,</span> <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>其中显然有一条<code>'User-Agent': 'python-requests/2.25.1'</code>，不打自招的爬虫行为，被屏蔽也并不奇怪（题外话，这个网站并没有设置 robots.txt ，因此双方都很难说谁对谁错）。好在现在这个网站不像去年一样会封 ip 地址，所以我们可以先演示错误示例。</p>
+<p>其中显然有一条<code>'User-Agent': 'python-requests/2.25.1'</code>，不打自招的爬虫行为，被屏蔽也并不奇怪（题外话，这个网站并没有设置 robots.txt，因此双方都很难说谁对谁错）。好在现在这个网站不像去年一样会封 ip 地址，所以我们可以先演示错误示例。</p>
 <p>我们当然可以模仿前面的做法，从浏览器中抄一个 User-Agent 过来，但是如果我们快速爬很多东西，最好还是每次换一个新的 User-Agent 减少被当作同一个用户的概率，因此我们使用如下方法：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2598,7 +2614,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月16日</span>
       
     
   </small>
@@ -2609,7 +2625,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:ayf19@mails.tsinghua.edu.cn'>ayf</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (0.93%), <a href='mailto:ayf19@mails.tsinghua.edu.cn'>ayf</a> (99.07%)</span>
             </small>
         </div>
     

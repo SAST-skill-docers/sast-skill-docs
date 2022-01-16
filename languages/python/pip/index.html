@@ -1765,6 +1765,8 @@
         
           
         
+          
+        
       
       
         
@@ -1794,6 +1796,20 @@
     <li class="md-nav__item">
       <a href="../../../ai-ml/pytorch/" class="md-nav__link">
         Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
       </a>
     </li>
   
@@ -2025,7 +2041,7 @@ python3 get-pip.py     <span class="c1"># 注意这个地方使用什么版本�
 </code></pre></div>
 </td></tr></table>
 <h4 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h4>
-<p>尽管在前文中我们已经讲过如何安装 Python 解释器，但是在需要复杂的环境管理（或者想要更简单地安装）时，我们常常会用到 Anaconda 或精简版 miniconda 。Anaconda 本⾝⾃带了 UI 以及⼀堆包，体积庞⼤，如果你有兴趣可以选择安装它，此处我要讲的是它的精简版 Miniconda，删掉了⼤量预装包，留下了少数包与管理部分。下⾯的教程针对 Miniconda 而⾔，如果你选择安装 Anaconda 同样可以参考下⾯的教程，因为 Miniconda 的功能是它的⼦集，少了图形界⾯与⼀些预装包。</p>
+<p>尽管在前文中我们已经讲过如何安装 Python 解释器，但是在需要复杂的环境管理（或者想要更简单地安装）时，我们常常会用到 Anaconda 或精简版 miniconda。Anaconda 本⾝⾃带了 UI 以及⼀堆包，体积庞⼤，如果你有兴趣可以选择安装它，此处我要讲的是它的精简版 Miniconda，删掉了⼤量预装包，留下了少数包与管理部分。下⾯的教程针对 Miniconda 而⾔，如果你选择安装 Anaconda 同样可以参考下⾯的教程，因为 Miniconda 的功能是它的⼦集，少了图形界⾯与⼀些预装包。</p>
 <p>下载我推荐⽤ tuna 源，⾼效便利：</p>
 <ul>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.9.2-Windows-x86_64.exe">Miniconda3-py39_4.9.2-Windows-x86_64.exe</a>：Miniconda for Windows</li>
@@ -2077,7 +2093,7 @@ python3 oh-my-tuna.py
 <p>这分别表明你的 pip 和 conda 已经成功设置成了 TUNA 源。</p>
 <div class="admonition info 如果在 windows 上运行遇到问题">
 <p class="admonition-title">Info</p>
-<p>截止写这句话的时候 oh-my-tuna 还有个小问题没有修，在 Windows 上尝试判断系统类型的时候可能引发一个未被处理的 exception ，从而导致脚本退出，作为一种临时的修补方案，你可以将 622 行改为 <code>if uname is None or any(map(lambda x: x in uname, no_suffix_list)):</code> 后重新运行该脚本。</p>
+<p>截止写这句话的时候 oh-my-tuna 还有个小问题没有修，在 Windows 上尝试判断系统类型的时候可能引发一个未被处理的 exception，从而导致脚本退出，作为一种临时的修补方案，你可以将 622 行改为 <code>if uname is None or any(map(lambda x: x in uname, no_suffix_list)):</code> 后重新运行该脚本。</p>
 </div>
 <h3 id="_3">安装和卸载第三方库<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>使用 pip （或 conda ）可以轻松地管理本地的 Python 包，例如安装爬虫常用的 <code>BeautifulSoup4</code> 库如下：</p>
@@ -2097,7 +2113,7 @@ conda remove BeautifulSoup4
 </code></pre></div>
 </td></tr></table>
 <h4 id="ipython">使用 IPython<a class="headerlink" href="#ipython" title="Permanent link">&para;</a></h4>
-<p>作为一个无关紧要但是会让你很爽的建议，在使用交互式窗口时可以选择使用 IPython 代替原生的 Python 解释器。相较于本地的 Python Shell ， IPython 提供了更为强大的编辑和交互功能（如果你用 Pycharm 的话会得到更好的体验），我们使用 pip 来安装 IPython ：</p>
+<p>作为一个无关紧要但是会让你很爽的建议，在使用交互式窗口时可以选择使用 IPython 代替原生的 Python 解释器。相较于本地的 Python Shell， IPython 提供了更为强大的编辑和交互功能（如果你用 Pycharm 的话会得到更好的体验），我们使用 pip 来安装 IPython ：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># 以下命令二选一即可</span>
@@ -2111,7 +2127,7 @@ conda install ipython
 </td></tr></table>
 <p>就可以得到一个更友好的 Python 交互式窗口，同时 IPython 支持一些 shell 命令，如 cd 、 ls 等（非内置的 shell 命令可以通过前面加 <code>!</code> 转义， IPython 将会使用原生的 shell 执行这一行命令），这相比于通常情况下使用 <code>os.listdir()</code> 显然会方便一些，而退出 IPython 也只需要 <code>exit</code> （而不是 <code>exit()</code> ）。</p>
 <h3 id="_4">虚拟环境<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>有些时候我们可能在不同的场合需要不同的一些库，而这些库之间并没有很好的兼容性，或者有些时候我们会<sub>~需要使用旧版的特性</sub>~没有适配新版本的 Python ，种种原因可能导致需要同时安装多个不同版本的Python并使用好几套互斥的库，这个时候就需要<sub>~反复安装卸载</sub>~对这些环境做出隔离，可以通过 conda 来管理不同的虚拟环境。安装好 conda 后可以看到命令行中多了一个 <code>(base)</code> ，这表明目前 conda 启用的是默认的环境。</p>
+<p>有些时候我们可能在不同的场合需要不同的一些库，而这些库之间并没有很好的兼容性，或者有些时候我们会<sub>~需要使用旧版的特性</sub>~没有适配新版本的 Python，种种原因可能导致需要同时安装多个不同版本的Python并使用好几套互斥的库，这个时候就需要<sub>~反复安装卸载</sub>~对这些环境做出隔离，可以通过 conda 来管理不同的虚拟环境。安装好 conda 后可以看到命令行中多了一个 <code>(base)</code>，这表明目前 conda 启用的是默认的环境。</p>
 <h3 id="_5">资源链接<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>2020 / 2021 暑培 Python 环境配置文档</li>
@@ -2126,7 +2142,7 @@ conda install ipython
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年10月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月16日</span>
       
     
   </small>
@@ -2137,7 +2153,7 @@ conda install ipython
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:ayf19@mails.tsinghua.edu.cn'>ayf</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (3.12%), <a href='mailto:ayf19@mails.tsinghua.edu.cn'>ayf</a> (96.88%)</span>
             </small>
         </div>
     
