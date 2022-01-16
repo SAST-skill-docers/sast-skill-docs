@@ -1809,19 +1809,6 @@
     实现技巧
   </a>
   
-    <nav class="md-nav" aria-label="实现技巧">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    终局特判
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1830,14 +1817,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     后续拓展
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     参考资料
   </a>
   
@@ -2043,19 +2030,6 @@
     实现技巧
   </a>
   
-    <nav class="md-nav" aria-label="实现技巧">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    终局特判
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2064,14 +2038,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     后续拓展
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     参考资料
   </a>
   
@@ -2365,17 +2339,17 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 </code></pre></div>
 </td></tr></table>
 <h3 id="_6">实现技巧<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<h4 id="_7">终局特判<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>终局特判</strong></p>
 <p>在默认决策下胜率高并不一定意味着这个局面一定是必胜局面。</p>
 <p>假设 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 需要距离到达终局只需要常数步，它可以到达 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 个终局，其中只有 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 个是先手必败态，其余全是先手必胜态。那么实际上 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 是先手必胜态，一个准确的估值应该很大。但是我们的默认策略是随机决策，那么最后节点的胜率从理论上应当在 <span><span class="MathJax_Preview">1/N</span><script type="math/tex">1/N</script></span> 附近。当 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 较大时我们的默认决策得不到好的结果。一个解决办法是，对于接近终局的情况不再进行模拟，而是直接全部搜索。这样得到的结果更加准确，但步数越多，时间消耗也越大。因此要进行权衡。</p>
 <p>对于 Snake Go 而言，一个对应的简单优化就是在默认策略时，如果某个策略导致了自己的蛇自杀消失，那么显然是不会选的，所以应当将其剔除。</p>
-<h2 id="_8">后续拓展<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_7">后续拓展<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>对抗搜索是在用“人工智能”的思想去解决博弈论问题。有兴趣的读者可以去了解对应的知识。</p>
 <p>与对抗搜索相关的课程：</p>
 <ul>
 <li>人工智能导论</li>
 </ul>
-<h2 id="_9">参考资料<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_8">参考资料<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>OI Wiki 中关于博弈论的相关介绍 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">https://oi-wiki.org/math/game-theory/impartial-game/</a></p>
                 
                   
@@ -2396,7 +2370,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (33.98%), <a href='mailto:lbrbzdr7very@163.com'>livingshade</a> (66.02%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (34.38%), <a href='mailto:lbrbzdr7very@163.com'>livingshade</a> (65.62%)</span>
             </small>
         </div>
     
