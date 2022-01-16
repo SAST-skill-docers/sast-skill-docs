@@ -41,7 +41,7 @@ notSure = "Maybe it is a string"; // OK
 
 !!! caution "注意可能的 `any` 类型滥用"
 
-    `any` 类型是目前 TypeScript 语言之中具有较大争议的一个设计，因为理论上我们可以将所有的变量声明为 `any` 从而绕过类型检查，这个时候 TypeScript 实际上退化为 JavaScript 。
+    `any` 类型是目前 TypeScript 语言之中具有较大争议的一个设计，因为理论上我们可以将所有的变量声明为 `any` 从而绕过类型检查，这个时候 TypeScript 实际上退化为 JavaScript。
 
     但是考虑到目前 Web 前端项目会引用大量的第三方库，开发者很多时候无法完全把握某些变量的信息，所以 `any` 类型是必要的。不过我们需要注意其使用，对于能够给定类型的变量则尽量不标记为 `any`。
 
@@ -205,7 +205,7 @@ let z: Complex = new Complex(2, 3);
 z.print();
 ```
 
-类继承使用关键字 `extends` ，需要注意的是子类的构造函数**必须**手动使用 `super` 调用父类构造函数（否则无法使用 `this` 变量），对于已经被重写的父类方法，也可以使用 `super` 关键字调用：
+类继承使用关键字 `extends`，需要注意的是子类的构造函数**必须**手动使用 `super` 调用父类构造函数（否则无法使用 `this` 变量），对于已经被重写的父类方法，也可以使用 `super` 关键字调用：
 
 ```typescript
 class Animal {

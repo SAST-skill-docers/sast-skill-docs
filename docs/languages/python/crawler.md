@@ -12,7 +12,7 @@
 
 + IPython：理论上没有也行，但是使用 IPython 会提高大家测试的效率
 + requests：我装 Python 的时候好像自带了但是这似乎不是标准库
-+ BeautifulSoup4：解析 HTML 的库，注意**不要**尝试用正则表达式来处理 HTML ，虽然小学期可能会这样做，但是正则表达式并不适于解决 HTML 这种格式
++ BeautifulSoup4：解析 HTML 的库，注意**不要**尝试用正则表达式来处理 HTML，虽然小学期可能会这样做，但是正则表达式并不适于解决 HTML 这种格式
 + fake_useragent：生成 User-Agent 的库
 
 #### 关于 fake_useragent
@@ -189,7 +189,7 @@ from time import sleep  # 如果网站要求以很低的频率爬，那么大概
 
 ##### Cookie?
 
-如果你点开了前面那个链接（而且你最近没有看过虎扑的话），你大概率会发现报了个错，不要怀疑，我没有写错 URL ，造成这样问题的原因大概是虎扑在切换新旧版面，直接点进去会莫名被转入旧版的页面，而旧版页面的 URL 大概不是这样写的。
+如果你点开了前面那个链接（而且你最近没有看过虎扑的话），你大概率会发现报了个错，不要怀疑，我没有写错 URL，造成这样问题的原因大概是虎扑在切换新旧版面，直接点进去会莫名被转入旧版的页面，而旧版页面的 URL 大概不是这样写的。
 
 那么这就要提到之前的一个问题，也就是“你是谁”的问题，虎扑会根据 Cookie 来判断你是否已经进入了新版页面，而这个 Cookie 显然是在首页被设置的，因此直接访问这一板块是行不通的。
 
@@ -296,7 +296,7 @@ var content = _.template(document.getElementById('content_tpl').innerHTML)({
 {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
 ```
 
-其中显然有一条`'User-Agent': 'python-requests/2.25.1'`，不打自招的爬虫行为，被屏蔽也并不奇怪（题外话，这个网站并没有设置 robots.txt ，因此双方都很难说谁对谁错）。好在现在这个网站不像去年一样会封 ip 地址，所以我们可以先演示错误示例。
+其中显然有一条`'User-Agent': 'python-requests/2.25.1'`，不打自招的爬虫行为，被屏蔽也并不奇怪（题外话，这个网站并没有设置 robots.txt，因此双方都很难说谁对谁错）。好在现在这个网站不像去年一样会封 ip 地址，所以我们可以先演示错误示例。
 
 我们当然可以模仿前面的做法，从浏览器中抄一个 User-Agent 过来，但是如果我们快速爬很多东西，最好还是每次换一个新的 User-Agent 减少被当作同一个用户的概率，因此我们使用如下方法：
 
