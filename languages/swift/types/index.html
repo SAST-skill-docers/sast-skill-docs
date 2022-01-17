@@ -1142,7 +1142,7 @@
   
     <li class="md-nav__item">
       <a href="../../rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1393,10 +1393,10 @@
       
         <li class="md-nav__item">
   <a href="#class" class="md-nav__link">
-    class
+    类 class
   </a>
   
-    <nav class="md-nav" aria-label="class">
+    <nav class="md-nav" aria-label="类 class">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1441,17 +1441,17 @@
       
         <li class="md-nav__item">
   <a href="#struct" class="md-nav__link">
-    struct
+    结构体 struct
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#enum" class="md-nav__link">
-    enum
+    枚举 enum
   </a>
   
-    <nav class="md-nav" aria-label="enum">
+    <nav class="md-nav" aria-label="枚举 enum">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1489,10 +1489,10 @@
       
         <li class="md-nav__item">
   <a href="#protocol" class="md-nav__link">
-    protocol
+    协议 protocol
   </a>
   
-    <nav class="md-nav" aria-label="protocol">
+    <nav class="md-nav" aria-label="协议 protocol">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2003,10 +2003,10 @@
       
         <li class="md-nav__item">
   <a href="#class" class="md-nav__link">
-    class
+    类 class
   </a>
   
-    <nav class="md-nav" aria-label="class">
+    <nav class="md-nav" aria-label="类 class">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2051,17 +2051,17 @@
       
         <li class="md-nav__item">
   <a href="#struct" class="md-nav__link">
-    struct
+    结构体 struct
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#enum" class="md-nav__link">
-    enum
+    枚举 enum
   </a>
   
-    <nav class="md-nav" aria-label="enum">
+    <nav class="md-nav" aria-label="枚举 enum">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2099,10 +2099,10 @@
       
         <li class="md-nav__item">
   <a href="#protocol" class="md-nav__link">
-    protocol
+    协议 protocol
   </a>
   
-    <nav class="md-nav" aria-label="protocol">
+    <nav class="md-nav" aria-label="协议 protocol">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2189,11 +2189,11 @@
 </ul>
 <p>要么属于：</p>
 <ul>
-<li>tuple</li>
+<li><code>tuple</code></li>
 <li>函数</li>
 </ul>
 <p>我们分别介绍上面的几种类型，在其中会讨论它们之间的联系与区别。</p>
-<h2 id="class">class<a class="headerlink" href="#class" title="Permanent link">&para;</a></h2>
+<h2 id="class">类 <code>class</code><a class="headerlink" href="#class" title="Permanent link">&para;</a></h2>
 <p>Swift 中的 <code>class</code> 与 C++ 类似。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2384,9 +2384,9 @@
 <span class="kd">let</span> <span class="nv">d</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Base</span>     <span class="c1">// 类型为 Base，向下转换必然成功</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="struct">struct<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
+<h2 id="struct">结构体 <code>struct</code><a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
 <p>与 C++ 不同，Swift 中的 <code>struct</code> 和 <code>class</code> 有共同之处，但并不能等同。</p>
-<p><code>struct</code> 与 <code>class</code> 类似，可以定义成员变量/成员函数/静态成员/构造函数，访问控制与类相同。</p>
+<p><code>struct</code> 与 <code>class</code> 类似，可以定义成员变量、成员函数、静态成员、构造函数，访问控制与类相同。</p>
 <p>它们之间的不同点有：</p>
 <ul>
 <li><code>struct</code> 是<strong>值类型</strong>。也就是说，传递的是原有实例的<strong>副本</strong>，而非引用</li>
@@ -2416,7 +2416,7 @@
 </code></pre></div>
 </td></tr></table>
 </div>
-<p><code>struct</code> 由于没有继承，因此对成员的构造函数（memberwise initializer）能够自动生成，大多数情况下无需手动写构造函数：</p>
+<p><code>struct</code> 由于没有继承，因此对成员的构造函数（英语：Memberwise initializer）能够自动生成，大多数情况下无需手动写构造函数：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2446,10 +2446,10 @@
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">关于 <code>struct</code> 和 <code>class</code> 的使用</p>
-<p>看上去 <code>struct</code> 比 <code>class</code> 功能弱了不少，但 <code>struct</code> 通过遵循协议（protocol，在下面介绍）可以实现继承的效果，同时由于传递的不是引用，因此大大降低了意料之外的对某个实例更改的概率。而且，<code>struct</code> 采用 copy-on-write 的策略，只有在更改时才会真正进行复制，因此性能上并没有太多的损失。</p>
+<p>看上去 <code>struct</code> 比 <code>class</code> 功能弱了不少，但 <code>struct</code> 通过遵循协议（英语：protocol，在下面介绍）可以实现继承的效果，同时由于传递的不是引用，因此大大降低了意料之外的对某个实例更改的概率。而且，<code>struct</code> 采用 copy-on-write 的策略，只有在更改时才会真正进行复制，因此性能上并没有太多的损失。</p>
 <p>实际上，现代的 Swift 框架，如 SwiftUI、Combine，已经几乎全部使用 <code>struct</code> 进行面向对象/面向协议的编程。官方的建议是：除非只能用 <code>class</code>，比如要在多个地方引用同一个实例，否则<strong>优先使用 <code>struct</code></strong>。</p>
 </div>
-<h2 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
+<h2 id="enum">枚举 <code>enum</code><a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>Swift 的 <code>enum</code> 提供了一种类型安全的枚举方法。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2680,7 +2680,7 @@
 <span class="bp">print</span><span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>            <span class="c1">// &quot;Not Found&quot;</span>
 </code></pre></div>
 </td></tr></table>
-<p>另外，一般使用 <code>enum</code> + 静态变量来限定命名空间：</p>
+<p>另外，一般使用 <code>enum</code> 加上静态变量来限定命名空间：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2694,7 +2694,7 @@
 <span class="kd">let</span> <span class="nv">color</span> <span class="p">=</span> <span class="n">Constant</span><span class="p">.</span><span class="n">accentColor</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="protocol">protocol<a class="headerlink" href="#protocol" title="Permanent link">&para;</a></h2>
+<h2 id="protocol">协议 <code>protocol</code><a class="headerlink" href="#protocol" title="Permanent link">&para;</a></h2>
 <p>Swift 中的 <code>protocol</code>（协议）与 C++ 的抽象类概念对应，其作用是<strong>定义一组需要实现的接口</strong>。比如，Swift 中的 <code>Equatable</code>，其作用是一个判等器：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2902,7 +2902,7 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="_14">元组<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<p>元组（tuple）用于传递复合值，用括号组织，可以带标签，用标签或者成员（而非下标）0、1、2……取出其中的值：</p>
+<p>元组（tuple）用于传递复合值，用括号组织，可以带标签，用标签或者成员（而非下标）0、1、2 等取出其中的值：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2916,16 +2916,16 @@
 
 <span class="kd">let</span> <span class="nv">time</span> <span class="p">=</span> <span class="n">getCurrentTime</span><span class="p">()</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">hour</span><span class="p">)</span>
-<span class="c1">//or</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>   <span class="c1">// hour</span>
+<span class="c1">// or</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// hour</span>
 </code></pre></div>
 </td></tr></table>
 <p>元组的元素数量是固定的，不存在越界的情况。</p>
 <h2 id="_15">函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<p>Swift 中，函数也是一种类型，可以储存在变量中，也可以作为参数/返回值参与另一个函数。函数类型的声明为：<code>(参数列表) -&gt; 返回类型</code>：</p>
+<p>Swift 中，函数也是一种类型，可以储存在变量中，也可以作为参数/返回值参与另一个函数。函数类型的声明为 <code>(参数列表) -&gt; 返回类型</code>：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">someHandler</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
-<span class="kd">var</span> <span class="nv">optionalHandler</span><span class="p">:</span> <span class="p">((</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)?</span>  <span class="c1">// Optional</span>
+<span class="kd">var</span> <span class="nv">optionalHandler</span><span class="p">:</span> <span class="p">((</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)?</span> <span class="c1">// Optional</span>
 </code></pre></div>
 </td></tr></table>
 <p>使用大括号来生成匿名函数（闭包，closure），在括号内使用 <code>参数列表 -&gt; 返回类型 in</code> 给传入的各个参数命名：</p>
@@ -2937,7 +2937,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>调用方法与函数相同：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">incrementer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">// 2</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">incrementer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 2</span>
 </code></pre></div>
 </td></tr></table>
 <p>上下文明确时，可以省略括号内的 <code>-&gt; Int</code>：</p>
@@ -2948,7 +2948,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>另外，可以省略参数列表，用 <code>$0</code>、<code>$1</code>……等指代第一、第二……个元素：</p>
+<p>另外，可以省略参数列表，用 <code>$0</code>、<code>$1</code> 等指代第一、第二个元素：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2988,7 +2988,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2999,7 +2999,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (4.48%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (95.52%)</span>
             </small>
         </div>
     

@@ -1142,7 +1142,7 @@
   
     <li class="md-nav__item">
       <a href="../../rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1431,10 +1431,30 @@
     字符串
   </a>
   
+    <nav class="md-nav" aria-label="字符串">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串与字符串字面值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    字符串格式化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     集合类型
   </a>
   
@@ -1443,14 +1463,14 @@
         
           <li class="md-nav__item">
   <a href="#array" class="md-nav__link">
-    Array
+    可变数组 Array
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dictionary" class="md-nav__link">
-    Dictionary
+    键值对 Dictionary
   </a>
   
 </li>
@@ -1896,10 +1916,30 @@
     字符串
   </a>
   
+    <nav class="md-nav" aria-label="字符串">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串与字符串字面值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    字符串格式化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     集合类型
   </a>
   
@@ -1908,14 +1948,14 @@
         
           <li class="md-nav__item">
   <a href="#array" class="md-nav__link">
-    Array
+    可变数组 Array
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dictionary" class="md-nav__link">
-    Dictionary
+    键值对 Dictionary
   </a>
   
 </li>
@@ -1947,9 +1987,9 @@
                 
                 <h2 id="_1">运算相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>Int</code>：整型，在 32 / 64 位机器上分别为 32 / 64 位，如无特殊需求直接使用 <code>Int</code> 即可</li>
-<li><code>Double</code>：双精度浮点数</li>
-<li><code>Float</code>：单精度浮点数</li>
+<li><code>Int</code>。整型，在 32 / 64 位机器上分别为 32 / 64 位，如无特殊需求直接使用 <code>Int</code> 即可</li>
+<li><code>Double</code>。双精度浮点数</li>
+<li><code>Float</code>。单精度浮点数</li>
 </ul>
 <p>这些类型均为 <code>struct</code>，也就是说，它们是值类型，传递副本。</p>
 <p><code>Int</code> 和 <code>Double</code> 都有对应的字面值，字面值与变量是等效的，可以调用类型的方法：</p>
@@ -1960,7 +2000,7 @@
 </td></tr></table>
 <p>Swift 没有 <code>++</code> 运算符，使用 <code>+= 1</code> 代替。</p>
 <h2 id="_2">字符串<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><strong>字符串与字符串字面值</strong></p>
+<h3 id="_3">字符串与字符串字面值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>Swift 中，字符串类型为 <code>String</code>，也是 <code>struct</code>。</p>
 <p>字符串字面值、字符常量均使用两个双引号表示：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1996,8 +2036,8 @@
 <span class="n">myString</span> <span class="o">+=</span> <span class="s">&quot; Programming Language&quot;</span>
 </code></pre></div>
 </td></tr></table>
-<p><strong>字符串格式化</strong></p>
-<p>Swift 字符串有一种与 Python 中的 f-string 类似的将任意类型变量插入字符串的方法：</p>
+<h3 id="_4">字符串格式化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Swift 字符串有一种与 Python 中的 <code>fstring</code> 类似的将任意类型变量插入字符串的方法：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;Jack&quot;</span>
 <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&quot;</span><span class="p">)</span>
@@ -2009,8 +2049,8 @@
 <span class="bp">print</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&quot;Hello, %@&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="_3">集合类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="array">Array<a class="headerlink" href="#array" title="Permanent link">&para;</a></h3>
+<h2 id="_5">集合类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="array">可变数组 <code>Array</code><a class="headerlink" href="#array" title="Permanent link">&para;</a></h3>
 <p>可变数组，相当于 <code>std::vector</code>，为<strong>值类型</strong>。</p>
 <p><code>Array</code> 类型有两种等价的表示方法，一般使用第一种：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2088,7 +2128,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="dictionary">Dictionary<a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h3>
+<h3 id="dictionary">键值对 <code>Dictionary</code><a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h3>
 <p>键值对，对应 <code>std::map</code>，值的类型必须相同。</p>
 <p><code>Dictionary</code> 为值类型，传递副本。</p>
 <p>两种等价的表示方法：</p>
@@ -2137,7 +2177,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2148,7 +2188,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (4.19%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (95.81%)</span>
             </small>
         </div>
     

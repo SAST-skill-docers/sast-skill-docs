@@ -1142,7 +1142,7 @@
   
     <li class="md-nav__item">
       <a href="../../rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1993,8 +1993,8 @@
 </code></pre></div>
 </td></tr></table>
 <p>在这里，我们使用 <code>typealias</code> 指出了 <code>Sequence</code> 中 <code>Element</code> 的类型为 <code>Int</code>。</p>
-<div class="admonition note typealias">
-<p class="admonition-title">Note</p>
+<div class="admonition note">
+<p class="admonition-title"><code>typealias</code></p>
 <p><code>typealias</code> 关键字用来给类型赋予别名，类似于 C 中的 <code>typedef</code> 和 C++ 中的 <code>using</code>。</p>
 </div>
 <h2 id="_4">类型约束<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2009,7 +2009,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">isEqual</span><span class="p">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="nb">Equatable</span><span class="p">&gt;(</span><span class="n">lhs</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">lhs</span> <span class="p">==</span> <span class="n">rhs</span>   <span class="c1">// equatable</span>
+    <span class="k">return</span> <span class="n">lhs</span> <span class="p">==</span> <span class="n">rhs</span> <span class="c1">// equatable</span>
 <span class="p">}</span>
 
 <span class="kd">struct</span> <span class="nc">EquatableArray</span><span class="p">&lt;</span><span class="n">Element</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">Element</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{...}</span>
@@ -2029,7 +2029,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2040,7 +2040,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.26%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (94.74%)</span>
             </small>
         </div>
     

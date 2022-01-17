@@ -1140,7 +1140,7 @@
   
     <li class="md-nav__item">
       <a href="../../../languages/rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1589,6 +1589,33 @@
     创建项目
   </a>
   
+    <nav class="md-nav" aria-label="创建项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swift-playgroundsipad" class="md-nav__link">
+    Swift Playgrounds（iPad）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode-swift-playground-app" class="md-nav__link">
+    Xcode Swift Playground App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode-project" class="md-nav__link">
+    Xcode Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1896,6 +1923,33 @@
     创建项目
   </a>
   
+    <nav class="md-nav" aria-label="创建项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swift-playgroundsipad" class="md-nav__link">
+    Swift Playgrounds（iPad）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode-swift-playground-app" class="md-nav__link">
+    Xcode Swift Playground App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xcode-project" class="md-nav__link">
+    Xcode Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1961,14 +2015,14 @@
                 
                 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>目前（2022 年 1 月）主流的 iOS 开发使用 Xcode 项目（Xcode project）进行，本文为了支持 iPadOS 平台并简化说明，使用最新的由 Swift Package Manager 管理的项目格式，此格式在 13.2 以上版本的 Xcode 上同样支持。实际开发时建议使用更加完善的 Xcode projcet。</p>
+<p>目前（2022 年 1 月）主流的 iOS 开发使用 Xcode 项目（Xcode project）进行，本文为了支持 iPadOS 平台并简化说明，使用最新的由 Swift Package Manager 管理的项目格式，此格式在 13.2 以上版本的 Xcode 上同样支持。实际开发时建议使用更加完善的 Xcode project。</p>
 </div>
 <h2 id="_1">创建项目<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Swift Playgrounds（iPad）</strong></p>
+<h3 id="swift-playgroundsipad">Swift Playgrounds（iPad）<a class="headerlink" href="#swift-playgroundsipad" title="Permanent link">&para;</a></h3>
 <p>在 Swift Playgrounds（4.0 以上版本）中，选择底部的 <code>App</code>。</p>
-<p><strong>Xcode Swift Playground App</strong></p>
+<h3 id="xcode-swift-playground-app">Xcode Swift Playground App<a class="headerlink" href="#xcode-swift-playground-app" title="Permanent link">&para;</a></h3>
 <p>在 Xcode（13.2 以上版本）中，选择 <code>File &gt; New &gt; Project</code> 中的 <code>Swift Playground App</code>。</p>
-<p><strong>Xcode Project</strong></p>
+<h3 id="xcode-project">Xcode Project<a class="headerlink" href="#xcode-project" title="Permanent link">&para;</a></h3>
 <p>传统的 Xcode project，部分内容与 Swift Playground App 不同。</p>
 <p>打开 Xcode，点击 <code>Create a new Xcode project</code>，选择 <code>iOS</code> 栏下的 <code>App</code>。在项目的配置界面，配置：</p>
 <ul>
@@ -1986,7 +2040,7 @@
 <p>实时预览是真实运行的 app，可以很方便地进行开发、调试。</p>
 <p>打开侧边栏，可以浏览项目文件目录：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/hello-world-files.jpeg" /></p>
-<p>这两个文件，就是一个完整的可运行的 Hello World 程序。<code>MyApp.swift</code> 中的内容在本教程中不涉及，可以参考<a href="../extensions/">后续拓展</a>中的“SwiftUI 生命周期”。</p>
+<p>这两个文件，就是一个完整的可运行的 Hello World 程序。<code>MyApp.swift</code> 中的内容在本教程中不涉及，可以参考 <a href="../extensions/">后续拓展</a> 中的“SwiftUI 生命周期”。</p>
 <h2 id="hello-world_1">深入 Hello World<a class="headerlink" href="#hello-world_1" title="Permanent link">&para;</a></h2>
 <p>接下来，我们通过这个 Hello World 程序，快速地介绍 SwiftUI 构建 UI 的基本概念，以及与 SwiftUI 有关的一些 Swift 语法。</p>
 <p>这是我们之前看到的 <code>ContentView.swift</code>：</p>
@@ -2046,7 +2100,10 @@
 </code></pre></div>
 </td></tr></table>
 <p><code>body</code> 是一个类型为 <code>some View</code> 的计算变量。<code>some</code> 的含义是：<strong>“这个类型遵循 <code>View</code> 这个协议，但我不方便写出这个类型，需要编译器来确定它的类型”</strong>。也就是说，<code>body</code> 实际上是有一个确定的类型的，只不过我们不显式地写出来。这是一种叫做 <a href="https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html">opaque return type</a> 的语法。</p>
-<span class="critic comment">你可以在下文中的《body 的具体类型》看到为什么“不方便写出这个类型”</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>你可以在下文中的《<code>body</code> 的具体类型》看到为什么“不方便写出这个类型”。</p>
+</div>
 <p>这也告诉我们，我们定义 View，实际上就是是返回另一个 View。<strong>你没有办法在不利用已有 View 的情况下凭空生成一个 View。</strong></p>
 <details class="note"><summary>关于 <code>View</code> 中的 <code>associatedtype</code></summary><p><code>View</code> 的定义中有一个遵循 <code>View</code>、名为 <code>Body</code> 的 <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID189"><code>associatedtype</code></a>，并且 <code>body</code> 的类型实际上就是这个 <code>Body</code>：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2220,7 +2277,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>Hello World 程序中还有一个令人迷惑的地方：<code>VStack</code> 的构造函数中的内容看上去就像 HTML 一样，结构非常直观，但并不像是一般的 Swift 语言。实际上，这的确是类型安全、静态类型的 Swift 语言，而且这种语法就是为了 SwiftUI 而设计的。这个问题，我们留到<a href="../build-views/">构建 View</a>中介绍。</p>
+<p>Hello World 程序中还有一个令人迷惑的地方：<code>VStack</code> 的构造函数中的内容看上去就像 HTML 一样，结构非常直观，但并不像是一般的 Swift 语言。实际上，这的确是类型安全、静态类型的 Swift 语言，而且这种语法就是为了 SwiftUI 而设计的。这个问题，我们留到 <a href="../build-views/">构建 View</a> 中介绍。</p>
                 
                   
                     
@@ -2229,7 +2286,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2240,7 +2297,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (8.81%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (91.19%)</span>
             </small>
         </div>
     

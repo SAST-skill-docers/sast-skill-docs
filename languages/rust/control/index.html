@@ -1218,7 +1218,7 @@
   
     <li class="md-nav__item">
       <a href="../function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1966,7 +1966,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>注意， <code>if</code> 实际上是表达式而非语句，因此可以拥有值。</p>
+<p>注意，<code>if</code> 实际上是表达式而非语句，因此可以拥有值。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1980,13 +1980,13 @@
 <span class="p">};</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>Rust是一门基于表达式的语言，这仅仅是冰山一角。读者在实际采用 Rust 编程时将会对这一设计有更深刻的理解。</p>
+<p>Rust 是一门基于表达式的语言，这仅仅是冰山一角。读者在实际采用 Rust 编程时将会对这一设计有更深刻的理解。</p>
 <div class="admonition note">
 <p class="admonition-title">与 C++ 的对照</p>
 <p>Rust 中没有 C/C++ 中常见的三元表达式，但是可以用 <code>if-else</code> 表达式来实现相同的功能。</p>
 </div>
 <h2 id="_2">循环语句<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="for">for 循环<a class="headerlink" href="#for" title="Permanent link">&para;</a></h3>
+<h3 id="for"><code>for</code> 循环<a class="headerlink" href="#for" title="Permanent link">&para;</a></h3>
 <p><code>for</code> 循环用于遍历容器中的每一个元素，这与 C 风格的 <code>for</code> 循环大为不同，而与 Python 更加类似。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1999,7 +1999,7 @@
 <span class="c1">// 实际上这里的求和可以通过迭代器用更优雅和快速的方法重写，此处仅仅作为演示。</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="while">while 循环<a class="headerlink" href="#while" title="Permanent link">&para;</a></h3>
+<h3 id="while"><code>while</code> 循环<a class="headerlink" href="#while" title="Permanent link">&para;</a></h3>
 <p><code>while</code> 循环与 C/C++ 较为类似，仅仅给出代码样例。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2014,7 +2014,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="loop">loop 循环<a class="headerlink" href="#loop" title="Permanent link">&para;</a></h3>
+<h3 id="loop"><code>loop</code> 循环<a class="headerlink" href="#loop" title="Permanent link">&para;</a></h3>
 <p><code>loop</code> 循环是显式的死循环，会一直重复执行直到显式 <code>break</code> 为止。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2035,8 +2035,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>实际上，以上的三种循环也都是表达式，而且对于 <code>loop</code>， <code>break</code> 可以返回这个表达式的值。
-这里提供一个 <code>3n+1</code> 问题的代码来展示它的表达式本质：</p>
+<p>实际上，以上的三种循环也都是表达式，而且 <code>loop</code> 中的 <code>break</code> 可以返回这个表达式的值。这里提供一个 <code>3n + 1</code> 问题的代码来展示它的表达式本质：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2056,7 +2055,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"> </span><span class="c1">// must_be_one 的值应当为1</span>
+<span class="p">};</span><span class="w"> </span><span class="c1">// must_be_one 的值应当为 1</span>
 <span class="c1">// 如果你发现程序没有结束，请多等一会</span>
 </code></pre></div>
 </td></tr></table>
@@ -2068,7 +2067,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年12月20日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2079,7 +2078,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:zcyjim@outlook.com'>ChrisZhang</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (7.61%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (92.39%)</span>
             </small>
         </div>
     
@@ -2122,13 +2121,13 @@
       
       
         
-        <a href="../function/" class="md-footer__link md-footer__link--next" aria-label="下一页: Rust 的变量" rel="next">
+        <a href="../function/" class="md-footer__link md-footer__link--next" aria-label="下一页: Rust 的函数" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Rust 的变量
+              Rust 的函数
             </div>
           </div>
           <div class="md-footer__button md-icon">

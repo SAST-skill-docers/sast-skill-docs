@@ -1140,7 +1140,7 @@
   
     <li class="md-nav__item">
       <a href="../../../languages/rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1963,7 +1963,7 @@
 <li>对于 <code>Component</code>：通过 <code>state</code> 获取值；调用 <code>setState</code> 更改值</li>
 <li>对于纯函数组件：<code>useState</code> 的两个返回值，分别对应获取和更改</li>
 </ul>
-<p>实际上，View 和 React 中的纯函数组件概念上是一样的。SwiftUI 通过 Swift 的 property wrapper 语法，将获取值、设定值 + 更新 UI 简化为一个变量的读取和设定，而 React 因为语言的限制，设定值 + 更新 UI 只能采用调用函数的方法。</p>
+<p>实际上，View 和 React 中的纯函数组件概念上是一样的。SwiftUI 通过 Swift 的 property wrapper 语法，将获取值、设定值以及更新 UI 简化为一个变量的读取和设定，而 React 因为语言的限制，设定值以及更新 UI 只能采用调用函数的方法。</p>
 </div>
 <h2 id="binding">Binding<a class="headerlink" href="#binding" title="Permanent link">&para;</a></h2>
 <p><code>@State</code> 解决了在<strong>单个</strong> View 中根据数据更新 View 的问题。但是，有时我们为了重用代码或保持代码的简洁，需要将一些 View 拆分出来，这就产生了一个问题：<strong>如何在父 View 和子 View 中共享一个可由子 View 修改的值？</strong>也就是说，数据如何从子视图流向父视图？</p>
@@ -2074,7 +2074,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2085,7 +2085,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.42%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (94.58%)</span>
             </small>
         </div>
     

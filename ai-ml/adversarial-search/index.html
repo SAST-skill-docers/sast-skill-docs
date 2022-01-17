@@ -1140,7 +1140,7 @@
   
     <li class="md-nav__item">
       <a href="../../languages/rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -2284,8 +2284,8 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">some</span> <span class="n">configurable</span> <span class="n">value</span>
 
-<span class="k">def</span> <span class="nf">getinfo</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># 输入一个节点v，返回节点对应的 (s, w, n)</span>
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span> <span class="c1"># 更新节点的 v对应的状态 w = w + dw, n = n + 1</span>
+<span class="k">def</span> <span class="nf">getinfo</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># 输入一个节点 v，返回节点对应的 (s, w, n)</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span> <span class="c1"># 更新节点的 v 对应的状态 w = w + dw, n = n + 1</span>
 
 <span class="k">def</span> <span class="nf">UCT_search</span><span class="p">(</span><span class="n">S0</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">create_tree</span><span class="p">(</span><span class="n">S0</span><span class="p">)</span>
@@ -2310,7 +2310,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
             <span class="k">return</span> <span class="n">t</span>
 
 <span class="k">def</span> <span class="nf">best_child</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">getinfo</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">getinfo</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">I_max</span> <span class="o">=</span> <span class="o">-</span><span class="n">inf</span>
     <span class="n">r</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
@@ -2350,7 +2350,9 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 <li>人工智能导论</li>
 </ul>
 <h2 id="_8">参考资料<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>OI Wiki 中关于博弈论的相关介绍 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">https://oi-wiki.org/math/game-theory/impartial-game/</a></p>
+<ul>
+<li>OI Wiki 中关于博弈论的相关介绍 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">https://oi-wiki.org/math/game-theory/impartial-game/</a></li>
+</ul>
                 
                   
                     
@@ -2359,7 +2361,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月16日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2370,7 +2372,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (34.38%), <a href='mailto:lbrbzdr7very@163.com'>livingshade</a> (65.62%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (35.69%), <a href='mailto:lbrbzdr7very@163.com'>livingshade</a> (64.31%)</span>
             </small>
         </div>
     

@@ -1144,7 +1144,7 @@
   
     <li class="md-nav__item">
       <a href="../function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1861,8 +1861,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>结构体可以有方法和关联函数，在 <code>impl</code> 块中实现。
-包含 <code>self</code>, <code>&amp;self</code> 或 <code>&amp;mut self</code> 的函数为方法，由<code>结构体.方法名()</code>调用；不包含的为关联函数，用 <code>结构体名::关联函数名()</code> 的方式调用。</p>
+<p>结构体可以有方法和关联函数，在 <code>impl</code> 块中实现。包含 <code>self</code>、<code>&amp;self</code> 或 <code>&amp;mut self</code> 的函数为方法，由 <code>结构体.方法名()</code> 调用；不包含的为关联函数，用 <code>结构体名::关联函数名()</code> 的方式调用。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1892,14 +1891,14 @@
 <span class="n">bob</span><span class="p">.</span><span class="n">hello</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>执行以上代码将输出</p>
+<p>执行以上代码将输出：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello! My name is Bob.
 </code></pre></div>
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">与 C++ 的对照</p>
 <p>上文所述的方法和关联函数分别类似 C++ 中的方法和类方法（即在类中由 <code>static</code> 修饰的函数，不关联实例对象而关联类本身）。</p>
-<p>在构造和析构方面，由于 C++ 采用 <a href="https://zh.wikipedia.org/wiki/RAII">RAII</a> 进行内存管理，每一个类都包含一个或多个构造函数以及一个析构函数。Rust 没有构造函数，但我们常用一个关联函数来进行结构体对象的构建（如上文的<code>Person::new</code>）。Rust 采用 <code>Drop</code> trait 来管理对象的销毁，关于 trait 的讨论将在后续展开。 </p>
+<p>在构造和析构方面，由于 C++ 采用 <a href="https://zh.wikipedia.org/wiki/RAII">RAII</a> 进行内存管理，每一个类都包含一个或多个构造函数以及一个析构函数。Rust 没有构造函数，但我们常用一个关联函数来进行结构体对象的构建（如上文的 <code>Person::new</code>）。Rust 采用 <code>Drop</code> trait 来管理对象的销毁，关于 trait 的讨论将在后续展开。 </p>
 </div>
 <p>对于“不同类共享相同的行为”这样的要求，Rust 使用一个叫做 <code>trait</code> 的机制来实现。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1917,7 +1916,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>上文定义了一个叫做 <code>CanMakeSound</code> 的 <code>trait</code>，在其中 声明了 <code>make_sound</code> 方法而没有实现。如果要为一个类型实现 <code>trait</code>，则需要实现该 <code>trait</code> 的所有方法。实现 <code>trait</code> 的语法形如 <code>impl 特性名 for 类型名</code>。</p>
+<p>上文定义了一个叫做 <code>CanMakeSound</code> 的 <code>trait</code>，在其中声明了 <code>make_sound</code> 方法而没有实现。如果要为一个类型实现 <code>trait</code>，则需要实现该 <code>trait</code> 的所有方法。实现 <code>trait</code> 的语法形如 <code>impl 特性名 for 类型名</code>。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2001,7 +2000,7 @@
 <p><code>Trait Bound</code> 也可以不仅包含一个 <code>trait</code></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">some_function</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">Display</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Clone</span><span class="p">,</span><span class="w"> </span><span class="n">U</span>: <span class="nb">Clone</span> <span class="o">+</span><span class="w"> </span><span class="n">Debug</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span>: <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">u</span>: <span class="nc">U</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// 此处的 Display, Clone 和 Debug 都是 rust 语言提供的 trait</span>
+<span class="c1">// 此处的 Display、Clone 和 Debug 都是 rust 语言提供的 trait</span>
 </code></pre></div>
 </td></tr></table>
 <p>也可以采用 <code>where</code> 从句来简化过长的 <code>Trait Bound</code></p>
@@ -2018,7 +2017,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年12月20日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2029,7 +2028,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:zcyjim@outlook.com'>ChrisZhang</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (3.65%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (96.35%)</span>
             </small>
         </div>
     

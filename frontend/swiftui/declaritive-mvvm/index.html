@@ -1140,7 +1140,7 @@
   
     <li class="md-nav__item">
       <a href="../../../languages/rust/function/" class="md-nav__link">
-        Rust 的变量
+        Rust 的函数
       </a>
     </li>
   
@@ -1912,10 +1912,10 @@
 <span class="n">label</span><span class="p">.</span><span class="n">textColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemRed</span>
 </code></pre></div>
 </td></tr></table>
-<p>它们都创建了一个带有一定样式的文本 UI。然而，它们的构建方式有着本质上的不同。对于 SwiftUI，我们<strong>描述</strong> Text 及其字体、颜色等各种样式，而对于 UIKit，我们通过<strong>设定</strong>属性值来更改。前者称为「声明式」（declarative），而后者称为「命令式」(imperative)。</p>
+<p>它们都创建了一个带有一定样式的文本 UI。然而，它们的构建方式有着本质上的不同。对于 SwiftUI，我们<strong>描述</strong> Text 及其字体、颜色等各种样式，而对于 UIKit，我们通过<strong>设定</strong>属性值来更改。前者称为「声明式」（declarative），而后者称为「命令式」（imperative）。</p>
 <p>你可以从这两个词中体会到两种不同代码的显著区别。在 SwiftUI 中，我们不会使用“命令”语句来告诉一个 View “怎么做”，而是通过“声明”一个 View 以及它的结构、特征来告诉这个 View “做成怎样”。</p>
 <p>当 UI 的状态需要随着状态的变化而更新时，二者的优劣变得非常明显。<strong>命令式 UI 构建需要在每次状态更新时都通过一定的逻辑更新所有关联的 UI，而声明式 UI 构建只需要在一开始将所有可能的 UI 状态描述出来，就可以形成状态到 UI 的一个映射。</strong></p>
-<p>这两种方式的复杂程度差别有多大？作个简单的计算：假如我们的 UI 有 10 种可能的状态，那么命令式 UI 最多需要根据 <span><span class="MathJax_Preview">\binom{10}{2} = 45</span><script type="math/tex">\binom{10}{2} = 45</script></span> 种不同的状态<strong>转移</strong>定义来定义 UI 更新函数，而声明式 UI 最多不过需要定义 10 种不同状态下的 UI。更糟糕的是，一旦命令式 UI 的某一步 UI 更新出现问题，那么很可能接下来的更新都会导致错误的 UI。因此，当状态复杂到一定程度的时候，命令式 UI 的正确更新变得几乎不可能（回想一下你之前写过的命令式 UI，比如贵系同学们用 Qt 写过的大作业）。</p>
+<p>这两种方式的复杂程度差别有多大？作个简单的计算：假如我们的 UI 有 10 种可能的状态，那么命令式 UI 最多需要根据 <span><span class="MathJax_Preview">\dbinom{10}{2} = 45</span><script type="math/tex">\dbinom{10}{2} = 45</script></span> 种不同的状态<strong>转移</strong>定义来定义 UI 更新函数，而声明式 UI 最多不过需要定义 10 种不同状态下的 UI。更糟糕的是，一旦命令式 UI 的某一步 UI 更新出现问题，那么很可能接下来的更新都会导致错误的 UI。因此，当状态复杂到一定程度的时候，命令式 UI 的正确更新变得几乎不可能（回想一下你之前写过的命令式 UI，比如贵系同学们用 Qt 写过的大作业）。</p>
 <p>声明式 UI 的这种特征决定了它有很多与命令式 UI 不同的性质：</p>
 <ul>
 <li>没有对 UI 的引用。声明式 UI 只是一种对“UI 是怎样的”的描述，它对 UI 本身没有掌控。</li>
@@ -2006,7 +2006,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
@@ -2017,7 +2017,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:liang2kl@outlook.com'>梁业升</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.41%), <a href='mailto:liang2kl@outlook.com'>梁业升</a> (94.59%)</span>
             </small>
         </div>
     
