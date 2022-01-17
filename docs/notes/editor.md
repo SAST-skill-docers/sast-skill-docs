@@ -4,14 +4,50 @@
 
 文档目前存储于 [GitHub Repo](https://github.com/SAST-skill-docers/sast-skill-docs) 上，使用 GitHub Pages 部署成了目前的技能引导文档网站。如果您有意贡献到本项目，请您：
 
-+ 仔细阅读本编辑者须知下的编辑要求。
++ 仔细阅读本编辑者须知下的编辑要求，不符合下述编辑要求的贡献，审核团队可能会拒绝合并并要求您修改。
 + 将文档仓库 Fork 到个人账户。
 + 在本地对个人仓库的文档进行修改后进行 Commit。
 + 提请 Pull Request，审核团队会尽快审核您的贡献内容。
 
 ## 本地构建
 
-TODO
+在提请 PR 之前，您可以首先在本地构建文档并在浏览器中浏览，以确定自己的文档渲染正确且符合格式要求。
+
+构建之前，首先通过下述命令确保您的环境具有 Python 和 pip：
+
+```bash
+python --version
+pip --version
+```
+
+随后进入 Clone 到本地的仓库根目录，安装 Python 以来：
+
+```bash
+pip install -r requirements.txt
+```
+
+随后运行：
+
+```bash
+mkdocs serve
+```
+
+应当可以看到类似输出信息：
+
+```bash
+INFO     -  Building documentation...
+INFO     -  Cleaning site directory
+INFO     -  Documentation built in 8.75 seconds
+INFO     -  [17:16:02] Serving on http://127.0.0.1:8000/
+```
+
+这样就可以通过浏览器访问 `http://127.0.0.1:8000/` 查看本地构建的文档了。
+
+## 准确性
+
+请记住，编写者有义务确保贡献的文档没有事实错误。
+
+如果新贡献的文档超出了审核团队的专业知识范围，审核团队需要寻求其他专业人员的帮助，可能会导致审核周期延长。
 
 ## 文章立场
 
@@ -54,29 +90,6 @@ TODO
     + 若多个文档同时归属某个大主题，则可为该大主题新建文件夹存储。
 + 关于文档中需要展示的图片，请存储到 `/static` 下与文档相对 `/docs` 目录同名的文件夹中，并命名为 `内容概要.文件扩展名`。如 `/docs/basic/git.md` 的图片文件请存储为 `/static/basic/git/logo.png`。
 
-
-!!! caution "Markdown 的图片尺寸问题"
-
-    Markdown 没有控制图片尺寸的命令，其默认缩放图片以填满宽度。为了保证美观性和阅读体验，类似 Logo 等并不需要占满宽度的图片，请使用 HTML 标签控制其尺寸。例如：
-
-    ```html
-    <center>
-        <img src="https://i.loli.net/2021/10/10/NHZOsPCBmazyWjh.png" height="20%" width="20%">
-    </center>
-    ```
-
-!!! caution "带下标的图片"
-
-    Markdown 并不支持带下标的图片，所以请使用 HTML 标签。推荐使用：
-
-    ```html
-    <center>
-        <img src="https://i.loli.net/2021/09/28/Ti2VR4DtbgcdlkM.png" />
-        <img src="https://i.loli.net/2021/09/28/Dvpkbd7KjLTH2yl.png" />
-        <p style="text-align: center; margin-top: 0px; color: gray; padding: 0px">脚本文件的例子</p>
-    </center>
-    ```
-
 ## 文章格式
 
 !!! caution "换行符"
@@ -112,6 +125,32 @@ TODO
 + 行文中正文与超链接之间需要增加空格。
 + 全角字符和其他字符之间不加空格。
 + 专有名词使用正确的大小写。如使用缩写，则该缩写应已成为业界标准。
+
+### 使用图片
+
+图片是重要的辅助说明的工具，但是由于 Markdown 的图片工具并不完善，所以请注意以下要求。
+
+!!! caution "Markdown 的图片尺寸问题"
+
+    Markdown 没有控制图片尺寸的命令，其默认缩放图片以填满宽度。为了保证美观性和阅读体验，类似 Logo 等并不需要占满宽度的图片，请使用 HTML 标签控制其尺寸。例如：
+
+    ```html
+    <center>
+        <img src="https://i.loli.net/2021/10/10/NHZOsPCBmazyWjh.png" height="20%" width="20%">
+    </center>
+    ```
+
+!!! caution "带下标的图片"
+
+    Markdown 并不支持带下标的图片，所以请使用 HTML 标签。推荐使用：
+
+    ```html
+    <center>
+        <img src="https://i.loli.net/2021/09/28/Ti2VR4DtbgcdlkM.png" />
+        <img src="https://i.loli.net/2021/09/28/Dvpkbd7KjLTH2yl.png" />
+        <p style="text-align: center; margin-top: 0px; color: gray; padding: 0px">脚本文件的例子</p>
+    </center>
+    ```
 
 ### 使用折叠框
 
