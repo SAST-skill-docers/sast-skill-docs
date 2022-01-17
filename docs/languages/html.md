@@ -2,7 +2,7 @@
 
 ## 初始 HTML
 
-HTML 的全称为 **H**yper **T**ext **M**arkup **L**anguage（超文本标记语言），是一种用于描述网页的标记语言。 互联网上五彩缤纷的网页就是使用 HTML 进行描述的。
+HTML 的全称为 **H**yper **T**ext **M**arkup **L**anguage（超文本标记语言），是一种用于描述网页的标记语言。互联网上五彩缤纷的网页就是使用 HTML 进行描述的。
 
 这是最简单的 HTML 文本：
 
@@ -14,7 +14,7 @@ HTML 的全称为 **H**yper **T**ext **M**arkup **L**anguage（超文本标记�
 </body>
 ```
 
-你可以点击<a href="/static/languages/html/0.html" target="blank">链接</a>在浏览器中预览这段 HTML 文本。
+你可以点击 <a href="/static/languages/html/0.html" target="blank">链接</a> 在浏览器中预览这段 HTML 文本。
 
 不难发现，HTML 文本由层级结构组成。每一级内容被一对 HTML 标签包围，构成一个 **HTML 元素**。元素之间**可以嵌套**。
 
@@ -73,7 +73,7 @@ HTML 可以满足绝大多数文本排版需求。
 </body>
 ```
 
-你可以点击<a href="/static/languages/html/1.html" target="blank">链接</a>在浏览器中预览这段 HTML 文本。
+你可以点击 <a href="/static/languages/html/1.html" target="blank">链接</a> 在浏览器中预览这段 HTML 文本。
 
 !!! info "元素的属性"
 
@@ -98,7 +98,7 @@ HTML 可以描述有序和无序列表。
 </body>
 ```
 
-你可以点击<a href="/static/languages/html/2.html" target="blank">链接</a>在浏览器中预览这段 HTML 文本。
+你可以点击 <a href="/static/languages/html/2.html" target="blank">链接</a> 在浏览器中预览这段 HTML 文本。
 
 你可以在 HTML 文本中添加互联网上的图片。
 
@@ -109,7 +109,7 @@ HTML 可以描述有序和无序列表。
 </body>
 ```
 
-你可以点击<a href="/static/languages/html/3.html" target="blank">链接</a>在浏览器中预览这段 HTML 文本。
+你可以点击 <a href="/static/languages/html/3.html" target="blank">链接</a> 在浏览器中预览这段 HTML 文本。
 
 你可以在 HTML 文本中插入表格。
 
@@ -128,7 +128,7 @@ HTML 可以描述有序和无序列表。
 </body>
 ```
 
-你可以点击<a href="/static/languages/html/4.html" target="blank">链接</a>在浏览器中预览这段 HTML 文本。
+你可以点击 <a href="/static/languages/html/4.html" target="blank">链接</a> 在浏览器中预览这段 HTML 文本。
 
 阅读学习了上述示例代码后，我们可以总结一下我们所学到的典型的 HTML 元素与属性。
 

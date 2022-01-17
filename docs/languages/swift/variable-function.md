@@ -129,7 +129,8 @@ func add(_ a: Int, _ b: Int) -> Int {...}
 add(1, 2)
 ```
 
-!!!note
+!!! note
+
     Swift 的标签和参数名的设计有以下几点好处：
 
     **1. 需要明确写出标签，使得调用时语义更加明确。**
@@ -155,7 +156,7 @@ add(1, 2)
     copyMemory(from: buffer1, to: buffer2)
     ```
 
-    这样调整之后，函数调用 `copyMemory(from: buffer1, to: buffer2)` 就可以用英文从左往右读出来：“Copy memory from buffer 1 to buffer 2”。这是 Swift 的[三个特点](https://www.swift.org/about/)之一：expressive。
+    这样调整之后，函数调用 `copyMemory(from: buffer1, to: buffer2)` 就可以用英文从左往右读出来：“Copy memory from buffer 1 to buffer 2”。这是 Swift 的 [三个特点](https://www.swift.org/about/) 之一：expressive。
 
     同时，函数体内部引用两个参数时仍然保持 `source` 和 `dest` 的语义，避免了 `print("Copying from \(from) to \(to)")` 这样的情形。
 

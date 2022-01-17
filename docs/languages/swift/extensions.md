@@ -24,5 +24,4 @@
 
 以上内容均来自于 [Swift 官方教程](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)。
 
-
 作为主要用于 iOS 等平台应用开发的语言，Swift 的很多语法都是为了解决开发的问题而设计的。因此，只有真正上手应用开发，在开发中不断遇到问题、解决问题，才能真正掌握 Swift 语言。

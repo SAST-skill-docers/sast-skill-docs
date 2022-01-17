@@ -112,7 +112,7 @@ nav:
       - Rust 入门的一点经验: languages/rust/whyrust.md
       - Rust 的变量与类型: languages/rust/variable.md
       - Rust 中的流程控制: languages/rust/control.md
-      - Rust 的变量: languages/rust/function.md
+      - Rust 的函数: languages/rust/function.md
       - Rust 模式匹配: languages/rust/matching.md
       - Rust 的结构体: languages/rust/struct.md
       - Rust 的引用与借用: languages/rust/reference.md

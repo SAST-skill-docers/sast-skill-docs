@@ -69,7 +69,8 @@ VStack {
 
 我们将在下面进一步介绍 View 的排列。
 
-!!!note "`VStack` 构造函数的参数"
+!!! note "`VStack` 构造函数的参数"
+
     上面的 `VStack` 以及大括号包括的内容，实际上是 `VStack` 的构造函数。根据文档，`VStack` 构造函数的签名如下：
     
     ```swift
@@ -162,7 +163,7 @@ var body: some View {
 
 ### 组件
 
-#### Text
+**只读文本 `Text`**
 
 用于显示只读文本。
 
@@ -220,11 +221,12 @@ start + remaining
 
 ![](../../static/frontend/swiftui/build-views-text-4.webp)
 
-#### Image
+**图片 `Image`**
 
 显示图标或资源文件图片。
 
-!!!note "添加图片资源的方法"
+!!! note "添加图片资源的方法"
+
     - Swift Playgrounds：将图片拖动到文件目录中
     - Xcode Project：将图片拖动到 `Assets.xcassets` 中。
 
@@ -238,7 +240,8 @@ Image(systemName: "swift")
 
 ![](../../static/frontend/swiftui/build-views-image-1.webp)
 
-!!!info
+!!! info
+
     关于系统内置图标的查询，请参考 [SF Symbols](https://developer.apple.com/sf-symbols/)。
 
 使用 `Image(_:)` 显示资源文件。
@@ -275,7 +278,8 @@ Image("wwdc21")
 
 一个 `Image` 如果不加上 `.resizable()` 的话只会按照固有像素显示，只有加上 `.resizable()` 才能进行缩放。`.aspectRatio(_:contentMode:)` 使得 `Image` 能够根据可用空间和长宽比进行缩放。
 
-!!!note "`Image` 的布局性质"
+!!! note "`Image` 的布局性质"
+
     注意，`Image` 所占的空间可能会超出可用的空间。对于上面的 Case 4，在 Xcode 预览中选中图片，可以看到其大小：
 
     ![](../../static/frontend/swiftui/build-views-image-6.webp)
@@ -290,7 +294,7 @@ Image("wwdc21")
     }
     ```
 
-#### Label
+**图标 & 文字 `Label`**
 
 显示图标和文字。
 
@@ -304,10 +308,11 @@ Label("Swift Programming Language", systemImage: "swift")
 
 另外，你可以用 `.font(_:)` 修改其字体。
 
-!!!note "`Label` 的特殊之处"
+!!! note "`Label` 的特殊之处"
+
     `Label` 相较于普通的左右排布（接下来要介绍的 `HStack`）的特殊之处在于，在某些系统原生的排列中，多个 `Label` 的图标和文字会自动对齐。
 
-#### Button
+**按钮 `Button`**
 
 按钮。
 
@@ -337,7 +342,8 @@ Button {
 }
 ```
 
-!!!note "Multiple Trailing Closures"
+!!! note "Multiple Trailing Closures"
+
     如果一个函数最后若干个参数均为函数，如：
 
     ```swift
@@ -371,7 +377,7 @@ Button("Button") {
 
 ![](../../static/frontend/swiftui/build-views-button-1.webp)
 
-#### Menu
+**菜单 `Menu`**
 
 创建点击显示的菜单。
 
@@ -408,7 +414,7 @@ Image(systemName: "swift")
 
 ### 布局与排列
 
-#### HStack
+**水平布局 `HStack`**
 
 水平布局。
 
@@ -428,7 +434,8 @@ HStack {
 
 另外，`HStack` 还有两个可选参数 `alignment` 和 `spacing`，用于设置对齐和间距。比如，`HStack(alignment: .top, spacing: 20)` 将使子 View 在顶部对齐，两两之间的间距为 `20`。
 
-!!!note "不同 View 具有不同的布局特性"
+!!! note "不同 View 具有不同的布局特性"
+
     注意到，三个 `Text` 并没有占满所有所有空间，而是只占据了所需要的最小空间，这是由 `Text` 的布局特性决定的。与之相对，`Color` 将尽可能占据多的空间：
 
     ```swift
@@ -452,7 +459,7 @@ HStack {
 
     通过 `fixedSize`、`layoutPriority`、`frame` 等 modifier，可以更改 View 的布局特性，在此不再展开。
 
-#### VStack
+**垂直布局 `VStack`**
 
 垂直布局，与 `HStack` 类似。
 
@@ -468,7 +475,7 @@ VStack {
 
 ![](../../static/frontend/swiftui/build-views-vstack-1.webp)
 
-#### ZStack
+**上下布局 `ZStack`**
 
 上下布局，先写的 View 排布在底层。
 
@@ -485,7 +492,8 @@ ZStack {
 
 与 `HStack` 和 `VStack` 类似，你可以通过构造函数中的 `alignment` 参数指定这些 View 对齐的方式。
 
-!!!note "`ZStack` 和 `.overlay(_:)`"
+!!! note "`ZStack` 和 `.overlay(_:)`"
+
     我们还有另外一种方式进行 View 的层叠：
 
     ```swift
@@ -521,7 +529,7 @@ ZStack {
 
     可以看到，`ZStack` 以**最大元素**的大小作为其大小，而 `.overlay()` 始终限制在被其修饰的 View 的大小内。
 
-#### Spacer
+**间距工具 `Spacer`**
 
 间距工具。
 
@@ -538,7 +546,8 @@ HStack {
 .background(Color.gray)
 ```
 
-!!!note
+!!! note
+
     这里的 `.background(_:)` 只是为了更明显地显示 `HStack` 内部的排列。
 
 效果为：
@@ -573,9 +582,9 @@ Spacer(minLength: 20)
     .fixedSize()
 ```
 
-#### 其他容器
+**其他容器**
 
-SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以参考[官方文档](https://developer.apple.com/documentation/swiftui/view-layout-and-presentation)。一些常用的 View 有：
+SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以参考 [官方文档](https://developer.apple.com/documentation/swiftui/view-layout-and-presentation)。一些常用的 View 有：
 
 - [`ScrollView`](https://developer.apple.com/documentation/swiftui/scrollview)：可滑动视图
 - [`List`](https://developer.apple.com/documentation/swiftui/list)：设置等系统 app 使用的列表视图
@@ -584,7 +593,8 @@ SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以�
 - [`LazyVStack`](https://developer.apple.com/documentation/swiftui/lazyvstack) 和 [`LazyHStack`](https://developer.apple.com/documentation/swiftui/lazyhstack)：惰性 Stack 容器
 - [`LazyVGrid`](https://developer.apple.com/documentation/swiftui/lazyvgrid) 和 [`LazyHGrid`](https://developer.apple.com/documentation/swiftui/lazyhgrid)：网格容器
 
-???question "练习：原生 View 与基本布局"
+??? question "练习：原生 View 与基本布局"
+
     利用 `VStack`、`HStack` 和其他原生 View，构建一个如下图所示的 View：
 
     ![](../../static/frontend/swiftui/build-views-ex-1.webp)
@@ -594,7 +604,8 @@ SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以�
     1. 一个固定大小的圆可以用 `Circle().frame(...)` 生成
     2. 图标对应的 system name 为 `star`
 
-    ???example "参考代码"
+    ??? example "参考代码"
+
         ```swift
         VStack(alignment: .leading, spacing: 15) {
             HStack {
@@ -630,7 +641,7 @@ SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以�
 
 ### 组合
 
-#### Group
+**Group**
 
 将多个 View 组合起来处理，或用于添加逻辑控制。
 
@@ -669,7 +680,7 @@ Color.yellow
 !!!note
     请查阅 `.overlay()` 的文档，找出这里的 `.overlay()` 和上面 `ZStack` 中提到的 `.overlay()` 的区别。
 
-#### ForEach
+**ForEach**
 
 迭代一个集合内的元素，并依次生成 View，类似于 for 循环。
 
@@ -729,7 +740,8 @@ ForEach(students.indices, id: \.self) { index in
 
 这里 `\.self` 用到 Swift 的 [`KeyPath`](https://developer.apple.com/documentation/swift/keypath)，`\.self` 的意思是返回下标本身（`Int`），使用其所为区分不同元素的 id。
 
-!!!info
+!!! info
+
     关于不同 View 在底层是如何区分的，参考 [WWDC21: Demystify SwiftUI](https://developer.apple.com/videos/play/wwdc2021/10022/)。
 
 另外，需要注意的是 `ForEach` 和 `Group` 类似，并不把其中的 View 变成一整个 View；对其添加 modifier 相当于对各个子 View 添加。
@@ -811,4 +823,4 @@ VStack {
 .defaultContainerStyle()
 ```
 
-另外，可以通过 [`ViewModifier`](https://developer.apple.com/documentation/swiftui/viewmodifier/) 协议定义作用更强的 modifier，可以拥有状态（见[数据流基础](./data-flow.md)），在这里不再赘述。
+另外，可以通过 [`ViewModifier`](https://developer.apple.com/documentation/swiftui/viewmodifier/) 协议定义作用更强的 modifier，可以拥有状态（见 [数据流基础](./data-flow.md)），在这里不再赘述。

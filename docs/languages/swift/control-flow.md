@@ -1,4 +1,4 @@
-## if
+## `if` 语句
 
 使用 `if` 进行条件判断，不需要加括号，值必须为 `Bool` 类型：
 
@@ -61,7 +61,7 @@ if let stringCount = b.a?.foo?.count {
 
 在一条“链” `b.a?.foo?.count` 中，`a` 和 `foo` 都有可能为空，当其中之一为空时，`stringCount` 为 `nil`；当均不为空时，`stringCount` 非空。
 
-## guard
+## `guard` 语句
 
 使用 `guard...else` 来处理需要跳出当前作用域的情形。`guard` 后可以是条件表达式，也可以是与 `if let` 类似的对 Optional 的解包：
 
@@ -77,7 +77,8 @@ func iterate(_ array: [Int]?) {
 
 `guard` 后必须有 `else` 语句，表示条件不成立（`guard let` 语句中是值为 `nil`）时如何处理并退出。注意，`else` 语句中必须退出当前函数（`return`）、抛出异常或触发严重错误（`fatalError()`）。总之，**不成立时，函数不能够继续执行**。
 
-!!!note "何时使用 `guard`"
+!!! note "何时使用 `guard`"
+
     `guard` 语句其实可以用 `if` 语句替代：
 
     ```swift
@@ -108,9 +109,9 @@ func iterate(_ array: [Int]?) {
 
     如果使用 `if`，上面的情况不会产生编译错误，可能要到运行期间出现问题才能发现错误。
 
-## for
+## `for` 循环语句
 
-[在 Swift 3 中，C 风格 for 循环被删除](https://github.com/apple/swift-evolution/blob/main/proposals/0007-remove-c-style-for-loops.md)，从此 Swift 只支持 `for ... in ...` 类型的 for 循环。
+[在 Swift 3 中，C 风格 for 循环被删除](https://github.com/apple/swift-evolution/blob/main/proposals/0007-remove-c-style-for-loops.md)，从此 Swift 只支持 `for ... in ...` 类型的 `for` 循环。
 
 Swift 中范围可以用 `...` 和 `..<` 表示，前者表示闭区间，后者表示前闭后开区间；使用 `stride(from:to:by:)` 以特定步长进行遍历：
 
@@ -136,7 +137,7 @@ for value in [1, 2, 3] {
 }
 ```
 
-## while 和 repeat-while
+## `while` 和 `repeat-while` 语句
 
 `while` 循环和 C/C++ 相同，`repeat-while` 循环对应 `do-while` 循环：
 
@@ -150,11 +151,11 @@ repeat {
 } while condition
 ```
 
-## switch
+## `switch` 语句
 
 `switch` 语句用于匹配值，可以用范围表达式进行范围匹配。
 
-与 C/C++ 不同吗，匹配后跳出 `switch` 不需要 `break` 语句，如果需要跳到下一个 case，使用 `fallthrough`。
+与 C/C++ 不同，匹配后跳出 `switch` 不需要 `break` 语句，如果需要跳到下一个 `case`，使用 `fallthrough`。
 
 ```swift
 let age = 21
@@ -172,8 +173,9 @@ default:
 // Young People
 ```
 
-!!!info
-    Swift 中的 `switch` 语句有非常多用法，详见[官方文档](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID127)。
+!!! info
+
+    Swift 中的 `switch` 语句有非常多用法，详见 [官方文档](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID127)。
 
 ## 控制转移
 

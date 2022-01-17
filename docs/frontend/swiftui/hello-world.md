@@ -1,17 +1,18 @@
-!!!info
-    目前（2022 年 1 月）主流的 iOS 开发使用 Xcode 项目（Xcode project）进行，本文为了支持 iPadOS 平台并简化说明，使用最新的由 Swift Package Manager 管理的项目格式，此格式在 13.2 以上版本的 Xcode 上同样支持。实际开发时建议使用更加完善的 Xcode projcet。
+!!! info
+
+    目前（2022 年 1 月）主流的 iOS 开发使用 Xcode 项目（Xcode project）进行，本文为了支持 iPadOS 平台并简化说明，使用最新的由 Swift Package Manager 管理的项目格式，此格式在 13.2 以上版本的 Xcode 上同样支持。实际开发时建议使用更加完善的 Xcode project。
 
 ## 创建项目
 
-**Swift Playgrounds（iPad）**
+### Swift Playgrounds（iPad）
 
 在 Swift Playgrounds（4.0 以上版本）中，选择底部的 `App`。
 
-**Xcode Swift Playground App**
+### Xcode Swift Playground App
 
 在 Xcode（13.2 以上版本）中，选择 `File > New > Project` 中的 `Swift Playground App`。
 
-**Xcode Project**
+### Xcode Project
 
 传统的 Xcode project，部分内容与 Swift Playground App 不同。
 
@@ -38,7 +39,7 @@
 
 ![](../../static/frontend/swiftui/hello-world-files.jpeg)
 
-这两个文件，就是一个完整的可运行的 Hello World 程序。`MyApp.swift` 中的内容在本教程中不涉及，可以参考[后续拓展](./extensions.md)中的“SwiftUI 生命周期”。
+这两个文件，就是一个完整的可运行的 Hello World 程序。`MyApp.swift` 中的内容在本教程中不涉及，可以参考 [后续拓展](./extensions.md) 中的“SwiftUI 生命周期”。
 
 ## 深入 Hello World
 
@@ -89,11 +90,14 @@ struct ContentView: View {
 
 `body` 是一个类型为 `some View` 的计算变量。`some` 的含义是：**“这个类型遵循 `View` 这个协议，但我不方便写出这个类型，需要编译器来确定它的类型”**。也就是说，`body` 实际上是有一个确定的类型的，只不过我们不显式地写出来。这是一种叫做 [opaque return type](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html) 的语法。
 
-{>>你可以在下文中的《body 的具体类型》看到为什么“不方便写出这个类型”<<}
+!!! note
+    
+    你可以在下文中的《`body` 的具体类型》看到为什么“不方便写出这个类型”。
 
 这也告诉我们，我们定义 View，实际上就是是返回另一个 View。**你没有办法在不利用已有 View 的情况下凭空生成一个 View。**
 
-???note "关于 `View` 中的 `associatedtype`"
+??? note "关于 `View` 中的 `associatedtype`"
+
     `View` 的定义中有一个遵循 `View`、名为 `Body` 的 [`associatedtype`](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID189)，并且 `body` 的类型实际上就是这个 `Body`：
 
     ```swift
@@ -110,7 +114,8 @@ struct ContentView: View {
 
     你可以从中看到 `some` 不可或缺的作用。
 
-???note "为什么不能以 `View` 作为类型"
+??? note "为什么不能以 `View` 作为类型"
+
     如果你把 `some View` 改成 `View`，会出现编译错误：
 
     ```
@@ -163,7 +168,8 @@ Image(systemName: "globe")
 
 每次添加 modifier，这个表达式的类型依然是某种 `View`，而形式上看上去就像是不断给 `Image` 加上不同的样式一样。
 
-???note "查看文档的几种方式"
+??? note "查看文档的几种方式"
+
     - Swift Playgrounds
         - 点击导航栏的 `(...) > 文档`，可以浏览所有文档
         - 在任意符号上（变量、函数、类型、协议等）鼠标右键点击（或触摸点击），选择 `帮助`，可以快速查看该符号相关文档
@@ -172,7 +178,8 @@ Image(systemName: "globe")
         - 在任意符号上，按住 ++option++ 并点击该符号，可以快速查看文档
     - 网页版文档：https://developer.apple.com/documentation/technologies
 
-???note "关于 View Modifier 与 `View` 的值类型"
+??? note "关于 View Modifier 与 `View` 的值类型"
+
     `struct` 是值类型，每次添加 modifier 都会生成一个新的副本，并不会改变原来的 View。例如：
 
     ```swift
@@ -182,7 +189,8 @@ Image(systemName: "globe")
 
     `view1` 并不会添加 padding。Modifier 是完全没有副作用的。
 
-???note "`body` 的具体类型"
+??? note "`body` 的具体类型"
+
     值得注意的是，每次添加 modifier，`body` 的实际类型都会发生改变：
 
     ```swift
@@ -204,7 +212,8 @@ Image(systemName: "globe")
 
     这里 `_EnvironmentKeyWritingModifier` 是 SwiftUI 内置的私有类型，对外不可见。容易指出，`ModifiedContent` 遵循 `View`。
 
-    ???note "如何查看 View 的类型"
+    ??? note "如何查看 View 的类型"
+
         你可以用 Swift 的命令行工具进行快速的实验：
 
         ```swift
@@ -249,4 +258,4 @@ struct ContentView: View {
 }
 ```
 
-Hello World 程序中还有一个令人迷惑的地方：`VStack` 的构造函数中的内容看上去就像 HTML 一样，结构非常直观，但并不像是一般的 Swift 语言。实际上，这的确是类型安全、静态类型的 Swift 语言，而且这种语法就是为了 SwiftUI 而设计的。这个问题，我们留到[构建 View](./build-views.md)中介绍。
+Hello World 程序中还有一个令人迷惑的地方：`VStack` 的构造函数中的内容看上去就像 HTML 一样，结构非常直观，但并不像是一般的 Swift 语言。实际上，这的确是类型安全、静态类型的 Swift 语言，而且这种语法就是为了 SwiftUI 而设计的。这个问题，我们留到 [构建 View](./build-views.md) 中介绍。

@@ -1,8 +1,8 @@
 ## 运算相关
 
-- `Int`：整型，在 32 / 64 位机器上分别为 32 / 64 位，如无特殊需求直接使用 `Int` 即可
-- `Double`：双精度浮点数
-- `Float`：单精度浮点数
+- `Int`。整型，在 32 / 64 位机器上分别为 32 / 64 位，如无特殊需求直接使用 `Int` 即可
+- `Double`。双精度浮点数
+- `Float`。单精度浮点数
 
 这些类型均为 `struct`，也就是说，它们是值类型，传递副本。
 
@@ -17,7 +17,7 @@ Swift 没有 `++` 运算符，使用 `+= 1` 代替。
 
 ## 字符串
 
-**字符串与字符串字面值**
+### 字符串与字符串字面值
 
 Swift 中，字符串类型为 `String`，也是 `struct`。
 
@@ -57,9 +57,9 @@ var myString = "Swift"
 myString += " Programming Language"
 ```
 
-**字符串格式化**
+### 字符串格式化
 
-Swift 字符串有一种与 Python 中的 f-string 类似的将任意类型变量插入字符串的方法：
+Swift 字符串有一种与 Python 中的 `fstring` 类似的将任意类型变量插入字符串的方法：
 
 ```swift
 let name = "Jack"
@@ -75,7 +75,7 @@ print(String(format: "Hello, %@", name))
 
 ## 集合类型
 
-### Array
+### 可变数组 `Array`
 
 可变数组，相当于 `std::vector`，为**值类型**。
 
@@ -145,7 +145,7 @@ for index in values.indices {
 }
 ```
 
-### Dictionary
+### 键值对 `Dictionary`
 
 键值对，对应 `std::map`，值的类型必须相同。
 

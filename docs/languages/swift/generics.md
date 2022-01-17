@@ -20,7 +20,8 @@ func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
 }
 ```
 
-!!!info
+!!! info
+
     `inout` 关键字用于函数参数，表示传递引用而非值，详见 [官方教程](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166)。
 
 调用时，由于 Swift 有自动类型推断，不需要显式写出类型：
@@ -70,7 +71,8 @@ struct MyIntArray: Sequence {
 
 在这里，我们使用 `typealias` 指出了 `Sequence` 中 `Element` 的类型为 `Int`。
 
-!!!note typealias
+!!! note "`typealias`"
+
     `typealias` 关键字用来给类型赋予别名，类似于 C 中的 `typedef` 和 C++ 中的 `using`。
 
 ## 类型约束
@@ -79,7 +81,7 @@ struct MyIntArray: Sequence {
 
 ```swift
 func isEqual<T: Equatable>(lhs: T, rhs: T) -> Bool {
-    return lhs == rhs   // equatable
+    return lhs == rhs // equatable
 }
 
 struct EquatableArray<Element> where Element: Equatable {...}

@@ -18,8 +18,7 @@ let alice = Person {
 }
 ```
 
-结构体可以有方法和关联函数，在 `impl` 块中实现。
-包含 `self`, `&self` 或 `&mut self` 的函数为方法，由`结构体.方法名()`调用；不包含的为关联函数，用 `结构体名::关联函数名()` 的方式调用。
+结构体可以有方法和关联函数，在 `impl` 块中实现。包含 `self`、`&self` 或 `&mut self` 的函数为方法，由 `结构体.方法名()` 调用；不包含的为关联函数，用 `结构体名::关联函数名()` 的方式调用。
 
 ```rust
 impl Person {
@@ -38,7 +37,7 @@ let bob = Person::new(19, String::from("Bob"));
 bob.hello();
 ```
 
-执行以上代码将输出
+执行以上代码将输出：
 
 ```text
 Hello! My name is Bob.
@@ -48,7 +47,7 @@ Hello! My name is Bob.
 
     上文所述的方法和关联函数分别类似 C++ 中的方法和类方法（即在类中由 `static` 修饰的函数，不关联实例对象而关联类本身）。
 
-    在构造和析构方面，由于 C++ 采用 [RAII](https://zh.wikipedia.org/wiki/RAII) 进行内存管理，每一个类都包含一个或多个构造函数以及一个析构函数。Rust 没有构造函数，但我们常用一个关联函数来进行结构体对象的构建（如上文的`Person::new`）。Rust 采用 `Drop` trait 来管理对象的销毁，关于 trait 的讨论将在后续展开。 
+    在构造和析构方面，由于 C++ 采用 [RAII](https://zh.wikipedia.org/wiki/RAII) 进行内存管理，每一个类都包含一个或多个构造函数以及一个析构函数。Rust 没有构造函数，但我们常用一个关联函数来进行结构体对象的构建（如上文的 `Person::new`）。Rust 采用 `Drop` trait 来管理对象的销毁，关于 trait 的讨论将在后续展开。 
 
 对于“不同类共享相同的行为”这样的要求，Rust 使用一个叫做 `trait` 的机制来实现。
 
@@ -62,7 +61,7 @@ trait CanMakeSound {
 }
 ```
 
-上文定义了一个叫做 `CanMakeSound` 的 `trait`，在其中 声明了 `make_sound` 方法而没有实现。如果要为一个类型实现 `trait`，则需要实现该 `trait` 的所有方法。实现 `trait` 的语法形如 `impl 特性名 for 类型名`。
+上文定义了一个叫做 `CanMakeSound` 的 `trait`，在其中声明了 `make_sound` 方法而没有实现。如果要为一个类型实现 `trait`，则需要实现该 `trait` 的所有方法。实现 `trait` 的语法形如 `impl 特性名 for 类型名`。
 
 ```rust
 impl CanMakeSound for Cat {
@@ -127,7 +126,7 @@ fn animal_make_sound<T: CanMakeSound>(animal: T) -> String {
 
 ```rust
 fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32;
-// 此处的 Display, Clone 和 Debug 都是 rust 语言提供的 trait
+// 此处的 Display、Clone 和 Debug 都是 rust 语言提供的 trait
 ```
 
 也可以采用 `where` 从句来简化过长的 `Trait Bound`

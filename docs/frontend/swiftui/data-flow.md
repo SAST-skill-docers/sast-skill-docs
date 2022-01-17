@@ -57,13 +57,14 @@ Left side of mutating operator isn't mutable: 'self' is immutable
 
 于是，通过 `@State`，我们实现了 **UI 与数据的绑定**，只要 `count` 更新，整个 View 就会被重新计算。我们的 UI 在任何时刻都反映了数据最新的值，我们只需要修改数据，而无需手动地更新 UI。
 
-!!!note "React 中的类似方法"
+!!! note "React 中的类似方法"
+
     如果你对 React 有所了解，`@State` 相当于：
 
     - 对于 `Component`：通过 `state` 获取值；调用 `setState` 更改值
     - 对于纯函数组件：`useState` 的两个返回值，分别对应获取和更改
 
-    实际上，View 和 React 中的纯函数组件概念上是一样的。SwiftUI 通过 Swift 的 property wrapper 语法，将获取值、设定值 + 更新 UI 简化为一个变量的读取和设定，而 React 因为语言的限制，设定值 + 更新 UI 只能采用调用函数的方法。
+    实际上，View 和 React 中的纯函数组件概念上是一样的。SwiftUI 通过 Swift 的 property wrapper 语法，将获取值、设定值以及更新 UI 简化为一个变量的读取和设定，而 React 因为语言的限制，设定值以及更新 UI 只能采用调用函数的方法。
 
 ## Binding
 
@@ -111,10 +112,12 @@ struct ContentView: View {
 
 在 `IncrementButton` 中修改 `value`，`ContentView` 中的 `count` 就会同步变化。换而言之，我们实现了**父 View 和子 View 数据的绑定。**
 
-!!!note "关于 `$count`"
+!!! note "关于 `$count`"
+
     在变量名前加 `$` 并不是一种语法，而是编译器自动给 `ContentView` 加上了一个变量名为 `$count` 的成员变量，它的类型为 `Binding`。
 
-!!!note "更多的原生 View"
+!!! note "更多的原生 View"
+
     掌握了 `@Binding` 后，你可以使用更多的与数据相关的原生 View 了。比如，一个文本框：
 
     ```swift
@@ -125,7 +128,8 @@ struct ContentView: View {
 
     你可以在文档中探索更多的原生 View。
 
-???note "`$count` 的实质"
+??? note "`$count` 的实质"
+
     在文档中，你可以看到 `Binding` 有这样一种构造函数：
 
     ```swift

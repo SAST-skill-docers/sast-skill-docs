@@ -18,7 +18,7 @@ Visual Studio Code + Rust Analyzer 可以构建起很好的 Rust 编程环境。
 
 ## 看文档
 
-[标准库文档](https://doc.rust-lang.org/stable/std/)可以解决很多编程时遇到的困难。而且即使是在断网的情况下，你也可以通过执行 `rustup doc` 来打开完整的本地 Rust 文档。查阅文档是非常重要的，对于 Rust 能力的提升也很有益！
+[标准库文档](https://doc.rust-lang.org/stable/std/) 可以解决很多编程时遇到的困难。而且即使是在断网的情况下，你也可以通过执行 `rustup doc` 来打开完整的本地 Rust 文档。查阅文档是非常重要的，对于 Rust 能力的提升也很有益！
 
 ## 你的文档这里写的太简略了！我看不懂怎么办！
 

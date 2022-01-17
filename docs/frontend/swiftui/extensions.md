@@ -5,7 +5,7 @@
 - 经常探索[官方文档](https://developer.apple.com/documentation/swiftui)，看看你能使用的工具有什么
 - 看看历年 [WWDC](https://developer.apple.com/videos/topics/) 有什么视频讲解的内容是你需要的，关注每年的 WWDC
 - 不要惧怕英文内容，阅读英文文档是开发的必经之路
-- 学会用英文搜索，***尽量不用中文搜索***
+- 学会用英文搜索，**尽量不用中文搜索**
 
 ## 概念性知识
 
