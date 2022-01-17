@@ -59,9 +59,21 @@ TODO
 
     Markdown 没有控制图片尺寸的命令，其默认缩放图片以填满宽度。为了保证美观性和阅读体验，类似 Logo 等并不需要占满宽度的图片，请使用 HTML 标签控制其尺寸。例如：
 
-    ```markdown
+    ```html
     <center>
         <img src="https://i.loli.net/2021/10/10/NHZOsPCBmazyWjh.png" height="20%" width="20%">
+    </center>
+    ```
+
+!!! caution "带下标的图片"
+
+    Markdown 并不支持带下标的图片，所以请使用 HTML 标签。推荐使用：
+
+    ```html
+    <center>
+        <img src="https://i.loli.net/2021/09/28/Ti2VR4DtbgcdlkM.png" />
+        <img src="https://i.loli.net/2021/09/28/Dvpkbd7KjLTH2yl.png" />
+        <p style="text-align: center; margin-top: 0px; color: gray; padding: 0px">脚本文件的例子</p>
     </center>
     ```
 
@@ -123,6 +135,7 @@ TODO
 + 注意区分数学语言与程序设计语言。请不要在公式块内使用双等号 $==$ 乃至三等号 $===$ 表示两个量相等，请使用数学语言中的单等号 $=$，如 $a = b$。此外，请不要使用中括号连缀表达高维数组，如 $a[i][j][k]$，请使用函数表示，如 $f(i, j, k)$。
 + 特殊集合（如自然数集、实数集）的字体请使用 `$\mathbb{}$`，如 $\mathbb{R}$、$\mathbb{N}$。
 + 括号内为分式等内容时，请使用自适应高度括号 `$\left(\right)$`，如 $\left(\dfrac{1}{2}\right)^n$。请不要直接使用 `$()$`，如 $(\dfrac{1}{2})^n$。
++ 公式内请不要出现汉字，出现英文单词时请使用正体。
 
 ### 使用代码块
 

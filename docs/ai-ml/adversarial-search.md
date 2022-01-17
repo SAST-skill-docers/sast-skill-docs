@@ -178,8 +178,8 @@ UCT_search algorithm
 """
 C = some configurable value
 
-def getinfo(v) # 输入一个节点v，返回节点对应的 (s, w, n)
-def update(v, dw) # 更新节点的 v对应的状态 w = w + dw, n = n + 1
+def getinfo(v) # 输入一个节点 v，返回节点对应的 (s, w, n)
+def update(v, dw) # 更新节点的 v 对应的状态 w = w + dw, n = n + 1
 
 def UCT_search(S0):
     root = create_tree(S0)
@@ -204,7 +204,7 @@ def expand(u):
             return t
 	
 def best_child(u):
-    _, _ , N = getinfo(u)
+    _, _, N = getinfo(u)
     I_max = -inf
     r = None
     for v in u.children:
@@ -230,7 +230,6 @@ def back_propagate(u, dw):
         update(u, dw)
         dw = 1 - dw
         u = u.parent
-    
 ```
 
 ### 实现技巧
@@ -253,4 +252,4 @@ def back_propagate(u, dw):
 
 ## 参考资料
 
-OI Wiki 中关于博弈论的相关介绍 https://oi-wiki.org/math/game-theory/impartial-game/
+- OI Wiki 中关于博弈论的相关介绍 https://oi-wiki.org/math/game-theory/impartial-game/
