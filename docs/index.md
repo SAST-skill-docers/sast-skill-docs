@@ -24,4 +24,4 @@
 | [ChrisZhang](https://zcy.moe/) | Rust |
 | livingshade | 对抗搜索 |
 | lys | Swift、Swift UI |
-| zcy | C++ OOP |
+| [zcy0](https://zhaochenyang20.github.io) | C++ OOP |
