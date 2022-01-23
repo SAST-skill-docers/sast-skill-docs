@@ -86,7 +86,20 @@ nav:
     - Markdown 入门: basic/md.md
   - 编程语言:
     - languages/index.md
-    - C 语言基础: languages/c-basic.md
+    - C++ 语言面向对象:
+      - languages/c-oop/index.md
+      - 编程环境: languages/c-oop/environment.md
+      - C++ 语言函数进阶: languages/c-oop/function.md
+      - C++ 类语法初步: languages/c-oop/class-easy.md
+      - C++ 类语法进阶: languages/c-oop/class-advanced.md
+      - 引用与复制: languages/c-oop/reference-copy.md
+      - 组合与继承: languages/c-oop/combination-and-derivation.md
+      - 虚函数: languages/c-oop/virtual-function.md
+      - 多态与模板: languages/c-oop/polymorphism-and-templates.md
+      - 模板进阶与 STL 入门: languages/c-oop/templates-and-intro-to-stl.md
+      - STL 与字符串处理: languages/c-oop/stl-and-string.md
+      - 函数对象和智能指针: languages/c-oop/function-object-and-smart-pointers.md
+      - 设计模式与行为型模式: languages/c-oop/behavioral-pattern.md
     - 现代 C++ 语言: languages/modern-cpp.md
     - Python 语言基础:
       - languages/python/index.md
@@ -130,8 +143,6 @@ nav:
       - 后续拓展: languages/swift/extensions.md
   - 前端框架:
     - frontend/index.md
-    - React 框架入门: frontend/react-easy.md
-    - 现代 React 框架: frontend/react-more.md
     - SwiftUI 与 iOS 开发入门:
       - frontend/swiftui/index.md
       - Hello World: frontend/swiftui/hello-world.md

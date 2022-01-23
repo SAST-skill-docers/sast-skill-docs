@@ -20,7 +20,7 @@ python --version
 pip --version
 ```
 
-随后进入 Clone 到本地的仓库根目录，安装 Python 以来：
+随后进入 Clone 到本地的仓库的根目录，安装 Python 依赖：
 
 ```bash
 pip install -r requirements.txt

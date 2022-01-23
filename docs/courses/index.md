@@ -37,8 +37,6 @@
 
 - 编程语言 / JavaScript 语言基础
 - 编程语言 / TypeScript 语言基础
-- 前端框架 / React 框架入门
-- 前端框架 / 现代 React 框架
 
 ## 大三年级
 

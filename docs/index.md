@@ -17,10 +17,11 @@
 
 | 贡献者 | 贡献内容 |
 | :-: | :-: |
-| [Ashitemaru](https://ashitemaru.github.io) | JavaScript、TypeScript、React <br /> 文档维护 |
+| [Ashitemaru](https://ashitemaru.github.io) | JavaScript、TypeScript <br /> 文档维护 |
 | [c7w](https://c7w.tech) | Git、Linux、Python 基础 <br /> 文档维护 |
 | xmh | Markdown <br /> 文档维护 |
 | ayf | Python 爬虫、Python 包管理、Node.js |
 | [ChrisZhang](https://zcy.moe/) | Rust |
 | livingshade | 对抗搜索 |
 | lys | Swift、Swift UI |
+| zcy | C++ OOP |

@@ -341,7 +341,7 @@ undefined?.anyProp; // undefined
 </div>
 ```
 
-这一部分可以参考 [React 入门文档](/frontend/react-easy)。
+这一部分可以参考 React 相关文档。
 
 而直接访问 `null` 上的属性也会报错。同时，在处理这个问题的时候 `?.` 依然可以使用：
 

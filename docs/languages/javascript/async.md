@@ -183,7 +183,7 @@ Promise.all(
     })
 )
     .then((res) => {
-        console.log(res); // ["Promise #1", "Promise #2", "Promise #3"]
+        console.log(res); // ["Promise #1", "Promise #2", "Promise #3"]
     })
     .catch((err) => {});
 ```
