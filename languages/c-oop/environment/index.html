@@ -1,0 +1,2800 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>编程环境 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              编程环境
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/" class="md-tabs__link">
+        课程指引
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../frontend/" class="md-tabs__link">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../..">欢迎来到 SAST skill docs</a>
+          <label for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../courses/">课程指引</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="课程指引" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          课程指引
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../basic/">基本技能</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/md/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../">编程语言</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../">C++ 语言面向对象</a>
+          <label for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++ 语言面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编程环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        编程环境
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源程序的结构与预编译
+  </a>
+  
+    <nav class="md-nav" aria-label="源程序的结构与预编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    源程序的结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    预编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    条件编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    其它预处理指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    标识符
+  </a>
+  
+    <nav class="md-nav" aria-label="标识符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    定义规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    命名规范（非强制）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    编译与链接
+  </a>
+  
+    <nav class="md-nav" aria-label="编译与链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    链接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    头文件
+  </a>
+  
+    <nav class="md-nav" aria-label="头文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    函数的声明与定义
+  </a>
+  
+    <nav class="md-nav" aria-label="函数的声明与定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    变量的声明与定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extern" class="md-nav__link">
+    extern 关键字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    一些编程建议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
+        C++ 语言函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-easy/" class="md-nav__link">
+        C++ 类语法初步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-advanced/" class="md-nav__link">
+        C++ 类语法进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference-copy/" class="md-nav__link">
+        引用与复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combination-and-derivation/" class="md-nav__link">
+        组合与继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual-function/" class="md-nav__link">
+        虚函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../polymorphism-and-templates/" class="md-nav__link">
+        多态与模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates-and-intro-to-stl/" class="md-nav__link">
+        模板进阶与 STL 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stl-and-string/" class="md-nav__link">
+        STL 与字符串处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function-object-and-smart-pointers/" class="md-nav__link">
+        函数对象和智能指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavioral-pattern/" class="md-nav__link">
+        设计模式与行为型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../python/">Python 语言基础</a>
+          <label for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/pip/" class="md-nav__link">
+        Python 包管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/crawler/" class="md-nav__link">
+        Python 网络请求与爬虫基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html/" class="md-nav__link">
+        HTML 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../css/">CSS 语言基础</a>
+          <label for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          CSS 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../css/bootstrap/" class="md-nav__link">
+        Bootstrap 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../css/mdui/" class="md-nav__link">
+        MDUI 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../javascript/">JavaScript 语言基础</a>
+          <label for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/browser/" class="md-nav__link">
+        浏览器中的 JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../rust/">Rust 语言基础</a>
+          <label for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Rust 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/whyrust/" class="md-nav__link">
+        Rust 入门的一点经验
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/variable/" class="md-nav__link">
+        Rust 的变量与类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/control/" class="md-nav__link">
+        Rust 中的流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/function/" class="md-nav__link">
+        Rust 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/matching/" class="md-nav__link">
+        Rust 模式匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/struct/" class="md-nav__link">
+        Rust 的结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/reference/" class="md-nav__link">
+        Rust 的引用与借用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../node.js/">Node.js 基础</a>
+          <label for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js 基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/npm/" class="md-nav__link">
+        npm 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../swift/">Swift 语言基础</a>
+          <label for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Swift 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/basic/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/variable-function/" class="md-nav__link">
+        变量和函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/control-flow/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/types/" class="md-nav__link">
+        类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/generics/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/internal-types/" class="md-nav__link">
+        部分内置类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../frontend/">前端框架</a>
+          <label for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
+          <label for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SwiftUI 与 iOS 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/hello-world/" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/build-views/" class="md-nav__link">
+        构建 View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/data-flow/" class="md-nav__link">
+        数据流基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/declaritive-mvvm/" class="md-nav__link">
+        声明式 UI 与 MVVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../source/">资源链接</a>
+          <label for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源程序的结构与预编译
+  </a>
+  
+    <nav class="md-nav" aria-label="源程序的结构与预编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    源程序的结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    预编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    条件编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    其它预处理指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    标识符
+  </a>
+  
+    <nav class="md-nav" aria-label="标识符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    定义规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    命名规范（非强制）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    编译与链接
+  </a>
+  
+    <nav class="md-nav" aria-label="编译与链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    编译指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    链接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    头文件
+  </a>
+  
+    <nav class="md-nav" aria-label="头文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    函数的声明与定义
+  </a>
+  
+    <nav class="md-nav" aria-label="函数的声明与定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    变量的声明与定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extern" class="md-nav__link">
+    extern 关键字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    一些编程建议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/c-oop/environment.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="_1">编程环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">从单个 C++ 代码文件到多个 C++ 代码文件</p>
+<p>在讲解面向对象这个编程概念之前，我们认为有必要简单介绍我们是如何从 C++ 代码文件得到可执行文件的，以及如何编译多个 C++ 代码文件。简单了解这些知识有助于读者后续理解。</p>
+</div>
+<h2 id="_2">源程序的结构与预编译<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">源程序的结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>一个经典的 C++ 代码文件的结构为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span> <span class="c1">// 头文件与编译指令</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// 辅助函数定义</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 主函数定义</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="_4">预编译指令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>定义</strong></p>
+<p>上文代码中提及的“头文件与编译指令”中的编译指令实际上是预编译指令的意思，而预编译与预处理是同一概念。</p>
+<p>C/C++ 编译系统编译程序的过程为预编译、编译、链接。预处理器在程序源文件被编译之前根据预处理指令对程序源文件进行处理。</p>
+<p>而预处理器指令以 <code>#</code> 号开头标识，并不是一句指令，末尾不包含分号。预处理命令不是 C/C++ 语言本身的组成部分，不能直接对它们进行编译和链接。C/C++ 语言的一个重要功能是可以使用预处理指令和具有预处理的功能。二者提供的预处理功能主要有文件包含、宏替换、条件编译等。</p>
+<p><strong>文件包含</strong></p>
+<p>预处理指令 <code>#include</code> 将被包含的文件代码，直接复制到当前文件，一般被用于包含头文件（实际也能包含任意代码）。有两种形式：<code>#include &lt;xxx.h&gt;</code> 以及 <code>#include "xxx.h"</code>。尖括号形式表示被包含的文件在系统目录中。如果被包含的文件不一定在系统目录中，应该用双引号形式（注意到是应该用，不是最好用）。</p>
+<p>在双引号形式中可以指出文件路径和文件名。如果在双引号中没有给出绝对路径，则默认为用户当前目录中的文件，此时系统首先在用户当前目录中寻找要包含的文件，若找不到再在系统目录中查找。对于用户自己编写的头文件，应用双引号形式。对于系统提供的头文件，既可以用尖括号形式，也可以用双引号形式，都能找到被包含的文件，但使用用尖括号形式更直截了当，效率更高。</p>
+<p><strong>宏替换</strong></p>
+<ul>
+<li>意义</li>
+</ul>
+<p><code>#define</code> 是 C++ 语言中的一个预编译指令，它用来将一个标识符定义为一个字符串，该标识符被称为宏名，被定义的字符串称为替换文本。在程序被编译前，先将宏名用被定义的字符串替换，这称为宏替换，替换后才进行编译，宏替换是简单的替换。</p>
+<ul>
+<li>宏定义</li>
+</ul>
+<p>宏定义包括无参数宏定义和带参数宏定义两类。宏名和宏参数所代表的代码序列可以是任何意义的内容，如类型、常量、变量、操作符、表达式、语句、函数、代码块等。但是宏名和宏参数必须是合法的标识符，其所代表的内容及意义在宏展开前后必须一直是独立且保持不变的，不能分开解释和执行。</p>
+<ul>
+<li>无参数宏</li>
+</ul>
+<p>用一个用户指定的称为宏名的标识符来代表一个代码序列，这种定义的一般形式为 <code>#define 标识符 代码序列</code>。其中 <code>#define</code> 之后的标识符称为宏定义名（简称宏名），在宏定义 <code>#define</code> 之前可以有若干个空格、制表符，但不允许有其它字符，宏名与代码序列之间用空格符分隔。例如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define PI 3.1415926535</span>
+</code></pre></div>
+</td></tr></table>
+<p>在 C++ 中，这种替换一般被 <code>const</code> 取代，进而能保证类型的正确性。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.1415926535</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>带参数宏</li>
+</ul>
+<p>带参数宏定义进一步扩充了无参数宏定义的能力，这时的宏展开既进行宏名的替换又进行宏参数的替换。带参数的宏定义的一般形式为 <code>#define 标识符(参数表) 代码序列</code>，其中参数表中的参数之间用逗号分隔，在代码序列中必须要包含参数表中的的参数。在定义带参数的宏时，宏名与左圆括号之间不允许有空白符，应紧接在一起，否则变成了无参数的宏定义。带参数宏调用提供的实在参数个数必须与宏定义中的形式参数个数相同。例如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define sqr(x) ((x) * (x))</span>
+<span class="n">sqr</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// ((3 + 2) * (3 + 2));</span>
+</code></pre></div>
+</td></tr></table>
+<p>在 C++ 中，这种替代一般被内联函数取代，进而能保证类型的正确性。内联函数我们会在后续章节中讲解。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">inline</span> <span class="kt">double</span> <span class="nf">sqr</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>宏作用域</li>
+</ul>
+<p>宏定义的有效范围称为宏名的作用域，宏名的作用域从宏定义的结束处开始到其所在的源代码文件末尾。宏名的作用域不受分程序结构的影响。如果需要终止宏名的作用域，可以用预处理指令 <code>#undef</code> 加上宏名。</p>
+<ul>
+<li>宏展开</li>
+</ul>
+<p>预处理器在处理宏定义时，会对宏进行展开（即宏替换）。宏替换首先将源文件中在宏定义随后所有出现的宏名均用其所代表的代码序列替换之，如果是带参数宏则接着将代码序列中的宏形参名替换为宏实参名。</p>
+<p>宏替换只作代码字符序列的替换工作，不作任何语法的检查，也不作任何的中间计算，一切其它操作都要在替换完后才能进行。如果宏定义不当，错误要到预处理之后的编译阶段才能发现。 源代码中的宏名和宏定义代码序列中的宏形参名必须是标识符才会被替换，即只替换标识符，不替换别的东西，像注释、字符串常量以及标识符内出现的宏名或宏形参名则不会被替换。例如下列宏：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define NAME vrmozart</span>
+</code></pre></div>
+</td></tr></table>
+<p>宏替换不会替换掉 <code>// NAME</code>、<code>/* NAME */</code>、<code>"NAME"</code>、<code>my_NAME_blog</code> 中的 <code>NAME</code>。</p>
+<p>标识符的概念在后续章节中阐述。</p>
+<ul>
+<li>宏的独立性</li>
+</ul>
+<p>前文提及，宏名和宏形参名所代表的内容及意义在宏展开前后必须一直是独立且保持不变的，不能分开解释和执行。然而，在宏调用时，预处理器用宏定义的代码序列替换宏名，用宏实参名替换宏形参名。替换后，宏定义的代码序列就与源文件中相邻的代码自然连接，宏实参名也与代码序列中相邻的代码自然连接，宏定义的代码序列和宏实参名的独立性就不一定依旧存在。例如，我们希望使用下列宏实现平方操作：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define SQR(x) x * x</span>
+</code></pre></div>
+</td></tr></table>
+<p>对于宏调用 <code>p = SQR(y)</code>，能得到希望的宏展开 <code>p = y * y</code>。但对于宏调用 <code>q = SQR(u + v)</code>，得到的宏展开是 <code>q = u + v * u + v</code>。显然，后者的展开结果不是程序设计者所希望的。为能保持宏实参名替换后的独立性，应在宏定义中给形式参数加上括号。进一步，为了保证宏名调用的独立性，作为算式的宏定义代码序列也应加括号。<code>SQR</code> 宏定义改写成 <code>#define SQR(x) ((x) * (x))</code> 才是正确的宏定义。即便如此，这样的宏定义依然很危险。</p>
+<ul>
+<li>宏调用与函数调用</li>
+</ul>
+<p>函数调用在程序运行时实行，而宏展开是在编译的预处理阶段进行。函数调用占用程序运行时间，宏调用只占编译时间。函数调用对实参有类型要求，而宏调用实在参数与宏定义形式参数之间没有类型的概念，只有字符序列的对应关系。函数调用可返回一个值，宏调用获得希望的代码序列。</p>
+<ul>
+<li>其他性质</li>
+</ul>
+<p>宏名一般用大写字母，以便与变量名区别。如有必要，宏名可被重复定义，被重复定义后，宏名原先的意义被新意义所代替。</p>
+<p>宏定义代码序列中可以引用已经定义的宏名，即宏定义可以嵌套。</p>
+<h3 id="_5">条件编译指令<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>定义</li>
+</ul>
+<p>一般情况下，在进行编译时对源程序中的每一行都要编译，但是有时希望程序中某一部分内容只在满足一定条件时才进行编译，如果不满足这个条件，就不编译这部分内容，这就是条件编译。条件编译主要是进行编译时进行有选择的挑选，注释掉一些指定的代码，以达到多个版本控制、防止对文件重复包含。<code>#if</code>、<code>#ifndef</code>、<code>#ifdef</code>、<code>#else</code>、<code>#elif</code>、<code>#endif</code> 是比较常见条件编译预处理指令，可根据表达式的值或某个特定宏是否被定义来确定编译条件。</p>
+<ul>
+<li>指令含义</li>
+</ul>
+<p><code>#if</code> 表示表达式非零就对代码进行编译。<code>#ifdef</code> 表示如果宏被定义就进行编译。<code>#ifndef</code> 表示如果宏未被定义就进行编译。<code>#else</code> 作为其它预处理的剩余选项。<code>#elif</code> 是一种 <code>#else</code> 和 <code>#if</code> 的组合选项。<code>#endif</code> 结束编译块的控制。</p>
+<ul>
+<li>防止头文件重复包含</li>
+</ul>
+<p>我们先前提到过 <code>#include</code> 指令的效果是把源文件<strong>直接复制</strong>到源代码中，那么考虑这样的多文件。头文件 <code>A.h</code> 中包含了头文件 <code>B.h</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// A.h</span>
+<span class="cp">#include</span> <span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
+<span class="cm">/* A.h CODE */</span>
+</code></pre></div>
+</td></tr></table>
+<p>而主文件同时包含 <code>A.h</code> 和 <code>B.h</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// main.cpp</span>
+<span class="cp">#include</span> <span class="cpf">&quot;A.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>预处理器处理到主文件的 <code>#include "A.h"</code> 的时候直接将 <code>A.h</code> 的内容复制过来：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// main.cpp</span>
+<span class="cp">#include</span> <span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
+<span class="cm">/* A.h CODE */</span>
+<span class="cp">#include</span> <span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>会发现这里出现了重复包含，如果 <code>B.h</code> 中有函数定义，则有可能导致冲突，从而无法编译成功。那么为了防止这样的头文件重复包含，我们可以给每一个头文件按照这样的格式编写，如 <code>B.h</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// B.h</span>
+<span class="cp">#ifndef B_H</span>
+<span class="cp">#define B_H</span>
+
+<span class="cm">/* B.h CODE */</span>
+
+<span class="cp">#endif </span><span class="c1">// B_H</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样即使出现重复包含，由于第一次包含的时候 <code>B_H</code> 宏就已经定义过了，所以后面的 <code>#ifndef</code> 就会保证 <code>B.h</code> 的代码不会再次包含进来。</p>
+<p>事实上现在更常用的防止重复包含的预编译指令为 <code>#pragma once</code>。</p>
+<ul>
+<li>预处理器表达式</li>
+</ul>
+<p>预处理器表达式包括的操作符主要涉及到单个数的操作（<code>+</code>、<code>-</code>、<code>~</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;</code>）、多个数的运算（<code>*</code>、<code>/</code>、<code>%</code>、<code>+</code>、<code>-</code>、<code>&amp;</code>、<code>^</code>、<code>|</code>）、关系比较（<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>==</code>、<code>!=</code>）、宏定义判断（<code>defined</code>）、逻辑操作（<code>!</code>、<code>&amp;&amp;</code>、<code>||</code>），其优先级和行为方式与 C++ 表达式操作符相同。预处理器表达式在编译器预处理器上执行，在编译前进行。</p>
+<p>例如 <code>#ifndef</code> 与 <code>#if !defined</code> 意义相同，<code>#ifdef</code> 与 <code>#if defined</code> 意义相同。</p>
+<h3 id="_6">其它预处理指令<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>除了上面讨论的常用预处理指令外，还有三个不太常见的预处理指令：<code>#line</code>、<code>#error</code>、<code>#pragma</code>，下面分别介绍。</p>
+<ul>
+<li><code>#line</code></li>
+</ul>
+<p><code>#line</code> 指令用于重新设定当前由 <code>__FILE__</code> 和 <code>__LINE__</code> 宏指定的源文件名字和行号。<code>#line</code> 一般形式为 <code>#line number "filename"</code>，其中行号 <code>number</code> 为任何正整数，文件名 <code>filename</code> 可选。<code>#line</code> 主要用于调试及其它特殊应用，注意在 <code>#line</code> 后面指定的行号数字是表示从下一行开始的行号。</p>
+<ul>
+<li><code>#error</code></li>
+</ul>
+<p><code>#error</code> 指令使预处理器发出一条错误消息，然后停止执行预处理。一般形式为 <code>#error info</code>，如 <code>#error MFC requires C++ compilation</code>。</p>
+<ul>
+<li><code>#pragma</code></li>
+</ul>
+<p><code>#pragma</code> 指令可能是最复杂的预处理指令（也最方便），它的作用是设定编译器的状态或指示编译器完成一些特定的动作。一般形式为 <code>#pragma para</code>，其中 <code>para</code> 为参数，下面介绍一些常用的参数。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>- `#pragma once`，只要在头文件的最开始加入这条指令就能够保证头文件被编译一次。
+- `#pragma message(&quot;info&quot;)`，在编译信息输出窗口中输出相应的信息，例如 `#pragma message(&quot;Hello&quot;)`。
+- `#pragma warning`，设置编译器处理编译警告信息的方式，例如 `#pragma warning(disable: 4507 34; once: 4385; error: 164)` 表示不显示 4507 和 34 号警告信息、4385 号警告信息仅报告一次、把 164 号警告信息作为一个错误。
+- `#pragma comment(...)`，设置一个注释记录到对象文件或者可执行文件中。常用  `lib` 注释类型，用来将一个库文件链接到目标文件中，一般形式为 `#pragma comment(lib, &quot;*.lib&quot;)`，其作用与在项目属性链接器“附加依赖项”中输入库文件的效果相同。
+</code></pre></div>
+</td></tr></table>
+<h2 id="_7">标识符<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">定义<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>标识符即为编程的时候使用的“名字”, 给类、接口、方法、变量、常量名等起名字的字符序列。</p>
+<h3 id="_9">组成<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>英文大小写字母、数字、下划线（<code>_</code>）和美元符号（<code>$</code>）。可以使用汉字或其他合法字符命名，但是不推荐。</p>
+<h3 id="_10">定义规则<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>不能以数字开头，不能是关键字，严格区分大小写。可以是汉字或其他合法字符命名，但不推荐。</p>
+<h3 id="_11">命名规范（非强制）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>类和接口。首个字母大写，如果有多个单词，每个单词首字母大写。如 <code>HelloWorld</code>、<code>Student</code></p>
+</li>
+<li>
+<p>变量和方法。首字母小写，如果有多个单词，从第二个单词开始首字母大写。如 <code>getName</code>、<code>studyJava</code></p>
+</li>
+<li>
+<p>常量名（自定义常量）。所有字母都大写，多个单词用下划线隔开。如 <code>MAX_VALUE</code></p>
+</li>
+</ul>
+<h2 id="_12">编译与链接<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">过程<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>预处理。预处理器在程序源文件被编译之前根据预处理指令对程序源文件进行处理，C/C++ 主要的预处理功能有文件包含、宏替换、条件编译等。</p>
+</li>
+<li>
+<p>编译。编译阶段是检查语法，生成汇编。第一遍执行语法分析和静态类型检查，将源代码解析为语法分析树的结构。第二遍由代码生成器遍历语法分析树，把树的每个节点转换为汇编语言或机器代码，生成目标模块（<code>.o</code> 或 <code>.obj</code> 文件）</p>
+</li>
+<li>
+<p>汇编。汇编代码转换机器码。非底层的程序员不需要考虑这一阶段，编译器也不会出错。汇编与 C/C++开发者无关，但是我们可以利用反汇编来调试代码，学习汇编语言依然是必备的。</p>
+</li>
+<li>
+<p>链接。把一组目标模块链接为可执行程序，使得操作系统可以执行它。处理目标模块中的函数或变量引用，必要时搜索库文件处理所有的引用。</p>
+</li>
+</ul>
+<h3 id="_14">编译指令<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>这里我们使用 <code>g++</code> 编译器讲解编译指令。</p>
+<ul>
+<li><code>g++ -c</code> 表示只编译不链接</li>
+<li><code>g++ -o ex1.out ex1.o</code> 表示将 <code>ex1.o</code> 链接为可执行文件 <code>ex1.out</code></li>
+<li><code>g++ ex5_main.cpp func.cpp -o</code> 直接编译生成可执行文件（`g++ 帮我们省略了一些步骤）</li>
+</ul>
+<h3 id="_15">链接<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>将各个目标文件中的各段代码进行地址定位，生成与特定平台相关的可执行文件。外部函数的声明（一般声明在头文件中）只是令程序顺利通过编译，此时并不需要搜索到外部函数的实现（或定义）。在链接过程中，外部函数的实现（或定义）才会被寻找和添加进程序，一旦没有找到函数实现，就无法成功链接。</p>
+<h2 id="_16">头文件<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">意义<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>有时辅助函数（如全局函数）会在多个源文件中被使用。将辅助函数编入头文件中，从而避免反复编写同一段声明，也能够统一辅助函数的声明，避免错误。</p>
+<h3 id="_18">例子<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><img alt="https://s2.loli.net/2022/01/09/X6xR8KscDMovIh2.png" src="https://s2.loli.net/2022/01/09/X6xR8KscDMovIh2.png" /></p>
+<p>程序在连接时，搜索了编译命令里的所有文件，本题中即为两个 C++ 文件。因为 <code>main.cpp</code> 里面写了 <code>#include "func.h"</code>，所以能找到 <code>func.h</code>。如果把 <code>main.cpp</code> 里的 <code>#include</code> 也去掉，就无法编译了。</p>
+<h2 id="_19">函数的声明与定义<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">概念<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>函数声明的语法为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// 变量名可省略，例如后缀运算符重载中的哑元</span>
+</code></pre></div>
+</td></tr></table>
+<p>函数定义（即实现）的语法为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>同一个函数可以有多次声明，但只能有一次实现，多次实现会导致链接错误。注意这和重载的区别，重载是同名函数但是参数不同，重载我们后续介绍。</p>
+<h3 id="_21">变量的声明与定义<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>TODO</p>
+<p>关于变量的声明与定义更加详细的讨论在L5-创建与销毁·二1.3.0节，此处不再赘述。</p>
+<h3 id="extern"><code>extern</code> 关键字<a class="headerlink" href="#extern" title="Permanent link">&para;</a></h3>
+<p>TODO</p>
+<p>关于 <code>extern</code> 修饰符更加详细的讨论在L5-创建与销毁·二1.2.5节，此处不再赘述。</p>
+<h3 id="_22">一些编程建议<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>对于头文件，尽量只声明函数而不实现函数。尽量只声明全局变量而不定义全局变量。</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月23日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+            </small>
+        </div>
+    
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语言面向对象" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              C++ 语言面向对象
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../function/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ 语言函数进阶" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              C++ 语言函数进阶
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

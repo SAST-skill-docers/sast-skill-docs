@@ -1,0 +1,4092 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>C++ 类语法初步 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C++ 类语法初步
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/" class="md-tabs__link">
+        课程指引
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../frontend/" class="md-tabs__link">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../..">欢迎来到 SAST skill docs</a>
+          <label for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../courses/">课程指引</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="课程指引" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          课程指引
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../basic/">基本技能</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/md/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../">编程语言</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../">C++ 语言面向对象</a>
+          <label for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++ 语言面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        编程环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
+        C++ 语言函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          C++ 类语法初步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        C++ 类语法初步
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    访问权限
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    构造函数与析构函数
+  </a>
+  
+    <nav class="md-nav" aria-label="构造函数与析构函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    委派构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    就地初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    默认构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    主函数中对象数组的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    析构函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    对象的析构与构造
+  </a>
+  
+    <nav class="md-nav" aria-label="对象的析构与构造">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    局部对象的析构与构造
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    引用
+  </a>
+  
+    <nav class="md-nav" aria-label="引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    定义与语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    结合函数使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    引用的其他特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    运算符重载
+  </a>
+  
+    <nav class="md-nav" aria-label="运算符重载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    具体的重载实例
+  </a>
+  
+    <nav class="md-nav" aria-label="具体的重载实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    可重载的运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    前后缀重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    函数运算符重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    数组下标重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    只能成员函数型重载的运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    流运算符重载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-advanced/" class="md-nav__link">
+        C++ 类语法进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference-copy/" class="md-nav__link">
+        引用与复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combination-and-derivation/" class="md-nav__link">
+        组合与继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual-function/" class="md-nav__link">
+        虚函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../polymorphism-and-templates/" class="md-nav__link">
+        多态与模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates-and-intro-to-stl/" class="md-nav__link">
+        模板进阶与 STL 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stl-and-string/" class="md-nav__link">
+        STL 与字符串处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function-object-and-smart-pointers/" class="md-nav__link">
+        函数对象和智能指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavioral-pattern/" class="md-nav__link">
+        设计模式与行为型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../python/">Python 语言基础</a>
+          <label for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/pip/" class="md-nav__link">
+        Python 包管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/crawler/" class="md-nav__link">
+        Python 网络请求与爬虫基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html/" class="md-nav__link">
+        HTML 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../css/">CSS 语言基础</a>
+          <label for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          CSS 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../css/bootstrap/" class="md-nav__link">
+        Bootstrap 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../css/mdui/" class="md-nav__link">
+        MDUI 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../javascript/">JavaScript 语言基础</a>
+          <label for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/browser/" class="md-nav__link">
+        浏览器中的 JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../rust/">Rust 语言基础</a>
+          <label for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Rust 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/whyrust/" class="md-nav__link">
+        Rust 入门的一点经验
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/variable/" class="md-nav__link">
+        Rust 的变量与类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/control/" class="md-nav__link">
+        Rust 中的流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/function/" class="md-nav__link">
+        Rust 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/matching/" class="md-nav__link">
+        Rust 模式匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/struct/" class="md-nav__link">
+        Rust 的结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rust/reference/" class="md-nav__link">
+        Rust 的引用与借用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../node.js/">Node.js 基础</a>
+          <label for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js 基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node.js/npm/" class="md-nav__link">
+        npm 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../swift/">Swift 语言基础</a>
+          <label for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Swift 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/basic/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/variable-function/" class="md-nav__link">
+        变量和函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/control-flow/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/types/" class="md-nav__link">
+        类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/generics/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/internal-types/" class="md-nav__link">
+        部分内置类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../frontend/">前端框架</a>
+          <label for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
+          <label for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SwiftUI 与 iOS 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/hello-world/" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/build-views/" class="md-nav__link">
+        构建 View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/data-flow/" class="md-nav__link">
+        数据流基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/declaritive-mvvm/" class="md-nav__link">
+        声明式 UI 与 MVVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../../source/">资源链接</a>
+          <label for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    访问权限
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    构造函数与析构函数
+  </a>
+  
+    <nav class="md-nav" aria-label="构造函数与析构函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    委派构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    就地初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    默认构造函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    主函数中对象数组的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    析构函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    对象的析构与构造
+  </a>
+  
+    <nav class="md-nav" aria-label="对象的析构与构造">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    局部对象的析构与构造
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    引用
+  </a>
+  
+    <nav class="md-nav" aria-label="引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    定义与语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    结合函数使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    引用的其他特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    运算符重载
+  </a>
+  
+    <nav class="md-nav" aria-label="运算符重载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    具体的重载实例
+  </a>
+  
+    <nav class="md-nav" aria-label="具体的重载实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    可重载的运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    前后缀重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    函数运算符重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    数组下标重载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    只能成员函数型重载的运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    流运算符重载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/c-oop/class-easy.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="c">C++ 类语法初步<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">面向对象的概念</p>
+<p>在介绍类之前，我们终于要引出面向对象这个概念了。</p>
+<p>面向对象（英语：Object oriented）是一种编程范式，其目的是将数据和相关方法封装为一个整体。在使用面向对象的编程方法的时候，我们通常将具有类似抽象特点的事物归为一个类，而具有这些抽象特点的事物就是这个类的实例对象。</p>
+<p>比如说，所有的学生都应该具有名字，有一个整数的年龄，这就是学生这类事物的抽象概念。在 C++ 语言中我们就可以描述为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里 <code>Student</code> 是类，<code>age</code> 和 <code>name</code> 都是类的<strong>成员变量</strong>。成员变量描述了类的数据特征。</p>
+<p>而类之中还可以具有函数，其描述了我们可以以何种方式操作类的成员变量，所以这些函数也称为<strong>类方法</strong>。比如说学生都可以去上学：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">goToSchool</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>在描述出学生这个概念之后，我们就可以创建一个学生，这个学生一定有我们在类之中规定的这些抽象特征：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Student</span><span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>这就称为类的<strong>实例化</strong>，即我们创建出了一个对象，这个对象符合这些抽象特征。</p>
+<p>当然，上面说的都是最简单的面向对象概念。后面将会涉及到访问权限、继承、虚方法等各种更进阶的概念，不过保持着这样的最基本的 OOP 思想是重要的。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">基础讲些什么？</p>
+<p>这一部分主要讲解对象的构造和析构、引用以及运算符重载。</p>
+</div>
+<h2 id="_1">访问权限<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>有时我们并不希望类的部分隐私成员变量为外人所知，此时我们可以将其用 <code>private:</code> 声明为私有。同样，可以公开的成员变量则可以用 <code>public:</code> 声明为公有。C++ 的类默认权限为私有：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">goToSchool</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>类方法也可以声明公有和私有。</p>
+<p>私有的类成员和类方法仅可以在类自己的方法内访问或调用，外部调用会报错。公有的类成员和类方法则可以任意调用、读取、修改。</p>
+<h2 id="_2">构造函数与析构函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">构造函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>意义</strong></p>
+<p>构造函数是编译器在实例化一个对象的时候自动调用的函数，也就是说对象的“生”（初始化工作）是由编译器在创建对象处自动生成调用构造函数的代码来完成的。构造函数是类的特殊成员函数，它用来确保类的每个对象都能正确地初始化。</p>
+<p><strong>语法</strong></p>
+<p>构造函数没有返回值类型，函数名必须与类名相同。类的构造函数可以重载，即可以使用不同的函数参数进行对象初始化。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="kt">int</span> <span class="n">order</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="n">ID</span> <span class="o">=</span> <span class="n">year</span> <span class="o">*</span> <span class="mi">10000</span> <span class="o">+</span> <span class="n">order</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样我们就得到了学生类的两个构造函数。构造函数的调用语法（即对象创建的语法）有几种常用的：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Student</span> <span class="nf">s1</span><span class="p">(</span><span class="mi">20200001</span><span class="p">);</span>
+<span class="n">Student</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="mi">20200001</span><span class="p">);</span>
+<span class="n">Student</span><span class="o">*</span> <span class="n">sptr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="mi">20200001</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意 <code>new</code> 得到的是指针。</p>
+<p><strong>初始化列表</strong></p>
+<p>构造函数可以使用初始化列表初始化成员数据，使用 <code>数据成员(初始值)</code> 的形式。该列表在定义构造函数时使用，位置在函数体之前、函数参数列表之后，以冒号作开头。</p>
+<p>这种写法可以将函数体中的赋值写法写到函数体外，便于检查：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span><span class="o">:</span> <span class="n">ID</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p><strong>初始化列表和构造函数体的基本区别</strong></p>
+<ul>
+<li>实现过程区别</li>
+</ul>
+<p>构造函数可以分两个阶段进行，即初始化阶段、函数体阶段。</p>
+<p>函数体阶段由函数体内所有的语句组成。不管成员是否在构造函数初始化列表中显式初始化，类的数据成员初始化总是在初始化阶段进行，初始化阶段先于计算阶段。构造函数初始化列表是对类的成员做初始化，而在构造函数体内只是对类的数据成员进行了一次赋值操作。</p>
+<p>也就是说，构造函数函数体内对于成员数据的赋值意味着初始化已经完成，仅仅是进行了赋值。这一点可以联系下一章节当中对于声明、定义、初始化、赋值的讨论一同理解。这也可以用于理解，为什么常量成员数据仅仅可以在初始化列表中初始化，但是不可以在函数体内赋值。（因为常量成员仅能进行初始化，却不能在初始化之后再赋值，因为常量成员不能更改。而一个常量成员，即使在初始化列表中没有被显式初始化，也已经被初始化过了，一个初始化过的常量自然不能在函数体里被修改）。更加详细的讨论在下一章节。</p>
+<ul>
+<li>效率区别</li>
+</ul>
+<p>如前文所述，初始化列表显然避免了函数体内不必要的一些赋值过程，这在类的成员数据较为复杂时能够显著地提高效率。</p>
+<p><strong>初始化列表的初始顺序</strong></p>
+<p>初始化列表的成员是按照声明的顺序初始化的，而不是按照出现在初始化列表中的顺序。比如下列代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ID1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ID2</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span><span class="o">:</span> <span class="n">ID2</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">ID1</span><span class="p">(</span><span class="n">ID2</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ID1 exist &quot;</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">ID1</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">ID2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Student</span> <span class="n">test</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">test</span><span class="p">.</span><span class="n">print</span><span class="p">();</span> <span class="c1">// &quot;ID1 exist 32767 100&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>在这个例子中，<code>ID1</code> 在 <code>ID2</code> 之前声明，但其初始化依赖于 <code>ID2</code>。初始化列表会按照声明顺序进行初始化，先用未知的 <code>ID2</code> 的值对 <code>ID1</code> 进行初始化，再用可知的 <code>id</code> 来初始化 <code>ID2</code>。从而使得 <code>ID1</code> 的值不可预测。</p>
+<p>这里的不可预测在不同的编译器上表现不同。可能会有如上输出，也可能是 warning（不是 error）。一般来说我们会参考 <code>g++</code> 编译器的输出，Visual Studio 的编译器有时会更严格。</p>
+<h3 id="_4">委派构造函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>定义</strong></p>
+<p>在构造函数的初始化列表中，还可以调用其他构造函数，称为“委派构造函数”。</p>
+<p><strong>意义</strong></p>
+<p>委派构造函数也是 C++11 中对 C++ 的构造函数的一项改进，其目的就是减少程序员写构造函数的时间。通过委派其他构造函数，多构造函数的类编写起来就很简单容易。</p>
+<p><strong>实例</strong></p>
+<p>对比如下两个例子：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Info</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Info</span><span class="p">()</span><span class="o">:</span> <span class="n">type</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">InitRest</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">Info</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">type</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">name</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">InitRest</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">Info</span><span class="p">(</span><span class="kt">char</span> <span class="n">e</span><span class="p">)</span><span class="o">:</span> <span class="n">type</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">InitRest</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">InitRest</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">type</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>上述写法可以写为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Info</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Info</span><span class="p">()</span> <span class="p">{</span> <span class="n">InitRest</span><span class="p">();</span> <span class="p">}</span> <span class="c1">// 称为目标构造函数（被调用）</span>
+    <span class="n">Info</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">Info</span><span class="p">()</span> <span class="p">{</span> <span class="n">type</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// 委派构造函数（调用者）</span>
+    <span class="n">Info</span><span class="p">(</span><span class="kt">char</span> <span class="n">e</span><span class="p">)</span><span class="o">:</span> <span class="n">Info</span><span class="p">()</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">InitRest</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">type</span> <span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+    <span class="kt">char</span> <span class="n">name</span> <span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">};</span>  
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>委派构造函数不能有初始化列表，因为 C++ 中，构造函数不能同时使用委派和初始化列表。只能在函数体内为 <code>type</code>、<code>name</code> 等成员赋值。</p>
+<p>在构造函数比较多时，可以有不止一个委派构造函数。目标构造函数也可以是委派构造函数，可以在委派构造函数中形成链状的委派构造关系。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Info</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Info</span><span class="p">()</span><span class="o">:</span> <span class="n">Info</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="n">Info</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">Info</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="n">Info</span><span class="p">(</span><span class="kt">char</span> <span class="n">e</span><span class="p">)</span><span class="o">:</span> <span class="n">Info</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">Info</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="n">e</span><span class="p">)</span><span class="o">:</span> <span class="n">type</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">name</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">type</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>只要注意委派关系不能成环即可。</p>
+<p>这个例子其实蛮有意思的是，我们之前很少有见到构造函数放在 <code>private</code> 里面的例子。这个例子却实现了这一点。</p>
+<h3 id="_5">就地初始化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>首先需要指出的是，在课程PPT中对于声明、初始化、定义这三个概念有些混用。三者的广义概念界定在下一章节中进行了阐述。</p>
+<p>C++11 之前，类中的一般成员变量不能在类声明时进行初始化（定义），它们的初始化操作（定义）只能通过构造函数进行。C++11 新增支持如下初始化操作，称为就地初始化（类似于给类内对象提供了缺省值）。你可以认为就地初始化是一种特殊的机制，他可以使得定义和初始化在类内得以进行。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 声明 + 初始化（定义）</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">};</span> <span class="c1">// 声明 + 初始化（定义）</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// a = 1, b = 2.0</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// a = i, b = 2.0</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">double</span> <span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">b</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// a = i, b = j</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意，就地初始化只是一种简便的表达方式，实际操作仍然在对象构造的时候执行。</p>
+<h3 id="_6">默认构造函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>定义</strong></p>
+<p>不带任何参数的构造函数，或每个形参提供默认实参的构造函数，被称为<strong>默认构造函数</strong>，也称<strong>缺省构造函数</strong>。</p>
+<p><strong>语法</strong></p>
+<p>使用默认构造函数（没有参数）来生成对象时，对象定义的格式如下：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ClassName</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">ClassName</span> <span class="n">b</span> <span class="o">=</span> <span class="n">ClassName</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意和下方代码区别开来：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ClassName</span> <span class="nf">c</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>这声明了一个返回值类型为 <code>ClassName</code> 且不带参数的函数</p>
+<p><strong>编译器的额外操作</strong></p>
+<p>基于之后涉及到的组合的概念，在类的构造函数中，除了执行函数体内声明的语句，编译器还会做一些额外操作。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A()&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">B</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;B()&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里会先输出 <code>A</code> 的默认构造函数对应的输出，再输出 <code>B</code> 的默认构造函数对应的输出。</p>
+<p>也就是说，如果类 <code>A</code> 里面有另一个类 <code>B</code> 作为这个类的成员，调用类 <code>A</code> 的默认构造函数时会先调用 <code>B</code> 的构造函数。先构造成员，再构造类。</p>
+<p><strong>隐式定义的默认构造函数</strong></p>
+<p>有时候我们没有手动定义默认构造函数，但我们仍然能够按上述方式定义变量。这是因为编译器帮我们隐式地合成了一个默认构造函数。</p>
+<p><img alt="https://s2.loli.net/2022/01/10/tVJ6PWm1eTjMNCc.png" src="https://s2.loli.net/2022/01/10/tVJ6PWm1eTjMNCc.png" /></p>
+<p><img alt="https://s2.loli.net/2022/01/10/HyuRqMQ6LKNcWfr.png" src="https://s2.loli.net/2022/01/10/HyuRqMQ6LKNcWfr.png" /></p>
+<p>注意这个例子，<code>b</code> 究竟是调用了哪一个构造函数？</p>
+<p>我们将代码修改如下：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A()&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A(int)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">B</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="n">B</span><span class="p">()</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>发现会因为函数调用不明确而 error，故而可以确定上述选择题是调用了缺省的构造函数而非隐式生成的默认构造函数。这一点在函数重载有讨论。</p>
+<p>某种意义上，缺省的构造函数本质上已经实现了默认构造函数的功能。</p>
+<p>另一方面，若用户已经定义了其他构造函数，编译器将不会隐式合成默认构造函数。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">};</span> 
+<span class="k">public</span><span class="o">:</span>
+   <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个代码会报错。</p>
+<p><strong>显式声明默认构造函数</strong></p>
+<p>出于某些需要，我们可以手动指定生成默认版本的构造函数。即便其他构造函数存在，编译器也会定义隐式默认构造函数。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">};</span> 
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>   
+<span class="p">};</span>
+<span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p><strong>显式删除危险构造函数</strong></p>
+<p>有时候，我们也可以显式地声明禁用某些带有风险的构造函数。这种禁用不仅可以禁用编译器合成的默认构造函数，也可以用来禁止一些自动类型转换带来的构造函数调用。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">};</span> 
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;c&#39;</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>   
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="n">a</span><span class="p">(</span><span class="sc">&#39;c&#39;</span><span class="p">);</span> <span class="c1">// 99</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这一代码存在风险，本意一定是希望他报错，但是实则不会。从正确性上讲，这样的代码没有问题，<code>char</code> 和 <code>int</code> 可以类型转换，故而将 <code>'c'</code> 转为 <code>int</code>，调用了参数为 <code>int</code> 的构造函数。但是从工程的角度讲，这是很危险的行为。因为在开发者看来，用字符初始化应该是未定义的行为。</p>
+<p>故而显式地禁用某一构造函数。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">};</span> 
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;c&#39;</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">char</span> <span class="n">ch</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>   
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="_7">主函数中对象数组的初始化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>无参定义对象数组，必须要有默认构造函数：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="n">a</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+</code></pre></div>
+</td></tr></table>
+<p>如果构造函数带有参数，则可以：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>花括号中的各个元素传递给了 <code>A</code> 类的构造函数。</p>
+<p>带有多个参数则写为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">A</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)};</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="_8">析构函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>概述</strong></p>
+<p>对象的“死”（清除和释放资源）是由编译器在对象作用域结束处自动生成调用析构函数代码来完成的，动态分配的内存就是一种典型的需要释放的资源。当执行到“包含对象定义范围结束处”时，编译器自动调用对象的析构函数。清除对象占用的资源是无条件的，不需要任何选项。因此，析构函数没有参数，且只有一个，即清除方式唯一。</p>
+<p>这在下一章节的例子中有所体现。</p>
+<p><img alt="https://s2.loli.net/2022/01/11/DPQkzN7uhonaWFd.png" src="https://s2.loli.net/2022/01/11/DPQkzN7uhonaWFd.png" /></p>
+<p>没有显式定义拷贝构造函数，系统调用了隐式生成的拷贝构造函数，这当然是没有输出的。形参的构造用的是拷贝构造函数，可是析构却是共用的一个析构函数。</p>
+<p><strong>语法</strong></p>
+<p>一个类只有一个析构函数，名称是 <code>~类名</code>，没有函数返回值，没有函数参数。编译器在对象生命期结束时自动调用类的析构函数，以便释放对象占用的资源，或其他后处理。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClassRoom</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">ID_list</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ClassRoom</span><span class="p">()</span><span class="o">:</span> <span class="n">num</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">ID_list</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="o">~</span><span class="n">ClassRoom</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ID_list</span><span class="p">)</span> <span class="k">delete</span><span class="p">[]</span> <span class="n">ID_list</span><span class="p">;</span>  
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意到这个例子也体现了指针 <code>delete</code> 之前应先检测是否为空指针。</p>
+<p><strong>析构排序</strong></p>
+<p>和默认构造函数一样，析构函数除了执行函数体内声明的语句，编译器还会做一些额外操作。例如在组合当中，会自动调用成员变量的析构函数，先执行自己的析构函数，再调用成员变量的析构（这点与构造函数恰恰相反）。以及最基本的，先构造的后析构。</p>
+<p><strong>默认析构函数</strong></p>
+<p>和构造函数类似，当用户没有自定义析构函数时，编译器会自动合成一个隐式的析构函数。</p>
+<p><img alt="https://s2.loli.net/2022/01/11/tvpBJmeGUr2dlS7.png" src="https://s2.loli.net/2022/01/11/tvpBJmeGUr2dlS7.png" /></p>
+<p>问题在于隐式定义的析构函数不会释放指针成员，可能造成内存泄露。</p>
+<h2 id="_9">对象的析构与构造<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">局部对象的析构与构造<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>定义</strong></p>
+<p>作用域定义为某一个变量能够被引用的区域。例如，花括号括起来的区域将会形成一个作用域。</p>
+<ul>
+<li>
+<p>非静态的局部对象。在程序执行到该局部对象的代码时被初始化。在局部对象生命周期结束、即所在作用域结束后被析构。这里注意与静态的局部对象进行对比。详见下一章节。</p>
+</li>
+<li>
+<p>非静态全局变量。在主函数调用之前进行初始化。在同一编译单元中，按照定义顺序进行初始化。</p>
+</li>
+</ul>
+<p>这里同一编译单元通常是同一源文件。而不同编译单元间，对象初始化顺序不确定。</p>
+<p>在主函数执行完返回之后，对象被析构。</p>
+<p><strong>全局变量的局限性</strong></p>
+<p>尽量少用全局对象。首先，全局对象的构造顺序不能完全确定，所以全局对象之间不能有依赖关系，否则会出现问题。其次，全局对象会增大代码的耦合性，导致程序难以复用或者测试。</p>
+<p><img alt="https://s2.loli.net/2022/01/11/sBzdFWmkgnp2KVD.png" src="https://s2.loli.net/2022/01/11/sBzdFWmkgnp2KVD.png" /></p>
+<p>这道题就是强调了全局变量主函数执行完返回之后被析构。而 <code>local_obj</code> 相当于是 <code>main</code> 的局部变量，会在全局变量后析构。</p>
+<h2 id="_11">引用<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">定义与语法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>同一个内存单元的两个不同名字。创建引用要用到 <code>&amp;</code> 符号，比如说整型变量的引用：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p>引用必须在定义时进行初始化，且不能修改引用指向，这点和指针不同。</p>
+<p>被引用变量名可以是类的成员变量，如 <code>int&amp; m = s.m</code>。</p>
+<h3 id="_13">结合函数使用<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>函数参数可以是引用类型，表示函数的形式参数与实际参数是同一个变量，改变形参将改变实参，使用得当也可避免许多不必要的形参拷贝。如调用以下函数将交换实参的值：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>函数返回值可以是引用类型，但不得指向函数的非静态的临时变量。换言之，你可以返回临时变量（这相当于把它复制了一份用于返回出去，它本身会被销毁），但不能返回非静态临时变量的引用。静态局部变量是可以作为返回值的，并且有着神奇的操作（这一神奇的操作涉及到静态局部变量的作用，详见下一章节）。</p>
+<p><img alt="https://s2.loli.net/2022/01/11/oJibuxv5syLw96Z.png" src="https://s2.loli.net/2022/01/11/oJibuxv5syLw96Z.png" /></p>
+<p>这段代码存在非法内存访问。注意到 <code>func2</code> 定义的局部变量 <code>tmp</code> 是非静态的，故而 <code>func2</code> 结束之后立刻析构。而 <code>f</code> 被定义为了 <code>tmp</code> 的引用，<code>tmp</code> 已经被销毁了，这块内存空间已经被释放。</p>
+<p>被释放的内存，访问是危险的，但并非不可访问。现在一般的编译器都是允许访问，但访问的结果不确定，有可能是运行错误，有可能是不确定的值。这个可能需要等到学汇编会了解的更清楚。</p>
+<p>故而这段代码在 glot 编译器上的结果为 <code>4_0</code>。</p>
+<p>然而我们对局部变量 <code>tmp</code> 加上 <code>static</code> 修饰：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Int</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Int</span><span class="p">()</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Int</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+=</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Int</span><span class="o">&amp;</span> <span class="nf">func2</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">func1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="k">static</span> <span class="n">tmp</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// &quot;4_7&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>非常神奇，我们不仅通过 <code>static</code> 修饰保留了局部变量，似乎还改变了这个局部变量。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Int</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Int</span><span class="p">()</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Int</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+=</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Int</span><span class="o">&amp;</span> <span class="nf">func2</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">func1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">Int</span> <span class="k">static</span> <span class="n">tmp</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">Int</span><span class="o">&amp;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// &quot;4_7&quot;</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">data</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// &quot;4_8_7&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这似乎违反了静态局部变量只能够被定义它的函数体操作这一点，实则不然。我们之前叙述的是，静态局部变量不能在函数外被使用，但是但它的内存空间可以。上例是绕过了语言层面，直接对于内存进行了操作。</p>
+<p>对于变量的操作，是指例如编写一行 C 语言代码，明确地操作这个变量，比如 <code>x++</code>。但是操作可以通过指针，比如定义一个指针 <code>p</code> 来指向这个地址，之后对 <code>*p</code> 进行各类操作。这时候编译器并不知道 <code>*p</code> 指向的内存空间究竟怎么来的，它只知道是一段内存空间，进行了一系列操作。</p>
+<p>简而言之，你不能在函数体外使用静态局部变量的名字，但是可以使用这块内存空间。</p>
+<p>另外，我在 <code>func2(a, b).data</code> 中第二次调用 <code>func2(a, b)</code> 时，由于之前已经定义了 <code>static int tmp</code>，所以第二次不再用 <code>Int static tmp(a.data + b.data</code> 来构造新的 <code>tmp</code>，相当于构造 <code>tmp</code> 的这一行失效了，但是 <code>func1(a, b)</code> 仍然会进行，故而 <code>a</code> 还是加了 <code>3</code>。</p>
+<p>又比如下面这段代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Int</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Int</span><span class="p">()</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Int</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+=</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Int</span><span class="o">&amp;</span> <span class="nf">func2</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">func1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">Int</span> <span class="k">static</span> <span class="n">tmp</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">Int</span><span class="o">&amp;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// &quot;4_7&quot;</span>
+    <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">).</span><span class="n">data</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// &quot;7_8_10&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>我企图直接 <code>func2(a, b).data++</code>，因为我返回类型为 <code>tmp</code> 的引用，也成功实现了对于 <code>tmp</code> 的内存空间的操作。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Int</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Int</span><span class="p">()</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Int</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+=</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Int</span><span class="o">&amp;</span> <span class="nf">func2</span><span class="p">(</span><span class="n">Int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">Int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">func1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">Int</span> <span class="k">static</span> <span class="n">tmp</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">Int</span><span class="o">&amp;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">tmp</span><span class="p">.</span><span class="n">data</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm">error: use of undeclared identifier &#39;tmp&#39;</span>
+<span class="cm">    tmp.data++;</span>
+<span class="cm">    ^</span>
+<span class="cm">1 error generated.</span>
+<span class="cm">*/</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="_14">引用的其他特点<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>不存在空引用。引用必须连接到一块合法的内存。</p>
+</li>
+<li>
+<p>一旦引用被初始化为一个对象，就不能被指向到另一个对象。指针可以在任何时候指向到另一个对象。</p>
+</li>
+<li>
+<p>引用必须在创建时被初始化为一个对象。指针可以在初始化时置空，之后再指向对象。</p>
+</li>
+<li>
+<p>引用的优势为更灵活地支持运算符重载。</p>
+</li>
+<li>
+<p>引用的特性：创建时必须初始化、初始化后便不能指向其他对象，不存在空引用。</p>
+</li>
+</ul>
+<h2 id="_15">运算符重载<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">意义<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>用户自定义类，没有对常用的运算符进行定义，比如想要表示两个类对象相加，无法采用 <code>a + b</code> 这种方式。可以采取定义一个 <code>add</code> 函数的方式，解决这种问题。但这种实现方式，在调用的时候，会和基础类型差别很大，缺少编程的一致性。需要过多地区分自定义类和基础类别，调用起来也不方便。因此，我们引入运算符重载。</p>
+<h3 id="_17">语法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>运算符重载需要按规则声明执行该运算的函数。例如 <code>+</code> 对应 <code>operator+</code>。运算符重载一般有两种方式（注意参数不同），且只能用一种。</p>
+<ul>
+<li>全局函数型运算符重载</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a1</span><span class="p">,</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">a2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="nf">new_a</span><span class="p">(</span><span class="n">a1</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">a2</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">new_a</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>使用全局函数型重载：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">A</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a1</span><span class="p">,</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">a2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="nf">new_a</span><span class="p">(</span><span class="n">a1</span><span class="p">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">a2</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">new_a</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="nf">a1</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">a2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a1</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 2</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 5</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里的 <code>a1 + a2</code> 相当于调用函数 <code>operator+(a1, a2)</code>。</p>
+<ul>
+<li>成员函数型运算符重载</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">A</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">A</span> <span class="nf">new_a</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">new_a</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意理解参数的不同。定义为全局函数型运算符重载之后，需要指出对于哪两个对象进行操作。但是定义为成员函数型运算符重载时，这一函数是某一对象的成员函数。如果是双目运算符只需指明另一个数据为参数。</p>
+<p>使用成员函数型重载：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">+=</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">data</span> <span class="o">+=</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">A</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="n">A</span> <span class="nf">new_a</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">new_a</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="n">a1</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">a2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">a1</span> <span class="o">+=</span> <span class="n">a2</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a1</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 5</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 8</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>显然 <code>+=</code> 和 <code>+</code> 都应该重载，不可能只重载 <code>+</code> 就解决问题。这里的 <code>a1 + a2</code> 相当于调用函数 <code>a1.operator+(a2)</code>。</p>
+<h3 id="_18">具体的重载实例<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h4 id="_19">可重载的运算符<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>双目算术运算符。<code>+</code>（加）、<code>-</code>（减）、<code>*</code>（乘）、<code>/</code>（除）、<code>%</code>（取模）</p>
+</li>
+<li>
+<p>关系运算符。<code>==</code>（等于）、<code>!=</code> （不等于）、<code>&lt;</code> （小于）、<code>&gt;</code> （大于）、<code>&lt;=</code>（小于等于）、<code>&gt;=</code>（大于等于）</p>
+</li>
+<li>
+<p>逻辑运算符。<code>||</code>（逻辑或）、<code>&amp;&amp;</code>（逻辑与）、<code>!</code>（逻辑非）</p>
+</li>
+<li>
+<p>单目运算符。<code>+</code>（正）、<code>-</code>（负）、<code>*</code>（指针）、<code>&amp;</code>（取地址）</p>
+</li>
+<li>
+<p>自增自减运算符。<code>++</code>（自增）、<code>--</code>（自减）</p>
+</li>
+<li>
+<p>位运算符。<code>|</code> （按位或）、<code>&amp;</code> （按位与）、<code>~</code>（按位取反）、<code>^</code>（按位异或）、<code>&lt;&lt;</code> （左移）、<code>&gt;&gt;</code>（右移）</p>
+</li>
+<li>
+<p>赋值运算符。<code>=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>、<code>&amp;=</code>、<code>|=</code>、<code>^=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code></p>
+</li>
+<li>
+<p>空间申请与释放。<code>new</code>、<code>delete</code>、<code>new[]</code>、<code>delete[]</code></p>
+</li>
+<li>
+<p>其他运算符。<code>()</code>（函数调用）、<code>-&gt;</code>（成员访问）、<code>,</code>（逗号）</p>
+</li>
+</ul>
+<h4 id="_20">前后缀重载<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>声明</li>
+</ul>
+<p>前缀运算符重载声明：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ClassName</span> <span class="k">operator</span><span class="o">++</span><span class="p">();</span>
+<span class="n">ClassName</span> <span class="k">operator</span><span class="o">--</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>后缀运算符重载声明：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ClassName</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span> <span class="n">dummy</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p><code>dummy</code> 表示哑元，实际上哑元可以没有名字。</p>
+<p><code>++a</code> 等价于 <code>operator++(a)</code>，而 <code>a++</code> 等价于 <code>operator++(a, int)</code>。</p>
+<p>哑元的意义就是，设想没有这一哑元，那么 <code>a++</code> 和 <code>++a</code> 的声明完全相同。然而实际上，两个函数的功能完全不同，需要实现重载。这一实现就是借助哑元达成的。</p>
+<p>编译器在编译 <code>a++</code> 时，等价于 <code>operator++(a,int)</code>，从而调用了后缀运算符。编译器自动识别，就像是 <code>a1 + a2</code> 等价于 <code>a1.operator+(a2)</code>，这种等价就是编译器自动等价。</p>
+<ul>
+<li>语义识别</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">++</span><span class="n">b</span><span class="p">;</span> <span class="c1">// 先完成 b + 1 操作，再赋值</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 先完成赋值，再 b + 1 操作</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>前缀运算符重载实例</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Test</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">data</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+    <span class="o">++</span><span class="n">test</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>后缀运算符重载实例（一）</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Test</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Test</span> <span class="nf">test</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">data</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">test</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>    
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+    <span class="n">test</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>首先需要指出的是，函数的返回值并不一定需要使用。这一段就是典型的例子，尽管我返回的是个 <code>Test</code> 对象，但是没有人接收这一对象，他会在主函数的对应语句（也就是 <code>test++</code>）结束后被释放。虽然在这个例子里面，<code>test++</code> 并没有用到 <code>Test</code> 类型的返回值，可以改为 <code>void</code>，但是在其他情况下是需要用到这一个返回值的。</p>
+<div class="admonition note">
+<p class="admonition-title">关于析构时机</p>
+<p>对于此处局部对象的析构时机，结合下述进行一定的解读。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Test</span> <span class="nf">f1</span><span class="p">(</span><span class="n">Test</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">Test</span> <span class="n">A</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>对于这一赋值构造（构造外面的 <code>A</code>）和函数调用语句，构造 <code>A</code> 和析构返回值和形参的先后顺序应该是，先执行完 <code>f1</code> 的函数体，暂不析构。然后执行完整个语句，具体到这个语句，就是外部对 <code>A</code> 的移动构造，再析构。</p>
+<p>完成了对 <code>A</code> 的移动构造之后，就已经完成了两次对应移动构造的输出。分别是因为返回值优化被禁用而对返回值进行的规定的移动构造，以及返回的对象对于 <code>A</code> 的移动构造。接下来，这一语句执行完毕后才进行函数体的析构，也就是连续的两次析构。第一次析构掉返回值，第二次析构掉形参（先构造的后析构）。</p>
+<p>但是这里的析构顺序其实还有进一步讨论：</p>
+<p>由于函数返回值是对象而在 <code>return</code> 时也会产生一次对象构造（通常会被编译器优化，但可以通过开启编译指令 <code>-fon-elide-constructors</code> 让编译器不优化），这个临时对象会在 <code>return</code> 语句执行时被创建，等 <code>return</code> 语句结束后，函数体内的对象被析构，然后这个临时变量被析构，最后才到作为参数的变量被析构。</p>
+<p>析构顺序是先析构函数体内对象，然后是返回值对象，最后是形参。虽然这和通常意义上的先构造的后析构有些矛盾，但是特例记住就好。</p>
+<p>至于为什么对 <code>A</code> 是移动构造：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Test</span> <span class="n">A</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p><code>f1(a)</code> 是个右值，因为你没法对 <code>f1(a)++</code>。<code>f1(a)</code> 是个右值，故而默认调用了移动构造函数。</p>
+<p>这里需要意识到，<code>f1(a)</code> 本身是个右值，但是 <code>A</code> 就是个左值了。</p>
+<p>还值得说明的是，上文的析构时机是建立在主函数的语句既有赋值又有函数调用的基础上，也就是函数的返回值有赋值作用。如果函数返回值没有赋值的作用，那么返回值会立刻在函数体结束后被析构，而不是主函数的对应语句结束后析构。譬如上文简单的写 <code>a++</code> 就会让 <code>test</code> 立刻被析构。</p>
+</div>
+<ul>
+<li>后缀运算符重载实例（二）</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">Test</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Test</span> <span class="nf">test</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">data</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">test</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+    <span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">test</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 1</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>为什么会输出 <code>1</code>？我们结合修改后的代码进行解释。</p>
+<p>先构建了 <code>new_test</code>，然后对原有的 <code>test.data++</code>，然后把 <code>new_test</code> 返回给了 <code>test</code>。注意到这一逻辑过程的先后顺序，我虽然对于 <code>test.data++</code> 了，但这步之后用返回的 <code>new_test</code>（<code>data</code> 还是 <code>1</code>）对 <code>test</code> 进行了移动赋值，覆盖了 <code>++</code> 的效果，故而 <code>test.data</code> 还是 <code>1</code>。</p>
+<p>另一方面，避免主函数的局部变量和函数体局部变量重名必然是个好习惯！</p>
+<ul>
+<li>全局型重载前后缀运算符</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">A</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">A</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="nf">new_a</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">a</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">new_a</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">A</span> <span class="nf">a</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">++</span><span class="n">a</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 2</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span><span class="o">++</span><span class="p">).</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 2</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 3</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="_21">函数运算符重载<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>在自定义类中也可以重载函数运算符 <code>()</code>，它使对象看上去如同是一个函数名，可以称之为函数对象。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;operator() called. &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a + b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 7</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">sum</span><span class="p">.</span><span class="k">operator</span><span class="p">()(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> 
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a + b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 11</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>实际上在调用 <code>Obj(real_parameters)</code> 时，等价于调用了 <code>Obj.operator()(real_parameters)</code>，注意这里调用的不是构造函数。</p>
+<h4 id="_22">数组下标重载<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>即重载 <code>[]</code> 运算符。</p>
+<p>如果返回类型是引用，则数组运算符调用可以出现在等号左边，接受赋值，即 <code>Obj[index] = value</code>（也就是返回左值）。如果返回类型不是引用，则只能出现在等号右边 <code>Var = Obj[index]</code>（也就是成员函数函数返回了右值，但右值不可以赋值）。</p>
+<p>注意到，这里 <code>Obj</code> 是一个对象，而不是一个数组。这是对于一个类，定义了一个成员函数来重载数组下标。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="c1">  </span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">week_name</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;mon&quot;</span><span class="p">,</span> <span class="s">&quot;tue&quot;</span><span class="p">,</span> <span class="s">&quot;wed&quot;</span><span class="p">,</span> <span class="s">&quot;thu&quot;</span><span class="p">,</span> <span class="s">&quot;fri&quot;</span><span class="p">,</span> <span class="s">&quot;sat&quot;</span><span class="p">,</span> <span class="s">&quot;sun&quot;</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">WeekTemperature</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temperature</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">error_temperature</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[]</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">week_name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
+                <span class="k">return</span> <span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">error_temperature</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">WeekTemperature</span> <span class="n">beijing</span><span class="p">;</span>
+    <span class="n">beijing</span><span class="p">[</span><span class="s">&quot;mon&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">-3</span><span class="p">;</span>    
+    <span class="n">beijing</span><span class="p">[</span><span class="s">&quot;tue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Monday Temperature: &quot;</span> 
+         <span class="o">&lt;&lt;</span> <span class="n">beijing</span><span class="p">[</span><span class="s">&quot;mon&quot;</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="c1">// &quot;Monday Temperature: -3&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p><code>const char* name</code> 表示一个常量字符串，避免修改。这个字符串常量就是在 <code>[]</code> 里面的内容，比如 <code>["test"]</code> 那你的参数就是 <code>"test"</code>（注意到必须要有双引号才能是字符串）。</p>
+<p>此处，对于 <code>private:</code> 做一说明，<code>temp</code> 是私有的，所以直接访问 <code>temp</code> 这个名字不可行，但是可通过其他方式访问其引用，进而可修改内存空间。</p>
+<p>这个名字被保护了，但是他的内存单元没有被保护。<code>private:</code> 一般用于修饰类的内部属性（变量）和方法（函数）（即那些不想暴露给外部的），它保证了它修饰的属性和方法不能在类的外部被<strong>直接</strong>访问，但可以通过类的一些公有方法实现间接访问。例如：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>  
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">test</span><span class="p">.</span><span class="n">i</span><span class="p">;</span>
+    <span class="n">b</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">test</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里将会访问失败，因为主函数内不可访问直接 <code>private</code> 成员。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">setTest</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">test</span><span class="p">.</span><span class="n">setTest</span><span class="p">();</span>
+    <span class="n">b</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">test</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>此处，我通过 <code>setTest</code> 这一 <code>public</code> 方法得到了 <code>i</code> 的引用，再构造了另外一个引用。直接绕过了变量，对其指向的内存空间进行了操作。</p>
+<h4 id="_23">只能成员函数型重载的运算符<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p><code>=</code>、<code>[]</code>、<code>()</code>、<code>-&gt;</code>只能通过成员函数来重载。</p>
+<p>这里其实可以联系到之后学习的拷贝赋值运算和移动赋值运算，因为本质上二者就是实现方式值得推究的两种运算符重载。</p>
+<p>当我们没有显式地在类内定义这两个运算符（重载）时，编译器会自动生成缺失的部分。编译器无法获知（或者至少没有尝试去获知）类以外已经重载了 <code>operator=</code>，它在编译这个类时发现这个类没有重载 <code>operator=</code>，于是就给它补上了一个。但如果之后又在类以外重载了一个 <code>operator=</code>，这就会导致调用的时候不知道用哪个，产生歧义。综上，C++ 禁止了在类以外重载 <code>operator=</code>。</p>
+<p>换言之，编译器编译类时能看到类内重载的赋值运算符，就不会自动生成 <code>=</code> 的重载。但全局的编译器无法在编译时检测到，只有在链接的时候才能检测到。而此时会链接歧义函数。</p>
+<p>仅仅是只是链接两个歧义函数并不会出错，在发生有歧义的调用的时候才会有问题。也就是说，如果在类外重载 <code>operator=</code>，而不调用 <code>=</code>，是不会 warning 或者 error 的。比如我们甚至可以同时定义 <code>int foo(int x, int y = 1)</code> 和 <code>int foo(int x)</code> 这两个函数，只有使用了 <code>foo(x)</code> 才会导致 CE。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="kt">void</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;1&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// OK!</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="_24">流运算符重载<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>用户自定义的类，虽然可以像内置类型那样定义变量（对象），但想要使用流运算符输入、输出对象，则还需要为类定义流运算符重载。</p>
+<ul>
+<li>语法</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">istream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">dst</span><span class="p">);</span>
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>函数名为 <code>operator&gt;&gt;</code> 和 <code>operator&lt;&lt;</code>。</p>
+<p>不修改 <code>istream</code> 和 <code>ostream</code> 类的情况下，只能使用全局函数重载。</p>
+<p>返回值为 <code>istream&amp;</code> 和 <code>ostream&amp;</code>。均为引用。</p>
+<p>参数分别为流对象的引用、目标对象的引用。对于输出流，目标对象一般是常量引用。</p>
+<p>备注，因为流运算符往往需要输出 <code>private</code> 数据，故而往往设为友元函数并在类内声明，并尽量在类外时实现。同时，在类外实现时，已经不用再写 <code>friend</code> 了，<code>friend</code> 只是一个全局函数在类内的标记。</p>
+<div class="admonition note">
+<p class="admonition-title">为什么流运算符不能是成员函数重载？</p>
+<p>实际上，这句话指的是，流运算符不能是某个对象的成员函数重载，因为我们在调用流运算符时，调用顺序是 <code>cout &lt;&lt; a</code> 而不是 <code>a &lt;&lt; cout</code>。从而可以看出，调用的是 <code>ostream</code> 类的一个成员函数，而不是 <code>a</code> 的类的成员函数。</p>
+</div>
+<ul>
+<li>实例</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span> <span class="n">id</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;obj_&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; created</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>   
+    <span class="k">friend</span> <span class="n">istream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">dst</span><span class="p">);</span> 
+    <span class="k">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">);</span> 
+<span class="p">};</span>
+
+<span class="n">istream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">dst</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">in</span> <span class="o">&gt;&gt;</span> <span class="n">dst</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">in</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">src</span><span class="p">.</span><span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Test</span> <span class="nf">obj</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">obj</span><span class="p">;</span>  
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">;</span>    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>注意到，函数体内用的都是 <code>in</code> 和 <code>out</code>，而不是 <code>cin</code> 和 <code>cout</code>，因为你在重载 <code>out</code>，你希望你的 <code>out</code> 对于所有的输出流都适用，那么不能写 <code>cout</code>。因为还有 <code>fout</code> 等等。如果写了 <code>cout</code>，没有问题，但是没法给 <code>fout</code> 这些用，因此写 <code>out</code>习惯更好。</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月23日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+            </small>
+        </div>
+    
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../function/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语言函数进阶" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              C++ 语言函数进阶
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../class-advanced/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ 类语法进阶" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              C++ 类语法进阶
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
