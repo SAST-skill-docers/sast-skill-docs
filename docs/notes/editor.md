@@ -95,10 +95,12 @@ INFO     -  [17:16:02] Serving on http://127.0.0.1:8000/
 !!! caution "换行符"
 
     换行符的问题尤其重要，以至于需要在文章格式部分的一开始就指出这个问题。
-
-    本文档的自动化贡献计算插件基于 Git 的 Commit 行数，而修改换行符也会计算到 Commit 修改之中，所以换行符会影响到文档最后的贡献度 credit。
-
-    本文档换行符默认为 LF，请在提交 PR 前检查好换行符。
+    
+    本文档的自动化贡献计算插件基于 Git 的 Commit 行数，而修改换行符也会计算到 Commit 修改之中，所以换行符会影响到文档最后的贡献度 Credit。
+    
+    对于已存在的文章，不能更改其未修改的行的换行符，否则 Pull Request 将会被直接关闭；
+    
+    对于新建立的文档，可以使用默认换行符。
 
 ### 标题与小标题
 
@@ -133,7 +135,7 @@ INFO     -  [17:16:02] Serving on http://127.0.0.1:8000/
 !!! caution "Markdown 的图片尺寸问题"
 
     Markdown 没有控制图片尺寸的命令，其默认缩放图片以填满宽度。为了保证美观性和阅读体验，类似 Logo 等并不需要占满宽度的图片，请使用 HTML 标签控制其尺寸。例如：
-
+    
     ```html
     <center>
         <img src="https://i.loli.net/2021/10/10/NHZOsPCBmazyWjh.png" height="20%" width="20%">
@@ -143,7 +145,7 @@ INFO     -  [17:16:02] Serving on http://127.0.0.1:8000/
 !!! caution "带下标的图片"
 
     Markdown 并不支持带下标的图片，所以请使用 HTML 标签。推荐使用：
-
+    
     ```html
     <center>
         <img src="https://i.loli.net/2021/09/28/Ti2VR4DtbgcdlkM.png" />
