@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -18,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -31,14 +30,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -55,9 +53,8 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -74,10 +71,11 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
   
@@ -136,8 +134,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -146,9 +143,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
@@ -169,8 +166,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -191,7 +187,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -328,7 +324,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
@@ -340,8 +336,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -382,11 +377,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../..">欢迎来到 SAST skill docs</a>
-          <label for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
@@ -396,7 +393,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -457,11 +453,9 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../courses/">课程指引</a>
-          <label for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="课程指引" data-md-level="1">
@@ -471,7 +465,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
         </ul>
@@ -514,11 +507,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../basic/">基本技能</a>
-          <label for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="基本技能" data-md-level="1">
@@ -528,7 +523,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -651,11 +645,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/">编程语言</a>
-          <label for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="编程语言" data-md-level="1">
@@ -665,7 +661,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -714,11 +709,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/c-oop/">C++ 语言面向对象</a>
-          <label for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
@@ -728,7 +725,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -946,11 +942,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/python/">Python 语言基础</a>
-          <label for="__nav_4_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
@@ -960,7 +958,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1038,11 +1035,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/css/">CSS 语言基础</a>
-          <label for="__nav_4_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
@@ -1052,7 +1051,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1126,11 +1124,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/javascript/">JavaScript 语言基础</a>
-          <label for="__nav_4_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
@@ -1140,7 +1140,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1298,11 +1297,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/rust/">Rust 语言基础</a>
-          <label for="__nav_4_9">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
@@ -1312,7 +1313,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1444,11 +1444,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/node.js/">Node.js 基础</a>
-          <label for="__nav_4_10">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
@@ -1458,7 +1460,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1518,11 +1519,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/swift/">Swift 语言基础</a>
-          <label for="__nav_4_11">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_11">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
@@ -1532,7 +1535,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1672,11 +1674,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../frontend/">前端框架</a>
-          <label for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="前端框架" data-md-level="1">
@@ -1686,7 +1690,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1721,11 +1724,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
-          <label for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
@@ -1735,7 +1740,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1851,11 +1855,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../">人工智能 & 机器学习</a>
-          <label for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
@@ -1865,7 +1871,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1907,6 +1912,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -2065,11 +2071,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../source/">资源链接</a>
-          <label for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="资源链接" data-md-level="1">
@@ -2079,7 +2087,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -2128,6 +2135,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -2256,12 +2264,12 @@
               
     
                 
-                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/ai-ml/adversarial-search.md" title="编辑此页" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="_1">对抗搜索简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/ai-ml/adversarial-search.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="_1">对抗搜索简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">前置知识<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>具有最基本的程序设计思想，对于深度优先搜素、广度优先搜索等最基本的搜索算法有着一定的了解。</li>
@@ -2278,45 +2286,45 @@
 <li>我们称某方胜利了，当且仅当在某一轮中轮到对方行动，但对方没有合法的决策。</li>
 </ul>
 <p>值得特别指出的是，有些游戏可能不满足以上要求，但可以通过将其进行等价转化来得到。</p>
-<p>比如游戏 Snake Go，它并不满足最后一条。但若将状态定义为 <span><span class="MathJax_Preview">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span>，这三元组分别表示轮数，当前玩家以及游戏的上下文。并且为玩家添加一个决策 <span><span class="MathJax_Preview">\mathrm{pass}</span><script type="math/tex">\mathrm{pass}</script></span>，当且仅当该玩家没有蛇时可用。为玩家添加一个决策 <span><span class="MathJax_Preview">\mathrm{win}</span><script type="math/tex">\mathrm{win}</script></span>，当且仅当达到回合上限时分数较多（相等时后手）者可用。则改变后的游戏满足以上规则，并且与我们讨论的 Snake Go 等价。</p>
+<p>比如游戏 Snake Go，它并不满足最后一条。但若将状态定义为 <span class="arithmatex"><span class="MathJax_Preview">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span>，这三元组分别表示轮数，当前玩家以及游戏的上下文。并且为玩家添加一个决策 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{pass}</span><script type="math/tex">\mathrm{pass}</script></span>，当且仅当该玩家没有蛇时可用。为玩家添加一个决策 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{win}</span><script type="math/tex">\mathrm{win}</script></span>，当且仅当达到回合上限时分数较多（相等时后手）者可用。则改变后的游戏满足以上规则，并且与我们讨论的 Snake Go 等价。</p>
 <p>对抗搜索是一种搜索算法，它解决的是这样的问题：给定一个游戏在某一轮的状态，在一定的时间和空间限制下，为当前行动的玩家提供一个决策，使得玩家之后更有可能胜利。</p>
 <h2 id="sg">SG 搜索<a class="headerlink" href="#sg" title="Permanent link">&para;</a></h2>
 <p>我们首先讨论最简单的情况，如果我们有充足的时间和空间，由于游戏本身是有限的，并且游戏是公平的，那么对于一个给定的状态，其胜者是确定的。也就是说，如果我们遍历了这个状态可能拓展出的所有状态，就可能推断出这个状态的胜者。</p>
 <p>为了简化描述，我们给出一些形式化的符号定义：</p>
-<p><span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 表示游戏的一个状态，它通常是 <span><span class="MathJax_Preview">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span> 的三元组，即游戏的轮数、该轮应当行动的玩家以及游戏的其他信息。</p>
-<p>我们用 <span><span class="MathJax_Preview">\mathrm{player} = 0, 1</span><script type="math/tex">\mathrm{player} = 0, 1</script></span> 来分别表示两名玩家。为了简化描述，我们称 <span><span class="MathJax_Preview">\mathrm{player}</span><script type="math/tex">\mathrm{player}</script></span> 为状态 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的先手，对应地 <span><span class="MathJax_Preview">\mathrm{player} \oplus 1</span><script type="math/tex">\mathrm{player} \oplus 1</script></span> 为状态 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的后手。这里 <span><span class="MathJax_Preview">\oplus</span><script type="math/tex">\oplus</script></span> 表示异或。</p>
-<p><span><span class="MathJax_Preview">\mathrm{action}(s) = \{a_1, a_2, \cdots, a_m\}</span><script type="math/tex">\mathrm{action}(s) = \{a_1, a_2, \cdots, a_m\}</script></span> 是一个集合，给出了 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 状态下所有可能的决策。如果 <span><span class="MathJax_Preview">\mathrm{action}(s) = \varnothing</span><script type="math/tex">\mathrm{action}(s) = \varnothing</script></span> 则说明 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是终态，用 <span><span class="MathJax_Preview">s \in V_T</span><script type="math/tex">s \in V_T</script></span> 表示，此时游戏已经结束并且 <span><span class="MathJax_Preview">\mathrm{player}</span><script type="math/tex">\mathrm{player}</script></span> 失败了。 </p>
-<p><span><span class="MathJax_Preview">\delta(s, a)=s'</span><script type="math/tex">\delta(s, a)=s'</script></span> 是转移函数，它表示在状态 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 采取决策 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 后转移到的状态为 <span><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span>。</p>
-<p>特别地，我们定义 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 为最初给定的状态，即初态。</p>
-<p>如果一个状态 <span><span class="MathJax_Preview">s = (\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">s = (\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span> 是胜者是 <span><span class="MathJax_Preview">\rm{player}</span><script type="math/tex">\rm{player}</script></span>，那么称其是先手必胜的，否则称它是先手必败的。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 表示游戏的一个状态，它通常是 <span class="arithmatex"><span class="MathJax_Preview">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">(\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span> 的三元组，即游戏的轮数、该轮应当行动的玩家以及游戏的其他信息。</p>
+<p>我们用 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{player} = 0, 1</span><script type="math/tex">\mathrm{player} = 0, 1</script></span> 来分别表示两名玩家。为了简化描述，我们称 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{player}</span><script type="math/tex">\mathrm{player}</script></span> 为状态 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的先手，对应地 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{player} \oplus 1</span><script type="math/tex">\mathrm{player} \oplus 1</script></span> 为状态 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的后手。这里 <span class="arithmatex"><span class="MathJax_Preview">\oplus</span><script type="math/tex">\oplus</script></span> 表示异或。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\mathrm{action}(s) = \{a_1, a_2, \cdots, a_m\}</span><script type="math/tex">\mathrm{action}(s) = \{a_1, a_2, \cdots, a_m\}</script></span> 是一个集合，给出了 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 状态下所有可能的决策。如果 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{action}(s) = \varnothing</span><script type="math/tex">\mathrm{action}(s) = \varnothing</script></span> 则说明 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是终态，用 <span class="arithmatex"><span class="MathJax_Preview">s \in V_T</span><script type="math/tex">s \in V_T</script></span> 表示，此时游戏已经结束并且 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{player}</span><script type="math/tex">\mathrm{player}</script></span> 失败了。 </p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\delta(s, a)=s'</span><script type="math/tex">\delta(s, a)=s'</script></span> 是转移函数，它表示在状态 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 采取决策 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 后转移到的状态为 <span class="arithmatex"><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span>。</p>
+<p>特别地，我们定义 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 为最初给定的状态，即初态。</p>
+<p>如果一个状态 <span class="arithmatex"><span class="MathJax_Preview">s = (\mathrm{turn}, \mathrm{player}, \mathrm{context})</span><script type="math/tex">s = (\mathrm{turn}, \mathrm{player}, \mathrm{context})</script></span> 是胜者是 <span class="arithmatex"><span class="MathJax_Preview">\rm{player}</span><script type="math/tex">\rm{player}</script></span>，那么称其是先手必胜的，否则称它是先手必败的。</p>
 <p>我们可以通过以下算法来确定任何一个状态的胜负性：</p>
 <ol>
 <li>
-<p>如果 <span><span class="MathJax_Preview">s \in V_T</span><script type="math/tex">s \in V_T</script></span>，则 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必败的，否则考虑 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 能够转移到的所有集合：
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">s \in V_T</span><script type="math/tex">s \in V_T</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必败的，否则考虑 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 能够转移到的所有集合：
 $$
 \mathrm{ch}[s] = \{s' \mid \delta(s, a) = s', \forall a \in \mathrm{action}(s)\}
 $$</p>
 </li>
 <li>
-<p>如果 <span><span class="MathJax_Preview">\forall t, t\in \mathrm{ch}[s]</span><script type="math/tex">\forall t, t\in \mathrm{ch}[s]</script></span>，<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是先手必胜的，那么 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必败的。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">\forall t, t\in \mathrm{ch}[s]</span><script type="math/tex">\forall t, t\in \mathrm{ch}[s]</script></span>，<span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是先手必胜的，那么 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必败的。</p>
 </li>
 <li>
-<p>如果 <span><span class="MathJax_Preview">\exists t, t\in \mathrm{ch}[s]</span><script type="math/tex">\exists t, t\in \mathrm{ch}[s]</script></span>，<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是先手必败的，那么 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必胜的。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">\exists t, t\in \mathrm{ch}[s]</span><script type="math/tex">\exists t, t\in \mathrm{ch}[s]</script></span>，<span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是先手必败的，那么 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 是先手必胜的。</p>
 </li>
 </ol>
 <p>该算法从直观上不难理解：考虑到经过一轮后先后手发生改变，所以当前的玩家只要有一个决策能够转移到先手必败的状态，那么它就可以选择这个决策让对方必败，从而达到自己必胜。反之亦然。</p>
 <h3 id="nim">例子：Nim 游戏<a class="headerlink" href="#nim" title="Permanent link">&para;</a></h3>
-<p>有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 堆石子，每堆有 <span><span class="MathJax_Preview">a_i &gt; 0</span><script type="math/tex">a_i > 0</script></span> 个石子。双方轮流取一堆石子中任意数量的石子，但不能不取。不能行动者失败。</p>
-<p>简单起见，假设 <span><span class="MathJax_Preview">n = 3</span><script type="math/tex">n = 3</script></span> 并假设石子数量为 <span><span class="MathJax_Preview">(1, 2, 1)</span><script type="math/tex">(1, 2, 1)</script></span>，这里 <span><span class="MathJax_Preview">\rm{turn}</span><script type="math/tex">\rm{turn}</script></span> 和 <span><span class="MathJax_Preview">\rm{player}</span><script type="math/tex">\rm{player}</script></span> 并不重要，我们将其从状态表示中省略。</p>
+<p>有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 堆石子，每堆有 <span class="arithmatex"><span class="MathJax_Preview">a_i &gt; 0</span><script type="math/tex">a_i > 0</script></span> 个石子。双方轮流取一堆石子中任意数量的石子，但不能不取。不能行动者失败。</p>
+<p>简单起见，假设 <span class="arithmatex"><span class="MathJax_Preview">n = 3</span><script type="math/tex">n = 3</script></span> 并假设石子数量为 <span class="arithmatex"><span class="MathJax_Preview">(1, 2, 1)</span><script type="math/tex">(1, 2, 1)</script></span>，这里 <span class="arithmatex"><span class="MathJax_Preview">\rm{turn}</span><script type="math/tex">\rm{turn}</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">\rm{player}</span><script type="math/tex">\rm{player}</script></span> 并不重要，我们将其从状态表示中省略。</p>
 <p>使用之前的方法确定状态的胜负性：</p>
 <ul>
-<li>基础：<span><span class="MathJax_Preview">(0,0,0)</span><script type="math/tex">(0,0,0)</script></span> 是先手必败状态。</li>
-<li><span><span class="MathJax_Preview">(1,0,0),(0,1,0),(0,0,1),(0,2,0)</span><script type="math/tex">(1,0,0),(0,1,0),(0,0,1),(0,2,0)</script></span> 是先手必胜状态，因为可以转移到 <span><span class="MathJax_Preview">(0,0,0)</span><script type="math/tex">(0,0,0)</script></span>。</li>
-<li><span><span class="MathJax_Preview">(1,1,0),(0,1,1),(1,0,1)</span><script type="math/tex">(1,1,0),(0,1,1),(1,0,1)</script></span> 是先手必败状态，因为只能转移到上一行的状态中。</li>
-<li><span><span class="MathJax_Preview">(1,1,1),(1,2,0),(0,2,1)</span><script type="math/tex">(1,1,1),(1,2,0),(0,2,1)</script></span> 是先手必胜状态，因为可以转移到上一行的状态中。</li>
-<li><span><span class="MathJax_Preview">(1,2,1)</span><script type="math/tex">(1,2,1)</script></span> 是先手必胜状态，因为可以转移到 <span><span class="MathJax_Preview">(1,0,1)</span><script type="math/tex">(1,0,1)</script></span>。</li>
+<li>基础：<span class="arithmatex"><span class="MathJax_Preview">(0,0,0)</span><script type="math/tex">(0,0,0)</script></span> 是先手必败状态。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">(1,0,0),(0,1,0),(0,0,1),(0,2,0)</span><script type="math/tex">(1,0,0),(0,1,0),(0,0,1),(0,2,0)</script></span> 是先手必胜状态，因为可以转移到 <span class="arithmatex"><span class="MathJax_Preview">(0,0,0)</span><script type="math/tex">(0,0,0)</script></span>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">(1,1,0),(0,1,1),(1,0,1)</span><script type="math/tex">(1,1,0),(0,1,1),(1,0,1)</script></span> 是先手必败状态，因为只能转移到上一行的状态中。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">(1,1,1),(1,2,0),(0,2,1)</span><script type="math/tex">(1,1,1),(1,2,0),(0,2,1)</script></span> 是先手必胜状态，因为可以转移到上一行的状态中。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">(1,2,1)</span><script type="math/tex">(1,2,1)</script></span> 是先手必胜状态，因为可以转移到 <span class="arithmatex"><span class="MathJax_Preview">(1,0,1)</span><script type="math/tex">(1,0,1)</script></span>。</li>
 </ul>
-<p>这样，如果我们设状态 <span><span class="MathJax_Preview">(a_1, a_2, \cdots, a_n) = 1</span><script type="math/tex">(a_1, a_2, \cdots, a_n) = 1</script></span> 表示先手必胜，<span><span class="MathJax_Preview">= 0</span><script type="math/tex">= 0</script></span> 表示先手必败。则可以用以下伪代码进行搜索。</p>
+<p>这样，如果我们设状态 <span class="arithmatex"><span class="MathJax_Preview">(a_1, a_2, \cdots, a_n) = 1</span><script type="math/tex">(a_1, a_2, \cdots, a_n) = 1</script></span> 表示先手必胜，<span class="arithmatex"><span class="MathJax_Preview">= 0</span><script type="math/tex">= 0</script></span> 表示先手必败。则可以用以下伪代码进行搜索。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2326,73 +2334,73 @@ $$</p>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">sg</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
-                <span class="n">b</span><span class="p">[]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[],</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">j</span>
-                <span class="n">ret</span> <span class="o">|=</span> <span class="o">!</span><span class="n">sg</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>                  
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">ret</span>
-<span class="p">}</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">sg</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">b</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">                </span><span class="n">ret</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="o">!</span><span class="n">sg</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w">                  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
-<p>这样，使用记忆化搜索，可以在 <span><span class="MathJax_Preview">O\left(\prod a_i\right)</span><script type="math/tex">O\left(\prod a_i\right)</script></span> 的时间复杂度内得到答案。</p>
-<p>注：利用博弈论的知识，Nim 游戏可以在 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 的时间内通过计算异或和得到答案。但这超出了本篇文章的范围。有兴趣的读者可以参考 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">OI Wiki</a> 中关于博弈论的资料。</p>
+<p>这样，使用记忆化搜索，可以在 <span class="arithmatex"><span class="MathJax_Preview">O\left(\prod a_i\right)</span><script type="math/tex">O\left(\prod a_i\right)</script></span> 的时间复杂度内得到答案。</p>
+<p>注：利用博弈论的知识，Nim 游戏可以在 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 的时间内通过计算异或和得到答案。但这超出了本篇文章的范围。有兴趣的读者可以参考 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">OI Wiki</a> 中关于博弈论的资料。</p>
 <h2 id="min-max">Min-Max 搜索<a class="headerlink" href="#min-max" title="Permanent link">&para;</a></h2>
 <p>SG 搜索固然确定地得到正确答案，但是时间复杂度与状态数相关。对于更复杂的问题，由于各种限制我们往往不能遍历所有可能状态，因此我们或许可以通过牺牲正确性来换取可行性。</p>
-<p>一个简单的想法是引入估价函数（英语：utility function, power function, heuristic function）<span><span class="MathJax_Preview">f: S\to \mathbb{R}</span><script type="math/tex">f: S\to \mathbb{R}</script></span> 给出对于某个状态的评估。我们人为的规定对于局面 <span><span class="MathJax_Preview">s' = \delta(s, a)</span><script type="math/tex">s' = \delta(s, a)</script></span>，<span><span class="MathJax_Preview">f(s')</span><script type="math/tex">f(s')</script></span> 给出相对于状态 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 先手的估值（注意不是 <span><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span>），这个值越大则认为局面越“优”。特别的，如果局面 <span><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span> 是先手必败的（这意味着对于 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 而言是先手必胜的），则其估值可以设为 <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span>。</p>
+<p>一个简单的想法是引入估价函数（英语：utility function, power function, heuristic function）<span class="arithmatex"><span class="MathJax_Preview">f: S\to \mathbb{R}</span><script type="math/tex">f: S\to \mathbb{R}</script></span> 给出对于某个状态的评估。我们人为的规定对于局面 <span class="arithmatex"><span class="MathJax_Preview">s' = \delta(s, a)</span><script type="math/tex">s' = \delta(s, a)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(s')</span><script type="math/tex">f(s')</script></span> 给出相对于状态 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 先手的估值（注意不是 <span class="arithmatex"><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span>），这个值越大则认为局面越“优”。特别的，如果局面 <span class="arithmatex"><span class="MathJax_Preview">s'</span><script type="math/tex">s'</script></span> 是先手必败的（这意味着对于 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 而言是先手必胜的），则其估值可以设为 <span class="arithmatex"><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span>。</p>
 <p>在我们这种定义下，先手会找到估价函数值最大的状态，然后选择能够转移到这个状态的决策。当然，这种方法的有效性极大的依赖于估价函数是否合理。</p>
 <p>我们将这种想法一般化，如果搜索多层，那么我们可以对状态所构成的搜索树实施类似 SG 搜索的做法，只不过层与层之间不再是必胜与必败关系的转移，而是估值的转移：</p>
 <ol>
-<li>设根节点 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的深度为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，每进行一次搜索深度加一。</li>
-<li>对于叶节点 <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span>，其估值 <span><span class="MathJax_Preview">w_l = f(l)</span><script type="math/tex">w_l = f(l)</script></span>。</li>
-<li>对于深度为 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 的非叶节点 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：<ul>
-<li>如果 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是偶数，则 <span><span class="MathJax_Preview">w_n = \max_{s\in \mathrm{ch}[n]}(w_s)</span><script type="math/tex">w_n = \max_{s\in \mathrm{ch}[n]}(w_s)</script></span>，即其所有孩子估值的最大值。</li>
-<li>如果 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是奇数，则 <span><span class="MathJax_Preview">w_n = \min_{s\in \mathrm{ch}[n]}(w_s)</span><script type="math/tex">w_n = \min_{s\in \mathrm{ch}[n]}(w_s)</script></span>，即其所有孩子估值的最小值。</li>
+<li>设根节点 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的深度为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，每进行一次搜索深度加一。</li>
+<li>对于叶节点 <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span>，其估值 <span class="arithmatex"><span class="MathJax_Preview">w_l = f(l)</span><script type="math/tex">w_l = f(l)</script></span>。</li>
+<li>对于深度为 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 的非叶节点 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：<ul>
+<li>如果 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是偶数，则 <span class="arithmatex"><span class="MathJax_Preview">w_n = \max_{s\in \mathrm{ch}[n]}(w_s)</span><script type="math/tex">w_n = \max_{s\in \mathrm{ch}[n]}(w_s)</script></span>，即其所有孩子估值的最大值。</li>
+<li>如果 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是奇数，则 <span class="arithmatex"><span class="MathJax_Preview">w_n = \min_{s\in \mathrm{ch}[n]}(w_s)</span><script type="math/tex">w_n = \min_{s\in \mathrm{ch}[n]}(w_s)</script></span>，即其所有孩子估值的最小值。</li>
 </ul>
 </li>
 </ol>
-<p>直观上理解是类似的：经过一轮后先后手发生改变，而我们的估值函数是根据于根节点 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的先手状态确定。另一方面，因为游戏是零和的，所以一个状态对应先手在估值函数 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 下估值的最大值，那么对于后手最优的也应当是 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 下的最小值。 </p>
+<p>直观上理解是类似的：经过一轮后先后手发生改变，而我们的估值函数是根据于根节点 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的先手状态确定。另一方面，因为游戏是零和的，所以一个状态对应先手在估值函数 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 下估值的最大值，那么对于后手最优的也应当是 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 下的最小值。 </p>
 <p><img alt="image-20220114150840478" src="../../static/ai-ml/adversarial-search/minmax.png" /></p>
-<p>如图，此时先手选择了 <span><span class="MathJax_Preview">A\to B</span><script type="math/tex">A\to B</script></span> 作为决策。图源：<em>Stuart Russell, Peter Norvig: Artificial Intelligence A Modern Approach</em>。</p>
-<p>请思考：为什么这样做比直接计算 <span><span class="MathJax_Preview">f(S_0)</span><script type="math/tex">f(S_0)</script></span> 能更准确衡量局面的价值。</p>
+<p>如图，此时先手选择了 <span class="arithmatex"><span class="MathJax_Preview">A\to B</span><script type="math/tex">A\to B</script></span> 作为决策。图源：<em>Stuart Russell, Peter Norvig: Artificial Intelligence A Modern Approach</em>。</p>
+<p>请思考：为什么这样做比直接计算 <span class="arithmatex"><span class="MathJax_Preview">f(S_0)</span><script type="math/tex">f(S_0)</script></span> 能更准确衡量局面的价值。</p>
 <h3 id="alpha-beta">Alpha-Beta 剪枝<a class="headerlink" href="#alpha-beta" title="Permanent link">&para;</a></h3>
 <p>在 Min-Max 搜索过程中可以进行剪枝，但这不是本文的重点。有兴趣的读者可以参考 <a href="https://oi-wiki.org/search/alpha-beta/">OI Wiki</a> 上的资料。</p>
 <h3 id="_4">随机化估值函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>根据前文的讨论，不难发现在这种情况下的 AI 的好坏严重依赖于估值函数 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的构造。对于较为复杂的游戏（如 Snake Go），人工构造一个估值函数可能是较为困难的。基于这些考虑，我们尝试随机化方法。</p>
-<p>一个较为直接的估值函数是这样的，对于搜索树的所有叶节点采用默认决策模拟 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 次，将其中相对于 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的胜率作为估值函数。这里“以默认决策模拟”指的是以该就叶节点为新的初态，不断地随机选择任意一个可能的决策进行迭代，直到达到某个终态，并判断其相对于叶节点的胜负性。</p>
-<p>注意到整个算法本身与前文的 Min-Max 搜索是完全一致的，我们只是将估值函数 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 换成了随机模拟的胜率。显然，这种做法的正确性依赖于概率论中的极限定理，也就是说，模拟的次数 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 越大，我们得到的结果越有说服力。</p>
+<p>根据前文的讨论，不难发现在这种情况下的 AI 的好坏严重依赖于估值函数 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的构造。对于较为复杂的游戏（如 Snake Go），人工构造一个估值函数可能是较为困难的。基于这些考虑，我们尝试随机化方法。</p>
+<p>一个较为直接的估值函数是这样的，对于搜索树的所有叶节点采用默认决策模拟 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 次，将其中相对于 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的胜率作为估值函数。这里“以默认决策模拟”指的是以该就叶节点为新的初态，不断地随机选择任意一个可能的决策进行迭代，直到达到某个终态，并判断其相对于叶节点的胜负性。</p>
+<p>注意到整个算法本身与前文的 Min-Max 搜索是完全一致的，我们只是将估值函数 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 换成了随机模拟的胜率。显然，这种做法的正确性依赖于概率论中的极限定理，也就是说，模拟的次数 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 越大，我们得到的结果越有说服力。</p>
 <h2 id="monte-carlo">Monte-Carlo 树搜索<a class="headerlink" href="#monte-carlo" title="Permanent link">&para;</a></h2>
 <p>上文的随机化思想在实际应用中可能并不理想，这主要是因为它静态的将所有的叶节点搜索出来，并且把它们视为等同的进行模拟。更重要的是，我们希望能够在模拟过程中尽可能的利用先前模拟的信息以加快收敛的速度。</p>
-<p>基于以上考量，我们给出 Monte-Carol 树搜索算法。该算法以一个初始状态 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 作为输入，不断的进行拓展最初只有一个根节点 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的搜索树，搜索树节点维护状态为 <span><span class="MathJax_Preview">(s, w, n)</span><script type="math/tex">(s, w, n)</script></span> 分别表示对应的状态、权值、被访问次数。</p>
+<p>基于以上考量，我们给出 Monte-Carol 树搜索算法。该算法以一个初始状态 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 作为输入，不断的进行拓展最初只有一个根节点 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 的搜索树，搜索树节点维护状态为 <span class="arithmatex"><span class="MathJax_Preview">(s, w, n)</span><script type="math/tex">(s, w, n)</script></span> 分别表示对应的状态、权值、被访问次数。</p>
 <p>其主要过程可以分四步：</p>
 <ol>
 <li>选择<ul>
-<li>从 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 出发，选择一个可拓展的节点 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 并随机的拓展其一个子节点。一个节点是可拓展的，当且仅当其对应的状态 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 不是终态并且存在 <span><span class="MathJax_Preview">t\in \mathrm{ch}[s]</span><script type="math/tex">t\in \mathrm{ch}[s]</script></span>，且 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 不在搜索树中。</li>
+<li>从 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 出发，选择一个可拓展的节点 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 并随机的拓展其一个子节点。一个节点是可拓展的，当且仅当其对应的状态 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 不是终态并且存在 <span class="arithmatex"><span class="MathJax_Preview">t\in \mathrm{ch}[s]</span><script type="math/tex">t\in \mathrm{ch}[s]</script></span>，且 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 不在搜索树中。</li>
 </ul>
 </li>
 <li>拓展<ul>
-<li>假设选择拓展 <span><span class="MathJax_Preview">t\in \mathrm{ch}[s]</span><script type="math/tex">t\in \mathrm{ch}[s]</script></span>, 那么在搜索树中添加一个状态为 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的节点，并设其为 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的子节点。</li>
+<li>假设选择拓展 <span class="arithmatex"><span class="MathJax_Preview">t\in \mathrm{ch}[s]</span><script type="math/tex">t\in \mathrm{ch}[s]</script></span>, 那么在搜索树中添加一个状态为 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的节点，并设其为 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的子节点。</li>
 </ul>
 </li>
 <li>模拟<ul>
-<li>以 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 为初态实施默认策略，计算默认策略的权值增量 <span><span class="MathJax_Preview">\Delta</span><script type="math/tex">\Delta</script></span>。</li>
-<li>如果默认策略中相对于 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 胜利，则 <span><span class="MathJax_Preview">\Delta = 1</span><script type="math/tex">\Delta = 1</script></span>，否则 <span><span class="MathJax_Preview">\Delta = 0</span><script type="math/tex">\Delta = 0</script></span>。</li>
+<li>以 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 为初态实施默认策略，计算默认策略的权值增量 <span class="arithmatex"><span class="MathJax_Preview">\Delta</span><script type="math/tex">\Delta</script></span>。</li>
+<li>如果默认策略中相对于 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 胜利，则 <span class="arithmatex"><span class="MathJax_Preview">\Delta = 1</span><script type="math/tex">\Delta = 1</script></span>，否则 <span class="arithmatex"><span class="MathJax_Preview">\Delta = 0</span><script type="math/tex">\Delta = 0</script></span>。</li>
 </ul>
 </li>
 <li>回溯<ul>
-<li>设 <span><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 到 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的路径上所有节点为 <span><span class="MathJax_Preview">s_1, s_2, \cdots, t</span><script type="math/tex">s_1, s_2, \cdots, t</script></span> 依次更新其状态：<ul>
-<li>如果节点 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的深度与 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 同奇偶，更新为 <span><span class="MathJax_Preview">(s, w, n)\to (s, w + \Delta, n + 1)</span><script type="math/tex">(s, w, n)\to (s, w + \Delta, n + 1)</script></span>。</li>
-<li>如果节点 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的深度与 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 不同奇偶，更新为 <span><span class="MathJax_Preview">(s, w, n)\to (s, w + 1 - \Delta, n + 1)</span><script type="math/tex">(s, w, n)\to (s, w + 1 - \Delta, n + 1)</script></span>。</li>
+<li>设 <span class="arithmatex"><span class="MathJax_Preview">S_0</span><script type="math/tex">S_0</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的路径上所有节点为 <span class="arithmatex"><span class="MathJax_Preview">s_1, s_2, \cdots, t</span><script type="math/tex">s_1, s_2, \cdots, t</script></span> 依次更新其状态：<ul>
+<li>如果节点 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的深度与 <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 同奇偶，更新为 <span class="arithmatex"><span class="MathJax_Preview">(s, w, n)\to (s, w + \Delta, n + 1)</span><script type="math/tex">(s, w, n)\to (s, w + \Delta, n + 1)</script></span>。</li>
+<li>如果节点 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的深度与 <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 不同奇偶，更新为 <span class="arithmatex"><span class="MathJax_Preview">(s, w, n)\to (s, w + 1 - \Delta, n + 1)</span><script type="math/tex">(s, w, n)\to (s, w + 1 - \Delta, n + 1)</script></span>。</li>
 </ul>
 </li>
 <li>如果时间足够，回到“选择”部分重复。</li>
 </ul>
 </li>
 </ol>
-<p>最后，每个节点的估值即为胜率 <span><span class="MathJax_Preview">p = \dfrac{w}{n}</span><script type="math/tex">p = \dfrac{w}{n}</script></span>，根节点选择估值最大的节点对应的决策。</p>
+<p>最后，每个节点的估值即为胜率 <span class="arithmatex"><span class="MathJax_Preview">p = \dfrac{w}{n}</span><script type="math/tex">p = \dfrac{w}{n}</script></span>，根节点选择估值最大的节点对应的决策。</p>
 <p><img alt="image-20220115170727950" src="../../static/ai-ml/adversarial-search/montecarlo.png" /></p>
 <p>上图较为形象的表示了 Monte-Carlo 树搜索的四步流程。</p>
 <h3 id="_5">置信上界树<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -2403,8 +2411,8 @@ $$</p>
 </ul>
 <p>我们采取所谓的置信上界算法（英语：Upper Confidence Bounds）来解决这个问题。</p>
 <p>UCB 的想法是改善选择拓展节点的方案，这个方案应该具有两方面的单调性：相同模拟次数下，胜率高的节点应该更多的被访问；相同胜率下，模拟次数少的估值应当更多的被访问。</p>
-<p>考虑到这些条件，经过一些数学推导，设根节点为 <span><span class="MathJax_Preview">(S_0, w_0, N)</span><script type="math/tex">(S_0, w_0, N)</script></span> 我们定义节点 <span><span class="MathJax_Preview">(s, w, n)</span><script type="math/tex">(s, w, n)</script></span> 的置信上界 <span><span class="MathJax_Preview">I(s)</span><script type="math/tex">I(s)</script></span>：</p>
-<div>
+<p>考虑到这些条件，经过一些数学推导，设根节点为 <span class="arithmatex"><span class="MathJax_Preview">(S_0, w_0, N)</span><script type="math/tex">(S_0, w_0, N)</script></span> 我们定义节点 <span class="arithmatex"><span class="MathJax_Preview">(s, w, n)</span><script type="math/tex">(s, w, n)</script></span> 的置信上界 <span class="arithmatex"><span class="MathJax_Preview">I(s)</span><script type="math/tex">I(s)</script></span>：</p>
+<div class="arithmatex">
 <div class="MathJax_Preview">
 I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 </div>
@@ -2412,7 +2420,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 </script>
 </div>
-<p>其中 <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 是可以调节的常数。</p>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 是可以调节的常数。</p>
 <p>改进后的算法被称为置信上界树（UCT）算法，我们此时不再随机选择拓展的节点，而是选择其置信上界最大的进行拓展。</p>
 <p>在最终决策时，以置信上界最大（胜率最高、最多访问次数等指标均可）的节点作为决策，算法的细节见下方 Python 伪代码。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2533,7 +2541,7 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 <h3 id="_6">实现技巧<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><strong>终局特判</strong></p>
 <p>在默认决策下胜率高并不一定意味着这个局面一定是必胜局面。</p>
-<p>假设 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 需要距离到达终局只需要常数步，它可以到达 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 个终局，其中只有 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 个是先手必败态，其余全是先手必胜态。那么实际上 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 是先手必胜态，一个准确的估值应该很大。但是我们的默认策略是随机决策，那么最后节点的胜率从理论上应当在 <span><span class="MathJax_Preview">1/N</span><script type="math/tex">1/N</script></span> 附近。当 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 较大时我们的默认决策得不到好的结果。一个解决办法是，对于接近终局的情况不再进行模拟，而是直接全部搜索。这样得到的结果更加准确，但步数越多，时间消耗也越大。因此要进行权衡。</p>
+<p>假设 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 需要距离到达终局只需要常数步，它可以到达 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 个终局，其中只有 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 个是先手必败态，其余全是先手必胜态。那么实际上 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 是先手必胜态，一个准确的估值应该很大。但是我们的默认策略是随机决策，那么最后节点的胜率从理论上应当在 <span class="arithmatex"><span class="MathJax_Preview">1/N</span><script type="math/tex">1/N</script></span> 附近。当 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 较大时我们的默认决策得不到好的结果。一个解决办法是，对于接近终局的情况不再进行模拟，而是直接全部搜索。这样得到的结果更加准确，但步数越多，时间消耗也越大。因此要进行权衡。</p>
 <p>对于 Snake Go 而言，一个对应的简单优化就是在默认策略时，如果某个策略导致了自己的蛇自杀消失，那么显然是不会选的，所以应当将其剔除。</p>
 <h2 id="_7">后续拓展<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>对抗搜索是在用“人工智能”的思想去解决博弈论问题。有兴趣的读者可以去了解对应的知识。</p>
@@ -2545,21 +2553,18 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
 <ul>
 <li>OI Wiki 中关于博弈论的相关介绍 <a href="https://oi-wiki.org/math/game-theory/impartial-game/">https://oi-wiki.org/math/game-theory/impartial-game/</a></li>
 </ul>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
       
     
   </small>
 </div>
-                  
-                
+
               
     
         <div class="md-source-date">
@@ -2569,26 +2574,20 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
         </div>
     
 
-              
-                
-
-
-              
             </article>
           </div>
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Back to top
+            回到页面顶部
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
         <a href="../pytorch/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Pytorch 入门" rel="prev">
@@ -2625,16 +2624,15 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -2644,10 +2642,10 @@ I(s) = \frac{w}{n} + C\sqrt{\frac{2\ln(N)}{n}}
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
