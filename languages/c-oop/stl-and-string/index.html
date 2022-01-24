@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -18,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -31,14 +30,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -55,9 +53,8 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -74,10 +71,11 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
   
@@ -136,8 +134,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -146,9 +143,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
@@ -169,8 +166,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -191,7 +187,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -328,7 +324,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
@@ -340,8 +336,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -382,11 +377,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../..">欢迎来到 SAST skill docs</a>
-          <label for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
@@ -396,7 +393,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -457,11 +453,9 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../courses/">课程指引</a>
-          <label for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="课程指引" data-md-level="1">
@@ -471,7 +465,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
         </ul>
@@ -514,11 +507,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../basic/">基本技能</a>
-          <label for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="基本技能" data-md-level="1">
@@ -528,7 +523,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -653,11 +647,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../">编程语言</a>
-          <label for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="编程语言" data-md-level="1">
@@ -667,7 +663,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -718,11 +713,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../">C++ 语言面向对象</a>
-          <label for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
@@ -732,7 +729,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -886,6 +882,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -1018,11 +1015,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../python/">Python 语言基础</a>
-          <label for="__nav_4_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
@@ -1032,7 +1031,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1110,11 +1108,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../css/">CSS 语言基础</a>
-          <label for="__nav_4_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
@@ -1124,7 +1124,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1198,11 +1197,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../javascript/">JavaScript 语言基础</a>
-          <label for="__nav_4_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
@@ -1212,7 +1213,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1370,11 +1370,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../rust/">Rust 语言基础</a>
-          <label for="__nav_4_9">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
@@ -1384,7 +1386,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1516,11 +1517,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../node.js/">Node.js 基础</a>
-          <label for="__nav_4_10">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
@@ -1530,7 +1533,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1590,11 +1592,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../swift/">Swift 语言基础</a>
-          <label for="__nav_4_11">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_11">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
@@ -1604,7 +1608,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1744,11 +1747,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../frontend/">前端框架</a>
-          <label for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="前端框架" data-md-level="1">
@@ -1758,7 +1763,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1793,11 +1797,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
-          <label for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
@@ -1807,7 +1813,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1921,11 +1926,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../ai-ml/">人工智能 & 机器学习</a>
-          <label for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
@@ -1935,7 +1942,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -2000,11 +2006,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../../source/">资源链接</a>
-          <label for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="资源链接" data-md-level="1">
@@ -2014,7 +2022,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -2063,6 +2070,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -2124,24 +2132,24 @@
               
     
                 
-                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/c-oop/stl-and-string.md" title="编辑此页" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="stl">STL 和字符串处理<a class="headerlink" href="#stl" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/languages/c-oop/stl-and-string.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="stl">STL 和字符串处理<a class="headerlink" href="#stl" title="Permanent link">&para;</a></h1>
 <h2 id="string"><code>string</code> 字符串类<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
 <p>STL 为我们提供了方便的 <code>string</code> 类型：</p>
 <ul>
 <li><strong>允许简洁的拼接操作</strong></li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="n">fullname</span> <span class="o">=</span> <span class="n">firstname</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">lastname</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">string</span><span class="w"> </span><span class="n">fullname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lastname</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <ul>
 <li><strong>也能够使用惯用的输入输出方法</strong></li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fullname</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fullname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2153,13 +2161,13 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="nf">s0</span><span class="p">(</span><span class="s">&quot;Initial string&quot;</span><span class="p">);</span> <span class="c1">// 从 C 风格字符串构造</span>
-<span class="n">string</span> <span class="n">s1</span><span class="p">;</span> <span class="c1">// 默认空字符串</span>
-<span class="n">string</span> <span class="nf">s2</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// 截取，index 从 8 开始，长度为 3</span>
-<span class="n">string</span> <span class="nf">s3</span><span class="p">(</span><span class="s">&quot;Another character sequence&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span> <span class="c1">// 截取</span>
-<span class="n">string</span> <span class="nf">s4</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">);</span> <span class="c1">// 复制字符</span>
-<span class="n">string</span> <span class="nf">s5</span><span class="p">(</span><span class="n">s0</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s0</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">);</span> <span class="c1">// 复制截取</span>
-<span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span> <span class="c1">// 转换为 C 风格字符串</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">string</span><span class="w"> </span><span class="nf">s0</span><span class="p">(</span><span class="s">&quot;Initial string&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 从 C 风格字符串构造</span>
+<span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 默认空字符串</span>
+<span class="n">string</span><span class="w"> </span><span class="nf">s2</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 截取，index 从 8 开始，长度为 3</span>
+<span class="n">string</span><span class="w"> </span><span class="nf">s3</span><span class="p">(</span><span class="s">&quot;Another character sequence&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w"> </span><span class="c1">// 截取</span>
+<span class="n">string</span><span class="w"> </span><span class="nf">s4</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 复制字符</span>
+<span class="n">string</span><span class="w"> </span><span class="nf">s5</span><span class="p">(</span><span class="n">s0</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">s0</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"> </span><span class="c1">// 复制截取</span>
+<span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span><span class="w"> </span><span class="c1">// 转换为 C 风格字符串</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2180,20 +2188,20 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 方式一</span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">zcy</span> <span class="o">=</span> <span class="s">&quot;Darling I&#39;ll love you till we are senventy&quot;</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">zcy</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">zcy</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">zcy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Darling I&#39;ll love you till we are senventy&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zcy</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">zcy</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// 方式二</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span><span class="p">:</span> <span class="n">zcy</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">zcy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2210,18 +2218,18 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// 访问元素</span>
-<span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span> <span class="c1">// 修改元素</span>
-<span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="c1">// 查询长度</span>
-<span class="n">str</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1">// 清空 </span>
-<span class="n">str</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="c1">// 查询是否为空</span>
-<span class="n">str</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
-<span class="n">str</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span> <span class="c1">// 向尾部增加</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 访问元素</span>
+<span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 修改元素</span>
+<span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="c1">// 查询长度</span>
+<span class="n">str</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="c1">// 清空 </span>
+<span class="n">str</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="c1">// 查询是否为空</span>
+<span class="n">str</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">str</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 向尾部增加</span>
 
 <span class="c1">// 直接按照字典序来比较</span>
-<span class="n">string</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;alice&quot;</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;bob&quot;</span><span class="p">;</span>
-<span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="c1">// false</span>
-<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>  <span class="c1">// true</span>
+<span class="n">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bob&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="c1">// false</span>
+<span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w">  </span><span class="c1">// true</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2240,18 +2248,18 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// 数值类型字符串化</span>
-<span class="n">to_string</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// &quot;1&quot;</span>
-<span class="n">to_string</span><span class="p">(</span><span class="mf">3.14</span><span class="p">);</span> <span class="c1">// &quot;3.14&quot;</span>
-<span class="n">to_string</span><span class="p">(</span><span class="mf">3.1415926</span><span class="p">);</span> <span class="c1">// &quot;3.141593&quot;，注意精度损失</span>
-<span class="n">to_string</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// &quot;6&quot;</span>
+<span class="n">to_string</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;1&quot;</span>
+<span class="n">to_string</span><span class="p">(</span><span class="mf">3.14</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;3.14&quot;</span>
+<span class="n">to_string</span><span class="p">(</span><span class="mf">3.1415926</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;3.141593&quot;，注意精度损失</span>
+<span class="n">to_string</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;6&quot;</span>
 
 <span class="c1">// 字符串转数值类型</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="s">&quot;2001&quot;</span><span class="p">);</span> <span class="c1">// a = 2001</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">size_type</span> <span class="n">sz</span><span class="p">;</span> <span class="c1">// size_t alias</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="s">&quot;50 cats&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sz</span><span class="p">);</span> <span class="c1">// b = 50 sz = 2</span>
-<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="s">&quot;40c3&quot;</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span> <span class="c1">// c = 0x40c3，十六进制</span>
-<span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="s">&quot;0x7f&quot;</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// d = 0x7f，自动检查进制</span>
-<span class="kt">double</span> <span class="n">e</span> <span class="o">=</span> <span class="n">stod</span><span class="p">(</span><span class="s">&quot;34.5&quot;</span><span class="p">);</span> <span class="c1">// e = 34.5</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">&quot;2001&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// a = 2001</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="c1">// size_t alias</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">&quot;50 cats&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sz</span><span class="p">);</span><span class="w"> </span><span class="c1">// b = 50 sz = 2</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">&quot;40c3&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"> </span><span class="c1">// c = 0x40c3，十六进制</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">&quot;0x7f&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// d = 0x7f，自动检查进制</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stod</span><span class="p">(</span><span class="s">&quot;34.5&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// e = 34.5</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2279,12 +2287,12 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
-<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Test</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">src</span><span class="p">.</span><span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
-<span class="p">}</span> 
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"></span>
+<span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Test</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span>
 </code></pre></div>
 </td></tr></table>
 <p>基类：<code>istream</code> 和 <code>ostream</code>，而 <code>iostream</code> 是派生类。<code>cin</code>、<code>cout</code> 是具体的对象。<code>ifstream</code>、<code>ofstream</code>、<code>fstream</code> 都是面向文件的输入输出流。也可以通过字符串来定义交互方式，比如 <code>sstream</code>。</p>
@@ -2292,7 +2300,7 @@
 <li><strong><code>ostream</code> 即 output stream，是 STL 库中所有输出流的基类</strong></li>
 </ul>
 <p>它重载了针对基础类型的输出流运算符，接受不同类型的数据，再调用系统函数进行输出。统一了输出接口，改善了 C 中输出方式混乱的状况，比如 C 中需要用户关心非常多的内容，手动设置输出类型，常常出错。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %f %s&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %f %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p><code>cout</code> 是 STL 中内建的一个 <code>ostream</code> 对象，它会将数据送到标准输出流（一般是屏幕）。</p>
@@ -2307,18 +2315,18 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ostream</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ostream</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
-        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="n">cout</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">cout</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>语句 <code>cout &lt;&lt; "hello" &lt;&lt; ' ' &lt;&lt; "world"</code> 先执行 <code>cout &lt;&lt; "hello"</code> 调用第二个函数，返回 <code>c1</code>（<code>cout</code> 的引用）。再执行 <code>c1 &lt;&lt; ' '</code> 调用第一个函数，返回 <code>c2</code>（<code>cout</code> 的引用）。最后执行 <code>c2 &lt;&lt; "world"</code> 调用第二个函数。</p>
@@ -2330,14 +2338,14 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span> <span class="o">&lt;&lt;</span> <span class="mf">2018.0</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="mf">0.0001</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 固定小数位数</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">scientific</span> <span class="o">&lt;&lt;</span> <span class="mf">2018.0</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="mf">0.0001</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 科学计数法</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">defaultfloat</span><span class="p">;</span>  <span class="c1">// 还原默认输出格式</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mf">3.1415926</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 输出精度设置为 2</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">oct</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">hex</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 八进制输出与十六进制输出</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dec</span><span class="p">;</span> <span class="c1">// 还原十进制</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">setfill</span><span class="p">(</span><span class="sc">&#39;*&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 设置对齐长度为 3，对齐字符为 *</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">2018.0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 固定小数位数</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">scientific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">2018.0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 科学计数法</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">defaultfloat</span><span class="p">;</span><span class="w">  </span><span class="c1">// 还原默认输出格式</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">3.1415926</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出精度设置为 2</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 八进制输出与十六进制输出</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dec</span><span class="p">;</span><span class="w"> </span><span class="c1">// 还原十进制</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setfill</span><span class="p">(</span><span class="sc">&#39;*&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 设置对齐长度为 3，对齐字符为 *</span>
 </code></pre></div>
 </td></tr></table>
 <p>自己实现：</p>
@@ -2360,34 +2368,34 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">setprecision</span> <span class="p">{</span>
-<span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">precision</span><span class="p">;</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">setprecision</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span><span class="o">:</span> <span class="n">precision</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-    <span class="k">friend</span> <span class="k">class</span> <span class="nc">ostream</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">setprecision</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">precision</span><span class="p">;</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">setprecision</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">precision</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ostream</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">// 函数类</span>
-<span class="k">class</span> <span class="nc">ostream</span> <span class="p">{</span>
-<span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">precision</span><span class="p">;</span> <span class="c1">// 记录流的状态</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">setprecision</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">precision</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">precision</span><span class="p">;</span>
-        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="n">cout</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ostream</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">precision</span><span class="p">;</span><span class="w"> </span><span class="c1">// 记录流的状态</span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">setprecision</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">precision</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">cout</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>借助辅助类，设置成员变量。这种类叫流操纵算子。</p>
 <p>为什么重载流运算符要返回引用，而不是直接返回 <code>cout</code>？</p>
 <p>始终在用同一个输出流对象 <code>cout</code>，没有构造新的 <code>ostream</code>。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ostream</span><span class="p">(</span><span class="k">const</span> <span class="n">ostream</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-<span class="n">ostream</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ostream</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ostream</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"></span>
+<span class="n">ostream</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>禁止复制、只允许移动，仅使用 <code>cout</code> 一个全局对象。</p>
@@ -2411,11 +2419,11 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ifstream</span> <span class="nf">ifs</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">);</span>
-<span class="n">ifstream</span> <span class="nf">ifs</span><span class="p">(</span><span class="s">&quot;binary.bin&quot;</span><span class="p">,</span> <span class="n">ifstream</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span> <span class="c1">// 以二进制形式打开文件</span>
-<span class="n">ifstream</span> <span class="n">ifs</span><span class="p">;</span> <span class="c1">// 先创建一个 sfstream 类的对象</span>
-<span class="n">ifs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">);</span>
-<span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ifstream</span><span class="w"> </span><span class="nf">ifs</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ifstream</span><span class="w"> </span><span class="nf">ifs</span><span class="p">(</span><span class="s">&quot;binary.bin&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ifstream</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span><span class="w"> </span><span class="c1">// 以二进制形式打开文件</span>
+<span class="n">ifstream</span><span class="w"> </span><span class="n">ifs</span><span class="p">;</span><span class="w"> </span><span class="c1">// 先创建一个 sfstream 类的对象</span>
+<span class="n">ifs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>例子：</p>
@@ -2441,29 +2449,29 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cctype&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cctype&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">);</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">ifs</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 判断文件是否到末尾，利用了重载的 bool 运算符</span>
-        <span class="n">ifs</span> <span class="o">&gt;&gt;</span> <span class="n">ws</span><span class="p">;</span> <span class="c1">// 除去前导空格 ws 也是流操纵算子</span>
-        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">ifs</span><span class="p">.</span><span class="n">peek</span><span class="p">();</span> <span class="c1">// 检查下一个字符，但不读取</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">isdigit</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-            <span class="n">ifs</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Read a number: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
-            <span class="n">ifs</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Read a word: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ifstream</span><span class="w"> </span><span class="n">ifs</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ifs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 判断文件是否到末尾，利用了重载的 bool 运算符</span>
+<span class="w">        </span><span class="n">ifs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ws</span><span class="p">;</span><span class="w"> </span><span class="c1">// 除去前导空格 ws 也是流操纵算子</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ifs</span><span class="p">.</span><span class="n">peek</span><span class="p">();</span><span class="w"> </span><span class="c1">// 检查下一个字符，但不读取</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isdigit</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">ifs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Read a number: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">ifs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">str</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Read a word: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>辅助函数：</p>
@@ -2474,14 +2482,14 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span><span class="w"></span>
 
-<span class="cm">/* 其他操作 */</span>
-<span class="n">get</span><span class="p">();</span> <span class="c1">// 读取一个字符</span>
-<span class="n">ignore</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">delim</span> <span class="o">=</span> <span class="n">EOF</span><span class="p">);</span> <span class="c1">// 丢弃 n 个字符，或者直至遇到 delim 分隔符</span>
-<span class="n">peek</span><span class="p">();</span> <span class="c1">// 查看下一个字符</span>
-<span class="n">putback</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// 返还一个字符</span>
-<span class="n">unget</span><span class="p">();</span> <span class="c1">// 返还一个字符</span>
+<span class="cm">/* 其他操作 */</span><span class="w"></span>
+<span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// 读取一个字符</span>
+<span class="n">ignore</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">delim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EOF</span><span class="p">);</span><span class="w"> </span><span class="c1">// 丢弃 n 个字符，或者直至遇到 delim 分隔符</span>
+<span class="n">peek</span><span class="p">();</span><span class="w"> </span><span class="c1">// 查看下一个字符</span>
+<span class="n">putback</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// 返还一个字符</span>
+<span class="n">unget</span><span class="p">();</span><span class="w"> </span><span class="c1">// 返还一个字符</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2490,8 +2498,8 @@
 <p><code>scanf</code> 不友好，不同类型要使用不同的标识符。</p>
 <p>对比：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %hd %f %lf %s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
-<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">s</span> <span class="o">&gt;&gt;</span> <span class="n">f</span> <span class="o">&gt;&gt;</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %hd %f %lf %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+<span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <p>其中：</p>
@@ -2516,37 +2524,34 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
-    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;10&quot;</span><span class="p">;</span> <span class="c1">// 将 10 存入 ss</span>
-    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;0 200&quot;</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// a = 100, b = 200</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">stringstream</span><span class="w"> </span><span class="n">ss</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将 10 存入 ss</span>
+<span class="w">    </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;0 200&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ss</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a = 100, b = 200</span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
 <ul>
 <li>什么是输入，什么是输出？</li>
 </ul>
 <p>主体是你的程序，客体是你的 <code>sstream</code>、<code>ifstream</code>。输入输出是相对程序而言的。</p>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月23日</span>
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月23日</span>
       
     
   </small>
 </div>
-                  
-                
+
               
     
         <div class="md-source-date">
@@ -2556,26 +2561,20 @@
         </div>
     
 
-              
-                
-
-
-              
             </article>
           </div>
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Back to top
+            回到页面顶部
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
         <a href="../templates-and-intro-to-stl/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 模板进阶与 STL 入门" rel="prev">
@@ -2612,16 +2611,15 @@
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -2631,10 +2629,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.960e086b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
