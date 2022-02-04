@@ -620,7 +620,11 @@ public:
 
     Test(const Test &con) {
         printf("Test(const Test &con)\n");
-    } 
+    }
+    
+    Test(Test&& con) {
+        printf("Test(Test &&con)\n");
+    }
 };
 
 Test func(Test a) {
