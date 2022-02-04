@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -18,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -31,14 +30,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -55,9 +53,8 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -74,10 +71,11 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
   
@@ -136,8 +134,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -146,9 +143,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
@@ -169,8 +166,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -191,7 +187,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -328,7 +324,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
       
@@ -340,8 +336,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs/" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -384,11 +379,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../..">欢迎来到 SAST skill docs</a>
-          <label for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
@@ -398,7 +395,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -440,6 +436,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -589,11 +586,9 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../courses/">课程指引</a>
-          <label for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="课程指引" data-md-level="1">
@@ -603,7 +598,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
         </ul>
@@ -646,11 +640,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../basic/">基本技能</a>
-          <label for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="基本技能" data-md-level="1">
@@ -660,7 +656,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -783,11 +778,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/">编程语言</a>
-          <label for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="编程语言" data-md-level="1">
@@ -797,7 +794,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -846,11 +842,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/c-oop/">C++ 语言面向对象</a>
-          <label for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
@@ -860,7 +858,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1078,11 +1075,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/python/">Python 语言基础</a>
-          <label for="__nav_4_4">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
@@ -1092,7 +1091,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1170,11 +1168,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/css/">CSS 语言基础</a>
-          <label for="__nav_4_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
@@ -1184,7 +1184,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1258,11 +1257,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/javascript/">JavaScript 语言基础</a>
-          <label for="__nav_4_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
@@ -1272,7 +1273,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1430,11 +1430,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/rust/">Rust 语言基础</a>
-          <label for="__nav_4_9">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
@@ -1444,7 +1446,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1576,11 +1577,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/node.js/">Node.js 基础</a>
-          <label for="__nav_4_10">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
@@ -1590,7 +1593,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1650,11 +1652,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../languages/swift/">Swift 语言基础</a>
-          <label for="__nav_4_11">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_4_11">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
@@ -1664,7 +1668,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1804,11 +1807,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../frontend/">前端框架</a>
-          <label for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="前端框架" data-md-level="1">
@@ -1818,7 +1823,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1853,11 +1857,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
-          <label for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
@@ -1867,7 +1873,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1981,11 +1986,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../ai-ml/">人工智能 & 机器学习</a>
-          <label for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
@@ -1995,7 +2002,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -2060,11 +2066,13 @@
       
         
         
-        <div class="md-nav__link md-nav__link--container ">
+        <div class="md-nav__link md-nav__link--index ">
           <a href="../../source/">资源链接</a>
-          <label for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="资源链接" data-md-level="1">
@@ -2074,7 +2082,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -2123,6 +2130,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -2246,12 +2254,12 @@
               
     
                 
-                  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/notes/editor.md" title="编辑此页" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="_1">编辑者须知（草案）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/notes/editor.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="_1">编辑者须知（草案）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">贡献方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>文档目前存储于 <a href="https://github.com/SAST-skill-docers/sast-skill-docs">GitHub Repo</a> 上，使用 GitHub Pages 部署成了目前的技能引导文档网站。如果您有意贡献到本项目，请您：</p>
 <ul>
@@ -2396,18 +2404,18 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
 <p>正文的语言风格尽量正式，感悟、思考、启发、前言、补充性内容、Checkpoint 等非正文内容尽量纳入折叠框之中。</p>
 <p>附：<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/">折叠框使用教程</a></p>
 <h3 id="_13">使用公式<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p>当行文遇到数学公式时，使用行内公式 <code>$a \times b$</code> 和行间公式 <code>$$ ... $$</code> 来进行数学形式的讲解，而不要使用 x^2 这种影响阅读美观程度的写法。正确示例：<span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>。</p>
+<p>当行文遇到数学公式时，使用行内公式 <code>$a \times b$</code> 和行间公式 <code>$$ ... $$</code> 来进行数学形式的讲解，而不要使用 x^2 这种影响阅读美观程度的写法。正确示例：<span class="arithmatex"><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>。</p>
 <p>附：<a href="https://oysz2016.github.io/post/8611e6fb.html">Mathjax 代码教程</a></p>
 <p><strong>使用数学公式的注意事项</strong></p>
 <ul>
-<li>部分常用函数，如三角函数、对数函数等的 Roman 体符号已经内置于 LaTeX 中。如余弦函数应当使用 <code>$\cos$</code> 表示，渲染为 <span><span class="MathJax_Preview">\cos</span><script type="math/tex">\cos</script></span>。而不应当使用 <code>$cos$</code> 表示，渲染为 <span><span class="MathJax_Preview">cos</span><script type="math/tex">cos</script></span>。</li>
-<li>渲染 Roman 体（正体）粗体请使用 <code>$\mathbf{}$</code>，如 <span><span class="MathJax_Preview">\mathbf{a}</span><script type="math/tex">\mathbf{a}</script></span>。渲染 Italic 体（斜体）粗体请使用 <code>$\boldsymbol{a}$</code>，如 <span><span class="MathJax_Preview">\boldsymbol{a}</span><script type="math/tex">\boldsymbol{a}</script></span>。请不要混淆两者。</li>
-<li>行内公式渲染分数时，请使用 <code>$\dfrac{}{}$</code>，如 <span><span class="MathJax_Preview">\dfrac{1}{2}</span><script type="math/tex">\dfrac{1}{2}</script></span>。而不应使用 <code>$\frac{}{}$</code>，如 <span><span class="MathJax_Preview">\frac{1}{2}</span><script type="math/tex">\frac{1}{2}</script></span>。</li>
-<li>行内公式应尽力避免求和、求积、积分等巨运算符，即 <span><span class="MathJax_Preview">\sum</span><script type="math/tex">\sum</script></span>、<span><span class="MathJax_Preview">\int</span><script type="math/tex">\int</script></span> 等运算符。</li>
-<li>省略号请使用 <code>$\cdots$</code>，如 <span><span class="MathJax_Preview">a_1, a_2, \cdots, a_n</span><script type="math/tex">a_1, a_2, \cdots, a_n</script></span>。而不应使用 <code>$...$</code>，如 <span><span class="MathJax_Preview">a_1, a_2, ..., a_n</span><script type="math/tex">a_1, a_2, ..., a_n</script></span>。</li>
-<li>注意区分数学语言与程序设计语言。请不要在公式块内使用双等号 <span><span class="MathJax_Preview">==</span><script type="math/tex">==</script></span> 乃至三等号 <span><span class="MathJax_Preview">===</span><script type="math/tex">===</script></span> 表示两个量相等，请使用数学语言中的单等号 <span><span class="MathJax_Preview">=</span><script type="math/tex">=</script></span>，如 <span><span class="MathJax_Preview">a = b</span><script type="math/tex">a = b</script></span>。此外，请不要使用中括号连缀表达高维数组，如 <span><span class="MathJax_Preview">a[i][j][k]</span><script type="math/tex">a[i][j][k]</script></span>，请使用函数表示，如 <span><span class="MathJax_Preview">f(i, j, k)</span><script type="math/tex">f(i, j, k)</script></span>。</li>
-<li>特殊集合（如自然数集、实数集）的字体请使用 <code>$\mathbb{}$</code>，如 <span><span class="MathJax_Preview">\mathbb{R}</span><script type="math/tex">\mathbb{R}</script></span>、<span><span class="MathJax_Preview">\mathbb{N}</span><script type="math/tex">\mathbb{N}</script></span>。</li>
-<li>括号内为分式等内容时，请使用自适应高度括号 <code>$\left(\right)$</code>，如 <span><span class="MathJax_Preview">\left(\dfrac{1}{2}\right)^n</span><script type="math/tex">\left(\dfrac{1}{2}\right)^n</script></span>。请不要直接使用 <code>$()$</code>，如 <span><span class="MathJax_Preview">(\dfrac{1}{2})^n</span><script type="math/tex">(\dfrac{1}{2})^n</script></span>。</li>
+<li>部分常用函数，如三角函数、对数函数等的 Roman 体符号已经内置于 LaTeX 中。如余弦函数应当使用 <code>$\cos$</code> 表示，渲染为 <span class="arithmatex"><span class="MathJax_Preview">\cos</span><script type="math/tex">\cos</script></span>。而不应当使用 <code>$cos$</code> 表示，渲染为 <span class="arithmatex"><span class="MathJax_Preview">cos</span><script type="math/tex">cos</script></span>。</li>
+<li>渲染 Roman 体（正体）粗体请使用 <code>$\mathbf{}$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\mathbf{a}</span><script type="math/tex">\mathbf{a}</script></span>。渲染 Italic 体（斜体）粗体请使用 <code>$\boldsymbol{a}$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{a}</span><script type="math/tex">\boldsymbol{a}</script></span>。请不要混淆两者。</li>
+<li>行内公式渲染分数时，请使用 <code>$\dfrac{}{}$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{1}{2}</span><script type="math/tex">\dfrac{1}{2}</script></span>。而不应使用 <code>$\frac{}{}$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{2}</span><script type="math/tex">\frac{1}{2}</script></span>。</li>
+<li>行内公式应尽力避免求和、求积、积分等巨运算符，即 <span class="arithmatex"><span class="MathJax_Preview">\sum</span><script type="math/tex">\sum</script></span>、<span class="arithmatex"><span class="MathJax_Preview">\int</span><script type="math/tex">\int</script></span> 等运算符。</li>
+<li>省略号请使用 <code>$\cdots$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">a_1, a_2, \cdots, a_n</span><script type="math/tex">a_1, a_2, \cdots, a_n</script></span>。而不应使用 <code>$...$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">a_1, a_2, ..., a_n</span><script type="math/tex">a_1, a_2, ..., a_n</script></span>。</li>
+<li>注意区分数学语言与程序设计语言。请不要在公式块内使用双等号 <span class="arithmatex"><span class="MathJax_Preview">==</span><script type="math/tex">==</script></span> 乃至三等号 <span class="arithmatex"><span class="MathJax_Preview">===</span><script type="math/tex">===</script></span> 表示两个量相等，请使用数学语言中的单等号 <span class="arithmatex"><span class="MathJax_Preview">=</span><script type="math/tex">=</script></span>，如 <span class="arithmatex"><span class="MathJax_Preview">a = b</span><script type="math/tex">a = b</script></span>。此外，请不要使用中括号连缀表达高维数组，如 <span class="arithmatex"><span class="MathJax_Preview">a[i][j][k]</span><script type="math/tex">a[i][j][k]</script></span>，请使用函数表示，如 <span class="arithmatex"><span class="MathJax_Preview">f(i, j, k)</span><script type="math/tex">f(i, j, k)</script></span>。</li>
+<li>特殊集合（如自然数集、实数集）的字体请使用 <code>$\mathbb{}$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\mathbb{R}</span><script type="math/tex">\mathbb{R}</script></span>、<span class="arithmatex"><span class="MathJax_Preview">\mathbb{N}</span><script type="math/tex">\mathbb{N}</script></span>。</li>
+<li>括号内为分式等内容时，请使用自适应高度括号 <code>$\left(\right)$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">\left(\dfrac{1}{2}\right)^n</span><script type="math/tex">\left(\dfrac{1}{2}\right)^n</script></span>。请不要直接使用 <code>$()$</code>，如 <span class="arithmatex"><span class="MathJax_Preview">(\dfrac{1}{2})^n</span><script type="math/tex">(\dfrac{1}{2})^n</script></span>。</li>
 <li>公式内请不要出现汉字，出现英文单词时请使用正体。</li>
 </ul>
 <h3 id="_14">使用代码块<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
@@ -2421,12 +2429,12 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sb">```cpp</span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 <span class="sb">```</span>
 </code></pre></div>
 </td></tr></table>
@@ -2446,21 +2454,18 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
 </ul>
 </li>
 </ul>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月24日</span>
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月24日</span>
       
     
   </small>
 </div>
-                  
-                
+
               
     
         <div class="md-source-date">
@@ -2470,26 +2475,20 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
         </div>
     
 
-              
-                
-
-
-              
             </article>
           </div>
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Back to top
+            回到页面顶部
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
         <a href="../reader/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 读者须知" rel="prev">
@@ -2526,16 +2525,15 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -2545,10 +2543,10 @@ INFO     -  <span class="o">[</span><span class="m">17</span>:16:02<span class="
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
