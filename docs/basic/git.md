@@ -7,7 +7,7 @@
 	在代码开发过程中，总会遇到一些问题。代码不知道改了哪里不能运行了，想要回退怎么办？多个人同时想对代码进行修改（并行开发），开发完后怎么合并？显然，有一个能帮助我们解决这些问题的工具将极大的加快我们开发的速度。而这种工具，便是版本控制软件。
 	
 	版本控制软件帮助使用者找出：
-
+	
 	+ 不同版本之间的差异
 	+ 谁做出了这个修改
 	+ 什么时候做出了这个修改
@@ -26,7 +26,7 @@
 	Git 是 Linux（一种程序员热爱的操作系统）之父 Linus Torvalds 为开发 Linux 内核而建立的一个**分布式版本控制软件**。
 	
 	Git 除了版本控制软件本身的优势以外，还可以：
-
+	
 	+ 通过查看 `git history`，开发者可以看到一个项目开发的时间线
 	+ 通过 `git branch`（分支），开发者可以在不用担心影响主代码的情况下进行开发
 
@@ -52,7 +52,7 @@ Git 需要绑定文本编辑器使用，自带支持以下编辑器：
 + Atom
 + VS Codium
 
-如果你没有安装上述文本编辑器，那么你使用的很可能是⻛评并不好的记事本（英文：Notepad），不建议拿它作为 Git 的绑定编辑器。这种情况下建议使用Notepad++，它的操作与界面可以和记事本实现很好的过渡。可以使用 [科协云盘下载链接](https://cloud.tsinghua.edu.cn/f/9bd487642fcb4e468c67/?dl=1) 下载，安装过程中全部点“下一步”（或同位置的按钮）即可。完成之后你将和记事本永远告别，打开文本文件的默认方式会变成 Notepad++。
+如果你没有安装上述文本编辑器，那么你使用的很可能是⻛评并不好的记事本（英文：Notepad），不建议拿它作为 Git 的绑定编辑器。这种情况下建议使用 Notepad++，它的操作与界面可以和记事本实现很好的过渡。可以使用 [科协云盘下载链接](https://cloud.tsinghua.edu.cn/f/9bd487642fcb4e468c67/?dl=1) 下载，安装过程中全部点“下一步”（或同位置的按钮）即可。完成之后你将和记事本永远告别，打开文本文件的默认方式会变成 Notepad++。
 
 **下载**
 
@@ -185,29 +185,29 @@ git config --global user.email <email-address>
 
 一开始的时候，`master` 分支是一条线，Git 用 `master` 指向最新的提交，再用 `HEAD` 指向 `master`，就能确定当前分支，以及当前分支的提交点：
 
-![git-br-initial](https://www.liaoxuefeng.com/files/attachments/919022325462368/0)
+![git-br-initial](https://s2.loli.net/2022/02/07/B6NoF2WH3rfXzY9.png)
 
 每次提交，`master` 分支都会向前移动一步，这样，随着你不断提交，`master` 分支的线也越来越长。
 
 现在我们使用命令创建新的分支 `dev` 并切换过去，使用 `git checkout -b dev`。Git 新建了一个指针叫 `dev`，指向 `master` 相同的提交，再把 `HEAD` 指向 `dev`，就表示当前分支在 `dev` 上：
 
-![git-br-create](https://www.liaoxuefeng.com/files/attachments/919022363210080/l)
+![git-br-create](https://s2.loli.net/2022/02/07/o4S2zElsyMVvKt3.png)
 
 我们可以使用 `git branch` 命令来查看所有分支，在结果中，当前分支前面会多出一个 `*` 号。
 
 从现在开始，对工作区的修改和提交就是针对 `dev` 分支了，比如新提交一次后，`dev` 指针往前移动一步，而 `master` 指针不变：
 
-![git-br-dev-fd](https://www.liaoxuefeng.com/files/attachments/919022387118368/l)
+![git-br-dev-fd](https://s2.loli.net/2022/02/07/nRwakbBu46zpNEe.png)
 
 假如我们在 `dev` 上的工作完成了，就可以把 `dev` 合并到 `master` 上。怎么合并呢？首先我们要搞清楚，是谁要合并谁。这里我们应该理解成，`master` 要吃掉新建的 `dev` 分支，成为新的 `master`。于是，首先我们应该切换回 `master` 分支，使用命令 `git checkout master`，以表明这是 `master` 分支的操作。然后，我们可以使用 `git merge dev`，进行分支合并。最后，我们可以通过 `git branch -d dev`，将 `dev` 分支删除。
 
-![git-br-ff-merge](https://www.liaoxuefeng.com/files/attachments/919022412005504/0)
+![git-br-ff-merge](https://s2.loli.net/2022/02/07/cr6TpJQXiS8yjNE.png)
 
 ### 解决冲突
 
 假设我们设想出现这么一种情况，`master` 分支和新建的 `feature1` 分支均提交了新的更改，那么我们该怎么将其 Merge 呢？
 
-![git-br-feature1](https://www.liaoxuefeng.com/files/attachments/919023000423040/0)
+![git-br-feature1](https://s2.loli.net/2022/02/07/8oMzgqa4yxXStkN.png)
 
 这种情况下，我们尝试用 `master` 去 Merge `feature1` 的时候，控制台便会提醒我们产生合并冲突。必须手动解决冲突后再提交。而我们根据提示信息去寻找对应的冲突文件，在冲突处 Git 也会将其显著的标出，例如：
 
