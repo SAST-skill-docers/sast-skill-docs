@@ -2358,7 +2358,7 @@
 <li>Atom</li>
 <li>VS Codium</li>
 </ul>
-<p>如果你没有安装上述文本编辑器，那么你使用的很可能是⻛评并不好的记事本（英文：Notepad），不建议拿它作为 Git 的绑定编辑器。这种情况下建议使用Notepad++，它的操作与界面可以和记事本实现很好的过渡。可以使用 <a href="https://cloud.tsinghua.edu.cn/f/9bd487642fcb4e468c67/?dl=1">科协云盘下载链接</a> 下载，安装过程中全部点“下一步”（或同位置的按钮）即可。完成之后你将和记事本永远告别，打开文本文件的默认方式会变成 Notepad++。</p>
+<p>如果你没有安装上述文本编辑器，那么你使用的很可能是⻛评并不好的记事本（英文：Notepad），不建议拿它作为 Git 的绑定编辑器。这种情况下建议使用 Notepad++，它的操作与界面可以和记事本实现很好的过渡。可以使用 <a href="https://cloud.tsinghua.edu.cn/f/9bd487642fcb4e468c67/?dl=1">科协云盘下载链接</a> 下载，安装过程中全部点“下一步”（或同位置的按钮）即可。完成之后你将和记事本永远告别，打开文本文件的默认方式会变成 Notepad++。</p>
 <p><strong>下载</strong></p>
 <ul>
 <li>安装包下载地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></li>
@@ -2457,18 +2457,18 @@ git config --global user.email &lt;email-address&gt;
 <p>正如这一小节的标题所说，我们想要创建新分支与合并分支。</p>
 <p>比如我们可以举个例子。（引自 <a href="https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424">廖雪峰《创建与合并分支》</a>）</p>
 <p>一开始的时候，<code>master</code> 分支是一条线，Git 用 <code>master</code> 指向最新的提交，再用 <code>HEAD</code> 指向 <code>master</code>，就能确定当前分支，以及当前分支的提交点：</p>
-<p><img alt="git-br-initial" src="https://www.liaoxuefeng.com/files/attachments/919022325462368/0" /></p>
+<p><img alt="git-br-initial" src="https://s2.loli.net/2022/02/07/B6NoF2WH3rfXzY9.png" /></p>
 <p>每次提交，<code>master</code> 分支都会向前移动一步，这样，随着你不断提交，<code>master</code> 分支的线也越来越长。</p>
 <p>现在我们使用命令创建新的分支 <code>dev</code> 并切换过去，使用 <code>git checkout -b dev</code>。Git 新建了一个指针叫 <code>dev</code>，指向 <code>master</code> 相同的提交，再把 <code>HEAD</code> 指向 <code>dev</code>，就表示当前分支在 <code>dev</code> 上：</p>
-<p><img alt="git-br-create" src="https://www.liaoxuefeng.com/files/attachments/919022363210080/l" /></p>
+<p><img alt="git-br-create" src="https://s2.loli.net/2022/02/07/o4S2zElsyMVvKt3.png" /></p>
 <p>我们可以使用 <code>git branch</code> 命令来查看所有分支，在结果中，当前分支前面会多出一个 <code>*</code> 号。</p>
 <p>从现在开始，对工作区的修改和提交就是针对 <code>dev</code> 分支了，比如新提交一次后，<code>dev</code> 指针往前移动一步，而 <code>master</code> 指针不变：</p>
-<p><img alt="git-br-dev-fd" src="https://www.liaoxuefeng.com/files/attachments/919022387118368/l" /></p>
+<p><img alt="git-br-dev-fd" src="https://s2.loli.net/2022/02/07/nRwakbBu46zpNEe.png" /></p>
 <p>假如我们在 <code>dev</code> 上的工作完成了，就可以把 <code>dev</code> 合并到 <code>master</code> 上。怎么合并呢？首先我们要搞清楚，是谁要合并谁。这里我们应该理解成，<code>master</code> 要吃掉新建的 <code>dev</code> 分支，成为新的 <code>master</code>。于是，首先我们应该切换回 <code>master</code> 分支，使用命令 <code>git checkout master</code>，以表明这是 <code>master</code> 分支的操作。然后，我们可以使用 <code>git merge dev</code>，进行分支合并。最后，我们可以通过 <code>git branch -d dev</code>，将 <code>dev</code> 分支删除。</p>
-<p><img alt="git-br-ff-merge" src="https://www.liaoxuefeng.com/files/attachments/919022412005504/0" /></p>
+<p><img alt="git-br-ff-merge" src="https://s2.loli.net/2022/02/07/cr6TpJQXiS8yjNE.png" /></p>
 <h3 id="_7">解决冲突<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>假设我们设想出现这么一种情况，<code>master</code> 分支和新建的 <code>feature1</code> 分支均提交了新的更改，那么我们该怎么将其 Merge 呢？</p>
-<p><img alt="git-br-feature1" src="https://www.liaoxuefeng.com/files/attachments/919023000423040/0" /></p>
+<p><img alt="git-br-feature1" src="https://s2.loli.net/2022/02/07/8oMzgqa4yxXStkN.png" /></p>
 <p>这种情况下，我们尝试用 <code>master</code> 去 Merge <code>feature1</code> 的时候，控制台便会提醒我们产生合并冲突。必须手动解决冲突后再提交。而我们根据提示信息去寻找对应的冲突文件，在冲突处 Git 也会将其显著的标出，例如：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2548,7 +2548,7 @@ Creating a new branch is quick AND simple.
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月14日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年2月7日</span>
       
     
   </small>
@@ -2558,7 +2558,7 @@ Creating a new branch is quick AND simple.
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (99.66%), <a href='mailto:admin@cc7w.cf'>c7w</a> (0.34%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (96.9%), <a href='mailto:admin@cc7w.cf'>c7w</a> (3.1%)</span>
             </small>
         </div>
     
