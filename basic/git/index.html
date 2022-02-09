@@ -2449,7 +2449,14 @@
 <p>下面内容英文大佬或者熟练掌握了 <code>git config</code> 指令（乃至会直接修改配置文件）的同学可以忽略在安装过程中大部分选项，直接点 Next 即可。但是有两个地方需要注意：编辑器和换行符。</p>
 <p>编辑器默认选项是 Vim，如果没有 Vim 经验的同学，请选择其他熟悉的编辑器（如上面提到的 NotePad++）。</p>
 <p><img alt="image-20211008145023695" src="https://i.loli.net/2021/10/08/3P62Ayk9hUEVw5t.png" /></p>
-<p>对于换行符，在 Windows 中，默认的换行是 CRLF，但实际开发时，通常会发现大家一致使用 LF。因此我们选择第二项，并希望大家开发时保持 LF 的习惯。</p>
+<p>对于换行符，在 Windows 中，默认的换行是 CRLF，但实际开发时，通常会发现大家一致使用 LF。关于 CRLF 和 LF 的区别我们在这里不再详细介绍，因为读者在《程序设计基础》课程中已了解过相关内容。</p>
+<p>对于安装过程中换行符的配置，这里 Checkout 表示从仓库中拉取的代码是以什么换行符结尾，Commit 表示你提交的代码是以什么换行符结尾，as-is 是说换行符保持原样。</p>
+<p>我们推荐的选项是根据今后的应用场景来选择。如果团队中既有 Windows 选手又有 Linux 选手，那么我们可以选择第三项（即改动最小原则，我们并不想因为 Commit 时换行符的问题覆盖掉其他开发者的贡献）。当然如果团队中的各位做过约定，大家统一以 LF 为换行符为结尾开发，提交的代码也只能是 LF 结尾，那么我们就可以选择第一项或者第二项。</p>
+<p>注意，这个设置我们推荐默认选择第三项，然后对于有需要的项目分别配置：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git config core.autocrlf true/input/false
+</code></pre></div>
+</td></tr></table>
+<p>其中 <code>true</code>, <code>input</code>, <code>false</code> 分别对应第一，第二，第三项。</p>
 <p><img alt="image-20211008145130391" src="https://i.loli.net/2021/10/08/FHmSajyeDAnI2Cd.png" /></p>
 <h3 id="debianubuntu">Debian/Ubuntu<a class="headerlink" href="#debianubuntu" title="Permanent link">&para;</a></h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2528,7 +2535,6 @@ git config --global user.email &lt;email-address&gt;
 <h2 id="_4">同步开发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">分支的简介<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>分支（英文：Branching）就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习 SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了 Git 又学会了 SVN！</p>
-<p><img alt="learn-branches" src="https://www.liaoxuefeng.com/files/attachments/919021987875136/0" /></p>
 <p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了 50% 的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
 <p>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。</p>
 <p>引用自 <a href="https://www.liaoxuefeng.com/wiki/896043488029600/896954848507552">廖雪峰《分支的介绍》</a>。</p>
@@ -2628,7 +2634,7 @@ Creating a new branch is quick AND simple.
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年2月7日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年2月9日</span>
       
     
   </small>
@@ -2638,7 +2644,7 @@ Creating a new branch is quick AND simple.
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (96.9%), <a href='mailto:admin@cc7w.cf'>c7w</a> (3.1%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (92.67%), <a href='mailto:admin@cc7w.cf'>c7w</a> (7.33%)</span>
             </small>
         </div>
     
