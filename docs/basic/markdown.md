@@ -3,9 +3,11 @@
 !!! note "前言"
 
     Markdown 是一种学习成本较低的轻量级标记语言。它用简单的标记语法代替按钮，因此能省去频繁使用鼠标调整排版的麻烦，为文档编写者提供便利。用 Markdown 编写的内容可导出为 HTML、Word、PDF 等多种格式的文档。由于易读易写，它在 GitHub、简书等网站上也有广泛的应用。
-
+    
     通过阅读本文档，读者可以在五分钟内快速学习到常用的 Markdown 标记。更多的内容请移步菜鸟教程。
-
+    
+    我们强烈建议计算机类的同学们在大一的春季学期学会 Markdown 或 LaTeX 二者中其中之一，因为这将是我们后续实验报告或大作业报告将利用的常用工具。
+    
     在开始学习 Markdown 语法之前，建议先通过 [Typora 官网](https://typora.io/) 安装好 Typora 编辑器。
 
 ## 语法
@@ -94,7 +96,7 @@ def add(a, b):
 
 ### 链接
 
-```
+```markdown
 [菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
 <https://www.runoob.com/markdown/md-tutorial.html>
 ```
@@ -107,11 +109,11 @@ def add(a, b):
 
 插入图片需依照 `![alt 属性文本](图片地址)` 格式。注意不要使用本地路径，可以将图片上传到清华云盘再获取图片链接。
 
-```
-![Typora 官网展示图](https://www.typora.io/img/new/inline.png)
+```markdown
+![示例图片](https://i.loli.net/2021/10/08/R3wUTtaAZHjSxEV.png)
 ```
 
-![Typora 官网展示图](https://www.typora.io/img/new/inline.png)
+![示例图片](https://i.loli.net/2021/10/08/R3wUTtaAZHjSxEV.png)
 
 ## 其他
 
@@ -120,5 +122,5 @@ Markdown 还有一些高级玩法，例如表格、公式、HTML 元素、画时
 友情链接：
 
 + 菜鸟教程 <https://www.runoob.com/markdown/md-tutorial.html>
-+ 公式编辑教程 <https://www.jianshu.com/p/25f0139637b7>
++ **（推荐学习）**公式编辑教程 <https://www.jianshu.com/p/25f0139637b7>
 + 绘制流程图、时序图、甘特图 <https://www.jianshu.com/p/6dbcc3aff98b>
