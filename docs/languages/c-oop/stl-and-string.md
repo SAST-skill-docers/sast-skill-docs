@@ -35,15 +35,15 @@ str.c_str(); // 转换为 C 风格字符串
 #include <string>
 #include <iostream>
 int main() {
-    std::string zcy = "Darling I'll love you till we are senventy";
-    for (auto it = zcy.begin(); it != zcy.end(); it++) {
+    std::string sample = "Kanashi koto wa kitto owaru darou";
+    for (auto it = sample.begin(); it != sample.end(); it++) {
         std::cout << *it << std::endl;
     }
     return 0;
 }
 
 // 方式二
-for (char c: zcy) {
+for (char c: sample) {
     std::cout << c << std::endl;
 }
 ```

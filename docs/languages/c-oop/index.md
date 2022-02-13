@@ -1,7 +1,5 @@
 # C++ 语言面向对象
 
-![](https://p9.itc.cn/q_70/images03/20211214/365060e046e6489887d140ebb2814c3d.jpeg)
-
 ## 前置知识
 
 - 具有 C/C++ 语言基础，能够编写基本的 C/C++ 代码
@@ -29,28 +27,6 @@
 最后，由于笔记实际上绝大多数都是主笔人 zhaochen20 一人所写，难免有所错误。
 
 如果有误，可以前往 zhaochen20 的 [博客留言](https://zhaochenyang20.github.io/)。
-
-## 致谢
-
-首先，本文档的内容完全基于刘知远老师的课程体系而建立，诚挚地感谢刘知远老师与他的教学团队对 OOP 课程的悉心付出。
-
-随后，致谢主笔人 zhaochen20 本人，他在 2021 年 5 月份狂肝了大概 112 小时写出了初稿。
-
-而后，对整理且做修改工作的 yiyj13 致以感谢，祝愿他进入信息学院后能够有所收获有所成。
-
-最后，正如细心的读者可能发现的那样，这份文档最后两节的文风与前文不尽相同，自然，这并非主笔人完成。
-
-出于一些特定的缘由，也表示对最后两节作者的尊重，主笔人在此真诚地感谢他的一位故人。
-
-<s> Without whom, this tutorial would have been released half a year earlier.  </s>
-
-<s> Not every story has an happy endding. Anyway, this is why we shall call it a story. </s>
-
-期望以后的主笔人能够苦中作乐，整理文稿的同学亦能心想事成，也祝愿阅读文档并学习 OOP 课程的同学能够有所收获，在 2022 年智能体比赛中斩获佳绩。
-
----
-
-本 OOP 文档最终由 Ashitemaru 格式化后代为 Commit 合并进入技能引导文档。
 
 ## 后续拓展
 
@@ -90,3 +66,27 @@ class Student {
     print() { }
 }
 ```
+
+## 致谢
+
+首先，本文档的内容完全基于刘知远老师的课程体系而建立，诚挚地感谢刘知远老师与他的教学团队对 OOP 课程的悉心付出。
+
+随后，致谢主笔人 zhaochen20 本人，他在 2021 年 5 月份狂肝了大概 112 小时写出了初稿。
+
+而后，对整理且做修改工作的 yiyj13 致以感谢，祝愿他进入信息学院后能够有所收获有所成。
+
+最后，正如细心的读者可能发现的那样，这份文档最后两节的文风与前文不尽相同，自然，这并非主笔人完成。
+
+出于一些特定的缘由，也表示对最后两节作者的尊重，主笔人在此真诚地感谢他的一位故人。
+
+![](https://pic.imgdb.cn/item/620540f92ab3f51d91b65009.jpg)
+
+<s> Without whom, this tutorial would have been released half a year earlier.  </s>
+
+<s> Not every story has an happy endding. Anyway, this is why we shall call it a story. </s>
+
+期望以后的主笔人能够苦中作乐，整理文稿的同学亦能心想事成，也祝愿阅读文档并学习 OOP 课程的同学能够有所收获，在 2022 年智能体比赛中斩获佳绩。
+
+---
+
+本 OOP 文档最终由 Ashitemaru 格式化后代为 Commit 合并进入技能引导文档。
