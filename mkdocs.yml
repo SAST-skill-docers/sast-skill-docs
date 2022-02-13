@@ -84,7 +84,7 @@ nav:
     - Git 入门: basic/git.md
     - Linux 入门: basic/linux.md
     - Markdown 入门: basic/markdown.md
-    - Latex 入门: basic/latex.md
+    - LaTeX 入门: basic/latex.md
   - 编程语言:
     - languages/index.md
     - C++ 语言面向对象:
