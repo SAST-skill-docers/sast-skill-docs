@@ -78,8 +78,7 @@ location.reload();
 
 !!! note "使用我们提供的样例"
 
-    在学习这一小节的时候，可以点击进入 [我们的样例网页](/static/languages/javascript/dom-html.html) 并按下 F12 打开控制台，在控制台里运行这一节提供的样例代码来理解 DOM 树操作。
-
+    在学习这一小节的时候，可以点击进入 [我们的样例网页](/static/languages/javascript/dom-html.html) 并按下 ++f12++ 打开控制台，在控制台里运行这一节提供的样例代码来理解 DOM 树操作。
 
 
 ### 查找 DOM 节点
@@ -205,3 +204,222 @@ purpleCircle.style.backgroundColor = "purple";
 let wrapper = document.getElementById("circle-wrapper");
 wrapper.appendChild(purpleCircle);
 ```
+
+---
+
+删除某一个节点则较为简单，我们只需要获取需要删除的节点的引用以及其父节点的引用，然后在父结点上调用 `removeChild` 方法即可删除。参考以下代码：
+
+```javascript
+let wrapper = document.getElementById("circle-wrapper");
+let redCircle = document.getElementById("red-circle");
+let removedCircle = wrapper.removeChild(redCircle);
+
+console.log(redCircle === removedCircle); // true
+```
+
+可以发现，`removedChild` 方法具有返回值，其返回值是删除掉的节点的引用。
+
+## jQuery
+
+你或许听闻过 jQuery 这个第三方库，其如此流行的原因是其简化了 JavaScript 语言操作 DOM 树、修改 CSS 的语法，并且消除浏览器差异，可以将统一的语法运用于任何一个主流浏览器。
+
+!!! note "Web 前端的更新换代"
+
+    最初的前端是没有 jQuery 的，所以都需要使用 `getElementById` 等 DOM 节点内置方法来完成 DOM 树操作。而随后，jQuery 出现，这种跨浏览器且语法简洁的第三方库立刻得到了广泛运用。
+
+    但是近年来随着前端框架流行，编写裸 JavaScript 的机会越来越少，修改 DOM 树等操作也在前端框架内被封装为各种框架方法，jQuery 也渐渐淡出。但是由于历史原因，我们现在还是能看到大量的需要手写裸 JavaScript 的前端，这些前端往往应用了 jQuery。所以，学习 jQuery 的基础知识还是有一定的必要。
+
+我们提供的 [样例网页](/static/languages/javascript/dom-html.html) 已经为你引用了 jQuery，可以运行下述代码来确定是否引用成功：
+
+```javascript
+console.log($.fn.jquery); // 2.1.4
+```
+
+这里 `$` 就是 jQuery 的全局封装对象，其提供的所有功能全都是 `$` 的成员函数实现的。
+
+### 选择器
+
+具体的选择器语法可以参考 [CSS 语言基础文档中相关部分](/languages/css#_3)。
+
+我们可以在 jQuery 中使用选择器语法来获取 DOM 树节点，注意通过下述方法获取的是一个 DOM 树节点的列表，如果没有符合选择器要求的节点则返回空列表。如：
+
+```javascript
+let wrapper = $("#circle-wrapper"); // Find nodes with 'id=circle-wrapper'
+console.log(wrapper.length); // 1
+console.log(wrapper[0]);
+```
+
+除了按照 ID 查找，下面还举出了一些常用的选择器：
+
+```javascript
+let circles = $(".circle"); // Find nodes with 'class=circle'
+console.log(circles);
+
+let divs = $("div"); // Find nodes which are <div>
+console.log(divs);
+```
+
+可以注意到这里输出的列表并不是我们之前见过的 DOM 树节点。实际上，其返回的是包装过一层的 jQuery 对象。如果需要得到最基本的 DOM 树节点对象，可以使用下标运算符 `[]` 取出具体的元素或者使用 `.get()` 方法。
+
+```javascript
+let circles = $(".circle"); // Find nodes with 'class=circle'
+console.log(circles);
+console.log(circles[0]);
+console.log(circles.get(0));
+```
+
+### 修改 DOM 树
+
+在获取到 DOM 树节点后，如果需要修改这个节点的内容，我们可以使用 `.text()` 或者 `.html()` 方法。这两个方法的共同点是如果无参数调用，则是获取这个节点的内容。如果有参数调用，则是将节点的内容修改为传入的参数。
+
+`.text()` 与 `.html()` 分别对应着 `innerText` 和 `innerHTML` 属性。
+
+```javascript
+$("#test-text").text(); // "This is a test text node."
+$("#test-text").text("Hello world!");
+```
+
+此外，我们还可以修改某个节点的 CSS：
+
+```javascript
+$("#red-circle").css("background-color", "black");
+```
+
+`.css()` 不能完全无参调用，至少需要在第一个参数中传递 CSS 属性名。如果第二个参数不传入，则表示获取这个节点某个 CSS 属性的值。如果第二个参数是空字符串，则表示删去这个 CSS 属性。
+
+```javascript
+$("#red-circle").css("background-color"); // "rgb(255, 0, 0)"
+```
+
+我们之前提过，使用选择器获取的是 DOM 树节点的列表而非单个节点。所以如果在含有多个 DOM 树节点的 jQuery 对象上使用 `.text()` 等方法修改内容，该修改会对这个列表内所有的 DOM 树节点生效。
+
+比如我想把三个圆都变为黑色，就可以：
+
+```javascript
+$(".circle").css("background-color", "black");
+```
+
+---
+
+除去 `.text()`、`.html()` 以及 `.css()`，获取其余的 HTML 标签属性可以使用 `.attr()`，这里可以参考 [廖雪峰的教程](https://www.liaoxuefeng.com/wiki/1022910821149312/1023023660400160)。
+
+---
+
+增添和删除节点也是简单的。增添节点只需要对父节点调用 `.append()` 方法，删除则是对要删除的节点调用 `.remove()` 方法：
+
+```javascript
+$("#circle-wrapper").append($("#red-circle"));
+$("#red-circle").remove();
+```
+
+要在指定节点的前面或后面增添兄弟节点，则可以使用 `.after()` 或者 `.before()` 方法：
+
+```javascript
+$("#red-circle").after(
+    $(document.createElement("div"))
+        .attr("class", "circle")
+        .css("background-color", "purple")
+)
+```
+
+可以注意到这里将一个 DOM 树节点对象传入了 `$()` 之中，其作用是将 DOM 树节点包装为 jQuery 对象以使用 `.attr()` 等方法。
+
+### 事件
+
+我们现在考虑网页如何与用户交互，也就是说用户是如何触发描述交互行为的 JavaScript 的。这里，就需要引入**事件**这个概念。
+
+用户点击某一个 HTML 组件或者在文本框中输入、文档树加载等行为都可以是事件，这些事件的相关信息（比如鼠标点击事件中鼠标点击位置的横纵坐标等）将会被包装为一个对象传入到 JavaScript 的事件处理循环，JavaScript 引擎接受到事件后就会调用相应的回调函数，而交互行为就定义在这些回调函数之中。
+
+现在就以按钮点击事件为例，介绍如何利用 jQuery 编写点击事件的回调函数。
+
+!!! note "使用我们提供的样例"
+
+    在学习这一小节的时候，可以点击进入 [我们的样例网页](/static/languages/javascript/event-1.html) 并按下 ++f12++ 打开控制台，在控制台里运行这一节提供的样例代码来理解 DOM 树操作。
+
+我们现在希望我们点击这个按钮后，网页能弹窗显示对我们的问候。显示弹窗的回调函数可以规定为：
+
+```javascript
+() => {
+    alert("Hello!");
+}
+```
+
+我们可以这样将上述回调函数绑定到按钮上：
+
+```javascript
+$("#test-button").on("click", () => {
+    alert("Hello!");
+});
+```
+
+这里 `$("#test-button")` 是先前提到过的选择器，用于选择出需要绑定事件回调函数的按钮。之后调用其 `.on()` 方法，第一个参数指示需要给何种事件绑定回调，这里 `"click"` 表示给点击事件绑定。第二个参数则是需要执行的回调函数，在这里，按钮被点击的时候，该回调就会执行。
+
+由于点击事件很常用，所以还有这样的简写：
+
+```javascript
+$("#test-button").click(() => {
+    alert("Hello!");
+});
+```
+
+我们先前提到了，和事件相关的所有参数都会被包装为对象传入处理引擎，而这个对象就会进一步作为回调函数的参数传入，我们可以将其打印出来：
+
+```javascript
+$("#test-button").click(console.log);
+```
+
+这个时候点击按钮就可以看到控制台上输出的事件相关参数了。
+
+---
+
+但是如果我们需要真正自己编写一个有交互行为的网页，我们就需要把上面提到的代码嵌入 HTML 之中，因为我们要求这些交互行为随着网页加载就定义好，否则就需要用户手动在网页加载后在控制台定义，这显然违反常理。
+
+你可能已经了解，HTML 中可以使用 `<script />` 标签插入 JavaScript 代码，所以你可能打算这样写：
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>按钮点击事件演示网页</title>
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $("#test-button").on("click", () => {
+                alert("Hello!");
+            });
+            console.log($("#test-button").length);
+        </script>
+    </head>
+    <body>
+        <button id="test-button">Click me!</button>
+    </body>
+</html>
+```
+
+上述 HTML 代码已经放在 [我们的样例网页之中](/static/languages/javascript/event-2.html)。如果你浏览后点击按钮，你会发现并没有按照预期弹出弹窗。
+
+这里就需要提到 `<script />` 标签中代码的执行时机。实际上，这些代码将会在文档加载完毕之前就执行完毕，此时的 DOM 上还未有按钮对象，也就是说，选择器应该什么都获得不到，从而绑定失败。
+
+实际上上述代码里，我们留下了一句 `console.log($("#test-button").length)`，所以可以在控制台里发现，此时选择器什么都没有选择到（输出为 `0`），符合我们的讲解。
+
+那么如何解决这个问题呢，事实上我们先前提到过 DOM 加载完毕也是一个事件，所以我们可以将绑定按钮点击事件写为 DOM 加载完毕的回调：
+
+```javascript
+$(document).on("ready", () => {
+    $("#test-button").on("click", () => {
+        alert("Hello!");
+    });
+});
+```
+
+由于在 DOM 加载完毕后挂载各种回调函数是相当常见的需求，所以上述写法一般可以简化为：
+
+```javascript
+$(() => {
+    $("#test-button").on("click", () => {
+        alert("Hello!");
+    });
+});
+```
+
+这样修改后的代码可以参见 [我们的样例网页](/static/languages/javascript/event-3.html)。

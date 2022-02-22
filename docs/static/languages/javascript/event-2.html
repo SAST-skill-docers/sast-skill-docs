@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>按钮点击事件演示网页</title>
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $("#test-button").on("click", () => {
+                alert("Hello!");
+            });
+            console.log($("#test-button").length);
+        </script>
+    </head>
+    <body>
+        <button id="test-button">Click me!</button>
+    </body>
+</html>
