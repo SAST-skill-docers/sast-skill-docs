@@ -1,0 +1,3065 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>函数组件 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              函数组件
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/" class="md-tabs__link">
+        课程指引
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../languages/" class="md-tabs__link">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../backend/" class="md-tabs__link">
+        后端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">欢迎来到 SAST skill docs</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../courses/">课程指引</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="课程指引" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          课程指引
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../basic/">基本技能</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/search-engine/" class="md-nav__link">
+        如何使用搜索引擎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/markdown/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/latex/" class="md-nav__link">
+        LaTeX 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/">编程语言</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/c-oop/">C++ 语言面向对象</a>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++ 语言面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/environment/" class="md-nav__link">
+        编程环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/function/" class="md-nav__link">
+        C++ 语言函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/class-easy/" class="md-nav__link">
+        C++ 类语法初步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/class-advanced/" class="md-nav__link">
+        C++ 类语法进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/reference-copy/" class="md-nav__link">
+        引用与复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/combination-and-derivation/" class="md-nav__link">
+        组合与继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/virtual-function/" class="md-nav__link">
+        虚函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/polymorphism-and-templates/" class="md-nav__link">
+        多态与模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/templates-and-intro-to-stl/" class="md-nav__link">
+        模板进阶与 STL 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/stl-and-string/" class="md-nav__link">
+        STL 与字符串处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/function-object-and-smart-pointers/" class="md-nav__link">
+        函数对象和智能指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/behavioral-pattern/" class="md-nav__link">
+        设计模式与行为型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/python/">Python 语言基础</a>
+          
+            <label for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/pip/" class="md-nav__link">
+        Python 包管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/crawler/" class="md-nav__link">
+        Python 网络请求与爬虫基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/html/" class="md-nav__link">
+        HTML 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/css/">CSS 语言基础</a>
+          
+            <label for="__nav_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          CSS 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/bootstrap/" class="md-nav__link">
+        Bootstrap 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/mdui/" class="md-nav__link">
+        MDUI 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/javascript/">JavaScript 语言基础</a>
+          
+            <label for="__nav_4_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/browser/" class="md-nav__link">
+        浏览器中的 JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/rust/">Rust 语言基础</a>
+          
+            <label for="__nav_4_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Rust 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/whyrust/" class="md-nav__link">
+        Rust 入门的一点经验
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/variable/" class="md-nav__link">
+        Rust 的变量与类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/control/" class="md-nav__link">
+        Rust 中的流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/function/" class="md-nav__link">
+        Rust 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/matching/" class="md-nav__link">
+        Rust 模式匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/struct/" class="md-nav__link">
+        Rust 的结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/reference/" class="md-nav__link">
+        Rust 的引用与借用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/node.js/">Node.js 基础</a>
+          
+            <label for="__nav_4_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js 基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/node.js/npm/" class="md-nav__link">
+        npm 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/swift/">Swift 语言基础</a>
+          
+            <label for="__nav_4_11">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Swift 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/basic/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/variable-function/" class="md-nav__link">
+        变量和函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/control-flow/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/types/" class="md-nav__link">
+        类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/generics/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/internal-types/" class="md-nav__link">
+        部分内置类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">前端框架</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../swiftui/">SwiftUI 与 iOS 开发入门</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SwiftUI 与 iOS 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swiftui/hello-world/" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swiftui/build-views/" class="md-nav__link">
+        构建 View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swiftui/data-flow/" class="md-nav__link">
+        数据流基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swiftui/declaritive-mvvm/" class="md-nav__link">
+        声明式 UI 与 MVVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swiftui/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">React 开发入门</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="React 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          React 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare/" class="md-nav__link">
+        环境配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        组件、属性与状态
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle/" class="md-nav__link">
+        生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataflow/" class="md-nav__link">
+        非常规数据流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          函数组件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        函数组件
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    Hooks 简要介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="Hooks 简要介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    管理组件状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    管理组件副作用——替换生命周期方法
+  </a>
+  
+    <nav class="md-nav" aria-label="管理组件副作用——替换生命周期方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deplist" class="md-nav__link">
+    通过 depList 控制副作用发生时机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    副作用的清除逻辑
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooks_1" class="md-nav__link">
+    Hooks 的使用规范
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../backend/">后端框架</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="后端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          后端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend/expressjs/express-js/" class="md-nav__link">
+        ExpressJS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../source/">资源链接</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    Hooks 简要介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="Hooks 简要介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    管理组件状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    管理组件副作用——替换生命周期方法
+  </a>
+  
+    <nav class="md-nav" aria-label="管理组件副作用——替换生命周期方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deplist" class="md-nav__link">
+    通过 depList 控制副作用发生时机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    副作用的清除逻辑
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooks_1" class="md-nav__link">
+    Hooks 的使用规范
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/frontend/react/function-component.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="_1">函数组件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>我们通过类组件简单介绍了 React 的核心概念，但是类组件有下述比较明显的问题：</p>
+<ul>
+<li>编码繁琐，尤其在使用 TypeScript 语言的时候</li>
+<li>可能会出现 <code>this</code> 的指向不明确的问题</li>
+<li>JavaScript 语言的类语法仅仅是语法糖，并非是完全符合面向对象思路的</li>
+</ul>
+<p>所以在新版本的 React 框架中，我们更为推荐大家编写函数组件。</p>
+<p>函数组件的基本思维是将整个组件思考为函数，函数的参数为组件的属性，而返回值就是组件的显示方式（即类组件的 <code>render</code> 函数返回值）。也就是说，将组件视作一种接收属性，获取组件渲染指示的数据流管道更为可行。这种思路下开发者可以简单地组合各种管道来实现 Web 应用。</p>
+<p>比如说下述没有设置组件状态的、没有使用生命周期方法的正方形组件：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Square</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+            <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+                <span class="nx">width</span>: <span class="kt">this.props.size</span><span class="p">,</span>
+                <span class="nx">height</span>: <span class="kt">this.props.size</span><span class="p">,</span>
+                <span class="nx">backgroundColor</span>: <span class="kt">this.props.color</span>
+            <span class="p">}}</span>
+        <span class="o">/&gt;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>就可以转写为下述函数组件：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">Square</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+            <span class="nx">width</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">height</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">backgroundColor</span>: <span class="kt">props.color</span>
+        <span class="p">}}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样的转写并不改变组件的本质，使用该组件的方式也和类组件一致。</p>
+<h2 id="hooks">Hooks 简要介绍<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
+<p>在转写上述类组件的时候，我们注意到如果组件具有状态或者使用了生命周期方法，则无法转写。这里，React 提供的解决方式是使用 Hooks。</p>
+<h3 id="_2">管理组件状态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>我们首先介绍管理状态需要使用的 Hooks，即 <code>useState</code> 函数。比如说我们依然是将正方形的颜色变为其状态，由组件自身管理，其代码大致为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">Square</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">    <span class="kd">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
+</span>
+    <span class="kd">const</span> <span class="nx">switchColor</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">        <span class="nx">setColor</span><span class="p">((</span><span class="nx">prev</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">prev</span> <span class="o">===</span> <span class="s2">&quot;red&quot;</span> <span class="o">?</span> <span class="s2">&quot;blue&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</span>    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+            <span class="nx">width</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">height</span>: <span class="kt">props.size</span><span class="p">,</span>
+<span class="hll">            <span class="nx">backgroundColor</span>: <span class="kt">color</span>
+</span>        <span class="p">}}</span>
+        <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">switchColor</span><span class="p">}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里高亮的三行表现出使用 Hooks 的时候需要修改的地方。首先注意第 7 行，这里使用了 <code>useState</code> 函数，该函数接受的是需要设定的状态的初始值，返回的是该状态和用于设定该状态的函数。这里我们设定的状态为 <code>color</code>，初始值为 <code>props.color</code>，而 <code>setColor</code> 和类组件之中的 <code>setState</code> 类似，用于修改状态。</p>
+<p>这里注意第 10 行如何应用 <code>setColor</code> 函数。该函数和 <code>setState</code> 一样，可以接收新状态作为参数，也可以接受一个回调函数作为参数。同样的，该函数也是一个异步函数，也会触发组件重新渲染。</p>
+<details class="note">
+<summary><code>useState</code> Hooks 的大致原理</summary>
+<p>在函数组件条件下，组件的状态是交由全局变量维护，也就是说所有组件的状态将会保存在一个全局的数组之中。而我们在使用 <code>useState</code> 创建新的状态的时候，就会在这个数组的尾部新建一个元素，将这个元素的索引封装进入闭包，这个闭包就是用于修改这个状态的函数。</p>
+<p>比如说 <code>useState</code> 的一种可能的实现为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">states</span>: <span class="kt">any</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">cursor</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">useState</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">(</span><span class="nx">initalState</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="p">[</span><span class="nx">T</span><span class="p">,</span> <span class="p">(</span><span class="nx">arg</span>: <span class="kt">T</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="ow">void</span><span class="p">]</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">state</span>: <span class="kt">T</span> <span class="o">=</span> <span class="p">(</span><span class="nx">states</span><span class="p">[</span><span class="nx">cursor</span><span class="p">]</span> <span class="o">??</span> <span class="nx">initalState</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">T</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">_cursor</span> <span class="o">=</span> <span class="nx">cursor</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">setState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">newState</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">states</span><span class="p">[</span><span class="nx">_cursor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">newState</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">cursor</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">setState</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里，数组 <code>states</code> 管理了所有组件的状态，另外有一个指针 <code>cursor</code> 用于访问这个数组。在我们调用 <code>useState</code> 的时候，其首先会检测目前 <code>cursor</code> 指向的位置是否已经写入了某个状态，如果已经写入则将其取出作为目前的状态，否则会用该函数接受的初始值作为目前的状态。</p>
+<p>随后，该函数会保留一份当前 <code>cursor</code> 的副本 <code>_cursor</code>，将其包装在闭包 <code>setState</code> 中，而 <code>setState</code> 的作用就是修改 <code>_cursor</code> 指向的那一个状态。最后递增 <code>cursor</code>，将目前的状态 <code>state</code> 和用于修改状态的函数 <code>setState</code> 返回即可。</p>
+</details>
+<h3 id="_3">管理组件副作用——替换生命周期方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>由于函数组件将组件看作是接收组件属性传出组件显示方式的数据流管道，所以其主要作用就是渲染，即 <code>render</code> 函数负责的部分。那么所有生命周期方法规定的，在组件挂载后、卸载前的行为，就统称为<strong>副作用</strong>。</p>
+<p>我们先简要介绍 <code>useEffect</code> 这个 Hooks，其原型为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">useEffect</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">depList</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里 <code>callback</code> 就是我们需要执行的一个回调函数，也就是规定副作用的函数。而 <code>depList</code> 为副作用依赖项列表，表示该副作用取决于哪些变量。</p>
+<p>所谓依赖项，就是每当 <code>useEffect</code> 执行的时候，会检测所有依赖项相较于上一次是否发生了变化，如果发生变化，才会执行 <code>callback</code> 回调函数。</p>
+<p>那么我们就可以通过控制 <code>depList</code> 来控制副作用的执行时机。一般而言，<code>depList</code> 有三种写法。</p>
+<h4 id="deplist">通过 <code>depList</code> 控制副作用发生时机<a class="headerlink" href="#deplist" title="Permanent link">&para;</a></h4>
+<p><strong><code>depList</code> 置 <code>undefined</code></strong></p>
+<p>此时相当于不传入第二个参数 <code>depList</code>。此时这个 Hooks 的语义可以理解为副作用不依赖于任何变量，始终会被执行。而 <code>useEffect</code> 被调用的时机就是函数组件调用的时机，即函数组件渲染的时候。所以，如果 <code>depList</code> 置 <code>undefined</code>，意味着副作用会在<strong>每一次渲染后执行</strong>。</p>
+<p>在每一次渲染之后都会执行的副作用等价于 <code>componentDidMount</code> 和 <code>componentDidUpdate</code> 两个生命周期方法合并。</p>
+<p>这类副作用往往是根据组件更新完毕后的新状态来手动调整 DOM 树结构、记录日志等行为。比如说我们可以在正方形类组件上添加下述 Hooks，让其被点击次数能够显示在网页标题上：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">Square</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">clickCnt</span><span class="p">,</span> <span class="nx">setClickCnt</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+
+<span class="hll">    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You have clicked it for </span><span class="si">${</span><span class="nx">clickCnt</span><span class="si">}</span><span class="sb"> time(s).`</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">});</span>
+</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+            <span class="nx">width</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">height</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">backgroundColor</span>: <span class="kt">props.color</span>
+        <span class="p">}}</span>
+        <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setClickCnt</span><span class="p">((</span><span class="nx">o</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">o</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样，在用户每次点击正方形触发重新渲染（即函数 <code>Square</code> 重新执行）的时候，<code>useEffect</code> Hooks 接收的回调函数就会执行一次，从而修改网页标题内容。</p>
+<p><strong><code>depList</code> 置空列表 <code>[]</code></strong></p>
+<p>区别于置 <code>undefined</code>，置空列表表示该副作用应当依赖于某些变量但是我们没有提供，因而除了在第一次执行该 Hooks 时之外，其余时刻都会由于 <code>depList</code> 为空而判定为不执行。所以，如果 <code>depList</code> 置空列表 <code>[]</code>，意味着副作用只会在<strong>第一次渲染后执行</strong>。</p>
+<p>只在第一次渲染之后执行的副作用等价于 <code>componentDidMount</code> 生命周期方法。</p>
+<div class="admonition caution">
+<p class="admonition-title">不太直观的解释？</p>
+<p>可能会有读者在阅读上述讲解后还有困惑，为何 <code>depList</code> 置 <code>undefined</code> 是这般行为而置空列表又是那般，乃至认为讲解很反直觉。</p>
+<p>我们承认上述讲解的目的仅仅是让大家在不学习 Hooks 源码的条件下就能使用 Hooks，但如果想要理解其行为为何如此，可以阅读这一部分末尾我们提供的简化版 Hooks 实现。</p>
+</div>
+<p>比如说我们希望在组件第一次渲染的时候从网络获取数据，就可以如下编写：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Some other components</span>
+<span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fetchData</span><span class="p">(</span><span class="nx">dataURL</span><span class="p">,</span> <span class="cm">/* OTHER PARAMS */</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setData</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">writeLog</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="nx">setData</span><span class="p">(</span><span class="s2">&quot;[ERR]&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">},</span> <span class="p">[]);</span>
+</code></pre></div>
+</td></tr></table>
+<p><strong><code>depList</code> 置非空列表</strong></p>
+<p>依赖项非空就意味着该副作用依赖于这些依赖项，React 引擎会在每次渲染的时候检查这些依赖项是否和先前的存储一致，若不一致则会触发副作用（第一次渲染始终执行）。</p>
+<h4 id="_4">副作用的清除逻辑<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>至此为止，我们已经基本上了解了如何通过 <code>depList</code> 参数控制副作用的产生时机。但是如果我们观察一下上面提到的的这一段示例代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You have clicked it for </span><span class="si">${</span><span class="nx">clickCnt</span><span class="si">}</span><span class="sb"> time(s).`</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>可以发现，这里每一次渲染都会给 <code>useEffect</code> 传入一个不一样的函数（因为 <code>clickCnt</code> 发生了改变），这其实表明了 <code>useEffect</code> 这个 Hooks 的一个特征，即每一个副作用是属于每一次渲染的。这是和生命周期方法很不一样的地方，因为生命周期是属于一个组件的，而不是特定的每一次渲染。</p>
+<p>但是我们认为将副作用绑定到每一次渲染可能是更好的选择，原因在于副作用的清除逻辑。</p>
+<p>我们先前提到过，如果需要给组件绑定计时器、事件监听器等耗费资源的对象，就需要在组件挂载后分配资源，在组件卸载前释放资源。如果需要分配的是类似计时器这类在整个组件生命周期中都不会变化的对象，则将创建和销毁计时器绑定到一个组件上和绑定到具体的某次渲染上均可以。</p>
+<p>但是考虑事件监听器，事件监听器监听的对象可能会在组件更新的时候发生变化，这个时候将创建和销毁监听器绑定到组件上就不正确。也就是说，仅仅通过 <code>componentDidMount</code> 和 <code>componentWillUnmount</code> 生命周期方法并不能完成事件监听器对象的管理，还需要再在 <code>componentDidUpdate</code> 方法内实现回收旧监听器和分配新监听器的逻辑。</p>
+<p>这个时候显然将事件监听器的管理和具体的某一次渲染绑定是更为合理的，逻辑也更为简洁。在这样的条件下，监听器的管理逻辑就是，每一次渲染后，回收旧监听器并分配新监听器。</p>
+<hr />
+<p>我们在 <code>useEffect</code> Hooks 内规定副作用清除逻辑的方法为在 <code>callback</code> 内返回一个函数，在返回的函数内规定副作用清除方式。</p>
+<p>比如说考虑下述带有计时器，定时变色的 <code>Square</code>：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nx">SquareStates</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Square</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="p">,</span> <span class="nx">SquareStates</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">timer</span>: <span class="kt">any</span><span class="p">;</span>
+
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">color</span>: <span class="kt">props.color</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">switchColor</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">((</span><span class="nx">prev</span>: <span class="kt">SquareStates</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">({</span>
+            <span class="p">...</span><span class="nx">prev</span><span class="p">,</span>
+            <span class="nx">color</span>: <span class="kt">prev.color</span> <span class="o">===</span> <span class="s2">&quot;red&quot;</span> <span class="o">?</span> <span class="s2">&quot;blue&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="p">}));</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidMount</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">switchColor</span><span class="p">(),</span> <span class="mf">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentWillUnmount</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+        <span class="nx">clearInterval</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+            <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+                <span class="nx">width</span>: <span class="kt">this.props.size</span><span class="p">,</span>
+                <span class="nx">height</span>: <span class="kt">this.props.size</span><span class="p">,</span>
+                <span class="nx">backgroundColor</span>: <span class="kt">this.state.color</span>
+            <span class="p">}}</span>
+        <span class="o">/&gt;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>可以改写为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">Square</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">timer</span>: <span class="kt">any</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">switchColor</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setColor</span><span class="p">((</span><span class="nx">prev</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">prev</span> <span class="o">===</span> <span class="s2">&quot;red&quot;</span> <span class="o">?</span> <span class="s2">&quot;blue&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+    <span class="p">};</span>
+
+<span class="hll">    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">switchColor</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">},</span> <span class="p">[]);</span>
+</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+            <span class="nx">width</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">height</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">backgroundColor</span>: <span class="kt">color</span>
+        <span class="p">}}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里我们在作为 <code>useEffect</code> 的第一个参数的回调函数中返回了一个回调函数，其规定了清除计时器的逻辑。</p>
+<div class="admonition caution">
+<p class="admonition-title">仅供参考的写法</p>
+<p>如果你使用了上述写法，可能会得到这样的警告：</p>
+<p><img alt="" src="../../../static/frontend/react/useeffect-warning.png" /></p>
+<p>这个警告告诉我们，<code>timer</code> 作为函数内部变量，会随着渲染结束（函数执行完毕）而消失，如果需要将其持久化，需要使用另外一个 <code>useRef</code> Hooks。</p>
+<p>这其实就是函数组件的局限所在，由于函数的生命周期仅能维持在一次渲染中，所以如果涉及到需要构造和组件生命周期一般长的变量，就不得不使用各种 Hooks 维护，比如组件的各种状态，比如这里的计时器。</p>
+<p><code>useRef</code> Hooks 会构建一个和组件生命周期一般长的变量，其初始值为 <code>useRef</code> 接受的参数。我们可以通过该 Hooks 返回变量的 <code>.current</code> 属性获取到实际的变量值。所以说，上述代码的正确编写方式应该为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
+    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">Square</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
+<span class="hll">    <span class="kd">const</span> <span class="nx">timerRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="o">&lt;</span><span class="kc">undefined</span> <span class="o">|</span> <span class="nx">NodeJS</span><span class="p">.</span><span class="nx">Timer</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+</span>
+    <span class="kd">const</span> <span class="nx">switchColor</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setColor</span><span class="p">((</span><span class="nx">prev</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">prev</span> <span class="o">===</span> <span class="s2">&quot;red&quot;</span> <span class="o">?</span> <span class="s2">&quot;blue&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+    <span class="p">};</span>
+
+<span class="hll">    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">timerRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">switchColor</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">if</span> <span class="p">(</span><span class="nx">timerRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
+</span><span class="hll">                <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timerRef</span><span class="p">.</span><span class="nx">current</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">},</span> <span class="p">[]);</span>
+</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
+            <span class="nx">width</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">height</span>: <span class="kt">props.size</span><span class="p">,</span>
+            <span class="nx">backgroundColor</span>: <span class="kt">color</span>
+        <span class="p">}}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<details class="note">
+<summary><code>useEffect</code> Hooks 的大致原理</summary>
+<p><code>useEffect</code> 采用了和 <code>useState</code> 类似的设计思路，只不过其在全局数组内存放的是每一个副作用的依赖列表。每次执行 <code>useEffect</code> 的时候都会查找依赖列表来确定是否需要执行副作用。</p>
+<p>其可能的实现为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">effectDeps</span>: <span class="kt">any</span><span class="p">[][]</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">cursor</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">useEffect</span> <span class="o">=</span> <span class="p">(</span><span class="nx">callback</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="ow">void</span><span class="p">,</span> <span class="nx">depList</span>: <span class="kt">any</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">effectDeps</span><span class="p">[</span><span class="nx">cursor</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">effectDeps</span><span class="p">[</span><span class="nx">cursor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">depList</span><span class="p">;</span>
+        <span class="nx">cursor</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">;</span>
+        <span class="nx">callback</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">const</span> <span class="nx">depsChanged</span> <span class="o">=</span> <span class="nx">effectDeps</span><span class="p">[</span><span class="nx">cursor</span><span class="p">]</span>
+        <span class="p">.</span><span class="nx">some</span><span class="p">((</span><span class="nx">dep</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">ind</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dep</span> <span class="o">!==</span> <span class="nx">depList</span><span class="p">[</span><span class="nx">ind</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">depsChanged</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">callback</span><span class="p">();</span>
+        <span class="nx">effectDeps</span><span class="p">[</span><span class="nx">cursor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">depList</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">cursor</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这样实际上就解释了为何 <code>depList</code> 置 <code>undefined</code> 时每次渲染都会执行副作用，这是因为 <code>effectDeps</code> 数组内一直保存的是 <code>undefined</code>，所以 <code>useEffect</code> 在第一个 <code>if</code> 处就会一直判真，从而每次都会执行副作用。</p>
+<p>同样也能解释为何 <code>depList</code> 置空列表仅会在第一次渲染执行副作用，这里不再赘述。</p>
+</details>
+<h2 id="hooks_1">Hooks 的使用规范<a class="headerlink" href="#hooks_1" title="Permanent link">&para;</a></h2>
+<p>Hooks 的使用规范大致可以归结为两条：</p>
+<ul>
+<li>必须在组件最顶部使用 Hooks，且 Hooks 不能位于条件、循环、子函数之中</li>
+<li>只能在 React 函数组件中使用 Hooks</li>
+</ul>
+<p>只要遵循这两条即可保证 Hooks 的正确使用。</p>
+<details class="note">
+<summary>为什么是这两条规则</summary>
+<p>如果你已经阅读过 <code>useState</code> 和 <code>useEffect</code> 的简要实现，就会发现这两个 Hooks 都依赖于一个重要的全局变量，即 <code>cursor</code>。这个变量维护了当前 Hooks 指向的状态（或依赖项列表）。而 <code>cursor</code> 的变化仅仅是自增，这意味着，如果各个 Hooks 的执行序列发生变化，就会导致 <code>cursor</code> 偏移，从而导致 Hooks 无法正确解析状态（或依赖项列表）。</p>
+<p>比如说我们在某一个组件顶部按顺序调用下述 Hooks：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">useState</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span> <span class="c1">// #1</span>
+<span class="nx">useState</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span> <span class="c1">// #2</span>
+<span class="nx">useState</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span> <span class="c1">// #3</span>
+</code></pre></div>
+</td></tr></table>
+<p>这里 <code>cursor</code> 就会递增三次，将三个状态连续记录在全局数组中。</p>
+<p>然而如果我们将某一个 Hooks 放置在条件语句中：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">useState</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span> <span class="c1">// #1</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">useState</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span> <span class="c1">// #2</span>
+<span class="p">}</span>
+<span class="nx">useState</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span> <span class="c1">// #3</span>
+</code></pre></div>
+</td></tr></table>
+<p>就可能导致第二个 Hooks 不被执行，从而导致 <code>cursor</code> 没有递增。此时执行第三个 Hooks 的时候，<code>cursor</code> 指向了第二个状态，这就导致了错误。</p>
+</details>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年4月27日</span>
+      
+    
+  </small>
+</div>
+
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a></span>
+            </small>
+        </div>
+    
+
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../dataflow/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 非常规数据流" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              非常规数据流
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../extensions/" class="md-footer__link md-footer__link--next" aria-label="下一页: 后续拓展" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              后续拓展
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
