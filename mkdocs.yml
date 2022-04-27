@@ -151,6 +151,14 @@ nav:
       - 数据流基础:  frontend/swiftui/data-flow.md
       - 声明式 UI 与 MVVM: frontend/swiftui/declaritive-mvvm.md
       - 后续拓展: frontend/swiftui/extensions.md
+    - React 开发入门:
+      - frontend/react/index.md
+      - 环境配置: frontend/react/prepare.md
+      - 组件、属性与状态: frontend/react/basic.md
+      - 生命周期: frontend/react/lifecycle.md
+      - 非常规数据流: frontend/react/dataflow.md
+      - 函数组件: frontend/react/function-component.md
+      - 后续拓展: frontend/react/extensions.md
   - 后端框架:
     - backend/index.md
     - ExpressJS: backend/expressjs/express-js.md
