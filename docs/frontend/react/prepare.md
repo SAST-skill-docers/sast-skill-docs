@@ -44,7 +44,7 @@ console.log(a);
 并在这个目录下执行：
 
 ```shell
-tsc hello.js
+tsc hello.ts
 ```
 
 如果安装顺利，这个目录下应当会出现编译生成的 `hello.js` 文件，使用命令 `node hello.js` 应当就可以看到命令行输出的问候语。
