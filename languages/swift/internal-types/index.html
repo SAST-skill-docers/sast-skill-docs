@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2436,107 +2437,95 @@
 </ul>
 <p>这些类型均为 <code>struct</code>，也就是说，它们是值类型，传递副本。</p>
 <p><code>Int</code> 和 <code>Double</code> 都有对应的字面值，字面值与变量是等效的，可以调用类型的方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="mf">12.</span><span class="n">negate</span><span class="p">())</span>            <span class="c1">// Int, -12</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="mf">12.</span><span class="n">negate</span><span class="p">())</span>            <span class="c1">// Int, -12</span>
 <span class="bp">print</span><span class="p">(</span><span class="mf">1.2</span><span class="p">.</span><span class="n">isEqual</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">))</span>   <span class="c1">// Double, true</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Swift 没有 <code>++</code> 运算符，使用 <code>+= 1</code> 代替。</p>
 <h2 id="_2">字符串<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">字符串与字符串字面值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>Swift 中，字符串类型为 <code>String</code>，也是 <code>struct</code>。</p>
 <p>字符串字面值、字符常量均使用两个双引号表示：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello, World!&quot;</span>      <span class="c1">// String</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello, World!&quot;</span>      <span class="c1">// String</span>
 <span class="kd">let</span> <span class="nv">myCharacter</span><span class="p">:</span> <span class="nb">Character</span> <span class="p">=</span> <span class="s">&quot;H&quot;</span>    <span class="c1">// Character</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>多行字符串使用前后三个引号包围：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">softWrappedQuotation</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">softWrappedQuotation</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot;</span>
 <span class="s">The White Rabbit put on his spectacles.  &quot;</span><span class="n">Where</span> <span class="n">shall</span> <span class="n">I</span> <span class="n">begin</span><span class="p">,</span> <span class="err">\</span>
 <span class="n">please</span> <span class="n">your</span> <span class="n">Majesty</span><span class="p">?</span><span class="s">&quot; he asked.</span>
 
 <span class="s">&quot;</span><span class="n">Begin</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span><span class="p">,</span><span class="s">&quot; the King said gravely, &quot;</span><span class="n">and</span> <span class="n">go</span> <span class="n">on</span> <span class="err">\</span>
 <span class="n">till</span> <span class="n">you</span> <span class="n">come</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span><span class="p">;</span> <span class="n">then</span> <span class="n">stop</span><span class="p">.</span><span class="s">&quot;</span>
 <span class="s">&quot;&quot;&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>从行开头到与末尾 <code>"""</code> 的第一个引号之间的空白字符将被忽略，如下图所示：</p>
 <p><img alt="" src="../../../static/languages/swift/multiline-string.png" /></p>
 <p>原始字符串（raw string）用 <code>#" "#</code> 或 <code>#""" """#</code> 包围：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">regex</span> <span class="p">=</span> <span class="p">#</span><span class="s">&quot;\d{1,7}&quot;</span><span class="p">#</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">regex</span> <span class="p">=</span> <span class="p">#</span><span class="s">&quot;\d{1,7}&quot;</span><span class="p">#</span>
+</code></pre></div></td></tr></table></div>
 <p>字符串变量是可以更改的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">myString</span> <span class="p">=</span> <span class="s">&quot;Swift&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">myString</span> <span class="p">=</span> <span class="s">&quot;Swift&quot;</span>
 <span class="n">myString</span> <span class="o">+=</span> <span class="s">&quot; Programming Language&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_4">字符串格式化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Swift 字符串有一种与 Python 中的 <code>fstring</code> 类似的将任意类型变量插入字符串的方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;Jack&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;Jack&quot;</span>
 <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>String</code> 还提供了 C 风格的格式化构造函数，不过需要注意其占位符与 C 有不同：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;Jack&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&quot;Jack&quot;</span>
 <span class="bp">print</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&quot;Hello, %@&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="_5">集合类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="array">可变数组 <code>Array</code><a class="headerlink" href="#array" title="Permanent link">&para;</a></h3>
 <p>可变数组，相当于 <code>std::vector</code>，为<strong>值类型</strong>。</p>
 <p><code>Array</code> 类型有两种等价的表示方法，一般使用第一种：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">rectangles</span><span class="p">:</span> <span class="p">[</span><span class="n">Rectangle</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">rectangles</span><span class="p">:</span> <span class="p">[</span><span class="n">Rectangle</span><span class="p">]</span>
 <span class="kd">var</span> <span class="nv">rectangles</span><span class="p">:</span> <span class="nb">Array</span><span class="p">&lt;</span><span class="n">Rectangle</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>Array</code> 有以下几种常见的构造方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>    <span class="c1">// 空数组</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>    <span class="c1">// 空数组</span>
 <span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">// [0, 0, 0]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>append</code>、加法运算符增加元素：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
 <span class="n">values</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">// [1]</span>
 <span class="n">values</span> <span class="o">+=</span> <span class="n">values</span>    <span class="c1">// [1, 1]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>remove(at:)</code> 删除元素：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="kd">let</span> <span class="nv">removedValue</span> <span class="p">=</span> <span class="n">values</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// [2, 3], removedValue == 1</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用下标、<code>first</code>、<code>last</code> 等来索引，通过 <code>count</code> 获取数量：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>    <span class="c1">// 2</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="bp">first</span><span class="p">)</span> <span class="c1">// Optional(1)</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="bp">last</span><span class="p">)</span>  <span class="c1">// Optional(3)</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span> <span class="c1">// 3</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一些常用的对数组进行遍历或者转换的函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2544,7 +2533,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="c1">// 遍历</span>
 <span class="n">values</span><span class="p">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>              <span class="c1">// prints 1, 2, 3</span>
 <span class="c1">// 遍历，将其元素依次转换</span>
@@ -2553,65 +2542,58 @@
 <span class="kd">let</span> <span class="nv">filteredValues</span> <span class="p">=</span> <span class="n">values</span><span class="p">.</span><span class="bp">filter</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">}</span> <span class="c1">// [2, 3]</span>
 <span class="c1">// 遍历，将结果累积</span>
 <span class="kd">let</span> <span class="nv">sum</span> <span class="p">=</span> <span class="n">values</span><span class="p">.</span><span class="bp">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">+</span> <span class="nv">$1</span> <span class="p">})</span>   <span class="c1">// 0 + 1 + 2 + 3 = 6</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>当然，可以使用 <code>for</code> 循环进行遍历：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="n">values</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="n">values</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="n">values</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;value at index </span><span class="si">\(</span><span class="n">index</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="dictionary">键值对 <code>Dictionary</code><a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h3>
 <p>键值对，对应 <code>std::map</code>，值的类型必须相同。</p>
 <p><code>Dictionary</code> 为值类型，传递副本。</p>
 <p>两种等价的表示方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">grades</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Double</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">grades</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Double</span><span class="p">]</span>
 <span class="kd">var</span> <span class="nv">grades</span><span class="p">:</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Double</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一些常用的构造方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">grades</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Double</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:]</span>  <span class="c1">// 空</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">grades</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Double</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:]</span>  <span class="c1">// 空</span>
 <span class="kd">let</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Double</span><span class="p">]()</span>     <span class="c1">// 空</span>
 <span class="kd">let</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="mf">3.9</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>通过键获取元素，类型为 Optional：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="mf">3.9</span><span class="p">]</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="mf">3.9</span><span class="p">]</span>
 <span class="n">grades</span><span class="p">[</span><span class="s">&quot;Carol&quot;</span><span class="p">]</span> <span class="c1">// nil</span>
 <span class="n">grades</span><span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">]</span> <span class="c1">// Optional(4.0)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>通过键增加或更改元素：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="mf">3.9</span><span class="p">]</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">grades</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">:</span> <span class="mf">3.9</span><span class="p">]</span>
 <span class="n">grades</span><span class="p">[</span><span class="s">&quot;Carol&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mf">3.8</span>
 <span class="n">grades</span><span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mf">3.99</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>for</code> 循环进行遍历：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">)</span> <span class="k">in</span> <span class="n">grades</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">)</span> <span class="k">in</span> <span class="n">grades</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#39;s grade is </span><span class="si">\(</span><span class="n">grade</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
@@ -2634,10 +2616,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2646,7 +2629,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../generics/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 泛型" rel="prev">
@@ -2701,10 +2685,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

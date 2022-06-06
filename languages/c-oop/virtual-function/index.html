@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2794,7 +2795,7 @@
 <p>派生类对象、引用、指针转换成基类对象、引用、指针，称为向上类型转换。只对 <code>public</code> 继承有效，在继承图上是上升的；对 <code>private</code>、<code>protected</code> 继承无效。</p>
 <p>向上类型转换（派生类到基类）可以由编译器自动完成，是一种隐式类型转换。凡是接受基类对象、引用、指针的地方（如函数参数），都可以使用派生类对象、引用、指针，编译器会自动将派生类对象转换为基类对象以便使用。</p>
 <h3 id="public">不允许非 <code>public</code> 继承的向上转换<a class="headerlink" href="#public" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2821,7 +2822,7 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
@@ -2849,11 +2850,10 @@
 <span class="cm">error: cannot cast &#39;Derive1&#39; to its private base class &#39;Base&#39;</span>
 <span class="cm">Base&amp; b = d1;</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果 <code>private</code> 继承也可以向上转换，那么基类对象里的 <code>public</code> 成员也可以被派生类调用了。而 <code>private</code> 继承的原意就是让基类成员在派生类里变成 <code>private</code> 属性，所以 <code>private</code> 继承不能向上转换。</p>
 <h3 id="_4">例子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2878,7 +2878,7 @@
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -2904,8 +2904,7 @@
 <span class="cm">Derive::print()</span>
 <span class="cm">Base::print()</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>派生类会覆盖掉基类的同名函数，未发生切片前，想要让派生类使用基类的 <code>print</code>，方法一是使用 <code>using</code> 关键字，方法二是启用命名空间。</p>
 <h2 id="_5">对象切片<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">定义<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -2916,7 +2915,7 @@
 <ul>
 <li>存储空间的变化</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2953,7 +2952,7 @@
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4) </span><span class="c1">// 按照四字节进行内存对齐</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Pet</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
@@ -2991,12 +2990,11 @@
 <span class="cm">Dog size:8</span>
 <span class="cm">Dog size:8</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>派生类数据无权访问</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3028,7 +3026,7 @@
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4)</span>
 
@@ -3061,12 +3059,11 @@
 <span class="cm">2 3</span>
 <span class="cm">2</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>派生类方法无权访问</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3097,7 +3094,7 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Pet</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
@@ -3129,14 +3126,13 @@
 <span class="cm">Pet::name()</span>
 <span class="cm">Pet::name()</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 <h3 id="_7">对象切片的理解<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>指针型向上类型转换</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3171,7 +3167,7 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4)</span>
 
@@ -3207,8 +3203,7 @@
 <span class="cm">1</span>
 <span class="cm">1 2</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在主函数中，我们使用了基类指针 <code>p</code> 指向派生类对象 <code>g</code>。将 <code>p</code> 和 <code>g</code> 指向内存空间的地址打印出来，同时将 <code>g</code> 指向内存空间上的两个 <code>int</code> 地址打印出来，我们发现 <code>g</code> 和 <code>p</code> 都指向同一个地址（这个地址就是 <code>att_i</code>）。</p>
 <p>实际上，数据在内存中是连续紧密排列的。先排列基类数据 <code>att_i</code>，再排列派生类数据 <code>att_j</code>。而我们用基类指针指向派生类对象时，基类和派生类指针都指向同一个内存地址，即基类数据的地址。但是访问权限不同，基类指针只能访问基类的部分，派生类能访问所有部分。情况一类型的数据丢失，并非派生类数据销毁了，而是被转换生成的指针没有访问派生类数据的权限。</p>
 <p>不过，当多重继承时，比如 <code>A</code> 同时 <code>public</code> 继承 <code>B</code>、<code>C</code>（按照类的定义顺序从左到右）。在内存中则先排列 <code>B</code>，之后 <code>C</code>，最后 <code>A</code>。还是使用基类指针指向派生类对象的话，如果 <code>A</code> 类指针 <code>a</code> 和 <code>C</code> 类指针 <code>c</code> 不重合。<code>a</code> 指向头部，<code>c</code> 指向 <code>C</code> 的部分，访问权限也不同。</p>
@@ -3216,7 +3211,7 @@
 <ul>
 <li>拷贝型向上类型转换</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3253,7 +3248,7 @@
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4)</span>
 
@@ -3291,12 +3286,11 @@
 <span class="cm">10</span>
 <span class="cm">locate of t: 0x7ffefd9e8198</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>可以发现，在定义了 <code>Pet t</code> 后，就已经为 <code>t</code> 分配了内存空间，和 <code>d</code> 并不是同一块空间。接下来的 <code>t = d</code> 类似于一个部分拷贝赋值语句，并没有改变 <code>t</code> 和 <code>d</code> 的地址。比起指针型的切片简单许多。</p>
 <p><img alt="https://s2.loli.net/2022/01/11/mX4vOU5pabyKBNh.png" src="https://s2.loli.net/2022/01/11/mX4vOU5pabyKBNh.png" /></p>
 <h3 id="_8">进一步讨论<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3337,7 +3331,7 @@
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4)</span>
 
@@ -3379,15 +3373,14 @@
 <span class="cm">1</span>
 <span class="cm">6334</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这里对于拷贝型向上类型转换和指针型向上类型转换进行分析。思考一个问题，拷贝型向上类型转换是否会在参数被析构后破坏原有的派生类数据？</p>
 <p>答案是不会的。</p>
 <p>上述例子通过传递参数参数产生的切片实质是拷贝传参，相当于用派生类对象在另外一块地址上拷贝了一个基类对象。这一对象指针指针指向的内存和派生类指针指向的内存当然不是同一块，故而析构的时候不会有问题。</p>
 <p>而对于指针型向上类型转换，在上文已经讨论过这一切片的本质——两个指向地址相同的指针，但是访问权限不同。</p>
 <p>如同上文输出所示，情况一类型的切片生成的基类指针和派生类指针指向同一块空间。将基类指针所指空间释放后，破坏了派生类数据。</p>
 <p>又例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3420,7 +3413,7 @@
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4)</span>
 
@@ -3454,10 +3447,9 @@
 <span class="cm">1</span>
 <span class="cm">1 3</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>课堂上的例子只强调了基类引用会影响派生类数据，实际上应结合地址和内存空间来理解。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3487,7 +3479,7 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Instrument</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -3518,8 +3510,7 @@
 <span class="cm">Instrument::play</span>
 <span class="cm">Instrument::play</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>同样的，<code>Ins</code> 类的引用的权限不足以访问 <code>Wind</code> 的 <code>public</code> 接口。</p>
 <p>最后，指针的基本知识：指针的值是指指针所指向的地址。而指针本身是一种数据结构，也需要内存空间存放，指针的地址就是存放指针的内存空间的地址。比如 <code>g</code> 是 <code>Dog</code> 类型的指针</p>
 <p><code>cout &lt;&lt; "locate of g: " &lt;&lt; g &lt;&lt; endl</code> 是打印 <code>g</code> 指向的内存空间的地址。</p>
@@ -3530,7 +3521,7 @@
 <p>把函数体与函数调用相联系称为捆绑。即将函数体的具体实现代码，与调用的函数名绑定，执行到调用代码时进入直接进入捆绑好的函数体内部。</p>
 <p>当捆绑在程序运行之前（由编译器和链接器）完成，也即是运行之前已经决定了函数究竟调用哪个函数，称为早捆绑。</p>
 <p>例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3561,7 +3552,7 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Instrument</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -3593,8 +3584,7 @@
 <span class="cm">Instrument::play</span>
 <span class="cm">Instrument::play</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>(1)</code> 处由于是编译器早绑定，编译器根据 <code>tune</code> 函数的参数类型（也就是 <code>Instrument</code>）决定要调用 <code>Instrument</code> 类型的 <code>play</code>。所以在真正运行的时候，即使传进去的是一个 <code>Wind</code> 类型，编译器为了调用 <code>Instrument</code> 类型的成员函数，会对传进去的 <code>Wind</code> 对象进行切片，而不会去调用 <code>Wind</code> 的成员函数。</p>
 <p><code>(2)</code> 处 <code>inst</code> 是 <code>flute</code> 的引用，由于发生切片，编译器将 <code>tune</code> 中的函数调用 <code>i.play()</code> 与 <code>Instrument::play()</code> 绑定。</p>
 <p>当捆绑根据对象的实际类型（上例中即子类 <code>Wind</code> 而非 <code>Instrument</code>），发生在程序运行时，称为晚捆绑，又称动态捆绑或运行时捆绑。</p>
@@ -3602,36 +3592,33 @@
 <p>晚捆绑只对类中的虚函数起作用，使用 <code>virtual</code> 关键字声明虚函数。</p>
 <h3 id="_11">虚函数定义<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>对于被派生类重新定义的成员函数，若它在基类中被声明为虚函数（如下所示），则通过基类指针或引用调用该成员函数时，编译器将根据所指（或引用）对象的实际类型决定是调用基类中的函数，还是调用派生类重写的函数。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="n">FuncName</span><span class="p">(</span><span class="n">argument</span><span class="p">);</span><span class="w"> </span><span class="c1">// 虚函数</span>
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>若某成员函数在基类中声明为虚函数，当派生类 override 它时（同名，同参数函数），无论是否声明为虚函数，该成员函数都仍然是虚函数。</p>
 <p>区分 override 和 redefining。redefining 是在派生类中重新定义同名、参数可能不同的函数，并屏蔽了基类的所有同名函数。override 则是一种特殊的重写隐藏，要求不仅同名，参数也要相同，是一个针对虚函数的概念，使用条件更加严格。</p>
 <p>什么是指针和引用的“实际类型”？</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Wind</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"></span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Wind</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"></span>
 <span class="n">Instrument</span><span class="o">*</span><span class="w"> </span><span class="n">inst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">flute</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指针 inst 的实际类型是 Wind</span>
 <span class="n">Wind</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"></span>
 <span class="n">Instrument</span><span class="o">&amp;</span><span class="w"> </span><span class="n">inst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"> </span><span class="c1">// 引用 inst 的实际类型是 Wind</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>由此也能看出为什么只有在使用指针和引用的时候多态才可能发生，而对于对象，多态不会发生。比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Wind</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Wind</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"></span>
 <span class="n">Instrument</span><span class="w"> </span><span class="n">inst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flute</span><span class="p">;</span><span class="w"> </span><span class="c1">// 拷贝切片后构造了 Instrument 对象 inst</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>此时 <code>inst</code> 就是 <code>Instrument</code> 类型，没有“实际类型”和“表现类型”的区别。</p>
 <p>这对于参数是 <code>Instrument</code> 类型的全局函数也适用，如下。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3657,7 +3644,7 @@
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Instrument</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -3684,8 +3671,7 @@
 <span class="cm">output:</span>
 <span class="cm">Wind::play</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>注意到上方 <code>void tune(Instrument&amp; ins)</code> 的参数是引用（或指针），才成功起到了晚绑定效果。如果参数是 <code>void tune(Instrument ins)</code> ，那么发生拷贝型切片，依然无法晚绑定。</p>
 <h3 id="_12">虚函数表<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <h4 id="_13">概述<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
@@ -3694,7 +3680,7 @@
 <p>每个包含了虚函数的类都包含一个属于整个类的虚表。</p>
 <p>当一个类 <code>A</code> 继承另一个类 <code>B</code> 时，类 <code>A</code> 会继承类 <code>B</code> 的函数的调用权。所以如果一个基类包含了虚函数，那么其继承类也可调用这些虚函数，换句话说，一个类继承了包含虚函数的基类，那么这个类也拥有自己的虚表。</p>
 <p>例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3702,7 +3688,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vfunc1</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">vfunc2</span><span class="p">();</span><span class="w"></span>
@@ -3711,8 +3697,7 @@
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_data1</span><span class="p">,</span><span class="w"> </span><span class="n">m_data2</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>类 <code>A</code> 包含虚函数 <code>vfunc1</code>、<code>vfunc2</code>，由于类 <code>A</code> 包含虚函数，故类 <code>A</code> 拥有一个虚表。</p>
 <p><img alt="https://s2.loli.net/2022/01/11/Tk7vCDmz1NuWJrS.png" src="https://s2.loli.net/2022/01/11/Tk7vCDmz1NuWJrS.png" /></p>
 <p>虚表是一个指针数组，其元素是虚函数的指针，每个元素对应一个虚函数的函数指针。需要指出的是，普通的函数即非虚函数，其调用并不需要经过虚表，所以虚表的元素并不包括普通函数的函数指针。</p>
@@ -3724,7 +3709,7 @@
 <p><img alt="https://s2.loli.net/2022/01/11/eMF8PBQEz7yHVw9.png" src="https://s2.loli.net/2022/01/11/eMF8PBQEz7yHVw9.png" /></p>
 <p>前文指出，一个继承类的基类如果包含虚函数，那个这个继承类也有拥有自己的不同的虚表。这个继承类的对象也包含一个虚表指针，用来指向它的虚表。</p>
 <h4 id="_16">动态绑定<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3748,7 +3733,7 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vfunc1</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">vfunc2</span><span class="p">();</span><span class="w"></span>
@@ -3773,8 +3758,7 @@
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_data1</span><span class="p">,</span><span class="w"> </span><span class="n">m_data4</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="https://s2.loli.net/2022/01/11/JNYOrLjEof8aycn.png" src="https://s2.loli.net/2022/01/11/JNYOrLjEof8aycn.png" /></p>
 <p>类 <code>A</code> 是基类，类 <code>B</code> 继承类 <code>A</code>，类 <code>C</code> 又继承类 <code>B</code>。由于这三个类都有虚函数，故编译器为每个类都创建了一个虚表，即类 <code>A</code> 的虚表，类 <code>B</code> 的虚表，类 <code>C</code> 的虚表。类 <code>A</code>，类 <code>B</code>，类 <code>C</code> 的对象都拥有一个虚表指针 <code>*__vptr</code> 用来指向自己所属类的虚表。</p>
 <p>注意到前文所述：对象的虚表指针用来指向自己所属类的虚表，虚表中的函数指针会指向其继承的最近的一个类的虚函数（这也就是为什么 <code>C</code> 类对象的虚表中的函数指针会指向 <code>B::vfunc1</code>）与自身重写覆盖的虚函数。</p>
@@ -3784,7 +3768,7 @@
 <p>总而言之，类 <code>X</code> 的虚函数表的函数指针指向继承链上所有没有发生重写覆盖的虚函数和被 <code>X</code> 类重写覆盖的虚函数（但是，如果继承链上 <code>X</code> 之上的类中，某函数发生了重写覆盖，但同时重新声明了 <code>virtual</code> 关键字，那么它会继续出现在该类的派生类的虚函数表中）。而每一个类 <code>X</code> 的对象都有一个独属于自身的虚表指针，来指向 <code>X</code> 类的虚表。注意到，对于一个派生类对象 <code>y</code>，<code>y</code> 的虚表指针位于基类部分，也就是 <code>y</code> 的内存空间的头部。结合到前文叙述的“继承类的内存结构”，无论用哪一个基类的指针去指向一个派生类对象，基类指针都能有权访问派生类对象内存空间的头部，都有权访问派生类对象的虚函数指针，进而能够完全访问派生类的虚函数表。</p>
 <p>这也可以解释，为什么只有指针型的切片能够实现晚绑定。因为拷贝型的切片无法访问原对象的内存空间头部，而是将这片内存空间上的数据在另一片内存空间拷贝了一番。</p>
 <p>例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3814,7 +3798,7 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vfunc1</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">vfunc2</span><span class="p">();</span><span class="w"></span>
@@ -3845,23 +3829,21 @@
 <span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bObject</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">vfunc1</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>程序在执行 <code>p-&gt;vfunc1()</code> 时，检测到 <code>p</code> 是个指针（已经无需在意是什么类的指针了），且调用的函数是虚函数。首先，根据虚表指针 <code>p-&gt;__vptr</code> 来访问对象 <code>bObject</code> 对应的虚表。虽然指针 <code>p</code> 是基类 <code>A*</code> 类型，但是 <code>*__vptr</code> 也是基类的一部分，所以可以通过 <code>p-&gt;__vptr</code> 可以访问到对象对应的虚表。</p>
 <p>然后，在虚表中查找所调用的函数对应的条目。由于虚表在编译阶段就已完成构造，所以可以根据所调用的函数定位到虚表中的对应条目。<code>p-&gt;vfunc1()</code> 的调用对应 <code>B</code> 虚表的第一项，即是 <code>B::vfunc1</code> 对应的条目。</p>
 <p>最后，根据虚表中找到的函数指针，调用函数。从图可以看到，<code>B</code> 虚表的第一项指向 <code>B::vfunc1()</code>，所以 <code>p-&gt;vfunc1()</code> 实质会调用 <code>B::vfunc1()</code> 函数。</p>
 <p>又比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="n">aObject</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aObject</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">vfunc1</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>p</code> 指向类 <code>A</code> 的对象，当 <code>aObject</code> 在创建时，它的虚表指针 <code>__vptr</code> 已设置为指向 <code>A</code> 的虚表，这样 <code>p-&gt;__vptr</code> 就指向 <code>A</code> 的虚表。<code>vfunc1</code> 在 <code>A</code> 的虚表对应在条目指向了 <code>A::vfunc1()</code> 函数，所以 <code>p-&gt;vfunc1()</code> 实质会调用 <code>A::vfunc1()</code> 函数。</p>
 <h4 id="_17">动态绑定的条件<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3871,7 +3853,7 @@
 </ul>
 <p>如果一个函数调用符合以上三个条件，编译器就会把该函数调用编译成动态绑定，其函数的调用过程走的是上述通过虚表的机制。</p>
 <h4 id="_18">虚指针大小<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3912,7 +3894,7 @@
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="cp">#pragma pack(4) </span><span class="c1">// 按照 4 字节进行内存对齐</span>
 
@@ -3954,8 +3936,7 @@
 <span class="cm">OneVirtual: 12</span>
 <span class="cm">TwoVirtual: 12</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>可以观察到，虚指针的大小为 8 字节，且虚指针只是指向了虚表，虚函数的个数只是影响虚表的大小，不影响虚指针的大小。</p>
 <h4 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <p>通过使用这些虚函数表，即使使用的是基类的指针来调用函数，也可以达到正确调用运行中实际对象的虚函数。</p>
@@ -3969,7 +3950,7 @@
 <ul>
 <li>示例</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3998,7 +3979,7 @@
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -4028,10 +4009,9 @@
 <span class="cm">Derived::foo 0</span>
 <span class="cm">Derived::foo 0</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>注意到，构造函数里调用的是 <code>Base::foo()</code>，因为初始化列表是按照定义的先后顺序来初始化的，与初始化列表写法先后顺序无关。而我们已知，初始化是先初始化基类部分，再初始化派生类部分。故而 <code>Derived</code> 的初始化列表中调用 <code>Base</code> 来进行构造时，一定会先调用 <code>Base</code> 的本地版本的 <code>foo</code>，因为 <code>_num</code> 还未被初始化。不过，如果将 <code>_num</code> 去掉又会如何？</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4054,7 +4034,7 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -4078,8 +4058,7 @@
 <span class="cm">output:</span>
 <span class="cm">Base::foo</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>依然只是调用了本地版本的 <code>foo</code> 函数，因为在构造函数中，基类中调用虚函数如果允许多态特性的话，就会使用派生类中还没有构造的部分，这有风险。故而 C++11 禁止了在未完成构造之前启用多态特性。</p>
 <p>退回到最开始的例子。在构造 <code>d</code> 之后，<code>b.bar()</code> 调用之后实际上为 <code>b.foo()</code>，完成虚函数匹配调用，故而调用了 <code>Derived::foo()</code>。</p>
 <p>总结。在构造函数中调用一个虚函数，被调用的只是这个函数的本地版本（即当前类的版本），即虚机制在构造函数中不工作。</p>
@@ -4095,7 +4074,7 @@
 <p>若基类析构不是虚函数，则删除基类指针所指派生类对象时，编译器仅自动调用基类的析构函数，而不会考虑实际对象是不是基类的对象。这可能会导致内存泄漏。</p>
 <p>在析构函数中调用一个虚函数，被调用的只是这个函数的本地版本，即虚机制在析构函数中不工作。理由和构造函数类似，因为派生类先被析构。如果在基类的析构里允许启用多态性，可能就会访问到已经被派生类析构函数释放的内存，存在风险。</p>
 <p>可以进一步这么理解：派生类的析构函数其实是只析构派生类多出的部分。更具体的细节是虚指针指向的子类虚函数表已经被释放了，会产生内存不安全，所以不允许析构函数启用多态性（这个更具体的细节有待商榷）。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4130,7 +4109,7 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -4166,8 +4145,7 @@
 <span class="cm">~Derived2()</span>
 <span class="cm">~Base2()</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>有的时候我们可能会说，析构函数中不能调用虚函数，这句话是对的。这句话实际上是指，析构函数和构造函数中都没有多态性，但是还是可以完成调用本地版本。</p>
 <p>总之，重要原则：总是将基类的析构函数设置为虚析构函数。</p>
 <h3 id="_23">重载、重写隐藏、重写覆盖<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
@@ -4194,7 +4172,7 @@
 <p>示例</p>
 </li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4247,7 +4225,7 @@
 <span class="normal">51</span>
 <span class="normal">52</span>
 <span class="normal">53</span>
-<span class="normal">54</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -4301,8 +4279,7 @@
 <span class="cm">Derived2::foo(float)</span>
 <span class="cm">Derived2::foo(float)</span>
 <span class="cm">*/</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>首先，<code>d1.foo()</code> 与 <code>d2.foo()</code> 都不合法，由于派生类都定义了带参数的 <code>foo</code>，基类 <code>foo()</code> 对实例不可见（发生了 redefining 重写隐藏）。故而这两句会报错，但是我们可以用 <code>Base::</code>。</p>
 <p>其次，<code>p1-&gt;foo()</code> 时，派生类没有同名同参数覆盖掉基类虚函数，虚函数表继承基类的 <code>foo()</code> 虚函数，故而调用了基类的 <code>foo()</code>。</p>
 <p>最后，<code>p2-&gt;foo(3.0)</code> 这里没有发生重写覆盖，发生了重写隐藏。在权限足够的时候，比如从派生类对象或者派生类指针可以直接访问优先级最高的同名函数。但是用基类指针的访问权限仅限于基类部分，无法访问定义在派生类部分的优先级最高的函数，故而只能访问基类定义的同名函数中匹配的一个。</p>
@@ -4314,7 +4291,7 @@
 <h3 id="override_1"><code>override</code> 关键字<a class="headerlink" href="#override_1" title="Permanent link">&para;</a></h3>
 <p>重写覆盖要满足的条件很多，很容易写错，可以使用 <code>override</code> 关键字辅助检查。<code>override</code> 关键字明确地告诉编译器一个函数是对基类中一个虚函数的重写覆盖，编译器将对重写覆盖要满足的条件进行检查，正确的重写覆盖才能通过编译。如果没有 <code>override</code> 关键字，但是满足了重写覆盖的各项条件，也能实现重写覆盖。它只是编译器的一个检查，正确实现 <code>override</code> 时，对编译结果没有影响。</p>
 <p>例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4339,7 +4316,7 @@
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -4365,21 +4342,19 @@
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 参数不同，不是重写覆盖，编译错误</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">bar</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// bar 非虚函数，编译错误</span>
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="final"><code>final</code> 关键字<a class="headerlink" href="#final" title="Permanent link">&para;</a></h3>
 <p>在虚函数声明或定义中使用 <code>final</code> 关键字后，确保函数为虚且不可被派生类重写。可在继承关系链的“中途”进行设定，禁止后续派生类对指定虚函数重写，但是派生类仍可调用该虚函数。</p>
 <p>在类定义中使用时，<code>final</code> 指定此类不可被继承。</p>
 <p>格式：final 写在继承类类名后，继承方式前。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="k">final</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="k">final</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="cm">/* CODE */</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>final</code> 和 <code>override</code> 在修饰函数时，都只能修饰虚函数。例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4394,7 +4369,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
@@ -4410,8 +4385,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// B 不能被继承，编译错误</span>
 
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
@@ -4434,10 +4408,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -4446,7 +4421,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../combination-and-derivation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 组合与继承" rel="prev">
@@ -4501,10 +4477,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

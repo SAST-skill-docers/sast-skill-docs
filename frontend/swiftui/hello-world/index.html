@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2487,7 +2488,7 @@
 <h2 id="hello-world_1">深入 Hello World<a class="headerlink" href="#hello-world_1" title="Permanent link">&para;</a></h2>
 <p>接下来，我们通过这个 Hello World 程序，快速地介绍 SwiftUI 构建 UI 的基本概念，以及与 SwiftUI 有关的一些 Swift 语法。</p>
 <p>这是我们之前看到的 <code>ContentView.swift</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2498,7 +2499,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
 
 <span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
@@ -2510,8 +2511,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>因为要用到 <code>SwiftUI</code> 框架，在文件的开头需要 <code>import SwiftUI</code>，之后 SwiftUI 中所有的符号均可直接使用。</p>
 <p>在我们的 App 中，上面的 <code>ContentView</code> 是唯一的 View（在 <code>MyApp.swift</code> 中可以看到这一点），其 View 由垂直排列（<code>VStack</code>）的两个 View（<code>Image</code> 和 <code>Text</code>）构成。如果你点击运行，App 的所有内容就是 <code>ContentView</code>。</p>
 <p><strong>在 SwiftUI 中，所有 UI，无论是一整个页面，还是单独的组件，都是一个 View。我们通过组合不同的 View 来构建 UI。</strong>定义一个 View 需要：</p>
@@ -2521,7 +2521,7 @@
 </ul>
 <p><strong>我们要做的，就是在 <code>body</code> 中描述我们的 UI。</strong>我们将在下一节展开如何构建 UI 的话题，我们先关注其中的语法。</p>
 <h3 id="body-some-view"><code>body</code> 的类型：<code>some View</code><a class="headerlink" href="#body-some-view" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2530,7 +2530,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
 <span class="hll">    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
 </span>        <span class="n">VStack</span> <span class="p">{</span>
             <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
@@ -2540,8 +2540,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>body</code> 是一个类型为 <code>some View</code> 的计算变量。<code>some</code> 的含义是：<strong>“这个类型遵循 <code>View</code> 这个协议，但我不方便写出这个类型，需要编译器来确定它的类型”</strong>。也就是说，<code>body</code> 实际上是有一个确定的类型的，只不过我们不显式地写出来。这是一种叫做 <a href="https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html">opaque return type</a> 的语法。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2551,15 +2550,14 @@
 <details class="note">
 <summary>关于 <code>View</code> 中的 <code>associatedtype</code></summary>
 <p><code>View</code> 的定义中有一个遵循 <code>View</code>、名为 <code>Body</code> 的 <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID189"><code>associatedtype</code></a>，并且 <code>body</code> 的类型实际上就是这个 <code>Body</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">View</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">View</span> <span class="p">{</span>
     <span class="kd">associatedtype</span> <span class="n">Body</span><span class="p">:</span> <span class="n">View</span>
     <span class="p">@</span><span class="n">ViewBuilder</span> <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">Body</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>注意到我们没有显式地指出 <code>Body</code>。实际上，<code>Body</code> 是这样确定的：</p>
 <ol>
 <li>编译器根据 <code>body</code> 的表达式推断出 <code>body</code> 的类型（某个遵循 <code>View</code> 协议的具体类型）</li>
@@ -2570,13 +2568,12 @@
 <details class="note">
 <summary>为什么不能以 <code>View</code> 作为类型</summary>
 <p>如果你把 <code>some View</code> 改成 <code>View</code>，会出现编译错误：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Protocol &#39;View&#39; can only be used as a generic constraint because it has Self or associated type requirements
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Protocol &#39;View&#39; can only be used as a generic constraint because it has Self or associated type requirements
+</code></pre></div></td></tr></table></div>
 <p><code>protocol</code> 在有 <code>associatedtype</code> 限制时不能够作为类型。因此，我们需要提供一个确定的、遵循 <code>View</code> 的类型。</p>
 </details>
 <h3 id="view-modifier-view">View modifier：修饰 View<a class="headerlink" href="#view-modifier-view" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2585,7 +2582,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
         <span class="n">VStack</span> <span class="p">{</span>
             <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
@@ -2595,32 +2592,28 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>单独的两行 <code>.imageScale(.large)</code> 和 <code>.foregroundColor(.accentColor)</code> 看起来很奇怪，实际上很好理解。<code>Image</code> 遵循 <code>View</code>，而 <code>imageScale</code> 和 <code>foregroundColor</code> 是 <code>View</code> 的成员函数，原来的代码相当于：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">).</span><span class="n">imageScale</span><span class="p">(.</span><span class="n">large</span><span class="p">).</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">accentColor</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">).</span><span class="n">imageScale</span><span class="p">(.</span><span class="n">large</span><span class="p">).</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">accentColor</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>打开文档，查看 <code>.imageScale(_:)</code> 的函数签名：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">/// Scales images within the view according to one of</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// Scales images within the view according to one of</span>
 <span class="c1">/// the relative sizes available including small, medium,</span>
 <span class="c1">/// and large images sizes.</span>
 <span class="kd">func</span> <span class="nf">imageScale</span><span class="p">(</span><span class="kc">_</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Image</span><span class="p">.</span><span class="n">Scale</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>我们可以看到，函数的返回值是 <code>some View</code>。也就是说，我们将原来的 View（即 <code>Image</code>）转换为了另一个 View，这个 View 的图标大小设置为 <code>.large</code>。</p>
 <p>这种函数叫做 <strong>view modifier</strong>，也就是向原来的 View 进行一定的修饰，然后返回修饰后的 View。</p>
 <p>这实际上是一种函数式编程。它的好处是显而易见的，比如，如上面的例子，我们可以给一个 View 连续添加 modifier：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">imageScale</span><span class="p">(.</span><span class="n">large</span><span class="p">)</span>
     <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">accentColor</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>每次添加 modifier，这个表达式的类型依然是某种 <code>View</code>，而形式上看上去就像是不断给 <code>Image</code> 加上不同的样式一样。</p>
 <details class="note">
 <summary>查看文档的几种方式</summary>
@@ -2641,17 +2634,16 @@
 <details class="note">
 <summary>关于 View Modifier 与 <code>View</code> 的值类型</summary>
 <p><code>struct</code> 是值类型，每次添加 modifier 都会生成一个新的副本，并不会改变原来的 View。例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">view1</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">view1</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nv">view2</span> <span class="p">=</span> <span class="n">view1</span><span class="p">.</span><span class="n">padding</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>view1</code> 并不会添加 padding。Modifier 是完全没有副作用的。</p>
 </details>
 <details class="note">
 <summary><code>body</code> 的具体类型</summary>
 <p>值得注意的是，每次添加 modifier，<code>body</code> 的实际类型都会发生改变：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2664,7 +2656,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Image</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Image</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
 
 <span class="c1">// ModifiedContent&lt;Image, _EnvironmentKeyWritingModifier&lt;Scale&gt;&gt;</span>
@@ -2678,40 +2670,36 @@
 <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">imageScale</span><span class="p">(.</span><span class="n">large</span><span class="p">)</span>
     <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">accentColor</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这里 <code>_EnvironmentKeyWritingModifier</code> 是 SwiftUI 内置的私有类型，对外不可见。容易指出，<code>ModifiedContent</code> 遵循 <code>View</code>。</p>
 <details class="note">
 <summary>如何查看 View 的类型</summary>
 <p>你可以用 Swift 的命令行工具进行快速的实验：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">liang2kl</span><span class="p">@</span><span class="n">liang2kl</span> <span class="o">~&gt;</span> <span class="n">swift</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">liang2kl</span><span class="p">@</span><span class="n">liang2kl</span> <span class="o">~&gt;</span> <span class="n">swift</span>
 
   <span class="mi">1</span><span class="p">&gt;</span> <span class="kd">import</span> <span class="nc">SwiftUI</span>
   <span class="mi">2</span><span class="p">&gt;</span> <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">).</span><span class="n">imageScale</span><span class="p">(.</span><span class="n">large</span><span class="p">)</span>
 <span class="err">$</span><span class="n">R0</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">=</span> <span class="n">ModifiedContent</span><span class="p">&lt;</span><span class="n">Image</span><span class="p">,</span> <span class="n">_EnvironmentKeyWritingModifier</span><span class="p">&lt;</span><span class="n">Scale</span><span class="p">&gt;</span><span class="o">&gt;</span><span class="p">...</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>某些版本的命令行工具并不能正确显示类型，如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">$</span><span class="n">R0</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">=</span> <span class="p">&lt;</span><span class="n">extracting</span> <span class="n">data</span> <span class="n">from</span> <span class="n">value</span> <span class="n">failed</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">R0</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">=</span> <span class="p">&lt;</span><span class="n">extracting</span> <span class="n">data</span> <span class="n">from</span> <span class="n">value</span> <span class="n">failed</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>你可以使用 <code>String(describing:)</code> 来查看：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="mi">3</span><span class="p">&gt;</span> <span class="nb">String</span><span class="p">(</span><span class="n">describing</span><span class="p">:</span> <span class="err">$</span><span class="n">R0</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>  <span class="mi">3</span><span class="p">&gt;</span> <span class="nb">String</span><span class="p">(</span><span class="n">describing</span><span class="p">:</span> <span class="err">$</span><span class="n">R0</span><span class="p">)</span>
 <span class="err">$</span><span class="n">R1</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&quot;ModifiedContent&lt;Image, _EnvironmentKeyWritingModifier&lt;Scale&gt;&gt;...&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </details>
 <p>这就解释了为什么我们为什么需要写 <code>some View</code>，而不是直接给出最后的类型。<code>body</code> 实际的类型往往非常复杂：一个 View 可能是由另外一个或多个 View 通过某种方式构成的，而且这种构成往往使用模版完成，正如 <code>ModifiedContent&lt;Image, _EnvironmentKeyWritingModifier&lt;Scale&gt;&gt;</code> 显示的那样。</p>
 <p>而且，在我们组建 View 的时候，我们写的 View 的类型是不断变化的，我们不可能随着我们写代码而不断变化的 View 而不断地修改类型。这件事交由编译器完成再合适不过——Swift 具有自动类型推断，编译器根据 <code>var body</code> 中的表达式就可以确定 <code>body</code> 的类型。</p>
 <p>当然，你不必对这个话题过于费心，你只需要保证 <code>body</code> 中返回的是一个 View 即可，剩下的工作就交给编译器吧。</p>
 </details>
 <h3 id="html">HTML？<a class="headerlink" href="#html" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2720,7 +2708,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
         <span class="n">VStack</span> <span class="p">{</span>
 <span class="hll">            <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
@@ -2730,8 +2718,7 @@
 </span>        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Hello World 程序中还有一个令人迷惑的地方：<code>VStack</code> 的构造函数中的内容看上去就像 HTML 一样，结构非常直观，但并不像是一般的 Swift 语言。实际上，这的确是类型安全、静态类型的 Swift 语言，而且这种语法就是为了 SwiftUI 而设计的。这个问题，我们留到 <a href="../build-views/">构建 View</a> 中介绍。</p>
 
   <hr>
@@ -2755,10 +2742,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2767,7 +2755,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: SwiftUI 与 iOS 开发入门" rel="prev">
@@ -2822,10 +2811,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

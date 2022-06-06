@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2638,7 +2639,7 @@
 <p>我们分别介绍上面的几种类型，在其中会讨论它们之间的联系与区别。</p>
 <h2 id="class">类 <code>class</code><a class="headerlink" href="#class" title="Permanent link">&para;</a></h2>
 <p>Swift 中的 <code>class</code> 与 C++ 类似。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2649,7 +2650,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="p">{</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="p">{</span>
     <span class="kd">private</span><span class="p">(</span><span class="kr">set</span><span class="p">)</span> <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="kd">func</span> <span class="nf">increment</span><span class="p">()</span> <span class="p">{</span>
         <span class="bp">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -2661,8 +2662,7 @@
         <span class="bp">count</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_1">成员函数、成员变量及其访问控制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>Swift 中成员函数和成员变量的概念与 C++ 基本一致，一个类对象拥有独立的成员变量，成员函数可以访问所有的成员变量。</p>
 <p><code>class</code> 的访问控制通过在成员声明前加上修饰符实现，包括：</p>
@@ -2673,7 +2673,7 @@
 </ul>
 <p>在类中通过 <code>self</code> 引用自身，如果不会产生歧义，可以省略 <code>self</code>。</p>
 <p>在类中时常会用到一种特殊的变量：计算变量。计算变量相当于一个<strong>没有参数的函数</strong>，每次获取其值的时候都要通过调用这个函数来计算：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2684,7 +2684,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">width</span><span class="p">:</span> <span class="nb">Double</span>
     <span class="kd">var</span> <span class="nv">height</span><span class="p">:</span> <span class="nb">Double</span>
 
@@ -2696,12 +2696,11 @@
 
 <span class="kd">let</span> <span class="nv">rectangle</span> <span class="p">=</span> <span class="n">Rectangle</span><span class="p">(...)</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">rectangle</span><span class="p">.</span><span class="n">area</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>计算变量是只读的，而且不会占用储存空间。如果计算的时间复杂度超过 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>，那么应该使用普通的函数，而不是计算变量。</p>
 <h3 id="_2">构造函数和析构函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>构造函数使用关键字 <code>init</code> 声明。由于 Swift 没有零值初始化，所有成员变量都要有初值，要么直接在变量后显式指出，要么在构造函数中设定。构造函数结束时，所有成员变量都要有初值，否则产生编译错误。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2709,7 +2708,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">bar</span><span class="p">:</span> <span class="nb">Int</span>
     <span class="kd">var</span> <span class="nv">foo</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
 
@@ -2718,48 +2717,44 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果类的每个成员变量都有默认值，那么可以使用默认构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">B</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">B</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">bar</span> <span class="p">=</span> <span class="mi">1</span>
     <span class="kd">var</span> <span class="nv">foo</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
 <span class="p">}</span>
 <span class="kd">let</span> <span class="nv">b</span> <span class="p">=</span> <span class="n">B</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>析构函数使用关键字 <code>deinit</code> 声明，不过在一般的开发中很少用到：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">deinit</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">deinit</span> <span class="p">{</span>
     <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_3">静态变量、静态方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>使用 <code>static</code> 定义静态变量和方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="kd">let</span> <span class="nv">shared</span> <span class="p">=</span> <span class="n">A</span><span class="p">()</span>
     <span class="kd">static</span> <span class="kd">func</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{...}</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="n">A</span><span class="p">.</span><span class="n">shared</span>
 <span class="n">A</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_4">类是引用类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Swift 中的类是引用类型，传递引用而非副本，相当于指针。比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2767,7 +2762,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="p">}</span>
 
@@ -2776,13 +2771,12 @@
 
 <span class="n">b</span><span class="p">.</span><span class="bp">count</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>  <span class="c1">// 1</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Swift 中对类的实例的管理使用类似于智能指针的方法，当引用计数为 0 时，实例被销毁。另外，可以在 <code>var</code> 前加上 <code>weak</code> 声明不参与计数的 weak 变量。</p>
 <h3 id="_5">继承<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>Swift 支持类的继承，但<strong>不支持多重继承</strong>。与 C++ 不同，Swift 的继承没有 <code>private</code>、<code>protected</code> 和 <code>public</code> 之分，所有继承都相当于 C++ 中的 <code>public</code>。</p>
 <p>另外，Swift 中所有的函数都相当于 C++ 中的虚函数，在派生类中使用 <code>override</code> 即可重写基类的方法；使用 <code>super</code> 调用基类的方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2796,7 +2790,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Base</span> <span class="p">{</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Base</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Base&quot;</span><span class="p">)</span>
     <span class="p">}</span>
@@ -2811,22 +2805,20 @@
 
 <span class="kd">let</span> <span class="nv">derived</span> <span class="p">=</span> <span class="n">Derived</span><span class="p">()</span>
 <span class="n">derived</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span> <span class="c1">// &quot;Base Derived&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>as</code> 向下进行类型转换，使用 <code>as?</code> 向上进行动态类型转换，使用 <code>as!</code> 进行强制类型转换：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">a</span><span class="p">:</span> <span class="n">Base</span> <span class="p">=</span> <span class="n">Derived</span><span class="p">()</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">a</span><span class="p">:</span> <span class="n">Base</span> <span class="p">=</span> <span class="n">Derived</span><span class="p">()</span>
 <span class="kd">let</span> <span class="nv">b</span> <span class="p">=</span> <span class="n">a</span> <span class="k">as</span><span class="p">?</span> <span class="n">Derived</span> <span class="c1">// 类型为 Optional&lt;Derived&gt;</span>
 <span class="c1">// 或 if let b = a as? Derived {...}</span>
 
 <span class="kd">let</span> <span class="nv">c</span> <span class="p">=</span> <span class="n">a</span> <span class="k">as</span><span class="p">!</span> <span class="n">Derived</span> <span class="c1">// 类型为 Derived，若转换失败则导致崩溃</span>
 <span class="kd">let</span> <span class="nv">d</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Base</span>     <span class="c1">// 类型为 Base，向下转换必然成功</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="struct">结构体 <code>struct</code><a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
 <p>与 C++ 不同，Swift 中的 <code>struct</code> 和 <code>class</code> 有共同之处，但并不能等同。</p>
 <p><code>struct</code> 与 <code>class</code> 类似，可以定义成员变量、成员函数、静态成员、构造函数，访问控制与类相同。</p>
@@ -2839,7 +2831,7 @@
 <div class="admonition note">
 <p class="admonition-title">与 <code>class</code> 进行对照</p>
 <p>使用上面的例子：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2847,7 +2839,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Counter</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">Counter</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="p">}</span>
 
@@ -2856,37 +2848,34 @@
 
 <span class="n">b</span><span class="p">.</span><span class="bp">count</span> <span class="o">+=</span> <span class="mi">1</span>    <span class="c1">// b.count == 1</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>  <span class="c1">// 0</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 <p><code>struct</code> 由于没有继承，因此对成员的构造函数（英语：Memberwise initializer）能够自动生成，大多数情况下无需手动写构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span>
     <span class="kd">var</span> <span class="nv">bar</span><span class="p">:</span> <span class="nb">String</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">foo</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bar</span><span class="p">:</span> <span class="s">&quot;Hello&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，<code>struct</code> 的成员函数默认不可更改成员变量，如果需要更改，则需要在函数前加上 <code>mutating</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Counter</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">Counter</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">increase</span><span class="p">()</span> <span class="p">{</span>
         <span class="bp">count</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">关于 <code>struct</code> 和 <code>class</code> 的使用</p>
 <p>看上去 <code>struct</code> 比 <code>class</code> 功能弱了不少，但 <code>struct</code> 通过遵循协议（英语：protocol，在下面介绍）可以实现继承的效果，同时由于传递的不是引用，因此大大降低了意料之外的对某个实例更改的概率。而且，<code>struct</code> 采用 copy-on-write 的策略，只有在更改时才会真正进行复制，因此性能上并没有太多的损失。</p>
@@ -2894,19 +2883,18 @@
 </div>
 <h2 id="enum">枚举 <code>enum</code><a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>Swift 的 <code>enum</code> 提供了一种类型安全的枚举方法。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">CompassPoint</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">CompassPoint</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">north</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">west</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nv">directionToHead</span> <span class="p">=</span> <span class="n">CompassPoint</span><span class="p">.</span><span class="n">north</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>enum</code> 可以使用 <code>switch</code> 语句来匹配：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2916,7 +2904,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">directionToHead</span> <span class="p">=</span> <span class="p">.</span><span class="n">south</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">directionToHead</span> <span class="p">=</span> <span class="p">.</span><span class="n">south</span>
 <span class="k">switch</span> <span class="n">directionToHead</span> <span class="p">{</span>
 <span class="k">case</span> <span class="p">.</span><span class="n">north</span><span class="p">:</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Lots of planets have a north&quot;</span><span class="p">)</span>
@@ -2927,51 +2915,47 @@
 <span class="k">case</span> <span class="p">.</span><span class="n">west</span><span class="p">:</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Where the skies are blue&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>或者用 <code>==</code> 判断：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">directionToHead</span> <span class="p">==</span> <span class="p">.</span><span class="n">north</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">directionToHead</span> <span class="p">==</span> <span class="p">.</span><span class="n">north</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;我飘向北方&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">类型省略写法</p>
 <p>上面 <code>directionToHead</code> 的类型已经明确，因此可以将 <code>CompassPoint.south</code> 缩写为 <code>.south</code>。这种写法对于 <code>class</code> 和 <code>struct</code> 的静态成员和方法同样适用。如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Color</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">Color</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="kd">let</span> <span class="nv">yellow</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(...)</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nv">color</span><span class="p">:</span> <span class="n">Color</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 <h3 id="_6">迭代<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>可以在 <code>enum</code> 后面加上 <code>CaseIterable</code> 使得可以按照声明顺序枚举所有的类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">CompassPoint</span><span class="p">:</span> <span class="n">CaseIterable</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">CompassPoint</span><span class="p">:</span> <span class="n">CaseIterable</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">north</span><span class="p">,</span> <span class="n">south</span><span class="p">,</span> <span class="n">east</span><span class="p">,</span> <span class="n">west</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">point</span> <span class="k">in</span> <span class="n">CompassPoint</span><span class="p">.</span><span class="n">allCases</span> <span class="p">{</span>
     <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_7">原始值<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p><code>enum</code> 可以有一个原始值（raw value）类型，可以是 <code>Int</code>，<code>String</code> 等等，可以用来初始化 <code>enum</code> 类型。如果不指定值，编译期会自动设置对应的值，如 <code>Int</code> 是从 0 开始赋值并依次递增，而 <code>String</code> 对应各个 <code>case</code> 的名称。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2979,7 +2963,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Status</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">Status</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">onVacation</span>     <span class="c1">// 0</span>
     <span class="k">case</span> <span class="n">atSchool</span> <span class="p">=</span> <span class="mi">10</span>
     <span class="k">case</span> <span class="n">quit</span>           <span class="c1">// 11</span>
@@ -2988,11 +2972,10 @@
 <span class="bp">print</span><span class="p">(</span><span class="n">Status</span><span class="p">.</span><span class="n">onVacation</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>   <span class="c1">// 0</span>
 <span class="kd">let</span> <span class="nv">status</span> <span class="p">=</span> <span class="n">Status</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1">// nil</span>
 <span class="kd">let</span> <span class="nv">status</span> <span class="p">=</span> <span class="n">Status</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1">// Optional(Status.atSchool)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_8">关联值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><code>enum</code> 的每个 case 可以储存一个或多个关联值（associated value）。需要注意，一旦储存了关联值，就不能够指定 raw value，也不能够通过 <code>==</code> 判断是否相等：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3010,7 +2993,7 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Food</span> <span class="p">{</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">Food</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">hamburger</span><span class="p">(</span><span class="n">calories</span><span class="p">:</span> <span class="nb">Double</span><span class="p">)</span>
     <span class="k">case</span> <span class="n">juice</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">Double</span><span class="p">)</span>
 <span class="p">}</span>
@@ -3029,50 +3012,46 @@
 <span class="k">if</span> <span class="k">case</span> <span class="p">.</span><span class="n">hamburger</span><span class="p">(</span><span class="kd">let</span> <span class="nv">calories</span><span class="p">)</span> <span class="p">=</span> <span class="n">breakfast</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;I ate a hamburger with </span><span class="si">\(</span><span class="n">calories</span><span class="si">)</span><span class="s"> calories&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">使用关联值处理互斥情况</p>
 <p><code>enum</code> 关联值的一个重要的作用是处理若干互斥情况。</p>
 <p>比如，<code>Optional</code> 类型实际上就是一个带有 associated value 的 <code>enum</code>（泛型稍后介绍）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Optional</span><span class="p">&lt;</span><span class="n">Wrapped</span><span class="p">&gt;</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">Optional</span><span class="p">&lt;</span><span class="n">Wrapped</span><span class="p">&gt;</span> <span class="p">{</span>
     <span class="k">case</span> <span class="p">.</span><span class="n">some</span><span class="p">(</span><span class="n">Wrapped</span><span class="p">)</span>     <span class="c1">// has value</span>
     <span class="k">case</span> <span class="p">.</span><span class="kr">none</span>              <span class="c1">// nil</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>再如，包装结果和错误的 <code>Result</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Result</span><span class="p">&lt;</span><span class="n">Success</span><span class="p">,</span> <span class="n">Failure</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">Failure</span> <span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">Result</span><span class="p">&lt;</span><span class="n">Success</span><span class="p">,</span> <span class="n">Failure</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">Failure</span> <span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">success</span><span class="p">(</span><span class="n">Success</span><span class="p">)</span>
     <span class="k">case</span> <span class="n">failure</span><span class="p">(</span><span class="n">Failure</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一个请求要么成功（此时返回有效的结果），要么失败（此时返回错误）。使用 <code>enum</code> 就可以在不使用 <code>Optional</code> 的情况下以类型安全的方法返回一个唯一的结果：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
 <span class="k">case</span> <span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="kd">let</span> <span class="nv">data</span><span class="p">):</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Request succeeded with data: </span><span class="si">\(</span><span class="n">data</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="k">case</span> <span class="p">.</span><span class="n">failure</span><span class="p">(</span><span class="kd">let</span> <span class="nv">error</span><span class="p">):</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Request failed with error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 <h3 id="_9">函数、构造函数和变量<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p><code>enum</code> 是 Swift 的一等类型，它可以有成员函数、构造函数、计算变量、静态函数、静态变量，但<strong>不能储存值</strong>，即不能拥有成员变量。</p>
 <p>能够给 <code>enum</code> 添加函数等给编程带来了极大的便利：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3096,7 +3075,7 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">HTTPError</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">HTTPError</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">unknown</span>
     <span class="k">case</span> <span class="n">badRequest</span> <span class="p">=</span> <span class="mi">400</span>
     <span class="k">case</span> <span class="n">notFound</span> <span class="p">=</span> <span class="mi">404</span>
@@ -3121,38 +3100,35 @@
 
 <span class="kd">let</span> <span class="nv">error</span> <span class="p">=</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">)</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>            <span class="c1">// &quot;Not Found&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，一般使用 <code>enum</code> 加上静态变量来限定命名空间：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Constant</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">enum</span> <span class="nc">Constant</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="kd">let</span> <span class="nv">accentColor</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
     <span class="kd">static</span> <span class="kd">let</span> <span class="nv">backgroundColor</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">white</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nv">color</span> <span class="p">=</span> <span class="n">Constant</span><span class="p">.</span><span class="n">accentColor</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="protocol">协议 <code>protocol</code><a class="headerlink" href="#protocol" title="Permanent link">&para;</a></h2>
 <p>Swift 中的 <code>protocol</code>（协议）与 C++ 的抽象类概念对应，其作用是<strong>定义一组需要实现的接口</strong>。比如，Swift 中的 <code>Equatable</code>，其作用是一个判等器：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">Equatable</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">Equatable</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="kd">func</span> <span class="p">==</span> <span class="p">(</span><span class="n">lhs</span><span class="p">:</span> <span class="kc">Self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="kc">Self</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>满足协议要求的类型称为<strong>遵循</strong>（conform to）此协议。如果一个类型想要遵循 <code>Equatable</code>，需要：</p>
 <ol>
 <li>在类型名称后面加上 <code>Equatable</code></li>
 <li>实现 <code>==</code> 方法</li>
 </ol>
 <p>比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3166,7 +3142,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Rectangle</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">Rectangle</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">width</span><span class="p">:</span> <span class="nb">Double</span>
     <span class="kd">var</span> <span class="nv">height</span><span class="p">:</span> <span class="nb">Double</span>
 
@@ -3181,19 +3157,17 @@
 
 <span class="kd">let</span> <span class="nv">rectangles</span> <span class="p">=</span> <span class="p">[</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">]</span>   <span class="c1">// An array of rectangles</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">rectangles</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">2</span><span class="p">)))</span>  <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在这里，<code>Array</code> 本身并不知道如何判断它其中是否有元素与提供的 <code>Rectangle</code> 相等，但由于 <code>Rectangle</code> 遵循了 <code>Equatable</code> 协议，使得 <code>Array</code> 可以调用 <code>Equatable</code> 规定的判等接口来实现判断。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>值得注意的是，这种接口的规定是严格的。<code>Array</code> 的 <code>contains</code> 方法当且仅当其元素类型 <code>Element</code> 为 <code>Equatable</code> 时才存在：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">extension</span> <span class="nc">Array</span> <span class="k">where</span> <span class="n">Element</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">extension</span> <span class="nc">Array</span> <span class="k">where</span> <span class="n">Element</span><span class="p">:</span> <span class="nb">Equatable</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">contains</span><span class="p">(</span><span class="kc">_</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{...}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>有关泛型和 <code>extension</code>，我们在后面介绍。</p>
 </div>
 <h3 id="_10">接口的规定方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
@@ -3205,7 +3179,7 @@
 <li>静态变量</li>
 <li>构造函数</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3213,7 +3187,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">SomeProtocol</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">SomeProtocol</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
     <span class="kd">var</span> <span class="nv">bar</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
     <span class="kd">static</span> <span class="kd">var</span> <span class="nv">staticMember</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
@@ -3222,26 +3196,24 @@
     <span class="kd">static</span> <span class="kd">func</span> <span class="nf">staticMethod</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Bool</span>
     <span class="kd">init</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>其中，规定变量的接口时，只能用 <code>var</code>，而且需要在类型名后加上 <code>{ get }</code> 或 <code>{ get set }</code> 以指定<strong>需要满足的最小权限要求</strong>。比如，某个类型遵循 <code>SomeProtocol</code> 时，它的 <code>foo</code> 变量需要可读写，而 <code>bar</code> 变量<strong>至少</strong>可以读，但<strong>不能限制其是否可写</strong>。</p>
 <h3 id="_11">协议作为类型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>当没有 associated type（稍后介绍）时，协议可以作为类型，并且其真正的类型可以改变，如 Swift 中内置的 <code>Encodable</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">someEncodable</span><span class="p">:</span> <span class="n">Encodable</span> <span class="p">=</span> <span class="mi">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">someEncodable</span><span class="p">:</span> <span class="n">Encodable</span> <span class="p">=</span> <span class="mi">1</span>
 <span class="n">someEncodable</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_12">协议方法的默认实现<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>在规定了协议的接口后，可以在 <code>extension</code> 中对除了 <code>init</code> 以外的接口进行默认实现，但不能在 <code>extension</code> 中实现储存变量：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">extension</span> <span class="nc">SomeProtocol</span> <span class="p">{</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">extension</span> <span class="nc">SomeProtocol</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">bar</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="p">}</span>
@@ -3249,12 +3221,11 @@
         <span class="k">return</span> <span class="n">a</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这样，当某个类型遵循 <code>SomeProtocol</code> 时，可以不用实现这些已经进行默认实现的接口。</p>
 <h3 id="_13">协议的组合与继承<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>一个类型可以遵循多个协议，需要实现所有协议规定的接口：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3264,7 +3235,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">protocol</span> <span class="nc">B</span> <span class="p">{</span>
@@ -3275,10 +3246,9 @@
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span>
     <span class="kd">func</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{...}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一个协议可以继承多个协议，其作用为添加这些协议的规定的接口作为自身的限制条件，需要实现所有的接口：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3288,7 +3258,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">protocol</span> <span class="nc">B</span><span class="p">:</span> <span class="n">A</span> <span class="p">{</span>
@@ -3299,8 +3269,7 @@
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">Int</span>
     <span class="kd">func</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{...}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Potocol-oriented Programming</p>
 <p>通过遵循协议、对协议进行默认的实现、协议的继承，使得 <code>struct</code> 和 <code>enum</code> 这些没有继承功能的类型可以因此实现类似于继承的效果。</p>
@@ -3308,24 +3277,23 @@
 </div>
 <h2 id="extension">extension<a class="headerlink" href="#extension" title="Permanent link">&para;</a></h2>
 <p><code>class</code>、<code>struct</code>、<code>enum</code> 和 <code>protocol</code> 可以通过 <code>extension</code> 添加方法（计算变量或函数），包括所有的内置类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">extension</span> <span class="nc">Int</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">extension</span> <span class="nc">Int</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">string</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="s">&quot;</span><span class="si">\(</span><span class="kc">self</span><span class="si">)</span><span class="s">&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="bp">print</span><span class="p">(</span><span class="mf">1.</span><span class="n">string</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>extension</code> 可以以面向对象的方式给任何类型添加方法。</p>
 <p>另外，一般为了区分不同的 <code>protocol</code> 的接口，在遵循不同的协议时，往往将各个协议规定的接口实现在不同的 <code>extension</code> 中：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3333,7 +3301,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="c1">// Original members</span>
 <span class="p">}</span>
 <span class="kd">extension</span> <span class="nc">A</span><span class="p">:</span> <span class="n">ProtocolA</span> <span class="p">{</span>
@@ -3342,18 +3310,17 @@
 <span class="kd">extension</span> <span class="nc">A</span><span class="p">:</span> <span class="n">ProtocolB</span> <span class="p">{</span>
     <span class="c1">// Implementation of ProtocolB</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="_14">元组<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>元组（tuple）用于传递复合值，用括号组织，可以带标签，用标签或者成员（而非下标）0、1、2 等取出其中的值：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">getCurrentTime</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="n">hour</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">minute</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">getCurrentTime</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="n">hour</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">minute</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -3361,66 +3328,59 @@
 <span class="bp">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">hour</span><span class="p">)</span>
 <span class="c1">// or</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// hour</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>元组的元素数量是固定的，不存在越界的情况。</p>
 <h2 id="_15">函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>Swift 中，函数也是一种类型，可以储存在变量中，也可以作为参数/返回值参与另一个函数。函数类型的声明为 <code>(参数列表) -&gt; 返回类型</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">someHandler</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">someHandler</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
 <span class="kd">var</span> <span class="nv">optionalHandler</span><span class="p">:</span> <span class="p">((</span><span class="nb">Int</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)?</span> <span class="c1">// Optional</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用大括号来生成匿名函数（闭包，closure），在括号内使用 <code>参数列表 -&gt; 返回类型 in</code> 给传入的各个参数命名：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">value</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">value</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
     <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>调用方法与函数相同：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">incrementer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 2</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">incrementer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 2</span>
+</code></pre></div></td></tr></table></div>
 <p>上下文明确时，可以省略括号内的 <code>-&gt; Int</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
     <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，可以省略参数列表，用 <code>$0</code>、<code>$1</code> 等指代第一、第二个元素：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">incrementer</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">=</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$0</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">}</span>
 
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="bp">removeAll</span><span class="p">(</span><span class="k">where</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">})</span>  <span class="c1">// [2, 3]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>闭包的一个典型应用场景是作为参数传入函数中作为回调函数。如，进行网络请求，当请求完成时，调用传入的回调函数来进行结果的处理：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">task</span> <span class="p">=</span> <span class="n">session</span><span class="p">.</span><span class="n">dataTask</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">task</span> <span class="p">=</span> <span class="n">session</span><span class="p">.</span><span class="n">dataTask</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
     <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">data</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span>
         <span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">task</span><span class="p">.</span><span class="n">resume</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>上面的例子使用了一种叫做 trailing closures 的语法，使得回调函数的函数体可以写在函数的“外面”，详见 <a href="https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID102">Swift 官方教程</a>。</p>
 </div>
 
@@ -3445,10 +3405,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3457,7 +3418,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../control-flow/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 流程控制" rel="prev">
@@ -3512,10 +3474,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

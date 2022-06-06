@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2404,35 +2405,31 @@
 </ul>
 <h2 id="_2">简单的类型标注<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>TypeScript 最大的特点就是引入了类型系统，这样就可以在编译为 JavaScript 代码之前由编译器进行类型检查。在这样的条件下，TypeScript 中的变量在声明的时候就可以指定类型，编译器在将 TypeScript 代码编译为 JavaScript 代码的时候会进行类型检查，若有不符合类型声明的情况则会报错：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">foo</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>由于 TypeScript 是 JavaScript 的超集，所以其基础变量类型依然和 JavaScript 一致。常用的基础类型包括：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">isDone</span>: <span class="kt">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">clickCnt</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">6</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">greeting</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">isDone</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">clickCnt</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">greeting</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello!&quot;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>数组类型按照下面的代码声明：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">list</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="mf">5</span><span class="p">];</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">list</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">];</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>对于无法明确确定类型的变量，可以声明为 <code>any</code> 类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">notSure</span>: <span class="kt">any</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nx">notSure</span> <span class="o">=</span> <span class="s2">&quot;Maybe it is a string&quot;</span><span class="p">;</span> <span class="c1">// OK</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">notSure</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="nx">notSure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Maybe it is a string&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition caution">
 <p class="admonition-title">注意可能的 <code>any</code> 类型滥用</p>
 <p><code>any</code> 类型是目前 TypeScript 语言之中具有较大争议的一个设计，因为理论上我们可以将所有的变量声明为 <code>any</code> 从而绕过类型检查，这个时候 TypeScript 实际上退化为 JavaScript。</p>
@@ -2440,7 +2437,7 @@
 <p>针对这一点，部分代码检查工具已经实装了检查“可疑 <code>any</code>”的功能。</p>
 </div>
 <p>更为复杂的类型可以包括：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2452,110 +2449,100 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Detailed object</span>
-<span class="kd">let</span> <span class="nx">obj</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span>
-    <span class="nx">age</span>: <span class="kt">number</span><span class="p">,</span>
-    <span class="nx">address</span>: <span class="kt">string</span>
-<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;qiubao&quot;</span><span class="p">,</span>
-    <span class="nx">age</span>: <span class="kt">57</span><span class="p">,</span>
-    <span class="nx">address</span><span class="o">:</span> <span class="s2">&quot;Tsinghua&quot;</span>
-<span class="p">};</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Detailed object</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;qiubao&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">57</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// Detailed array</span>
-<span class="kd">let</span> <span class="nx">arr</span><span class="o">:</span> <span class="p">[</span><span class="kt">number</span><span class="p">,</span> <span class="kt">boolean</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">];</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// Detailed array</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">];</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>函数的参数和返回值的类型标注如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>另外，如果你认为你对某个变量的类型已经做了充分的检查，认为不需要编译器检查其类型，则可以进行<strong>类型断言</strong>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">val</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">&quot;A string&quot;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">stringLen</span>: <span class="kt">number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">val</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">val</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A string&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stringLen</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">val</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>第二句的含义就是断言 <code>val</code> 变量一定是字符串。</p>
 <h2 id="_3">联合类型和类型收窄<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>TyepScript 支持将变量声明为若干个类型之中的一种，这一般称为联合类型（英语：Union type）。声明联合类型的时候，多个类型之间使用 <code>|</code> 隔开：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">union</span>: <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span> <span class="o">=</span> <span class="mf">7</span><span class="p">;</span>
-<span class="nx">union</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span><span class="p">;</span> <span class="c1">// OK</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">union</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7</span><span class="p">;</span><span class="w"></span>
+<span class="nx">union</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>联合类型最常用的地方是标注函数参数，这样就允许了函数接受多种类型的参数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">addPrefix</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Prefix &quot;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">addPrefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Prefix &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">addPrefix</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span> <span class="c1">// OK</span>
-<span class="nx">addPrefix</span><span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">);</span> <span class="c1">// OK</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">addPrefix</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+<span class="nx">addPrefix</span><span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但是要注意，在这种函数之中，我们直接调用被声明为联合类型的变量的属性的时候，<strong>只能调用这些类型所共有的属性</strong>。比如说：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="kd">let</span> <span class="nx">y</span>: <span class="kt">number</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>原因是编译器并不能清楚此处的变量的具体类型。这个问题的解决方法是使用条件分支将这些类型分离开来：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="ow">typeof</span> <span class="nx">x</span> <span class="o">===</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[string] &quot;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// TAG</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[string] &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// TAG</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>编译器实际上就已经明白在 <code>if</code> 分支之后的 <code>// TAG</code> 部分 <code>x</code> 只有可能是 <code>number</code> 类型，从而就可以断定属性调用是否符合类型标注。这被称为类型收窄（英语：Type narrowing）。</p>
 <div class="admonition note">
 <p class="admonition-title">联合类型实现枚举类型</p>
 <p>TypeScript 的类型系统实际上还支持如下这种类型标注：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span>: <span class="kt">1</span><span class="p">;</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">;</span><span class="w"></span>
+<span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+<span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>其允许我们将数字或字符串字面量作为类型的一种，这种性质和联合类型一并使用的效果就类似于枚举：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="nx">TwoPowers</span> <span class="o">=</span> <span class="mf">1</span> <span class="o">|</span> <span class="mf">2</span> <span class="o">|</span> <span class="mf">4</span> <span class="o">|</span> <span class="mf">8</span> <span class="o">|</span> <span class="mf">16</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">a</span>: <span class="kt">TwoPowers</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="kd">let</span> <span class="nx">b</span>: <span class="kt">TwoPowers</span> <span class="o">=</span> <span class="mf">5</span><span class="p">;</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TwoPowers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">16</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">TwoPowers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">TwoPowers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><code>never</code> 类型与耗尽检查</p>
 <p>TypeScript 语言支持一种特殊的类型，即 <code>never</code> 类型。这种类型常被用于标注函数返回值，代表这个函数永远不会终结或者会抛出异常：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">neverEnd</span> <span class="o">=</span> <span class="p">()</span><span class="o">:</span> <span class="nx">never</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">neverEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">never</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个性质就使得<strong>任何变量均不可能是 <code>never</code> 类型</strong>，利用这个特点，我们可以检测<strong>程序是否考虑了所有的情况</strong>，这被称为耗尽检查（英语：Exhaustive check）。</p>
 <p>例如我们需要编写函数处理联合类型 <code>number | string | boolean</code>，其代码可能为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2571,34 +2558,32 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="nx">All</span> <span class="o">=</span> <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span> <span class="o">|</span> <span class="kt">boolean</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">handle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">All</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">switch</span> <span class="p">(</span><span class="ow">typeof</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="s2">&quot;number&quot;</span><span class="o">:</span>
-            <span class="c1">// DO SOMETHING</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="s2">&quot;string&quot;</span><span class="o">:</span>
-            <span class="c1">// DO SOMETHING</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="s2">&quot;boolean&quot;</span><span class="o">:</span>
-            <span class="c1">// DO SOMETHING</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="nx">default</span>:
-            <span class="kt">let</span> <span class="nx">exhaustiveCheck</span>: <span class="kt">never</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
-            <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">All</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">All</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// DO SOMETHING</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// DO SOMETHING</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// DO SOMETHING</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kt">let</span><span class="w"> </span><span class="nx">exhaustiveCheck</span><span class="o">:</span><span class="w"> </span><span class="kt">never</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>理论上 <code>default</code> 分支之中的代码只要执行就必然报错，所以说如果所有的 <code>case</code> 分支穷尽了可能的情况，就不会触发错误。而如果某日 <code>All</code> 类型添加了新的可能类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="nx">All</span> <span class="o">=</span> <span class="kt">number</span> <span class="o">|</span> <span class="kt">string</span> <span class="o">|</span> <span class="kt">boolean</span> <span class="o">|</span> <span class="nx">Foo</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">All</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Foo</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>那么 <code>handle</code> 函数就有可能因为没有耗尽所有可能而报错，提醒开发者需要更新这个函数。这种处理方式类似于 C++ 程序在不可能的分支上加入 <code>assert(false)</code> 进行检测。</p>
 </div>
 <h2 id="_4">类与接口<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>TypeScript 语言之中的类类似于 ES6 标准中 JavaScript 语言之中的类，故此处仅给出样例程序而不进行详细讲解。不过需要注意的是，TypeScript 语言之中的类允许声明类成员和方法的访问权限。这里给出一个简单的复数类的代码，其中包含了类成员声明、类方法编写、构造函数等基础内容：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2613,26 +2598,25 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Complex</span> <span class="p">{</span>
-    <span class="k">private</span> <span class="nx">real</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="k">private</span> <span class="nx">imaginary</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">real</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">imaginary</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">_real</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">_imaginary</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">real</span> <span class="o">=</span> <span class="nx">_real</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">=</span> <span class="nx">_imaginary</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">_real</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">_imaginary</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_real</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_imaginary</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">public</span> <span class="nx">print</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">&gt;=</span> <span class="mf">0</span> <span class="o">?</span> <span class="s2">&quot;+&quot;</span> <span class="o">:</span> <span class="s2">&quot;-&quot;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="p">)</span><span class="si">}</span><span class="sb"> i`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">print</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="p">)</span><span class="si">}</span><span class="sb"> i`</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">z</span>: <span class="kt">Complex</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Complex</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">);</span>
-<span class="nx">z</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">z</span><span class="o">:</span><span class="w"> </span><span class="kt">Complex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Complex</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
+<span class="nx">z</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>类继承使用关键字 <code>extends</code>，需要注意的是子类的构造函数<strong>必须</strong>手动使用 <code>super</code> 调用父类构造函数（否则无法使用 <code>this</code> 变量），对于已经被重写的父类方法，也可以使用 <code>super</code> 关键字调用：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2654,36 +2638,35 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="k">private</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="nx">move</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Animal moves&quot;</span><span class="p">);</span> <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">move</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Animal moves&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">class</span> <span class="nx">Cat</span> <span class="k">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="k">private</span> <span class="nx">furColor</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Cat</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">furColor</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">_color</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">(</span><span class="nx">_name</span><span class="p">);</span> <span class="c1">// Must call super() here!</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">furColor</span> <span class="o">=</span> <span class="nx">_color</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">_color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="nx">_name</span><span class="p">);</span><span class="w"> </span><span class="c1">// Must call super() here!</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">furColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_color</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">public</span> <span class="nx">move</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Cat runs&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">move</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Cat runs&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">public</span> <span class="nx">baseMove</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span> <span class="k">super</span><span class="p">.</span><span class="nx">move</span><span class="p">();</span> <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">baseMove</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">super</span><span class="p">.</span><span class="nx">move</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">tom</span>: <span class="kt">Cat</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">);</span>
-<span class="nx">tom</span><span class="p">.</span><span class="nx">move</span><span class="p">();</span>
-<span class="nx">tom</span><span class="p">.</span><span class="nx">baseMove</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">tom</span><span class="o">:</span><span class="w"> </span><span class="kt">Cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cat</span><span class="p">(</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">tom</span><span class="p">.</span><span class="nx">move</span><span class="p">();</span><span class="w"></span>
+<span class="nx">tom</span><span class="p">.</span><span class="nx">baseMove</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>抽象类依然是存在的，但在实际工程中更常用的是<strong>接口</strong>。因为抽象类实际上规定了一个对象应当具有的成员和对外开放的接口格式。</p>
 <div class="admonition note">
 <p class="admonition-title">抽象类和接口</p>
 <p>我们回想在 C++ 语言之中的抽象类：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2696,7 +2679,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">protected</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"></span>
 
@@ -2710,46 +2693,41 @@
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>事实上，<code>Base</code> 类的作用就是<strong>约束子类必须具有 <code>val</code> 成员</strong>和<strong>约束子类必须重写 <code>print</code> 虚方法</strong>，前者规定了子类必须具有的成员，后者规定了子类需要设计的接口格式（接口参数列表和返回值类型）。也就是说一个抽象父类的作用是约束子类应当具有的成员和对外开放的接口格式。在这个意义上，抽象类和接口是一致的。</p>
 </div>
 <p>TypeScript 语言之中接口的定义为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">Point</span> <span class="p">{</span> <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">print</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="ow">void</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">print</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>之后一个类可以去实现这个接口，这个时候这个类就必须具有接口的成员并实现接口的方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Point3D</span> <span class="k">implements</span> <span class="nx">Point</span> <span class="p">{</span>
-    <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span>  <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span>  <span class="nx">z</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="p">...</span>
-    <span class="nx">print</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">z</span><span class="si">}</span><span class="sb">)`</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Point3D</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w">  </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w">  </span><span class="nx">z</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="nx">print</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">z</span><span class="si">}</span><span class="sb">)`</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>接口支持<strong>可选参数</strong>和<strong>只读参数</strong>。可选参数代表该参数可具有可不具有：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">Point</span> <span class="p">{</span> <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">z?</span>: <span class="kt">number</span><span class="p">;</span> <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">twoDimensionPoint</span>: <span class="kt">Point</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">2</span> <span class="p">};</span> <span class="c1">// OK</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">z?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">twoDimensionPoint</span><span class="o">:</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>只读参数代表该参数只可读取不可修改：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">User</span> <span class="p">{</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span> <span class="k">readonly</span> <span class="nx">password</span>: <span class="kt">string</span><span class="p">;</span> <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">holder</span>: <span class="kt">User</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;holder&quot;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s2">&quot;111111&quot;</span> <span class="p">};</span>
-<span class="nx">holder</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;222222&quot;</span><span class="p">;</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">holder</span><span class="o">:</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;holder&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;111111&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nx">holder</span><span class="p">.</span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;222222&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="_5">后续拓展<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>TypeScript 作为目前较为热门的 JavaScript 语言“补丁”，可以被广泛应用于各种 Web 前端框架或者移动端框架。目前类似 React、React Native、Vue 等常用前端框架均提供了 TypeScript 语言支持。</p>
 <hr />
@@ -2783,10 +2761,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2795,7 +2774,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../javascript/browser/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 浏览器中的 JavaScript" rel="prev">
@@ -2850,10 +2830,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

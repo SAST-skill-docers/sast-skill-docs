@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2471,11 +2472,10 @@
 <p>新建一个文件夹并执行 <code>npm init</code> 命令，根据提示填写字段后，我们看到文件夹中多了一个名为 <code>package.json</code> 的文件，这个文件记录了当前项目的基本信息，如项目名称、描述、版本、证书，以及可能用到的一些操作，还有当前项目的依赖信息，这些信息的作用将在后面说明。</p>
 <h3 id="nodejs_2">Node.js 的模块查找<a class="headerlink" href="#nodejs_2" title="Permanent link">&para;</a></h3>
 <p>上节说到了如何在 Node.js 中引用其他文件导出的模块，但是上节给出的例子都是从相对路径中引入，引入内置或第三方模块时，应当按照如下方式：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">fs</span> <span class="kr">from</span> <span class="s1">&#39;fs&#39;</span><span class="p">;</span>           <span class="c1">// 内置文件系统模块</span>
-<span class="k">import</span> <span class="nx">express</span> <span class="kr">from</span> <span class="s1">&#39;express&#39;</span><span class="p">;</span> <span class="c1">// 一个 web 服务器模块</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;fs&#39;</span><span class="p">;</span><span class="w">           </span><span class="c1">// 内置文件系统模块</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;express&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 一个 web 服务器模块</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这并不是相对或绝对的路径，这就要提到 Node.js 寻找模块的逻辑。</p>
 <ul>
 <li>对于内置模块，在编译阶段已经确定了它们的位置，因此没有寻址的问题；</li>
@@ -2507,11 +2507,10 @@
 <p>安装的区别自然不用说，npm 比 yarn 和 pnpm 慢很多，值得一提的是第二点，扁平化带来的影响是项目可以非法访问没有声明的包（如果依赖 A 声明了依赖 B，那么依赖 C 不需要声明 B 就可以在上级文件夹中访问到 B），这就造成了潜在的不安全性。其余的差别可以参考 <a href="https://jishuin.proginn.com/p/763bfbd3bcff">为什么现在我更推荐 pnpm 而不是 npm/yarn?</a>。</p>
 <p>因此三者的排序应当是 pnpm &gt; yarn &gt; npm。pnpm 在一些项目中会引起错误，具体原因我没有研究过，如果遇到这种情况，建议换用 yarn，以下将主要以 yarn 为例介绍。</p>
 <p>安装两种包管理器的方法是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install -g yarn
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>npm install -g yarn
 npm install -g pnpm
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_3">包管理器的使用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>三种包管理器支持的功能比较类似，语法也比较接近，常用的有：</p>
 <table>
@@ -2559,42 +2558,39 @@ npm install -g pnpm
 <p>注：在不引起歧义的情况下 npm 允许简写，如 <code>npm i</code> 代替 <code>npm install</code>。</p>
 <h3 id="nodejs_3">Node.js 脚本<a class="headerlink" href="#nodejs_3" title="Permanent link">&para;</a></h3>
 <p>前面提到的执行脚本，是指在 <code>package.json</code> 中声明的脚本，如 <code>package.json</code> 中有如下字段：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node dist/index.js&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>那么执行 <code>yarn start</code> 就相当于执行 <code>node dist/index.js</code>。但脚本的功能不止于此，例如 <code>prettier</code> 是一个代码格式化工具，安装在项目中后并没有安装在 <code>$PATH</code> 中，因此直接在 Shell 中运行 <code>prettier</code> 不会得到任何结果，此时应该执行 <code>yarn prettier --write src/**/*.js</code>，yarn 会找到适当的可执行文件来完成这一命令，我们可以在 <code>package.json</code> 中写：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prettier --write src/**/*.js&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>那么 <code>yarn lint</code> 就相当于上述命令。</p>
 <p><strong>npx</strong></p>
 <p>在另一些情况下（比如创建 React 项目），我们虽然需要执行一些类似于 <code>prettier</code> 的命令，但以后并不需要安装这个模块，更没有必要把这个模块写在 <code>package.json</code> 中，此时我们可以执行 <code>npx create-react-app example-app</code>，npx 会自动下载这一模块并运行，但并不会保留在当前文件夹中，也不会对 <code>package.json</code> 造成影响。</p>
 <p>yarn 和 pnpm 也支持这一语法。</p>
 <h3 id="typescript">TypeScript 相关<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h3>
 <p>前面已经讲过 TypeScript 的语法，但 TypeScript 并不能直接在浏览器或 Node.js 中解析（倒是可以在 deno 中解析，但是毕竟 deno 生态还没发展起来），实际上要编写 TypeScript 程序，需要安装 Node.js 模块 <code>typescript</code>。这一模块中包含了命令 <code>tsc</code> 可以对 TypeScript 语法进行检查，并且生成相应的 JavaScript 文件。例如执行 <code>yarn add -D typescript</code> 后，在 <code>package.json</code> 的 <code>script</code> 字段中添加添加：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>然后运行 <code>yarn build</code> 即可对 TypeScript 代码进行编译，更多的配置详见资源链接。</p>
 <div class="admonition tip">
 <p class="admonition-title">TypeScript 的类型标注</p>
@@ -2626,10 +2622,11 @@ npm install -g pnpm
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2638,7 +2635,8 @@ npm install -g pnpm
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Node.js 基础" rel="prev">
@@ -2693,10 +2691,10 @@ npm install -g pnpm
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

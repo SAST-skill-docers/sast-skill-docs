@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2518,32 +2519,28 @@
 <h2 id="c">C++ 相关开发环境配置<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
 <h3 id="mingw64">环境变量与 Mingw64<a class="headerlink" href="#mingw64" title="Permanent link">&para;</a></h3>
 <p>我们可以先打开终端（Windows 用户请使用 Win+R，输入 <code>cmd</code>），尝试输入：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>g++ --version
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>g++ --version
+</code></pre></div></td></tr></table></div>
 <p>如果你的终端返回了 <code>g++</code> 的版本信息，恭喜，您 C++ 编译器的环境变量配置正确，可以跳过这一小节。当然，如果想更加详细地了解环境变量是什么，可以继续阅读这一小节。</p>
 <p>而如果返回：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s1">&#39;g++&#39;</span> 不是内部或外部命令，也不是可运行的程序
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s1">&#39;g++&#39;</span> 不是内部或外部命令，也不是可运行的程序
 或批处理文件。
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>那么则说明你的终端不知道 <code>g++</code> 是什么命令。我们接下来将首先讲解环境变量是什么，然后再为大家讲述该怎么配置环境变量。</p>
 <div class="admonition note">
 <p class="admonition-title">什么是环境变量？</p>
 <p>当你的 Shell 在执行命令时，会尝试在<strong>一系列路径</strong>下搜索同名的可执行文件。这一系列路径我们就称作是环境变量。</p>
 <p>Windows 用户可以在终端中输入 path 来查看当前环境变量（由于我进行过一系列配置，所以其输出结果可能与你的不同）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>D:<span class="se">\C</span>oding&gt;path
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>D:<span class="se">\C</span>oding&gt;path
 <span class="nv">PATH</span><span class="o">=</span>D:<span class="se">\A</span>naconda<span class="p">;</span>D:<span class="se">\A</span>naconda<span class="se">\L</span>ibrary<span class="se">\m</span>ingw-w64<span class="se">\b</span>in<span class="p">;</span>D:<span class="se">\A</span>naconda<span class="se">\L</span>ibrary<span class="se">\u</span>sr<span class="se">\b</span>in<span class="p">;</span>......
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Linux 用户可以通过使用 <code>echo $PATH</code> 来查看自己的环境变量：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>c7w@cc7w &gt; /mnt/d/Coding &gt; <span class="nb">echo</span> <span class="nv">$PATH</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>c7w@cc7w &gt; /mnt/d/Coding &gt; <span class="nb">echo</span> <span class="nv">$PATH</span>
 /home/c7w/.local/lib/python3.8/site-packages:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/d/Anaconda:/mnt/d/Anaconda/Library/mingw-w64/bin:/mnt/d/Anaconda/Library/usr/bin:/mnt/d/Anaconda/Library/bin:/mnt/d/Anaconda/Scripts:/mnt/f/VM/bin/:/mnt/c/Program Files <span class="o">(</span>x86<span class="o">)</span>/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:......
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>没错，就是这一系列文件夹。回忆我们刚才执行 <code>g++ --version</code> 命令的时候，我们的终端会在这一系列文件夹下为我们寻找叫做 <code>g++</code> 的可执行文件。如果找到了名为 <code>g++</code> 的可执行文件，我们的终端就会将参数传入，将其执行；而如果我们的终端没有找到，那么就会向我们报告“未知命令”。</p>
 <p>我们刚刚已经理解了“环境变量（Path）”的运行逻辑，接下来我们讲解如何进行环境变量的配置。`</p>
 <p>对于 Windows 用户，请按下 Windows + S 打开搜索框，在其中输入 <code>path</code>，然后选择"编辑系统环境变量"，进而选择“环境变量”，然后选择“系统变量”中的 Path 字段，双击打开后即可配置。</p>
@@ -2609,12 +2606,11 @@
 <p><img alt="image-20220209223422595" src="https://s2.loli.net/2022/02/09/IBLJmUG7NCy1ikv.png" /></p>
 <p>我们采用最简单的方式，将我们的单文件项目魔改成多文件。</p>
 <p>我们回忆如果使用命令行，该如何将我们的程序编译：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>g++ hash.cpp another.cpp -o main
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>g++ hash.cpp another.cpp -o main
+</code></pre></div></td></tr></table></div>
 <p>没错，我们现在配置 Code 使得其在“生成目标文件”任务中执行上述命令。</p>
 <p><code>tasks.json</code> 负责可执行文件的生成，我们主要进行如下修改：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2641,18 +2637,18 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cppbuild</span><span class="w"> </span><span class="mi">-</span><span class="err">&gt;</span><span class="w"> </span><span class="err">shell</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// cppbuild -&gt; shell</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: g++.exe 生成活动文件&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;D:\\Mingw\\mingw64\\bin\\g++.exe&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;hash.cpp&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">$</span><span class="p">{</span><span class="kc">f</span><span class="err">ile</span><span class="p">}</span><span class="w"> </span><span class="mi">-</span><span class="err">&gt;</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">lis</span><span class="kc">t</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;hash.cpp&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// ${file} -&gt; your source code list</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;another.cpp&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;-o&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;${fileDirname}\\main.exe&quot;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mai</span><span class="kc">n</span><span class="err">.exe</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;${fileDirname}\\main.exe&quot;</span><span class="w"> </span><span class="c1">// main.exe</span><span class="w"></span>
 <span class="w">            </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="w"></span>
@@ -2669,10 +2665,9 @@
 <span class="w">    </span><span class="p">],</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>launch.json</code> 主要负责调试目标程序，我们做以下修改：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2700,17 +2695,17 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">使用</span><span class="w"> </span><span class="err">I</span><span class="kc">ntell</span><span class="err">iSe</span><span class="kc">nse</span><span class="w"> </span><span class="err">了解相关属性。</span><span class="w"> </span>
-<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">悬停以查看现有属性的描述。</span><span class="w"></span>
-<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">欲了解更多信息，请访问</span><span class="p">:</span><span class="w"> </span><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="err">//go.microso</span><span class="kc">ft</span><span class="err">.com/</span><span class="kc">f</span><span class="err">wli</span><span class="kc">n</span><span class="err">k/?li</span><span class="kc">n</span><span class="err">kid=</span><span class="mi">830387</span><span class="w"></span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g++.exe - 生成和调试活动文件&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}\\main.exe&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">mai</span><span class="kc">n</span><span class="err">.exe</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}\\main.exe&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// main.exe</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="p">,</span><span class="w"></span>
@@ -2729,8 +2724,7 @@
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>然后我们就可以愉快地调试多文件项目了。</p>
 <h2 id="_7">后续学习<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2770,10 +2764,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2782,7 +2777,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../search-engine/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 如何使用搜索引擎" rel="prev">
@@ -2837,10 +2833,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

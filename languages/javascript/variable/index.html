@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2417,25 +2418,23 @@
 <h2 id="javascript">JavaScript 的变量与变量类型<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h2>
 <h3 id="_1">变量声明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>JavaScript 语言之中声明变量的关键字有三个，分别为 <code>var, let, const</code>。从字面意义上来看，<code>const</code> 用于声明常量，而 <code>var, let</code> 则用于声明变量。在 <code>var, let</code> 选取的问题上，编者建议尽量全部使用 <code>let</code> 关键字声明变量以防止混乱，具体原因可以参照讲解 JavaScript 函数部分的<strong>变量提升</strong>注解。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;Test string&quot;</span><span class="p">;</span>
-<span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;New string&quot;</span><span class="p">;</span> <span class="c1">// OK</span>
-<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="nx">c</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// Error!</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test string&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;New string&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error!</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>另外，由于 JavaScript 是弱类型的，所以重新给变量赋值的时候可以改变类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">weakType</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="nx">weakType</span> <span class="o">=</span> <span class="s2">&quot;You are a string now!&quot;</span><span class="p">;</span> <span class="c1">// OK</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">weakType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="nx">weakType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;You are a string now!&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="_2">变量类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="admonition caution">
 <p class="admonition-title">JavaScript 的魔法</p>
@@ -2450,97 +2449,89 @@
 <p>如果需要学习这两个拓展类型，可以参考文档末给出的链接。</p>
 </div>
 <p>获取数据的类型可以使用 <code>typeof</code> 关键字：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">testNum</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<span class="ow">typeof</span> <span class="nx">testNum</span><span class="p">;</span> <span class="c1">// &quot;number&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">testNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="ow">typeof</span><span class="w"> </span><span class="nx">testNum</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;number&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h4 id="_3">布尔、数字和字符串<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>JavaScript 的布尔值类型仅有两个可能值，即 <code>true</code> 和 <code>false</code>。与布尔值类型相关的运算一般而言和 C/C++ 语言类似：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mf">4</span> <span class="o">&gt;</span> <span class="mf">5</span><span class="p">;</span> <span class="c1">// false</span>
-<span class="mf">2</span> <span class="o">!==</span> <span class="mf">3</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="s2">&quot;I&quot;</span> <span class="o">===</span> <span class="s2">&quot;You&quot;</span><span class="p">;</span> <span class="c1">// false</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="mf">2</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="s2">&quot;I&quot;</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;You&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
 
-<span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// false</span>
-<span class="kc">true</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="o">!</span><span class="kc">false</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kc">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="kc">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="o">!</span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>需要注意的是，JavaScript 语言的判等运算符有 <code>==, ===</code> 两种，判不等运算符也相应地有 <code>!=, !==</code> 两种。编者建议完全使用 <code>===, !==</code> 来代替 <code>==, !=</code>，这是因为后者在比较之前可能会发生强制类型转换，而这种转换通常不必要且难以理解。另一方面，前者则会进行严格的值比较，不进行类型转换。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mf">1</span> <span class="o">==</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="mf">1</span> <span class="o">===</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// false</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="mf">1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 语言之中的数字不区分整数和浮点数，统一使用浮点数表示。所以除法没有类似 C/C++ 的向下取整的性质：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mf">5</span> <span class="o">/</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// 2.5</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2.5</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>部分数学相关的函数、常数均可以使用内置对象 <code>Math</code> 调用，不过涉及到精确的数学计算的时候一定要注意浮点数误差问题：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span> <span class="c1">// 3.141592653589793</span>
-<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">5</span> <span class="o">/</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span><span class="w"> </span><span class="c1">// 3.141592653589793</span><span class="w"></span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span><span class="w"></span>
 
-<span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span> <span class="c1">// 1.2246467991473532e-16</span>
-<span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">;</span> <span class="c1">// 0.30000000000000004</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1.2246467991473532e-16</span><span class="w"></span>
+<span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0.30000000000000004</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 语言的数字类型还有两个保留字，即 <code>NaN</code> 和 <code>Infinity</code>，这两者分别代表“不是数字”和“无穷大”。<code>NaN</code> 通常是不合法运算的结果，而且 <code>NaN</code> 参与的算术运算只会得到 <code>NaN</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mf">1</span> <span class="o">/</span> <span class="s2">&quot;tql&quot;</span><span class="p">;</span> <span class="c1">// NaN</span>
-<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span> <span class="c1">// NaN</span>
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;Not a number&quot;</span><span class="p">);</span> <span class="c1">// NaN</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s2">&quot;tql&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;Not a number&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
 
-<span class="mf">1</span> <span class="o">+</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// NaN</span>
-<span class="kc">NaN</span> <span class="o">+</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// NaN</span>
-</code></pre></div>
-</td></tr></table>
+<span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">NaN</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+<span class="kc">NaN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">NaN</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p><code>NaN</code> 还需要注意一点，就是 <code>NaN</code> 和比较运算符的连用：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kc">NaN</span> <span class="o">&lt;</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// false</span>
-<span class="kc">NaN</span> <span class="o">&gt;</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// false</span>
-<span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// false</span>
-<span class="kc">NaN</span> <span class="o">!==</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kc">NaN</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="kc">NaN</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="kc">NaN</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">NaN</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="kc">NaN</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">NaN</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这就代表我们在判定一个值是否是 <code>NaN</code> 的时候<strong>不能</strong>使用运算符 <code>===</code>，而应当使用 <code>isNaN</code> 函数。这个函数<strong>首先会将参数强制转化为数字类型</strong>，并且只在转化结果为 <code>NaN</code> 的时候返回 <code>true</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">isNaN</span><span class="p">(</span><span class="kc">NaN</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nb">isNaN</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span> <span class="c1">// false</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">isNaN</span><span class="p">(</span><span class="kc">NaN</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="nb">isNaN</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
 
-<span class="nb">isNaN</span><span class="p">(</span><span class="s2">&quot;2.4&quot;</span><span class="p">);</span> <span class="c1">// false, &quot;2.4&quot; can be converted to 2.4</span>
-<span class="nb">isNaN</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">);</span> <span class="c1">// true, &quot;No&quot; can never be converted to legal number</span>
+<span class="nb">isNaN</span><span class="p">(</span><span class="s2">&quot;2.4&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// false, &quot;2.4&quot; can be converted to 2.4</span><span class="w"></span>
+<span class="nb">isNaN</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// true, &quot;No&quot; can never be converted to legal number</span><span class="w"></span>
 
-<span class="nb">isNaN</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">// false, true can be converted to 1</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">isNaN</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// false, true can be converted to 1</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">强制类型转换</p>
 <p>JavaScript 进行强制类型转换的逻辑会写在本节末尾，但我们依然建议初学者先阅读正文，学会编写安全的代码后再去深入理解。</p>
 </div>
 <p>我们在代码之中很少直接写出 <code>NaN</code> 字面量，但是我们依然需要注意各种运算可能产生的 <code>NaN</code>，并且合理使用 <code>isNaN</code> 函数进行分支判定，以防止程序出现 bug。</p>
 <p><code>Infinity</code> 代表无穷大，如果运算结果超出了 JavaScript 能处理的范围，则会得到 <code>Infinity</code>。<code>Infinity</code> 所参与的算术运算也一般符合数学直觉，如果涉及到不定式（零乘以无穷大、无穷大减无穷大等）则会得到 <code>NaN</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2553,147 +2544,134 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mf">1</span> <span class="o">/</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">// Infinity</span>
-<span class="o">-</span><span class="mf">1</span> <span class="o">/</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">// -Infinity</span>
-<span class="mf">1e100000</span><span class="p">;</span> <span class="c1">// Infinity</span>
-<span class="mf">0</span> <span class="o">/</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">// NaN</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
+<span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// -Infinity</span><span class="w"></span>
+<span class="mf">1e100000</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
+<span class="mf">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
 
-<span class="kc">Infinity</span> <span class="o">+</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// Infinity</span>
-<span class="kc">Infinity</span> <span class="o">-</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// Infinity</span>
-<span class="kc">Infinity</span> <span class="o">*</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// Infinity</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="mf">3</span><span class="p">;</span> <span class="c1">// Infinity</span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Infinity</span><span class="w"></span>
 
-<span class="kc">Infinity</span> <span class="o">*</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">// NaN</span>
-<span class="kc">Infinity</span> <span class="o">-</span> <span class="kc">Infinity</span><span class="p">;</span> <span class="c1">// NaN</span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kc">Infinity</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
 
-<span class="kc">Infinity</span> <span class="o">===</span> <span class="kc">Infinity</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kc">Infinity</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">Infinity</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 的字符串支持使用加法运算符拼接，同时也支持相当多的常用函数。这里展示一部分：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="s2">&quot;b&quot;</span><span class="p">;</span> <span class="c1">// &quot;ab&quot;</span>
-<span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span> <span class="c1">// &quot;h&quot;</span>
-<span class="s2">&quot;hello, Mike&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Mike&quot;</span><span class="p">,</span> <span class="s2">&quot;Mart&quot;</span><span class="p">);</span> <span class="c1">// &quot;hello, Mart&quot;</span>
-<span class="s2">&quot;hello, Mike&quot;</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;Mike&quot;</span><span class="p">);</span> <span class="c1">// 7</span>
-<span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">);</span> <span class="c1">// &quot;l&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;ab&quot;</span><span class="w"></span>
+<span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;h&quot;</span><span class="w"></span>
+<span class="s2">&quot;hello, Mike&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Mike&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mart&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;hello, Mart&quot;</span><span class="w"></span>
+<span class="s2">&quot;hello, Mike&quot;</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;Mike&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 7</span><span class="w"></span>
+<span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;l&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里需要介绍的是<strong>模板字符串</strong>，这种字符串不使用单引号或双引号包围，而是使用反引号包围，内部可以使用 <code>${}</code> 块包围代码块，JavaScript 会计算出代码块的结果并将其转化为字符串嵌入模板之中。这个语法的好处在于不需要手写很多 <code>+</code> 来手动拼接字符串：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="sb">`The val of i + 1 is </span><span class="si">${</span><span class="nx">i</span> <span class="o">+</span> <span class="mf">1</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span> <span class="c1">// &quot;The val of i + 1 is 2.&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="sb">`The val of i + 1 is </span><span class="si">${</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;The val of i + 1 is 2.&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>另外注意一点，JavaScript 允许任意变量和字符串相加。而最常用的是字符串在加号左侧，其他变量在加号右侧的形式，这种运算的逻辑是将其他变量转化为字符串后进行字符串拼接。这就诞生了一个 trick，即用一个空字符串加一个变量，就可以方便地将这个变量转化为字符串：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;4&quot;</span> <span class="o">+</span> <span class="mf">3</span><span class="p">;</span> <span class="c1">// &quot;43&quot;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;4&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;43&quot;</span><span class="w"></span>
 
-<span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="mf">3</span><span class="p">;</span> <span class="c1">// &quot;3&quot;</span>
-<span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// &quot;true&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;3&quot;</span><span class="w"></span>
+<span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;true&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而将字符串转换为数字则可以使用 <code>parseInt</code> 和 <code>parseFloat</code> 函数，这里讲解 <code>parseInt</code> 函数。这个函数接受两个参数，第一个是需要转换的字符串，第二个是转换的进制数。不传入这个参数的时候默认根据字符串格式确定，如果以 <code>0x</code> 开头，则按照十六进制转换，其他则按照十进制转换：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;132&quot;</span><span class="p">);</span> <span class="c1">// 132</span>
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;0x10&quot;</span><span class="p">);</span> <span class="c1">// 16</span>
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;010&quot;</span><span class="p">);</span> <span class="c1">// 10</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;132&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 132</span><span class="w"></span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;0x10&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 16</span><span class="w"></span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;010&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10</span><span class="w"></span>
 
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;365&quot;</span><span class="p">,</span> <span class="mf">10</span><span class="p">);</span> <span class="c1">// 365</span>
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mf">4</span><span class="p">);</span> <span class="c1">// 4</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;365&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// 365</span><span class="w"></span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition caution">
 <p class="admonition-title">八进制问题</p>
 <p>在老版本的 <code>parseInt</code> 之中，在不传入第二个参数的时候，以 <code>0</code> 开头的字符串会被按照八进制转换：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;010&quot;</span><span class="p">);</span> <span class="c1">// In old version: 8</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;010&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// In old version: 8</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>为了避免这种适配问题出现，建议使用这个函数的时候不使用其默认进制，而是手动通过第二个参数指定。</p>
 </div>
 <p><code>parseInt</code> 函数在转换失败的时候会返回 <code>NaN</code>。但要注意的是，这个函数的逻辑是逐个读取字符并实时转换，遇到不能转换的字符的时候返回已经转换好的结果而非 <code>NaN</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">10</span><span class="p">);</span> <span class="c1">// NaN</span>
-<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;123abc&quot;</span><span class="p">,</span> <span class="mf">10</span><span class="p">);</span> <span class="c1">// 123</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;123abc&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// 123</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h4 id="_4">对象和数组<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>对象类型是 JavaScript 语言之中最常用的复合类型，其由若干的键值对组成，每一个键值对之中值可以是任何类型的变量，同时也允许对象的嵌套。对象字面量使用花括号表示，花括号内部键值对使用逗号分隔，每一个键值对的键和值使用冒号分隔：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
-    <span class="nx">bar</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
-    <span class="nx">foobar</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">a</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-        <span class="nx">b</span><span class="o">:</span> <span class="s2">&quot;I am a value&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">foobar</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I am a value&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>每一个键值对之中的键称为这个对象的<strong>属性</strong>。访问给定对象的属性使用 <code>.</code> 运算符：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="p">};</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span> <span class="c1">// 1</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 的数组使用中括号，各元素之间使用逗号分隔，且 JavaScript 不要求数组元素都是同一类型。访问数组的某个元素使用 <code>[]</code> 运算符：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="p">}];</span>
-<span class="nx">arr</span><span class="p">[</span><span class="mf">2</span><span class="p">];</span> <span class="c1">// &quot;test&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">}];</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">[</span><span class="mf">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// &quot;test&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 数组有内置属性 <code>length</code>，其值为可用的最大索引数加一：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">];</span>
-<span class="nx">arr</span><span class="p">[</span><span class="mf">100</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// 101</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">[</span><span class="mf">100</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// 101</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JavaScript 数组的真正强大之处在于其内置的方法，除去常用的取索引、切片方法之外，还支持传入回调函数的遍历、映射、迭代、筛选、排序方法。这里先介绍前面的简单方法，涉及到回调函数方法则会在回调模式讲解完毕后讲解：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">];</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span> <span class="c1">// 0</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span> <span class="c1">// -1</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// [2]</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span> <span class="c1">// &quot;1.2.3&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// -1</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// [2]</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;1.2.3&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition caution">
 <p class="admonition-title">数据安全</p>
 <p>使用数组内置方法的时候，一定要注意<strong>这个方法是否会影响原数组</strong>。比如说 <code>slice</code> 方法获取的是一个全新的数组，在这个新数组上操作不会影响原有数组。而 <code>pop</code> 方法则会影响原有数组。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">];</span>
-<span class="kd">let</span> <span class="nx">slicedArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">3</span><span class="p">);</span>
-<span class="nx">slicedArr</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [1, 2, 3]</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">slicedArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
+<span class="nx">slicedArr</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1, 2, 3]</span><span class="w"></span>
 
-<span class="nx">arr</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [1, 2]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1, 2]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>如果有些方法会影响到原有数组而你并不想这样做，请一定要在调用方法前创建副本以防止数据丢失。此外，为了养成良好编码习惯，在使用语言内置的方法，乃至第三方库的方法的时候，一定<strong>仔细阅读文档</strong>以确定这些方法的行为符合预期且可控。</p>
 </div>
 <h4 id="_5">空类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
@@ -2713,7 +2691,7 @@
 <p>获取没有返回值的函数的返回值</p>
 </li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2721,69 +2699,61 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">x</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">];</span>
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="p">};</span>
-<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">];</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="nx">x</span><span class="p">;</span> <span class="c1">// undefined</span>
-<span class="nx">arr</span><span class="p">[</span><span class="mf">5</span><span class="p">];</span> <span class="c1">// undefined</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span> <span class="c1">// undefined</span>
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">arr</span><span class="p">[</span><span class="mf">5</span><span class="p">];</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>在 <code>undefined</code> 上访问属性会抛出错误：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kc">undefined</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span> <span class="c1">// Uncaught TypeError: Cannot read properties of undefined</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kc">undefined</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span><span class="w"> </span><span class="c1">// Uncaught TypeError: Cannot read properties of undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个错误会在 JavaScript 编程的时候经常遇到，而且原因常常是类似如下语句的连续属性访问：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>只要这里某一个属性访问访问到了不存在的属性或者数组越界，那么下一个属性访问将会访问 <code>undefined</code> 上的属性，导致程序报错退出。</p>
 <p>而一种解决方式是每进行一次属性访问就判定其是否获得了 <code>undefined</code>，如果是，则终止继续的属性访问。而较新的 JavaScript 语言规范之中引入了 <code>?.</code> 运算符，其作用是<strong>在这个属性访问出错的时候中断属性访问并返回 <code>undefined</code></strong>。</p>
 <p>比如上述代码之中，如果你已经知道 <code>response</code> 很有可能没有 <code>data</code> 属性，那么可以这样写：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="o">?</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="o">?</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>如果 <code>response</code> 确实没有 <code>data</code> 属性，那么整个式子的结果就是 <code>undefined</code>，但程序并不会报错退出。</p>
 <div class="admonition note">
 <p class="admonition-title">问号应该在哪里</p>
 <p>答案是，<code>?.</code> 应当出现在可能导致访问 <code>undefined</code> 的属性访问上，而非可能导致访问结果为 <code>undefined</code> 的属性访问上。</p>
 <p>比如说不确定 <code>response</code> 是否有 <code>data</code> 属性的时候，就是不确定 <code>response.data</code> 是否为 <code>undefined</code>，那么就应该在后续的访问使用 <code>?.</code> 代替 <code>.</code>。</p>
 <p>如果写成：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">propList</span><span class="p">[</span><span class="mf">3</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>实际上在 <code>response</code> 确实没有 <code>data</code> 属性的时候程序还是会因为访问 <code>undefined</code> 的属性而报错。</p>
 </div>
 <p>你甚至可以这样尝试 <code>?.</code> 运算符：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kc">undefined</span><span class="o">?</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span> <span class="c1">// undefined</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kc">undefined</span><span class="o">?</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这一次程序不会报错。</p>
 <hr />
 <p>而 <code>null</code> 相较于 <code>undefined</code> 则较为少见。其一个常见的应用场景是在 React 框架里表示这里不需要渲染：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="nx">Hello</span><span class="o">!</span> <span class="o">&lt;</span><span class="err">/p&gt;</span>
-    <span class="p">{</span>
-        <span class="nx">needToRender</span> <span class="o">?</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="nx">This</span> <span class="nx">part</span> <span class="nx">is</span> <span class="nx">necessary</span><span class="o">!</span> <span class="o">&lt;</span><span class="err">/p&gt; : null</span>
-    <span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/div&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Hello</span><span class="o">!</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">needToRender</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">This</span><span class="w"> </span><span class="nx">part</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">necessary</span><span class="o">!</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/p&gt; : null</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这一部分可以参考 React 相关文档。</p>
 <p>而直接访问 <code>null</code> 上的属性也会报错。同时，在处理这个问题的时候 <code>?.</code> 依然可以使用：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kc">null</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span> <span class="c1">// Uncaught TypeError: Cannot read properties of null</span>
-<span class="kc">null</span><span class="o">?</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span> <span class="c1">// undefined</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kc">null</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span><span class="w"> </span><span class="c1">// Uncaught TypeError: Cannot read properties of null</span><span class="w"></span>
+<span class="kc">null</span><span class="o">?</span><span class="p">.</span><span class="nx">anyProp</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <details class="note">
 <summary>一些和空类型相关的语法糖</summary>
 <p>在实际的 JavaScript 工程之中，我们常常会遇到类似这样的需求：</p>
@@ -2791,38 +2761,33 @@
 <p>将某一个变量设定为某一个值，当给定值未定义的时候，则设定为某一个默认值。</p>
 </blockquote>
 <p>比如说要将字符串 <code>x</code> 设定为字符串 <code>y</code> 的值，但在 <code>y</code> 未定义或者为空字符串的时候 <code>x</code> 设定为默认值 <code>"default"</code>。一般而言可以写为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">y</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span>
-<span class="k">else</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但实际上 JavaScript 的逻辑运算有一个类似语法糖的写法可以完成这一功能：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">||</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition caution">
 <p class="admonition-title">注意不等价转换</p>
 <p>实际上这种语法糖写法和之前的 <code>if-else</code> 写法<strong>并不完全等价</strong>，具体原因可以参阅 JavaScript 的魔法指导书。</p>
 <p>这种写法要求 <code>y</code> 一定是一个字符串，但考虑到大多数工程场景下 <code>y</code> 的类型都能得到保证，故还是可以在合适的条件下采用这种写法。</p>
 </div>
 <p>另外，有一个类似的运算符为 <code>??</code>。与 <code>x = y ?? "default"</code> 等价的代码块为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">y</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span>
-<span class="k">else</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>此外，还有一种常见的需求：</p>
 <blockquote>
 <p>检查某个函数是否定义，如果定义，则执行。</p>
 </blockquote>
 <p>这个需求可以这样实现：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="nx">foo</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">foo</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="nx">foo</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而 JavaScript 所提供的一种语法糖写法是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">foo</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">foo</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但和上述一样，这个转换并非完全等价，但考虑工程实际，一般而言是可以采用这种写法的。</p>
 </details>
 <details class="note">
@@ -2863,14 +2828,13 @@
 <li>数字强制转化为十进制字符串形式的数字，<code>NaN</code> 强制转换为 <code>"NaN"</code>，<code>Infinity</code> 强制转换为 <code>"Infinity"</code>，<code>-Infinity</code> 强制转换为 <code>"-Infinity"</code></li>
 </ul>
 <p>另外还要说明的是，JavaScript 之中的 <code>+</code> 运算符也是一种一元运算符，其作用是将操作变量强制转换为数字类型。而这种强制转换的逻辑也是先把操作变量强制转换为基本类型后再强制转换为数字：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">+</span><span class="s2">&quot;123&quot;</span><span class="p">;</span> <span class="c1">// 123</span>
-<span class="o">+</span><span class="p">[];</span> <span class="c1">// 0</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">+</span><span class="s2">&quot;123&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 123</span><span class="w"></span>
+<span class="o">+</span><span class="p">[];</span><span class="w"> </span><span class="c1">// 0</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里对空数组做的强制转换的逻辑为，首先调用 <code>[].valueOf()</code>，结果为 <code>[]</code>，不是基本类型。进一步调用 <code>[].toString()</code>，结果为 <code>""</code>，是基本类型。从而再将 <code>""</code> 强制转换为数字得到 <code>0</code>。</p>
 <p>知晓这种运算逻辑之后，我们来看看一些魔法运算，读者可以尝试向上面一样分析这些运算的内部哲学：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2887,26 +2851,25 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[]</span> <span class="o">+</span> <span class="p">[];</span> <span class="c1">// &quot;&quot;</span>
-<span class="p">[]</span> <span class="o">+</span> <span class="p">{};</span> <span class="c1">// &quot;[object Object]&quot;</span>
-<span class="o">+</span><span class="p">[]</span> <span class="o">+</span> <span class="p">(</span><span class="o">+</span><span class="p">[]);</span> <span class="c1">// 0</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">[]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[];</span><span class="w"> </span><span class="c1">// &quot;&quot;</span><span class="w"></span>
+<span class="p">[]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// &quot;[object Object]&quot;</span><span class="w"></span>
+<span class="o">+</span><span class="p">[]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">+</span><span class="p">[]);</span><span class="w"> </span><span class="c1">// 0</span><span class="w"></span>
 
-<span class="mf">1</span> <span class="o">+</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// 1</span>
-<span class="mf">1</span> <span class="o">+</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// NaN</span>
+<span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+<span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
 
-<span class="mf">1</span> <span class="o">+</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// &quot;1Mon Oct 04 2021 02:04:31 GMT+0800 (中国标准时间)&quot;</span>
-<span class="o">+</span><span class="ow">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// 1633284276012</span>
+<span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;1Mon Oct 04 2021 02:04:31 GMT+0800 (中国标准时间)&quot;</span><span class="w"></span>
+<span class="o">+</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1633284276012</span><span class="w"></span>
 
-<span class="s2">&quot;90&quot;</span> <span class="o">+</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// &quot;901&quot;</span>
-<span class="s2">&quot;90&quot;</span> <span class="o">-</span> <span class="mf">1</span><span class="p">;</span> <span class="c1">// 89</span>
+<span class="s2">&quot;90&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;901&quot;</span><span class="w"></span>
+<span class="s2">&quot;90&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 89</span><span class="w"></span>
 
-<span class="s2">&quot;Infinity&quot;</span> <span class="o">+</span> <span class="s2">&quot;-Infinity&quot;</span><span class="p">;</span> <span class="c1">// &quot;Infinity-Infinity&quot;</span>
-<span class="s2">&quot;Infinity&quot;</span> <span class="o">-</span> <span class="s2">&quot;Infinity&quot;</span><span class="p">;</span> <span class="c1">// NaN</span>
+<span class="s2">&quot;Infinity&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;-Infinity&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;Infinity-Infinity&quot;</span><span class="w"></span>
+<span class="s2">&quot;Infinity&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s2">&quot;Infinity&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// NaN</span><span class="w"></span>
 
-<span class="s2">&quot;8&quot;</span> <span class="o">*</span> <span class="mf">5</span><span class="p">;</span> <span class="c1">// 40</span>
-<span class="mf">4</span> <span class="o">/</span> <span class="s2">&quot;5&quot;</span><span class="p">;</span> <span class="c1">// 0.8</span>
-</code></pre></div>
-</td></tr></table>
+<span class="s2">&quot;8&quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// 40</span><span class="w"></span>
+<span class="mf">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0.8</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>不过有一点我们需要注意，也就是空对象 <code>{}</code> 在不同的平台上的解析是不同的。比如说算式 <code>{} + {}</code> 中的第一个空对象，有些浏览器会解析为空对象，而有些会解析为空代码块。为了防止混淆，建议加一个小括号写成 <code>({}) + ({})</code>。</p>
 <hr />
 <p>下面我们研究三个逻辑运算符 <code>&amp;&amp;, ||, !</code>。</p>
@@ -2929,22 +2892,20 @@
 <p>此外，<code>!</code> 运算符的逻辑则很简单，首先将操作数强制转化为布尔值类型，之后取反作为返回值。</p>
 <p>也就是说，实际上这些逻辑运算符，只有 <code>!</code> 一定返回布尔值类型。甚至可以说 <code>&amp;&amp;, ||</code> 很多时候不返回布尔值类型。</p>
 <p>那么就可以观察这些运算：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[];</span> <span class="c1">// false</span>
-<span class="p">[]</span> <span class="o">&amp;&amp;</span> <span class="mf">0</span><span class="p">;</span> <span class="c1">// 0</span>
-<span class="mf">0</span> <span class="o">||</span> <span class="p">{};</span> <span class="c1">// {}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="p">[];</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+<span class="p">[]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0</span><span class="w"></span>
+<span class="mf">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// {}</span><span class="w"></span>
 
-<span class="o">!</span><span class="p">(</span><span class="ow">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span> <span class="c1">// false</span>
-</code></pre></div>
-</td></tr></table>
+<span class="o">!</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <!-- TODO: JavaScript 比较运算符的魔法 -->
 <p>综合这些运算，我们来看看下面的混合运算：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">!+</span><span class="p">[]</span><span class="o">+</span><span class="p">[]</span><span class="o">+!</span><span class="p">[];</span> <span class="c1">// &quot;truefalse&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!+</span><span class="p">[]</span><span class="o">+</span><span class="p">[]</span><span class="o">+!</span><span class="p">[];</span><span class="w"> </span><span class="c1">// &quot;truefalse&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>是不是就显得很合理了？</p>
 <hr />
 <p>实际上现在已经有一个把 JavaScript 这些特性玩出新花样的代码库了，即 JSFuck，其宗旨为只用 <code>+[]!()</code> 六个字符编写可运行的 JavaScript 代码。可以说 JSFuck 代码完全依靠 JavaScript 的这些 bug 在工作。</p>
@@ -2971,10 +2932,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2983,7 +2945,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript 语言基础" rel="prev">
@@ -3038,10 +3001,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

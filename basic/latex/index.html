@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2934,18 +2935,17 @@
 <p>首先，我们上述已经介绍过，支持中文字符的方式有二，一种是引入 <code>CJK</code> 宏包，另一种是使用 XeLaTeX 编译器并对源码做适当修改。这里我们采用第二种方式。</p>
 <p>首先，按下你项目左上角的 Menu 按钮，然后在 Compiler 选项中选择 XeLaTeX 选项。</p>
 <p>然后，输入以下内容：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 你好，world!
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这样我们就完成了中文字符的引入。至于 <code>documentclass</code> 是什么，我们将在后续介绍。</p>
 <h3 id="_3">导言与文档信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2962,7 +2962,7 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 <span class="k">\title</span><span class="nb">{</span>Sample Document<span class="nb">}</span>
 <span class="k">\author</span><span class="nb">{</span>c7w<span class="nb">}</span>
 <span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
@@ -2980,11 +2980,10 @@
 [在这里你就开始写你的作业第一题了]
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220213210910831" src="https://s2.loli.net/2022/02/13/IbNdaCD2wFXVlAq.png" /></p>
 <h3 id="_4">章节与段落<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3023,7 +3022,7 @@
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 <span class="k">\title</span><span class="nb">{</span>Sample Document<span class="nb">}</span>
 <span class="k">\author</span><span class="nb">{</span>c7w<span class="nb">}</span>
 <span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
@@ -3063,8 +3062,7 @@
 <span class="k">\subparagraph</span><span class="nb">{</span>第二节<span class="nb">}</span>的第二段。
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220213211528785" src="https://s2.loli.net/2022/02/13/kIeOlBjF7uzJ5ZH.png" /></p>
 <p>在文档类 <code>article</code>/<code>ctexart</code> 中（文档类的概念我们会在进阶篇中提供指导），我们使用这些控制序列来调整行文组织结构。他们分别是：</p>
 <ul>
@@ -3076,15 +3074,14 @@
 </ul>
 <h3 id="_5">文档目录<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>我们尝试在渲染区 <code>\maketitle</code> 后加入如下控制命令：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\tableofcontents</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\tableofcontents</span>
+</code></pre></div></td></tr></table></div>
 <p>没错，正如你所想的，这就会生成文档的 TOC：</p>
 <p><img alt="image-20220213211830033" src="https://s2.loli.net/2022/02/13/sSI8byUWJjYLkPw.png" /></p>
 <h3 id="_6">数学公式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <h4 id="_7">行内公式与行间公式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>首先引入相应包 <strong>amsmath</strong>，然后我们简单介绍公式的引入：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3119,7 +3116,7 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 
 <span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% 注意这里引入相应包</span>
 
@@ -3155,8 +3152,7 @@
 
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220213213336585" src="https://s2.loli.net/2022/02/13/CI2hzmUEwluDp6s.png" /></p>
 <h4 id="_8">上下标、根式与分式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3166,25 +3162,22 @@
 </ul>
 <h4 id="_9">运算符<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>一些小的运算符，可以在数学模式下直接输入；另一些需要用控制序列生成，如</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>\[ \pm\; \times \; \div\; \cdot\; \cap\; \cup\;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>\[ \pm\; \times \; \div\; \cdot\; \cap\; \cup\;
 \geq\; \leq\; \neq\; \approx \; \equiv \]
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>连加、连乘、极限、积分等大型运算符分别用 <code>\sum</code>, <code>\prod</code>, <code>\lim</code>, <code>\int</code> 生成。他们的上下标在行内公式中被压缩，以适应行高。我们可以用 <code>\limits</code> 和 <code>\nolimits</code> 来强制显式地指定是否压缩这些上下标。例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ \sum_{i=1}^n i\quad \prod_{i=1}^n $
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ \sum_{i=1}^n i\quad \prod_{i=1}^n $
 $ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
 \[ \lim_{x\to0}x^2 \quad \int_a^b x^2 dx \]
 \[ \lim\nolimits _{x\to0}x^2\quad \int\nolimits_a^b x^2 dx \]
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>多重积分可以使用 <code>\iint</code>, <code>\iiint</code>, <code>\iiiint</code>, <code>\idotsint</code> 等命令输入。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220213214301901" src="https://s2.loli.net/2022/02/13/VeI1zToC3JfAyK9.png" /></p>
 <h4 id="_10">定界符<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <p>各种括号用 <code>()</code>, <code>[]</code>, <code>\{\}</code>, <code>\langle\rangle</code> 等命令表示；注意花括号通常用来输入命令和环境的参数，所以在数学公式中它们前面要加 <code>\</code>。</p>
@@ -3194,21 +3187,20 @@ $ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
 <p>省略号用 <code>\dots</code>, <code>\cdots</code>, <code>\vdots</code>, <code>\ddots</code> 等命令表示。<code>\dots</code> 和 <code>\cdots</code> 的纵向位置不同，前者一般用于有下标的序列。</p>
 <h4 id="_12">矩阵<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
 <p><code>amsmath</code> 的 <code>pmatrix</code>, <code>bmatrix</code>, <code>Bmatrix</code>, <code>vmatrix</code>, <code>Vmatrix</code> 等环境可以在矩阵两边加上各种分隔符。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>\[ \begin{pmatrix} a&amp;b\\c&amp;d \end{pmatrix} \quad
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>\[ \begin{pmatrix} a&amp;b\\c&amp;d \end{pmatrix} \quad
 \begin{bmatrix} a&amp;b\\c&amp;d \end{bmatrix} \quad
 \begin{Bmatrix} a&amp;b\\c&amp;d \end{Bmatrix} \quad
 \begin{vmatrix} a&amp;b\\c&amp;d \end{vmatrix} \quad
 \begin{Vmatrix} a&amp;b\\c&amp;d \end{Vmatrix} \]
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="img" src="https://s2.loli.net/2022/02/14/uix67cYI4UaXvK9.jpg" /></p>
 <h4 id="_13">多行公式<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <p>可以用 <code>aligned</code> 环境来实现，用 <code>&amp;</code> 实现位置对齐。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3224,7 +3216,7 @@ $ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sb">\[</span><span class="nb"></span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="sb">\[</span><span class="nb"></span>
 <span class="nv">\begin</span><span class="nb">{aligned}</span>
 <span class="nb">x </span><span class="o">=</span><span class="nb"> a</span><span class="o">+</span><span class="nb">b</span><span class="o">+</span><span class="nb">c</span><span class="o">+</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
 <span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">e</span><span class="o">+</span><span class="nb">f</span><span class="o">+</span><span class="nb">g</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d</span><span class="o">+</span><span class="nb">d </span><span class="nv">\\</span><span class="nb"></span>
@@ -3241,12 +3233,11 @@ $ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
 <span class="nb">&amp; </span><span class="o">+</span><span class="m">1</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
 <span class="nv">\end</span><span class="nb">{aligned}</span>
 <span class="s">\]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果：</p>
 <p><img alt="image-20220214001008550" src="https://s2.loli.net/2022/02/14/oZugGY2MF78Lk9t.png" /></p>
 <p>若想要公式自带编号，可以用 <code>gather</code> 和 <code>align</code> 环境，其中 <code>gather</code> 环境将公式分行渲染，<code>align</code> 同上述 <code>aligned</code>，可以控制对齐：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3256,7 +3247,7 @@ $ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>gather<span class="nb">}</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>gather<span class="nb">}</span>
 a = b+c+d <span class="k">\\</span>
 x = y+z <span class="k">\\</span> 
 p = a<span class="nb">_</span>1 + a<span class="nb">_</span>2 + a<span class="nb">_</span>3 + <span class="k">\dots</span> + a<span class="nb">_{</span>200<span class="nb">}</span>
@@ -3267,25 +3258,23 @@ a <span class="nb">&amp;</span>= b+c+d <span class="k">\\</span>
 x <span class="nb">&amp;</span>= y+z <span class="k">\\</span>
 p <span class="nb">&amp;</span>= a<span class="nb">_</span>1 + a<span class="nb">_</span>2 + a<span class="nb">_</span>3 + <span class="k">\dots</span> + a<span class="nb">_{</span>200<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220214001355079" src="https://s2.loli.net/2022/02/14/5tZcTngyKSIsWxV.png" /></p>
 <p>若想使用分段函数，可以使用 <code>cases</code> 环境：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sb">\[</span><span class="nb"></span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="sb">\[</span><span class="nb"></span>
 <span class="nb">y</span><span class="o">=</span><span class="nb"> </span>
 <span class="nv">\begin</span><span class="nb">{cases}</span>
 <span class="o">-</span><span class="nb">x,</span><span class="nv">\quad</span><span class="nb"> x</span><span class="nv">\leq</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
 <span class="nb">x,</span><span class="nv">\quad</span><span class="nb"> x&gt;</span><span class="m">0</span><span class="nb"></span>
 <span class="nv">\end</span><span class="nb">{cases} </span>
 <span class="s">\]</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="_14">小结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
 <p>数学公式是在引入了 <strong>amsmath</strong> 包之后，利用其提供的各种各样次环境来实现了较为复杂的公式的编辑。整体来说，与 Mathjax 的风格相差不大，因此迁移学习起来也十分方便。</p>
 <p>这里我们再提供辅助工具：</p>
@@ -3294,7 +3283,7 @@ p <span class="nb">&amp;</span>= a<span class="nb">_</span>1 + a<span class="nb"
 </ul>
 <h3 id="_15">表格<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><code>tabular</code> 环境提供了最简单的表格功能。它用 <code>\hline</code> 命令表示横线，在列格式中用 <code>|</code> 表示竖线；用 <code>&amp;</code> 来分列，用 <code>\\</code> 来换行；每列可以采用居左、居中、居右等横向对齐方式，分别用 <code>l</code>、<code>c</code>、<code>r</code> 来表示。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3306,7 +3295,7 @@ p <span class="nb">&amp;</span>= a<span class="nb">_</span>1 + a<span class="nb"
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>|l|c|r|<span class="nb">}</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>|l|c|r|<span class="nb">}</span>
  <span class="k">\hline</span>
 操作系统<span class="nb">&amp;</span> 发行版<span class="nb">&amp;</span> 编辑器<span class="k">\\</span>
  <span class="k">\hline</span>
@@ -3319,22 +3308,20 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 通用<span class="nb">&amp;</span> TeX Live <span class="nb">&amp;</span> TeXworks <span class="k">\\</span>
  <span class="k">\hline</span>
 <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="img" src="https://s2.loli.net/2022/02/14/ytG5hReFbjWClwg.jpg" /></p>
 <h3 id="_16">图片<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>在 LaTeX 中插入图片，有很多种方式。最好用的应当属利用 <code>graphicx</code> 宏包提供的 <code>\includegraphics</code> 命令。比如你在你的 TeX 源文件同目录下，有名为 <code>a.jpg</code> 的图片，你可以用这样的方式将它插入到输出文档中：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 <span class="k">\includegraphics</span><span class="nb">{</span>a.jpg<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>想要了解更多，参见 <code>graphicx</code> 的文档：<a href="http://texdoc.net/texmf-dist/doc/latex/graphics/graphicx.pdf">http://texdoc.net/texmf-dist/doc/latex/graphics/graphicx.pdf</a>。</p>
 <blockquote>
 <p><strong>浮动体环境</strong></p>
@@ -3345,17 +3332,16 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 <h4 id="_18">页边距<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <p>设置页边距，推荐使用 <code>geometry</code> 宏包。可以在<a href="http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf">这里</a>查看它的说明文档。</p>
 <p>比如我希望，将纸张的长度设置为 20cm、宽度设置为 15cm、左边距 1cm、右边距 2cm、上边距 3cm、下边距 4cm，可以在导言区加上这样几行：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>\usepackage{geometry}
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>\usepackage{geometry}
 \geometry{papersize={20cm,15cm}}
 \geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="_19">页眉页脚<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <p>设置页眉页脚，推荐使用 <code>fancyhdr</code> 宏包。可以在<a href="http://texdoc.net/texmf-dist/doc/latex/fancyhdr/fancyhdr.pdf">这里</a>查看它的说明文档。</p>
 <p>比如我希望，设置自定义页眉；页脚的正中写上页码；页眉和正文之间有一道宽为 0.4pt 的横线分割，可以在导言区加上如下几行：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3365,7 +3351,7 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span>
 <span class="k">\pagestyle</span><span class="nb">{</span>fancy<span class="nb">}</span>
 <span class="k">\lhead</span><span class="nb">{</span>页眉左侧<span class="nb">}</span>
 <span class="k">\chead</span><span class="nb">{</span>页眉中间<span class="nb">}</span>
@@ -3376,13 +3362,11 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 <span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\headrulewidth</span><span class="nb">}{</span>0.4pt<span class="nb">}</span>
 <span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\headwidth</span><span class="nb">}{</span><span class="k">\textwidth</span><span class="nb">}</span>
 <span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\footrulewidth</span><span class="nb">}{</span>0pt<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h4 id="_20">段间距<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
 <p>我们可以通过修改长度 <code>\parskip</code> 的值来调整段间距。例如在导言区添加以下内容</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>\addtolength{\parskip}{.4em}
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>\addtolength{\parskip}{.4em}
+</code></pre></div></td></tr></table></div>
 <p>则可以在原有的基础上，增加段间距 0.4em。如果需要减小段间距，只需将该数值改为负值即可。</p>
 <h3 id="_21">引用与尾注脚注<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <h4 id="_22">交叉引用<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
@@ -3453,7 +3437,7 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 </ul>
 </blockquote>
 <h3 id="_24">列表与枚举<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3465,7 +3449,7 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
     <span class="k">\item</span> <span class="k">\LaTeX</span><span class="nb">{}</span> 好 处 都 有 啥
         <span class="k">\begin</span><span class="nb">{</span>description<span class="nb">}</span>
             <span class="k">\item</span><span class="na">[好 用]</span> 体 验 好 才 是 真 的 好
@@ -3478,8 +3462,7 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
             <span class="k">\item</span> 好 处 2
     <span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>enumerate<span class="nb">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="image-20220214004408507" src="https://s2.loli.net/2022/02/14/U3E8uCBy4RKxfSL.png" /></p>
 <h2 id="latex_6">LaTeX 后续学习<a class="headerlink" href="#latex_6" title="Permanent link">&para;</a></h2>
 <h3 id="_25">更多宏包<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
@@ -3525,10 +3508,11 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3537,7 +3521,8 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../markdown/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Markdown 入门" rel="prev">
@@ -3592,10 +3577,10 @@ Mac OS <span class="nb">&amp;</span> MacTeX <span class="nb">&amp;</span> TeXSho
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

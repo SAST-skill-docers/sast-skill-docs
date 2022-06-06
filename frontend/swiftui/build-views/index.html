@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2489,102 +2490,93 @@
 <p>在 <code>body</code> 中，你可以通过这几种方式组合多个 View，<strong>不需要写出 <code>return</code></strong>：</p>
 <p><strong>条件控制语句</strong></p>
 <p>你可以用 <code>if-else</code> 语句有条件地显示不同的 View：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">type</span> <span class="p">==</span> <span class="p">.</span><span class="n">text</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">type</span> <span class="p">==</span> <span class="p">.</span><span class="n">text</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">type</span> <span class="p">==</span> <span class="p">.</span><span class="n">image</span> <span class="p">{</span>
     <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>或者，只有 <code>if</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">revealGrade</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">revealGrade</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">gpa</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>当然，<code>if let</code> 语句也是可以的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">npyName</span> <span class="p">=</span> <span class="n">student</span><span class="p">.</span><span class="n">npyName</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">npyName</span> <span class="p">=</span> <span class="n">student</span><span class="p">.</span><span class="n">npyName</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">npyName</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>你还可以用 <code>switch</code>：（实际上编译器将其转化为 <code>if-else</code> 语句）</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="n">type</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">switch</span> <span class="n">type</span> <span class="p">{</span>
 <span class="k">case</span> <span class="p">.</span><span class="n">text</span><span class="p">:</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
 <span class="k">case</span> <span class="p">.</span><span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
 <span class="k">default</span><span class="p">:</span> <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><strong>多个 View</strong></p>
 <p>你可以一次返回多个 View，这种 View 叫做 <code>TupleView</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
 <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一般这种 <code>TupleView</code> 多用于 View 的排列。比如，将几个 View 在垂直方向依次排列：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
     <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>我们将在下面进一步介绍 View 的排列。</p>
 <div class="admonition note">
 <p class="admonition-title"><code>VStack</code> 构造函数的参数</p>
 <p>上面的 <code>VStack</code> 以及大括号包括的内容，实际上是 <code>VStack</code> 的构造函数。根据文档，<code>VStack</code> 构造函数的签名如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">init</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="n">HorizontalAlignment</span> <span class="p">=</span> <span class="p">.</span><span class="n">center</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Content</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">init</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="n">HorizontalAlignment</span> <span class="p">=</span> <span class="p">.</span><span class="n">center</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Content</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>我们前两个参数使用了提供的默认值，我们提供的实际上是第三个参数 <code>content</code>：它是一个<strong>无参数、返回值为 <code>Content</code> 的匿名函数</strong>。（这里的 <code>Content</code> 是 <code>VStack</code> 的模版参数，表示「内容 View 的类型」）</p>
 <p>在 Swift 中，如果函数的最后一个参数为函数，那么它可以写到括号外面，并且省略标签。上面 <code>VStack</code> 的构造函数实际上是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
     <span class="n">Image</span><span class="p">(</span><span class="s">&quot;hello-world&quot;</span><span class="p">)</span>
 <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>顺便说一句，<code>content</code> 的返回值的类型是 <code>TupleView&lt;(Text, Image)&gt;</code>，并不是一个真正的 <code>Tuple</code>。</p>
 </div>
 <h3 id="_2">表达式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><code>body</code> 与普通函数不同，它对函数体内的允许的表达式有限制。</p>
 <p>同时进行变量的声明和赋值是允许的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">description</span> <span class="p">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">127</span> <span class="p">?</span> <span class="s">&quot;overflow&quot;</span> <span class="p">:</span> <span class="s">&quot;normal&quot;</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>但 <code>var</code> 和 <code>let</code> 的声明、赋值表达式不被允许：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2595,7 +2587,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Error: Closure containing a declaration cannot be used with result builder &#39;ViewBuilder&#39;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Error: Closure containing a declaration cannot be used with result builder &#39;ViewBuilder&#39;</span>
 <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span>
     <span class="p">...</span>
@@ -2607,34 +2599,30 @@
     <span class="n">description</span> <span class="p">=</span> <span class="s">&quot;hello&quot;</span>
     <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，<code>for</code> 循环也是不被允许的。我们有另外的方法进行类似的迭代。</p>
 <p>上述例子中，类型遵循 <code>View</code> 的值（如 <code>Text(description)</code>）会作为部分结果（partial result）递归地参与 <code>body</code> 最后结果的计算，而其余允许的表达式（如 <code>let description = x &gt; 127 ? "overflow" : "normal"</code>）在计算 <code>body</code> 的值的时候会被忽略。</p>
 <div class="admonition note">
 <p class="admonition-title">简单介绍 <code>ViewBuilder</code></p>
 <p>实际上，<code>body</code> 之所以能够有这些特性，是因为 <code>body</code> 有隐式的 <a href="https://developer.apple.com/documentation/swiftui/viewbuilder/"><code>@ViewBuilder</code></a> 修饰：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">View</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">protocol</span> <span class="nc">View</span> <span class="p">{</span>
     <span class="kd">associatedtype</span> <span class="n">Body</span><span class="p">:</span> <span class="n">View</span>
 <span class="hll">    <span class="p">@</span><span class="n">ViewBuilder</span> <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">Body</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 </span><span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>被 <code>@ViewBuilder</code> 修饰的函数，不使用显式的 <code>return</code> 来返回，而是通过“收集”函数体中的<code>View</code> 来构建最终的返回值。比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span>
 <span class="n">Text</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
 <span class="n">Color</span><span class="p">.</span><span class="n">blue</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>编译器“收集”到两个 View：<code>Text</code> 和 <code>Color</code>（忽略 <code>let greeting = "Hello"</code>）。接着，调用 <code>ViewBuilder</code> 的一个构建 View 的函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">buildBlock</span><span class="p">&lt;</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">c0</span><span class="p">:</span> <span class="n">C0</span><span class="p">,</span> <span class="kc">_</span> <span class="n">c1</span><span class="p">:</span> <span class="n">C1</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">TupleView</span><span class="o">&lt;</span><span class="p">(</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="n">C0</span> <span class="p">:</span> <span class="n">View</span><span class="p">,</span> <span class="n">C1</span> <span class="p">:</span> <span class="n">View</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">buildBlock</span><span class="p">&lt;</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">c0</span><span class="p">:</span> <span class="n">C0</span><span class="p">,</span> <span class="kc">_</span> <span class="n">c1</span><span class="p">:</span> <span class="n">C1</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">TupleView</span><span class="o">&lt;</span><span class="p">(</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="n">C0</span> <span class="p">:</span> <span class="n">View</span><span class="p">,</span> <span class="n">C1</span> <span class="p">:</span> <span class="n">View</span>
+</code></pre></div></td></tr></table></div>
 <p>这个函数接受两个 <code>View</code> 作为参数，最终生成<strong>单个</strong>返回值 <code>TupleView&lt;(Text, Color)&gt;</code>。</p>
 <p>其他的特性，比如 <code>if-else</code> 语句，都是由类似的机制来实现的。不难理解，只要不断递归地将 View 合并，最终就能生成一个单一的返回值。</p>
 <p><code>ViewBuilder</code> 的机制实际上是通过一种叫 result builder 的语法实现的。如果感兴趣可以参考 <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md">SE0289: Result builders</a>。</p>
@@ -2646,55 +2634,51 @@
 <p><strong>只读文本 <code>Text</code></strong></p>
 <p>用于显示只读文本。</p>
 <p>你可以从字符串创建：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
 
 <span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="s">&quot;Hello, world!&quot;</span>
 <span class="n">Text</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>结果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-text-2.webp" /></p>
 <p>也可以用 Markdown 字符串创建带格式的文本。注意只有字面值能够直接渲染为 Markdown 格式，对于字符串变量需要 <code>AttributedString</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, *world*!&quot;</span><span class="p">)</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, *world*!&quot;</span><span class="p">)</span>
 
 <span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="s">&quot;Hello, *world*!&quot;</span>
 <span class="kd">let</span> <span class="nv">attrStr</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">AttributedString</span><span class="p">(</span><span class="n">markdown</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span>
 <span class="n">Text</span><span class="p">(</span><span class="n">attrStr</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>结果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-text-1.webp" /></p>
 <p>可以使用 <code>.font(_:)</code>、<code>.foregroundColor(_:)</code>、<code>.italic(_:)</code> 等 modifier 改变字体、颜色等：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">system</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">bold</span><span class="p">,</span> <span class="n">design</span><span class="p">:</span> <span class="p">.</span><span class="n">serif</span><span class="p">))</span>
     <span class="p">.</span><span class="n">italic</span><span class="p">()</span>
     <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">blue</span><span class="p">)</span>
     <span class="p">.</span><span class="n">underline</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>最终的效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-text-3.webp" /></p>
 <p>最后，值得一提的是 <code>Text</code> 的加法运算符，它可以将两个样式不同的 <code>Text</code> 拼接在一起：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">start</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;L&quot;</span><span class="p">).</span><span class="n">bold</span><span class="p">().</span><span class="n">font</span><span class="p">(.</span><span class="n">title</span><span class="p">)</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">start</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;L&quot;</span><span class="p">).</span><span class="n">bold</span><span class="p">().</span><span class="n">font</span><span class="p">(.</span><span class="n">title</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nv">remaining</span> <span class="p">=</span> <span class="n">Text</span><span class="p">(</span><span class="s">&quot;orem ipsum dolor sit amet, consectetur adipiscing elit....&quot;</span><span class="p">)</span>
 
 <span class="n">start</span> <span class="o">+</span> <span class="n">remaining</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-text-4.webp" /></p>
 <p><strong>图片 <code>Image</code></strong></p>
@@ -2707,9 +2691,8 @@
 </ul>
 </div>
 <p>使用 <code>Image(systemName:)</code> 显示系统图标：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>结果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-image-1.webp" /></p>
 <div class="admonition info">
@@ -2720,7 +2703,7 @@
 <p>比如，我们有一个如下图的名为 <code>wwdc21</code> 的图片文件：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-image-ori.webp" /></p>
 <p>以下几种不同的代码会产生不同的结果：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2735,7 +2718,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Case 1</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Case 1</span>
 <span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
 
 <span class="c1">// Case 2</span>
@@ -2751,8 +2734,7 @@
 <span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
     <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="p">.</span><span class="n">fill</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <table>
 <thead>
 <tr>
@@ -2783,23 +2765,21 @@
 <p>注意，<code>Image</code> 所占的空间可能会超出可用的空间。对于上面的 Case 4，在 Xcode 预览中选中图片，可以看到其大小：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-image-6.webp" /></p>
 <p>这种性质在很多地方会有意想不到的效果，如即将介绍的 <code>ZStack</code>。如果需要将图片限制在可用空间内，可以使用 <code>Color</code>，它仅占据所有可用空间：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">clear</span><span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">clear</span><span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
     <span class="n">Image</span><span class="p">(</span><span class="s">&quot;wwdc21&quot;</span><span class="p">)</span>
         <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
         <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="p">.</span><span class="n">fill</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 <p><strong>图标 &amp; 文字 <code>Label</code></strong></p>
 <p>显示图标和文字。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Swift Programming Language&quot;</span><span class="p">,</span> <span class="n">systemImage</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Swift Programming Language&quot;</span><span class="p">,</span> <span class="n">systemImage</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-label-1.webp" /></p>
 <p>另外，你可以用 <code>.font(_:)</code> 修改其字体。</p>
@@ -2810,72 +2790,66 @@
 <p><strong>按钮 <code>Button</code></strong></p>
 <p>按钮。</p>
 <p>文字按钮：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>以一个 View 作为按钮：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span> <span class="p">})</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span> <span class="p">})</span> <span class="p">{</span>
     <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>上面的代码也可以写成：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
 <span class="p">}</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Multiple Trailing Closures</p>
 <p>如果一个函数最后若干个参数均为函数，如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">func1</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func2</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func3</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">func1</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func2</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">,</span> <span class="n">func3</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>那么，调用时这些函数参数可以写到小括号外面，第一个可以省略标签，其余需要加上标签：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="mi">127</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">foo</span><span class="p">(</span><span class="n">para1</span><span class="p">:</span> <span class="mi">127</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// func1 goes here</span>
 <span class="p">}</span> <span class="n">func2</span><span class="p">:</span> <span class="p">{</span>
     <span class="c1">// func2 goes here</span>
 <span class="p">}</span> <span class="n">func3</span><span class="p">:</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
     <span class="c1">// func3 goes here</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这种写法是 Swift 中一种叫 <a href="https://github.com/apple/swift-evolution/blob/main/proposals/0279-multiple-trailing-closures.md">multiple trailing closures</a> 的语法，详见<a href="https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID102">官方文档</a>。这种写法能提高代码的可读性，我们之后会尽量采用这种写法。</p>
 </div>
 <p>另外，我们可以用 <code>.buttonStyle(_:)</code> 来使用系统默认的一些样式：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Button pressed&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">buttonStyle</span><span class="p">(.</span><span class="n">bordered</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-button-1.webp" /></p>
 <p><strong>菜单 <code>Menu</code></strong></p>
 <p>创建点击显示的菜单。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2885,7 +2859,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Menu</span><span class="p">(</span><span class="s">&quot;Actions&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Menu</span><span class="p">(</span><span class="s">&quot;Actions&quot;</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Duplicate&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
     <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Rename&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
     <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Delete…&quot;</span><span class="p">,</span> <span class="n">role</span><span class="p">:</span> <span class="p">.</span><span class="n">destructive</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
@@ -2896,39 +2870,36 @@
         <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Copy Library Path&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>值得注意的是，可以在一个 <code>Menu</code> 中内嵌另一级 <code>Menu</code>。</p>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-menu-1.webp" /></p>
 <p>另外，可以用类似的方法给任何 View 添加长按菜单：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;swift&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">contextMenu</span> <span class="p">{</span>
         <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Duplicate&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
         <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Rename&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="p">{...})</span>
         <span class="p">...</span>
     <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_4">布局与排列<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><strong>水平布局 <code>HStack</code></strong></p>
 <p>水平布局。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Left&quot;</span><span class="p">)</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Middle&quot;</span><span class="p">)</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Right&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-hstack-1.webp" /></p>
 <!-- TODO: Spacer -->
@@ -2937,17 +2908,16 @@
 <div class="admonition note">
 <p class="admonition-title">不同 View 具有不同的布局特性</p>
 <p>注意到，三个 <code>Text</code> 并没有占满所有所有空间，而是只占据了所需要的最小空间，这是由 <code>Text</code> 的布局特性决定的。与之相对，<code>Color</code> 将尽可能占据多的空间：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">red</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">orange</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-hstack-2.webp" /></p>
 <p>不同的布局特性对我们排布多个 View 有重要影响。</p>
@@ -2960,47 +2930,44 @@
 </div>
 <p><strong>垂直布局 <code>VStack</code></strong></p>
 <p>垂直布局，与 <code>HStack</code> 类似。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Top&quot;</span><span class="p">)</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Middle&quot;</span><span class="p">)</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Bottom&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-vstack-1.webp" /></p>
 <p><strong>上下布局 <code>ZStack</code></strong></p>
 <p>上下布局，先写的 View 排布在底层。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ZStack</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ZStack</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-zstack-1.webp" /></p>
 <p>与 <code>HStack</code> 和 <code>VStack</code> 类似，你可以通过构造函数中的 <code>alignment</code> 参数指定这些 View 对齐的方式。</p>
 <div class="admonition note">
 <p class="admonition-title"><code>ZStack</code> 和 <code>.overlay(_:)</code></p>
 <p>我们还有另外一种方式进行 View 的层叠：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
     <span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
     <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>看上去与 <code>ZStack</code> 并无二致，其实不然。我们用 <code>.frame()</code> 显示地指定 <code>Color.yellow</code> 的长宽，来比较一下这两种方式：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3012,7 +2979,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ZStack</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ZStack</span>
 <span class="n">ZStack</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
         <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">25</span><span class="p">)</span>
@@ -3025,8 +2992,7 @@
     <span class="p">.</span><span class="n">overlay</span> <span class="p">{</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Overlay&quot;</span><span class="p">)</span>
     <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果分别为：</p>
 <table>
 <thead>
@@ -3048,19 +3014,18 @@
 <p>间距工具。</p>
 <p><code>Spacer</code> 是一个弹性的间距。它本身不会显示，只是占据<strong>大于或等于特定宽度/高度</strong>的空间。</p>
 <p>例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
         <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span><span class="p">)</span>
     <span class="n">Spacer</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">gray</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>这里的 <code>.background(_:)</code> 只是为了更明显地显示 <code>HStack</code> 内部的排列。</p>
@@ -3070,26 +3035,23 @@
 <p>我们注意到，整个 <code>Text</code> 被“挤”到了左边。</p>
 <p>我们在上面提到了「大于或等于特定宽度/高度」。<code>Spacer</code> 构造函数有一个参数 <code>minLength</code>，就是用来指定这个距离的，上面我们忽略了这个参数，使用系统默认的距离。 </p>
 <p>需要注意的是，<code>Spacer</code> 会占据 View 所<strong>不需要</strong>的空间，但不会挤占 View <strong>需要</strong>的空间（即：<code>Spacer</code> 排布的优先级最低）。比如，对于之前提到的会占据所有空间的 <code>Color</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HStack</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
     <span class="n">Spacer</span><span class="p">()</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>Spacer</code> 只占据了默认的最小空间。实际上，如果你把 <code>Spacer</code> 的 <code>minLength</code> 参数设置为 0：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>对于 <code>Color</code> 的情况，<code>Spacer</code> 就不会占据任何空间。然而，对于上面 <code>Text</code> 的情况，它仍然会占据所有剩余的空间。</p>
 <p>另外，如果需要固定宽度/高度的 <code>Spacer</code>，可以使用 <code>.fixedSize()</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Spacer</span><span class="p">(</span><span class="n">minLength</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
     <span class="p">.</span><span class="n">fixedSize</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><strong>其他容器</strong></p>
 <p>SwiftUI 中还有很多用于排布的容器 View，不再展开，具体可以参考 <a href="https://developer.apple.com/documentation/swiftui/view-layout-and-presentation">官方文档</a>。一些常用的 View 有：</p>
 <ul>
@@ -3111,7 +3073,7 @@
 </ol>
 <details class="example">
 <summary>参考代码</summary>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3137,7 +3099,7 @@
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">leading</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">leading</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">HStack</span> <span class="p">{</span>
         <span class="n">Circle</span><span class="p">()</span>
             <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">37</span><span class="p">)</span>
@@ -3164,8 +3126,7 @@
     <span class="n">Text</span><span class="p">(</span><span class="s">&quot;借助 SwiftUI...&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>注意，最外层 <code>VStack</code> 的 <code>alignment</code> 参数为 <code>.leading</code>。请思考其中的原因。</p>
 </details>
 </details>
@@ -3173,14 +3134,14 @@
 <p><strong>Group</strong></p>
 <p>将多个 View 组合起来处理，或用于添加逻辑控制。</p>
 <p>一个 <code>Group</code> 对其中的子 View 没有任何影响，各个 View 仍然保持独立，对 <code>Group</code> 添加 modifier 相当于给每一个 View 添加 modifier：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
     <span class="n">Group</span> <span class="p">{</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: 0&quot;</span><span class="p">)</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: 1&quot;</span><span class="p">)</span>
@@ -3188,20 +3149,19 @@
     <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span><span class="p">)</span>
     <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>效果为：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-group-1.webp" /></p>
 <p>我们常用这种方法同时给多个 View 添加相同的 modifier。</p>
 <p>另外，<code>Group</code> 的参数为 <code>@ViewBuilder</code>，可用于在某些不支持 <code>if-else</code> 语句等地方添加逻辑控制。如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
     <span class="p">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">Group</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">condition</span> <span class="p">{</span>
             <span class="p">...</span>
@@ -3209,44 +3169,40 @@
             <span class="p">...</span>
         <span class="p">}</span>
     <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>请查阅 <code>.overlay()</code> 的文档，找出这里的 <code>.overlay()</code> 和上面 <code>ZStack</code> 中提到的 <code>.overlay()</code> 的区别。</p>
 </div>
 <p><strong>ForEach</strong></p>
 <p>迭代一个集合内的元素，并依次生成 View，类似于 for 循环。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
     <span class="n">ForEach</span><span class="p">(</span><span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Index: </span><span class="si">\(</span><span class="n">index</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>但是，不能简单地迭代任意一个数组：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
 
 <span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="p">{</span> <span class="n">student</span> <span class="k">in</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>编译器会报错：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Referencing initializer &#39;init(_:content:)&#39; on &#39;ForEach&#39; requires that &#39;String&#39; conform to &#39;Identifiable&#39;
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Referencing initializer &#39;init(_:content:)&#39; on &#39;ForEach&#39; requires that &#39;String&#39; conform to &#39;Identifiable&#39;
+</code></pre></div></td></tr></table></div>
 <p>意思是，所迭代数组的元素的类型必须遵循 <code>Identifiable</code>。简单来说，因为 SwiftUI 更新时需要确切知道<strong>哪个 View 依赖的数据更新了</strong>，生成 View 的数据必须是可以相互区分的。</p>
 <p>通过使数组元素的类型遵循 <code>Identifiable</code>，我们便可以安全地通过 <code>ForEach</code> 迭代数组，注意 <code>id</code> 必须互不相同，否则可能会导致崩溃：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3254,7 +3210,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Student</span><span class="p">:</span> <span class="n">Identifiable</span> <span class="p">{</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">Student</span><span class="p">:</span> <span class="n">Identifiable</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">studentID</span> <span class="p">}</span> <span class="c1">// Identifiable requirement</span>
     <span class="kd">var</span> <span class="nv">studentID</span><span class="p">:</span> <span class="nb">Int</span>  <span class="c1">// 学号，必然互不相同</span>
     <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
@@ -3263,10 +3219,9 @@
 <span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="p">{</span> <span class="n">student</span> <span class="k">in</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在<strong>数组固定</strong>的情况下，也可以使用 <code>count</code> 或 <code>indices</code> 进行迭代，此时需要显式指出用于区分的 <code>id</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3274,7 +3229,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">students</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Carol&quot;</span><span class="p">]</span>
 
 <span class="n">ForEach</span><span class="p">(</span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">students</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="n">id</span><span class="p">:</span> <span class="err">\</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
@@ -3283,8 +3238,7 @@
 <span class="n">ForEach</span><span class="p">(</span><span class="n">students</span><span class="p">.</span><span class="bp">indices</span><span class="p">,</span> <span class="n">id</span><span class="p">:</span> <span class="err">\</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">index</span> <span class="k">in</span>
     <span class="n">Text</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这里 <code>\.self</code> 用到 Swift 的 <a href="https://developer.apple.com/documentation/swift/keypath"><code>KeyPath</code></a>，<code>\.self</code> 的意思是返回下标本身（<code>Int</code>），使用其所为区分不同元素的 id。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -3296,7 +3250,7 @@
 <p>不同 View modifier 的不同效果常常令初学者迷惑。一般来说，View modifier 的类型有如下几类：</p>
 <p><strong>改变环境变量，对其作用范围内的所有 View 均有效</strong></p>
 <p>典型的例子是 <code>font</code>、<code>foregroundColor</code> 等。比如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3306,7 +3260,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">VStack</span> <span class="p">{</span>
     <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&quot;globe&quot;</span><span class="p">)</span>
     <span class="n">HStack</span> <span class="p">{</span>
         <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
@@ -3317,44 +3271,41 @@
 <span class="p">}</span>
 <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">title3</span><span class="p">)</span>
 <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">orange</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-modifier-2.jpeg" /></p>
 <p>这里，<code>.font(.title3)</code> 和 <code>.foregroundColor(.orange)</code> 对 <code>VStack</code> 内处于任意层级的 View 均有效。</p>
 <p><strong>仅修饰最外层 View</strong></p>
 <p>典型的例子是 <code>padding</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">HStack</span><span class="p">(</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HStack</span><span class="p">(</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">yellow</span>
     <span class="n">Color</span><span class="p">.</span><span class="n">orange</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
 <span class="p">.</span><span class="n">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">gray</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><img alt="" src="../../../static/frontend/swiftui/build-views-modifier-1.jpeg" /></p>
 <p>在这里，<code>padding</code> 仅在 <code>HStack</code> 外添加了边距，而对其中的两个 <code>Color</code> 无影响。</p>
 <p><strong>返回特定类型的 View</strong></p>
 <p>这些 modifier 并不是返回 <code>some View</code> 而是特定类型，因此后续可使用的 modifier 更多，最典型的是 <code>Text</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="n">bold</span><span class="p">()</span>
     <span class="p">.</span><span class="n">italic</span><span class="p">()</span>
     <span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">title</span><span class="p">)</span>
     <span class="p">.</span><span class="n">foregroundColor</span><span class="p">(.</span><span class="n">yellow</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>上面四个 modifier 的返回值均为 <code>Text</code>，因此可以使用如 <code>italic</code> 这类只能用于 <code>Text</code> 的 modifier。</p>
 <h3 id="modifier_2">自定义 modifier<a class="headerlink" href="#modifier_2" title="Permanent link">&para;</a></h3>
 <p>可以通过 <code>extension</code> 将一些样式组合成 modifier，方便重用：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3364,7 +3315,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">defaultContainerStyle</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
         <span class="kc">self</span><span class="p">.</span><span class="n">padding</span><span class="p">(.</span><span class="n">horizontal</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
             <span class="p">.</span><span class="n">padding</span><span class="p">(.</span><span class="n">vertical</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -3375,8 +3326,7 @@
     <span class="p">...</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">defaultContainerStyle</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，可以通过 <a href="https://developer.apple.com/documentation/swiftui/viewmodifier/"><code>ViewModifier</code></a> 协议定义作用更强的 modifier，可以拥有状态（见 <a href="../data-flow/">数据流基础</a>），在这里不再赘述。</p>
 
   <hr>
@@ -3400,10 +3350,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3412,7 +3363,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../hello-world/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Hello World" rel="prev">
@@ -3467,10 +3419,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

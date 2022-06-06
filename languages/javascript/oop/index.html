@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2366,7 +2367,7 @@
 <p>JavaScript 的面向对象的实现逻辑并非是类封装逻辑，而是原型链逻辑。最初的 JavaScript 并不支持类语法，但由于原型链实在太过于特立独行，目前 ES6 标准将类语法作为<strong>语法糖</strong>加入了语言标准。这也就是说，JavaScript 的面向对象的底层依然是原型链而非类封装，如果真的想弄明白 JavaScript 的原型链机制，可以查看文档末尾的原型链章节。但对于初学者，我们建议只是用类语法，除非遇到不可解决的 bug，否则不要花时间钻研原型链。</p>
 </div>
 <p>使用类语法的 JavaScript 很大程度上和 C++ 语言类似，这里我们编写一个简易的复数类作为演示，内部已经包含了构造函数、定义成员方法和静态方法等 OOP 基础内容：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2383,26 +2384,25 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Complex</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">_real</span><span class="p">,</span> <span class="nx">_imaginary</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">real</span> <span class="o">=</span> <span class="nx">_real</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">=</span> <span class="nx">_imaginary</span><span class="p">;</span> <span class="c1">// Declare members &amp; initialize</span>
-    <span class="p">}</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">_real</span><span class="p">,</span><span class="w"> </span><span class="nx">_imaginary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_real</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_imaginary</span><span class="p">;</span><span class="w"> </span><span class="c1">// Declare members &amp; initialize</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span> <span class="o">&gt;=</span> <span class="mf">0</span> <span class="o">?</span> <span class="s2">&quot;+&quot;</span> <span class="o">:</span> <span class="s2">&quot;-&quot;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="p">)</span><span class="si">}</span><span class="sb"> i`</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nx">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">real</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imaginary</span><span class="p">)</span><span class="si">}</span><span class="sb"> i`</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">static</span> <span class="nx">printInfo</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This is a complex class.&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">printInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This is a complex class.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">com</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Complex</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span>
-<span class="nx">com</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span> <span class="c1">// &quot;1 + 2 i&quot;</span>
-<span class="nx">Complex</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span> <span class="c1">// &quot;This is a complex class.&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Complex</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<span class="nx">com</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;1 + 2 i&quot;</span><span class="w"></span>
+<span class="nx">Complex</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;This is a complex class.&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>有一些细节需要注意：</p>
 <ul>
 <li>类方法内使用类成员的时候必须使用 <code>this</code> 调用</li>
@@ -2415,42 +2415,39 @@
 <p>另一方面，即使后来人针对 <code>this</code> 指向问题打了很多的补丁，这个问题依然萦绕在前端开发者心中。比如说 React 函数组件支持者的一个很重要的论点就是使用函数组件不会遇到 <code>this</code> 指向问题。</p>
 </div>
 <p>严格来说，JavaScript 的 <code>this</code> 指向规则只有一条，即 <strong><code>this</code> 永远指向最近的调用者</strong>。观察这样的代码（浏览器运行）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="p">};</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// { foo: foo }</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="nx">foo</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// { foo: foo }</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里两次调用的都是同一个 <code>foo</code> 函数，不同的是前者是全局调用（即直接调用），而后者是把函数作为一个对象 <code>obj</code> 的属性后通过 <code>obj</code> 调用。而 <code>this</code> 的指向就是在函数调用的时候确定的。全局调用 <code>foo</code> 函数，那 <code>this</code> 就指向全局对象，通过 <code>obj</code> 调用，那 <code>this</code> 就指向 <code>obj</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">全局对象</p>
 <p>事实上 JavaScript 的全局变量都是全局对象的属性，每一个 JavaScript 运行环境都有一个全局对象。比如说浏览器的全局对象往往是 <code>window</code>。你声明的每一个全局变量都会绑定为全局对象的属性（下述代码在浏览器运行）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// 1</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而在全局环境下调用函数 <code>foo()</code>，实际上等价于通过全局对象在调用：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">foo</span><span class="p">();</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">foo</span><span class="p">();</span><span class="w"></span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>上述两个语句没有差别。</p>
 </div>
 <p>对于更为复杂的对象嵌套，<code>this</code> 的指向也遵循着指向最近的调用者的规则：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2466,25 +2463,24 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-    <span class="nx">inner</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">foo</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
-        <span class="nx">fn</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-<span class="p">};</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">inner</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fn</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span> <span class="c1">// 2</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span><span class="w"> </span><span class="c1">// 2</span><span class="w"></span>
 
-<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span><span class="w"></span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span>
-<span class="nx">fn</span><span class="p">();</span> <span class="c1">// undefined</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">inner</span><span class="p">.</span><span class="nx">fn</span><span class="p">;</span><span class="w"></span>
+<span class="nx">fn</span><span class="p">();</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里的 <code>fn</code> 函数被三个对象分别调用，从上到下为 <code>obj.inner, obj, window</code>，可以看出这三次调用中的 <code>this</code> 就分别指向这三个对象。</p>
 <div class="admonition note">
 <p class="admonition-title">一些补充</p>
@@ -2492,7 +2488,7 @@
 </div>
 <p><code>this</code> 的缺陷就在于其指向是动态的，有些函数可能内部使用了 <code>this</code> 但开发者并不知晓，从而在不同情况下应用这个函数的时候会产生不可理解的错误。而现在的一些补丁就是允许开发者硬性指定 <code>this</code> 的指向或者永久绑定 <code>this</code> 的指向以防止未知错误。</p>
 <p>比如说 <code>call(), apply()</code> 方法就允许我们手动指定 <code>this</code> 的指向，其接受的第一个参数就会成为 <code>this</code> 的指向：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2503,22 +2499,21 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="p">};</span>
-<span class="kd">let</span> <span class="nx">another</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="p">};</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">another</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined</span>
-<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// 1</span>
-<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// 1</span>
-<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">// 2</span>
-<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">// 2</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而 <code>bind()</code> 方法则允许我们将 <code>this</code> 的指向永久绑定于某一个对象上。无论后续使用哪一个对象调用这个函数，其 <code>this</code> 都保持原先 <code>bind()</code> 设定的指向：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2529,62 +2524,58 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="p">};</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined</span>
-<span class="nx">foo</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">another</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="p">};</span>
-<span class="nx">another</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// 1</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">another</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="nx">foo</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nx">another</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>在这些补丁出现之前，为了硬性规定 <code>this</code> 的指向，程序员甚至会在函数中使用 <code>var that = this</code> 语句先捕获 <code>this</code>，之后使用 <code>that</code> 代替 <code>this</code> 来防止 bug。</p>
 <p>而现在更常用的一种解决方法是箭头函数，这种新特性值得专门开出一节来讲讲。</p>
 <h3 id="_1">箭头函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>这一个章节本应该在函数部分讲解，但是由于箭头函数的出现很大的原因是为了解决 <code>this</code> 问题，编者还是将其放到了 OOP 章节。</p>
 <p>箭头函数只是函数的另外一种写法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// 3</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>同时，对于一些函数体没有中间操作的函数，可以直接在箭头右侧写返回值：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// 3</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而在回调函数里面写箭头函数将会让代码更可读：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
-    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">val</span><span class="p">,</span> <span class="nx">ind</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">({</span>
-        <span class="p">...</span><span class="nx">val</span><span class="p">,</span>
-        <span class="nx">index</span><span class="o">:</span> <span class="nx">ind</span><span class="p">,</span>
-    <span class="p">}))</span>
-    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">subscriberNum</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">subscriberNum</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ind</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="nx">val</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">index</span><span class="o">:</span><span class="w"> </span><span class="nx">ind</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}))</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">val</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">subscriberNum</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">subscriberNum</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>唯一要注意的是，如果一个箭头函数直接返回一个对象，这个对象的花括号可能会和代码块的花括号混淆，所以如果直接返回一个对象，记得在对象的花括号外再套一层小括号防止出现 Syntax Error。</p>
 <p>箭头函数和 <code>function</code> 函数最大不同的地方是其 <code>this</code> 的指向跟随上下文的 <code>this</code>，也就是说其本身不具有 <code>this</code>，在箭头函数体里使用的 <code>this</code> 实际上是其上下文（一般是其所在的函数作用域）的 <code>this</code>。换句话说，<strong>箭头函数的 <code>this</code> 在定义的时候就完成了绑定</strong>，这样的性质就解决了 <code>this</code> 指向不明的问题。</p>
 <p>考虑这样的代码：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2595,23 +2586,22 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
 
-<span class="c1">// Changing caller will not change &#39;this&#39;</span>
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="p">};</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
+<span class="c1">// Changing caller will not change &#39;this&#39;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="nx">foo</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
 
-<span class="c1">// &#39;call&#39; &amp; &#39;bind&#39; may fail</span>
-<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// window</span>
-<span class="nx">foo</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// window</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// &#39;call&#39; &amp; &#39;bind&#39; may fail</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
+<span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">foo</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>可以看出，在全局环境下设定的箭头函数的 <code>this</code> 永远跟随全局环境指向全局对象。</p>
 <p>但另外一方面：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2622,20 +2612,19 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-        <span class="k">return</span> <span class="nx">foo</span><span class="p">;</span>
-    <span class="p">},</span>
-<span class="p">};</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">foo</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">();</span>
-<span class="nx">foo</span><span class="p">();</span> <span class="c1">// obj</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">();</span><span class="w"></span>
+<span class="nx">foo</span><span class="p">();</span><span class="w"> </span><span class="c1">// obj</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span>
-<span class="nx">bar</span><span class="p">()();</span> <span class="c1">// window</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><span class="w"></span>
+<span class="nx">bar</span><span class="p">()();</span><span class="w"> </span><span class="c1">// window</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里前面获取 <code>foo</code> 的时候是使用的 <code>obj</code> 调用的普通函数 <code>bar</code>，所以 <code>bar</code> 的 <code>this</code> 指向 <code>obj</code>，跟随着的 <code>foo</code> 的 <code>this</code> 就指向 <code>obj</code>。而后面获取的时候 <code>bar</code> 是被全局对象调用的，其 <code>this</code> 就被自然绑定到了全局对象上，所以内部箭头函数的 <code>this</code> 也就绑定到了全局对象上。</p>
 <div class="admonition note">
 <p class="admonition-title">我该如何使用 <code>this</code></p>
@@ -2663,10 +2652,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2675,7 +2665,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../function/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript 的函数" rel="prev">
@@ -2730,10 +2721,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

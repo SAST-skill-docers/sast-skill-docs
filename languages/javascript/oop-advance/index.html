@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2479,82 +2480,77 @@
 <p>这里，让我们首先铭记这样的一句话：</p>
 <p><center>函数是 JavaScript 的一等公民，对象由函数创建。</center></p>
 <p>或许我们常见的创建对象的方式是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-    <span class="nx">bar</span><span class="o">:</span> <span class="s2">&quot;foobar&quot;</span><span class="p">,</span>
-<span class="p">};</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">foo</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foobar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">];</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但这只是方便编程的语法糖，我们这里希望使用下述更为本质的创建方式：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Object</span><span class="p">();</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="s2">&quot;foobar&quot;</span><span class="p">;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Object</span><span class="p">();</span><span class="w"></span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;foobar&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Array</span><span class="p">();</span>
-<span class="nx">b</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span>
-<span class="nx">b</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">();</span><span class="w"></span>
+<span class="nx">b</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"></span>
+<span class="nx">b</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而这里 <code>Object</code> 和 <code>Array</code> 是两个函数，一定程度上可以理解为构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ow">typeof</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// function</span>
-<span class="ow">typeof</span> <span class="nb">Array</span><span class="p">;</span> <span class="c1">// function</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">typeof</span><span class="w"> </span><span class="nb">Object</span><span class="p">;</span><span class="w"> </span><span class="c1">// function</span><span class="w"></span>
+<span class="ow">typeof</span><span class="w"> </span><span class="nb">Array</span><span class="p">;</span><span class="w"> </span><span class="c1">// function</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="_1">原型和构造函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>我们说过对象都是函数构造的，所以我们就从构造函数出发讲解 JavaScript 的面向对象。</p>
 <p>构造函数的作用是构建一个新对象，比如说我们可以写一个根据传入参数构造具有一种特定形式的对象的函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">createStudent</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="p">{};</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createStudent</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="nx">createStudent</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createStudent</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个函数就可以接受一个学生的名字和年龄，构造出一个包含这两个信息的、描述这个学生的对象并返回。这类需求，即根据信息构造指定形式对象的需求是很常见的，所以 JavaScript 就提供了语法上的支持以将其与普通函数区分开。比如上述函数就可以写为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里使用 <code>new</code> 关键字调用构造函数，这种调用方式就区分了构造函数和普通函数。并且，构造函数内部不用我们再自己构造一个空对象，而是直接使用 <code>this</code> 对象，并且在使用 <code>new</code> 调用的时候，函数会自动将 <code>this</code> 返回。实际上，如果不用 <code>new</code> 关键字调用构造函数也是合法的，这样的话该函数将会作为普通函数执行并返回 <code>undefined</code>。</p>
 <div class="admonition caution">
 <p class="admonition-title">可能的语法缺陷</p>
 <p>如果我们不使用 <code>new</code> 关键字调用上述构造函数，根据先前的知识，这里 <code>this</code> 就会指向全局对象，从而语句 <code>this.name = _name</code> 将会构造出一个新的全局对象：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2562,67 +2558,63 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">stu</span><span class="p">;</span> <span class="c1">// undefined</span>
-<span class="nx">name</span><span class="p">;</span> <span class="c1">// Ashitemaru</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">stu</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+<span class="nx">name</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ashitemaru</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这是一种危险的行为，因为其可以污染全局作用域。</p>
 <p>目前大部分代码检查工具都会要求构造函数名称首字母大写以示区分，基于此，会强制检查构造函数是否使用 <code>new</code> 关键字调用。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">所有函数都可以是构造函数</p>
 <p>实际上一般函数也可以用 <code>new</code> 调用，其也会触发一次对象生成并返回生成的对象。而由于 <code>new</code> 关键字调用会让函数强行返回 <code>this</code> 对象从而覆盖掉原定义的返回值，但是由于一般函数内部一般不会设定 <code>this</code> 对象的属性，所以使用 <code>new</code> 关键字调用一般函数一般会得到一个空对象：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// 3</span>
-<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// {}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// {}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>现在我们回退一步，思考一下面向对象的意义。面向对象编程的一个重要的思维出发点是将具有类似抽象特征的事物归纳为一个<strong>类</strong>，根据一个定义好的类，可以创建这个类的对象，这个对象会满足类定义的所有要求。最初的 JavaScript 语言并没有类的概念，其践行面向对象思维的方式是采用<strong>原型</strong>。</p>
 <p>原型的含义就是作为原型的这个对象所衍生出来的各个对象都与之有联系，满足原型要求的约束。我们又说过所有的对象都是通过函数生成，不妨让所有函数都具有一个 <code>prototype</code> 属性指向一个原型对象 <code>obj</code>，用这个函数构造出来的所有对象都以 <code>obj</code> 为原型，满足其约束。</p>
 <p>比如说“学生都应当学习”，我们希望所有通过 <code>Student</code> 函数构造出来的对象都有 <code>study()</code> 方法。除去在构造函数中这样定义：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>我们还可以在 <code>Student</code> 的 <code>prototype</code> 属性下定义：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这样，通过 <code>Student</code> 函数构造出来的对象就都有了 <code>study()</code> 方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2631,40 +2623,36 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span> <span class="c1">// studying...</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span><span class="w"> </span><span class="c1">// studying...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>我们可以运行下述代码确定 <code>stu</code> 是以 <code>Student.prototype</code> 为原型构造出来的对象：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">stu</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">stu</span><span class="p">.</span><span class="nx">__proto__</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p><code>__proto__</code> 属性是所有对象都具有的，其指向这个对象的原型，也就是这个对象构造函数 <code>prototype</code> 所指向的对象。</p>
 <div class="admonition caution">
 <p class="admonition-title">废弃警告</p>
 <p><code>__proto__</code> 是即将废弃的属性，并且和 Python 类似，其名称使用双下划线包围实际上就代表了其理应私有，不能直接访问。</p>
 </div>
 <p>另外，这里介绍 <code>constructor</code> 属性。所有对象都具有这个属性，其指向这个对象的构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">stu</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">===</span> <span class="nx">Student</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">stu</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>并且由于原型也可以认为是通过构造函数构造，所以：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">===</span> <span class="nx">Student</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这样的三角关系可以总结为：</p>
 <p><img alt="" src="../../../static/languages/javascript/proto-triangle.png" /></p>
 <hr />
 <p>现在我们就可以介绍 ES6 的类语法糖到底是怎么一回事了：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2673,20 +2661,19 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Student</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="nx">study</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="nx">study</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>其实际上是下述代码（一种可能）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2696,54 +2683,49 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>可以看见，ES6 的类中定义的类方法就会被挂载到构造函数的 <code>prototype</code> 属性下。这里尤其注意闭包的使用，这样才能保证作用域正确。</p>
 <h3 id="_2">函数的原型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>上面我们都是使用的自定义构造函数讲解的原型，那么函数也是对象，他们都应该有原型。</p>
 <p>JavaScript 的函数的包装类为 <code>Function</code>，<code>Function</code> 是函数的构造函数，所以实际上声明函数还有一种写法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;return x + y&quot;</span><span class="p">);</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// 3</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;return x + y&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但显然不推荐这样写。</p>
 <p>按照一个对象的 <code>__proto__</code> 指向其构造函数 <code>prototype</code> 的原则，显然有：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">__proto__</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>而显然，所有构造函数也是函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">Object</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="nb">Function</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">Object</span><span class="p">.</span><span class="nx">__proto__</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="nb">Function</span><span class="p">.</span><span class="nx">__proto__</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里就会出现这样的环状引用，即 <code>Function.__proto__ === Function.prototype</code>。</p>
 <p>另外，<code>Function</code> 是所有函数的构造函数，所以显然有：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="nx">foo</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="nb">Function</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">foo</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Function</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="nb">Function</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">Function</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>现在我们可以将这些关系记录下来，这里我们将 <code>__proto__</code> 的指向使用红色箭头，这么做的原因后续讲解。同时，我们将一般对象、原型、构造函数的外框颜色作出区分，后续我们也将沿用这一配色：</p>
 <p><img alt="" src="../../../static/languages/javascript/function-proto.png" /></p>
 <h3 id="_3">原型的原型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -2756,7 +2738,7 @@
 <p>我们所说的<strong>原型链</strong>，就是由 <code>__proto__</code> 关系串联起的一条链，比如说 <code>stu --&gt; Student.prototype --&gt; Object.prototype --&gt; null</code> 就是一条完整的原型链。</p>
 <p>当我们访问某一个对象的属性的时候，JavaScript 引擎搜索该属性的顺序是，首先寻找该对象本身是否具有该属性，若没有则沿着原型链上升一级，在上升后的对象里继续寻找，若没有找到则继续上升，直到上升到 <code>null</code>。</p>
 <p>我们知道 <code>Object.prototype</code> 之中具有方法 <code>toString()</code>，所以只要某个对象的原型链上有 <code>Object.prototype</code>，则可以在这个对象上调用 <code>toString()</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2765,21 +2747,20 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// &#39;[object Object]&#39;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#39;[object Object]&#39;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <hr />
 <p>现在我们考虑怎么在原型链语法之下实现继承。继承的目标是给定一个基类以规定所有派生类需要满足的所有条件，派生类可以复用基类定义的类方法，也可以覆写基类方法实现多态。这里使用的例子中 <code>Student</code> 和 <code>Person</code> 类分别定义为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2800,45 +2781,43 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_school</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">school</span> <span class="o">=</span> <span class="nx">_school</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_school</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">school</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_school</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>我们要求 <code>Student</code> 作为基类 <code>Person</code> 的派生类。并且根据以上的叙述，JavaScript 的类和构造函数是近乎等价的概念。</p>
 <p>如果我们要求 <code>Student</code> 类对象能够使用 <code>Person</code> 之中定义的方法，考虑到 <code>Person</code> 之中定义的方法显然不会在 <code>Student</code> 类对象之中，所以<strong><code>Person</code> 类对象必然要位于 <code>Student</code> 类对象的原型链上</strong>。比如说 <code>per</code> 是 <code>Person</code> 类的对象，我们可以尝试这样构建原型链：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>// before
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>// before
 stu --&gt; Student.prototype --&gt; Object.prototype --&gt; null
 
 // after
 stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototype --&gt; null
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>那这样我们做这样的尝试：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2870,60 +2849,58 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">];</span> <span class="c1">// Only for display</span>
-    <span class="p">}</span>
-    <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// Only for display</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_school</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">school</span> <span class="o">=</span> <span class="nx">_school</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_school</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">school</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_school</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">let</span> <span class="nx">per</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">);</span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">per</span><span class="p">;</span> <span class="c1">// Reset prototype</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">per</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">per</span><span class="p">;</span><span class="w"> </span><span class="c1">// Reset prototype</span><span class="w"></span>
 
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span> <span class="c1">// walking...</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span> <span class="c1">// studying...</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// Ashitemaru Tsinghua 22</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span><span class="w"> </span><span class="c1">// walking...</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span><span class="w"> </span><span class="c1">// studying...</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ashitemaru Tsinghua 22</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个方法很直观且可理解，基类的方法也得到了复用。但是问题也很大，主要有二。</p>
 <p>首先我们注意到我们在创建基类对象赋予给派生类的 <code>prototype</code> 的时候是无法自定义传给基类构造函数的参数的，上述例子之中只能写死。</p>
 <p>另外，观察：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">stu1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">stu2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Peking&quot;</span><span class="p">);</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">stu1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Peking&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span> <span class="c1">// [1, 2]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1, 2]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>也就是说如果基类成员有数组等非基本类型的变量，则很有可能导致意外的修改。所有派生类的对象共享了该基类成员的引用，所以只要任意一个派生类对象修改了该基类成员，就会导致在其他派生类成员对象视角下的意外修改。</p>
 <h4 id="_6">借用构造继承<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>我们刚刚从原型链的角度思考了如何将基类的方法和成员让派生类成员访问到，最后我们选择的方式是修改原型链。但是我们可以直接将这些方法和成员直接挂载到派生类成员上，只需要调用基类构造函数并且强制指定此时的 <code>this</code> 指向的是派生类的对象而非基类对象。</p>
 <p>这个继承方法的实质就是借用了基类的构造函数为派生类构造方法和成员。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2957,68 +2934,64 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
 <span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">];</span> <span class="c1">// Only for display</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// Only for display</span><span class="w"></span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span>
-        <span class="p">}</span> <span class="c1">// Must define class methods inside the constructor</span>
-          <span class="c1">// instead of defining them in prototype</span>
-    <span class="p">}</span>
-    <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;running...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="c1">// Must define class methods inside the constructor</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// instead of defining them in prototype</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;running...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">,</span> <span class="nx">_school</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">school</span> <span class="o">=</span> <span class="nx">_school</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">,</span><span class="w"> </span><span class="nx">_school</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">school</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_school</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span> <span class="c1">// walking...</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span> <span class="c1">// studying...</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// Ashitemaru Tsinghua 22</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span><span class="w"> </span><span class="c1">// walking...</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span><span class="w"> </span><span class="c1">// studying...</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ashitemaru Tsinghua 22</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里一定要注意，基类的类方法不能挂载在 <code>prototype</code> 之下，因为在派生类构造函数中我们不会使用 <code>new</code> 关键字调用基类构造函数，其在原型下挂载的方法并不会挂载到 <code>this</code> 对象之下。这也是这个方法的缺陷：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">run</span><span class="p">;</span> <span class="c1">// undefined</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">run</span><span class="p">;</span><span class="w"> </span><span class="c1">// undefined</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个时候我们解决了不能给基类构造函数传参数的问题，并且多个派生类对象此时并不会共享数组的引用，所以不会发生意外修改：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">stu1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">stu2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;SmileLee&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Peking&quot;</span><span class="p">);</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">stu1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;SmileLee&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Peking&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span> <span class="c1">// [1]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但是这也意味着资源浪费，因为类方法的引用是可以共享而不用每个对象都保留副本的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span> <span class="o">===</span> <span class="nx">stu2</span><span class="p">.</span><span class="nx">walk</span><span class="p">;</span> <span class="c1">// false</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">stu2</span><span class="p">.</span><span class="nx">walk</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h4 id="_7">组合继承<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>显然我们介绍的两个方法是互补的，一边的缺陷可以由另一边解决，所以我们可以同时使用这两种方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3051,79 +3024,76 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">];</span> <span class="c1">// Only for display</span>
-    <span class="p">}</span> <span class="c1">// Keep unshareable variables in constructor</span>
-    <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="c1">// Keep shareable variables in prototype</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// Only for display</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// Keep unshareable variables in constructor</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// Keep shareable variables in prototype</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">,</span> <span class="nx">_school</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">school</span> <span class="o">=</span> <span class="nx">_school</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">,</span><span class="w"> </span><span class="nx">_school</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">school</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_school</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">let</span> <span class="nx">per</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Person</span><span class="p">();</span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">per</span><span class="p">;</span> <span class="c1">// Reset prototype</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">per</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Person</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">per</span><span class="p">;</span><span class="w"> </span><span class="c1">// Reset prototype</span><span class="w"></span>
 
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">stu</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span> <span class="c1">// walking...</span>
-<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span> <span class="c1">// studying...</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span> <span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// Ashitemaru Tsinghua 22</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span><span class="w"> </span><span class="c1">// walking...</span><span class="w"></span>
+<span class="nx">stu</span><span class="p">.</span><span class="nx">study</span><span class="p">();</span><span class="w"> </span><span class="c1">// studying...</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span><span class="w"> </span><span class="nx">stu</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ashitemaru Tsinghua 22</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里我们只需要将不能共享的成员或者方法写在基类构造函数中，这样这些方法就会因为构造函数借用被挂载到派生类对象本身上，从而不会共享。而需要共享的类方法则可以挂载在原型上，直接通过原型链实现共享。</p>
 <p>可以发现问题确实解决了：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">stu1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">stu2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;SmileLee&quot;</span><span class="p">,</span> <span class="mf">22</span><span class="p">,</span> <span class="s2">&quot;Peking&quot;</span><span class="p">);</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">stu1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;Ashitemaru&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Tsinghua&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">stu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="s2">&quot;SmileLee&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Peking&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span> <span class="c1">// [1]</span>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">val</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stu2</span><span class="p">.</span><span class="nx">val</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1]</span><span class="w"></span>
 
-<span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span> <span class="o">===</span> <span class="nx">stu2</span><span class="p">.</span><span class="nx">walk</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// false</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">stu2</span><span class="p">.</span><span class="nx">walk</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span><span class="w"></span>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h4 id="_8">寄生组合继承<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>上述继承的实现实际上还有一点点效率问题，即基类构造函数调用了两次。第一次是 <code>Person.call()</code>，第二次是 <code>new Person()</code>。可以注意到这两次调用分别做了不同的事情，分别是将非共享属性挂载到派生类对象上和修改派生类原型链以共享可共享属性。如果基类十分庞大，这可能会导致较大的效率问题。</p>
 <p>但实际上第二次调用可以省略。现在思考如何省略，由于这次调用的目的是修改原型链，所以不妨观察一下我们修改原型链的思路：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>// before
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>// before
 stu --&gt; Student.prototype --&gt; Object.prototype --&gt; null
 
 // after
 stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototype --&gt; null
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>事实上我们完全可以不用构造一个完整的 <code>Person</code> 对象 <code>per</code>，我们完全可以用一个空对象 <code>o</code> 来完成这个任务。即，我们将 <code>Student.prototype</code> 指向一个空对象 <code>o</code>，再想办法让 <code>o</code> 的 <code>__proto__</code> 指向 <code>Person.prototype</code> 即可。</p>
 <p>这样，我们用多设定一次原型链指向（由于 <code>per</code> 的 <code>__proto__</code> 默认指向 <code>Person.prototype</code> 而空对象则不是）替换掉了多调用一次基类构造函数，这样是完全值得的。</p>
 <p>代码可以是：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3153,39 +3123,38 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_age</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">];</span> <span class="c1">// Only for display</span>
-    <span class="p">}</span>
-    <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// Only for display</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;walking...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
-<span class="p">}());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
 
-<span class="kd">let</span> <span class="nx">Student</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">,</span> <span class="nx">_school</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_name</span><span class="p">,</span> <span class="nx">_age</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">school</span> <span class="o">=</span> <span class="nx">_school</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/** @class */</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">Student</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">,</span><span class="w"> </span><span class="nx">_school</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">_name</span><span class="p">,</span><span class="w"> </span><span class="nx">_age</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">school</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_school</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-<span class="hll">    <span class="kd">function</span> <span class="nx">F</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-</span><span class="hll">    <span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
-</span><span class="hll">    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">F</span><span class="p">();</span>
-</span><span class="hll">    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">=</span> <span class="nx">Student</span><span class="p">;</span>
+<span class="hll"><span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">F</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">F</span><span class="p">();</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
 </span>
-    <span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nx">Student</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">study</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;studying...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nx">Student</span><span class="p">;</span>
-<span class="p">}());</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">Student</span><span class="p">;</span><span class="w"></span>
+<span class="p">}());</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里的核心就是代码的高亮部分，其中最核心的就是注意要修复原型的构造函数，因为修复前原型的构造函数将会是 <code>F</code>。</p>
 <p>由于这种继承的实现方式已经较为高效且容易理解，所以目前 ES6 的 <code>extends</code> 也是基于此而来。</p>
 
@@ -3210,10 +3179,11 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3222,7 +3192,8 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../async/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JavaScript 的异步" rel="prev">
@@ -3277,10 +3248,10 @@ stu --&gt; Student.prototype(per) --&gt; Person.prototype --&gt; Object.prototyp
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

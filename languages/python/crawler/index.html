@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2434,9 +2435,8 @@
 <p><strong>关于 fake_useragent</strong></p>
 <p>这个库似乎会尝试自动获取某些在线资源，但是好像需要代理，如果不能征程运行，请下载 <a href="https://cloud.tsinghua.edu.cn/f/289c2fd88d39469e8395/">fake_useragent.json</a> 放在一个你能找到的地方，最好放在我们要使用的项目文件的目录下</p>
 <p>在使用时应当添加参数指定资源地址如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ua</span> <span class="o">=</span> <span class="n">UserAgent</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;./fake_useragent.json&#39;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ua</span> <span class="o">=</span> <span class="n">UserAgent</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;./fake_useragent.json&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="_3">网络请求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><strong>终极哲学三大问（服务器视角下的网络请求）</strong></p>
 <p>爬虫为了（自动化地、常常还需要是高速地）获取服务器资源，首先应当了解向服务器发送请求时发生了什么。通常来说一次网络请求的主要内容包括：</p>
@@ -2477,7 +2477,7 @@
 <ul>
 <li>百度</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2499,7 +2499,7 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>User-agent: Baiduspider
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>User-agent: Baiduspider
 Disallow: /baidu
 Disallow: /s?
 Disallow: /ulink?
@@ -2522,40 +2522,37 @@ Disallow: /bh
 
 User-agent: *
 Disallow: /
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>解读：除了我钦点的爬虫之外，其他拒不接待。</p>
 <ul>
 <li>淘宝 / 天猫</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>User-agent: *
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>User-agent: *
 Disallow: /
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>解读：莫挨老子。</p>
 <ul>
 <li>虎扑</li>
 </ul>
 <p>注意这里就出现了我们之前提到过的问题，<a href="https://www.hupu.com/robots.txt">https://www.hupu.com/robots.txt</a> 如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>User-agent: *
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>User-agent: *
 Allow: /
 
 Sitemap: https://bbs.hupu.com/sitemap_index.xml
 Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 Sitemap: https://voice.hupu.com/sitemap_index.xml
 Sitemap: https://nba.hupu.com/players/index.xml
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>解读：任何人都可以任意爬，还提供了站点地图供参考。</p>
 <p>但是 <a href="https://bbs.hupu.com/robots.txt">https://bbs.hupu.com/robots.txt</a> 则是这样的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2567,7 +2564,7 @@ Sitemap: https://nba.hupu.com/players/index.xml
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>User-agent: *
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>User-agent: *
 Request-rate: 50/1
 Disallow: /api/
 Disallow: /ajax/
@@ -2580,8 +2577,7 @@ Disallow: /*_*.html$
 
 Sitemap: https://bbs.hupu.com/sitemap_index.xml
 Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>解读：法无禁止皆可为，但是速度不超过 50 次每秒（注意不同的爬虫其实对于一次爬取的理解是不同的，但是这是君子协议，所以对于我们自己写的爬虫也没有必要那么纠结，如果要仔细考虑的话，可以研究一下不同搜索引擎的爬虫对于这一问题的理解，可以参考 <a href="https://www.zhihu.com/robots.txt">知乎的 robots.txt</a> 以及 <a href="https://www.zhihu.com/question/264161961">相关提问</a>）。</p>
 <p>虽然虎扑社区比主站多了一些限制，但是我们看到这仍然是限制最少的（虽然限制 <code>*_*.html$</code> 但是新闻页并不是这样，而且 50 次每秒其实也不少），加上 <del>众所周知的原因</del> 虎扑前两天很出圈（至少在我写文档的时候是这样），所以我们将主要爬取虎扑的体育新闻作为演示。</p>
 <p><strong>如何爬</strong></p>
@@ -2605,41 +2601,37 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <ul>
 <li>引入必要的库</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">get</span><span class="p">,</span> <span class="n">post</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">get</span><span class="p">,</span> <span class="n">post</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">from</span> <span class="nn">fake_useragent</span> <span class="kn">import</span> <span class="n">UserAgent</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urljoin</span>
 <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dump</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># 如果网站要求以很低的频率爬，那么大概率会需要 sleep</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>Cookie?</li>
 </ul>
 <p>如果你点开了前面那个链接（而且你最近没有看过虎扑的话），你大概率会发现报了个错，不要怀疑，我没有写错 URL，造成这样问题的原因大概是虎扑在切换新旧版面，直接点进去会莫名被转入旧版的页面，而旧版页面的 URL 大概不是这样写的。</p>
 <p>那么这就要提到之前的一个问题，也就是“你是谁”的问题，虎扑会根据 Cookie 来判断你是否已经进入了新版页面，而这个 Cookie 显然是在首页被设置的，因此直接访问这一板块是行不通的。</p>
 <p>从浏览器中获取 Cookie 信息如下（因为内容太长所以我们直接保存在 Python 变量中）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Cookie</span> <span class="o">=</span> <span class="s1">&#39;smidV2=20210720104859f6c99288e1bccb891e9ca9ce9d7bb6fe0055f24f4e677eec0; csrfToken=iGeSrk669wqQBcY5fKk2Diue; sensorsdata2015jssdkcross=%7B</span><span class="si">%22d</span><span class="s1">istinct_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24device_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C%22props</span><span class="si">%22%</span><span class="s1">3A%7B</span><span class="si">%22%</span><span class="s1">24latest_referrer</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">22%2C</span><span class="si">%22%</span><span class="s1">24latest_traffic_source_type</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6%B5</span><span class="si">%81%</span><span class="s1">E9</span><span class="si">%87%</span><span class="s1">8F</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24latest_search_keyword</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E6%9C%AA</span><span class="si">%E</span><span class="s1">5</span><span class="si">%8F%96%</span><span class="s1">E5</span><span class="si">%88%</span><span class="s1">B0</span><span class="si">%E</span><span class="s1">5</span><span class="si">%80%</span><span class="s1">BC_</span><span class="si">%E</span><span class="s1">7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6</span><span class="si">%89%</span><span class="s1">93</span><span class="si">%E</span><span class="s1">5%BC</span><span class="si">%80%</span><span class="s1">22%7D%7D; acw_tc=2f624a6816268527794733860e071fa5c73b1f702b456ad494e04ecfb5dc53; bbs_2020=1&#39;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Cookie</span> <span class="o">=</span> <span class="s1">&#39;smidV2=20210720104859f6c99288e1bccb891e9ca9ce9d7bb6fe0055f24f4e677eec0; csrfToken=iGeSrk669wqQBcY5fKk2Diue; sensorsdata2015jssdkcross=%7B</span><span class="si">%22d</span><span class="s1">istinct_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24device_id</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%2217a</span><span class="s1">c1d102691c24-05465c49cc1a3d8-3e62684b-1296000-17ac1d1026a2685</span><span class="si">%22%</span><span class="s1">2C%22props</span><span class="si">%22%</span><span class="s1">3A%7B</span><span class="si">%22%</span><span class="s1">24latest_referrer</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">22%2C</span><span class="si">%22%</span><span class="s1">24latest_traffic_source_type</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6%B5</span><span class="si">%81%</span><span class="s1">E9</span><span class="si">%87%</span><span class="s1">8F</span><span class="si">%22%</span><span class="s1">2C</span><span class="si">%22%</span><span class="s1">24latest_search_keyword</span><span class="si">%22%</span><span class="s1">3A</span><span class="si">%22%</span><span class="s1">E6%9C%AA</span><span class="si">%E</span><span class="s1">5</span><span class="si">%8F%96%</span><span class="s1">E5</span><span class="si">%88%</span><span class="s1">B0</span><span class="si">%E</span><span class="s1">5</span><span class="si">%80%</span><span class="s1">BC_</span><span class="si">%E</span><span class="s1">7%9B%B4</span><span class="si">%E</span><span class="s1">6</span><span class="si">%8E</span><span class="s1">%A5</span><span class="si">%E</span><span class="s1">6</span><span class="si">%89%</span><span class="s1">93</span><span class="si">%E</span><span class="s1">5%BC</span><span class="si">%80%</span><span class="s1">22%7D%7D; acw_tc=2f624a6816268527794733860e071fa5c73b1f702b456ad494e04ecfb5dc53; bbs_2020=1&#39;</span>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>获取并解析新闻列表页</li>
 </ul>
 <p>我们注意到，虎扑的新闻列表页 URL 大致可以表示为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>https://bbs.hupu.com/502-{PAGE}
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://bbs.hupu.com/502-{PAGE}
+</code></pre></div></td></tr></table></div>
 <p>注意到其中每一项的格式大致如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/44314069.html&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-title&quot;</span><span class="p">&gt;</span>[流言板]字母哥：要相信！我曾经上顿不接下顿，如今我是冠军<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/44314069.html&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-title&quot;</span><span class="p">&gt;</span>[流言板]字母哥：要相信！我曾经上顿不接下顿，如今我是冠军<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>那么假如我们获取前 10 页的新闻详情链接：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2648,7 +2640,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://bbs.hupu.com/&#39;</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://bbs.hupu.com/&#39;</span>
 <span class="n">news_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
@@ -2658,13 +2650,12 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">news</span><span class="p">:</span>
         <span class="n">news_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span> <span class="c1"># 按照 robots.txt 要求休息 1/50 秒</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>获取并解析新闻详情</li>
 </ul>
 <p>更好的做法是这里写一个类，但是一个自定义类写入文件又涉及到许多问题，所以我们简单的用字典表示，类似的，我们获取并解析网页：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2676,7 +2667,7 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">news_content</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">news_content</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">news_url</span> <span class="ow">in</span> <span class="n">news_list</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">news_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Cookie&#39;</span><span class="p">:</span> <span class="n">Cookie</span><span class="p">})</span>
@@ -2689,32 +2680,28 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
         <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">content</span>
     <span class="p">})</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>接下来我们将获取的内容保存为 JSON：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dump</span><span class="p">(</span><span class="n">news_content</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./hupu.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">),</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dump</span><span class="p">(</span><span class="n">news_content</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./hupu.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">),</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>关于反爬</strong></p>
 <p>接下来我们演示一个糟糕的反爬示例，<a href="http://wjw.beijing.gov.cn/">北京卫健委</a> 网站。</p>
 <p>如果我们直接执行：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://wjw.beijing.gov.cn/&#39;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://wjw.beijing.gov.cn/&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>我们会发现 <code>response.text</code> 很不对劲，而且其中比较明显能看到的是（当然我经过了格式化）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;notice-jiasule&#39;</span><span class="p">&gt;</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;notice-jiasule&#39;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>当前网址：<span class="err">&lt;</span>%- url %&gt;<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>客户端特征：<span class="err">&lt;</span>%- user_agent %&gt;<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>拦截时间：<span class="err">&lt;</span>%- now %&gt;<span class="ni">&amp;nbsp;&amp;nbsp;</span>本次事件ID<span class="ni">&amp;nbsp;</span><span class="err">&lt;</span>%- rule_id %&gt;<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>还有下面的：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2723,45 +2710,41 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content_tpl&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">)({</span>
-    <span class="nx">error_403</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;当前访问疑似黑客攻击，已被网站管理员设置为拦截&#39;</span><span class="p">,</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\&lt;/g</span><span class="p">,</span><span class="s2">&quot;%3C&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\&gt;/g</span><span class="p">,</span><span class="s2">&quot;%3E&quot;</span><span class="p">),</span>
-    <span class="nx">user_agent</span><span class="o">:</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">,</span>
-    <span class="nx">now</span><span class="o">:</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="ow">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="o">-</span> <span class="o">-</span><span class="mf">8</span> <span class="o">*</span> <span class="mf">3600000</span><span class="p">).</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">19</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">),</span>
-    <span class="nx">rule_id</span><span class="o">:</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;[80001]&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[|\]/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="kr">from</span><span class="o">:</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1024</span><span class="p">)),</span>
-    <span class="nx">client_ip</span><span class="o">:</span> <span class="s1">&#39;59.66.16.88&#39;</span><span class="p">,</span>
-    <span class="nx">ref</span><span class="o">:</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1024</span><span class="p">))</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content_tpl&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">)({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">error_403</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;当前访问疑似黑客攻击，已被网站管理员设置为拦截&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\&lt;/g</span><span class="p">,</span><span class="s2">&quot;%3C&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\&gt;/g</span><span class="p">,</span><span class="s2">&quot;%3E&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">user_agent</span><span class="o">:</span><span class="w"> </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">now</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">-</span><span class="mf">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3600000</span><span class="p">).</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">19</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">rule_id</span><span class="o">:</span><span class="w"> </span><span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;[80001]&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[|\]/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1024</span><span class="p">)),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">client_ip</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;59.66.16.88&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ref</span><span class="o">:</span><span class="w"> </span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1024</span><span class="p">))</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>不难发现这个网站所托管的“创宇云防御”屏蔽了我们的访问，而引起这一问题的原因，我们可以查看：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
 <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;python-requests/2.25.1&#39;</span><span class="p">,</span> <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span> <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;*/*&#39;</span><span class="p">,</span> <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>其中显然有一条 <code>'User-Agent': 'python-requests/2.25.1'</code>，不打自招的爬虫行为，被屏蔽也并不奇怪（题外话，这个网站并没有设置 <code>robots.txt</code>，因此双方都很难说谁对谁错）。好在现在这个网站不像去年一样会封 IP 地址，所以我们可以先演示错误示例。</p>
 <p>我们当然可以模仿前面的做法，从浏览器中抄一个 User-Agent 过来，但是如果我们快速爬很多东西，最好还是每次换一个新的 User-Agent 减少被当作同一个用户的概率，因此我们使用如下方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ua</span> <span class="o">=</span> <span class="n">UserAgent</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;./fake_useragent.json&#39;</span><span class="p">)</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ua</span> <span class="o">=</span> <span class="n">UserAgent</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;./fake_useragent.json&#39;</span><span class="p">)</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://wjw.beijing.gov.cn/&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">ua</span><span class="o">.</span><span class="n">random</span><span class="p">})</span>
 <span class="c1"># 没错，ua.random 虽然是成员变量，但是每次使用的时候会改变自己，而不是用户调用一个类似于 ua.random() 的函数才会改变</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>除此之外可能还会需要使用代理 IP，如何获取代理地址请自学，使用方法如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">proxies</span> <span class="o">=</span> <span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">proxies</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="s2">&quot;http://10.10.1.10:3128&quot;</span><span class="p">,</span>
     <span class="s2">&quot;https&quot;</span><span class="p">:</span> <span class="s2">&quot;http://10.10.1.10:1080&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://example.org&quot;</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用这两种方法可以避免很多反爬的系统（当然如果检查 Cookie 大概会很糟糕，可能需要使用 Session 来解决，像上述直接设置 Cookie 实际上并不很通用，在此不做很具体的说明），但是还有更多的情况可能真实的数据并不能轻易获取，这个时候就要善用浏览器的开发者工具审查所有的网络请求。</p>
 <h3 id="_6">资源链接<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2789,10 +2772,11 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2801,7 +2785,8 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../pip/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Python 包管理" rel="prev">
@@ -2856,10 +2841,10 @@ Sitemap: https://bbs.hupu.com/sitemap/sitemap_boards.xml
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

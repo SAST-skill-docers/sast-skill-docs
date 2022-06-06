@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2371,89 +2372,81 @@
 <p>React 的一个核心概念就是<strong>组件</strong>。</p>
 <p>组件更像是将 UI 拆分得到的独立可复用的小块，其能够接受属性的传入，并且返回出描述屏幕上的展示内容的 React 元素。</p>
 <p>我们将会从类组件入手介绍 React 组件的编写方式。一个经典的类组件的结构如下（即下发框架之中的 <code>App.tsx</code> 文件内容）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">App</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="nx">Hello</span><span class="p">,</span> <span class="nx">React</span><span class="o">!</span> <span class="o">&lt;</span><span class="err">/p&gt;;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Hello</span><span class="p">,</span><span class="w"> </span><span class="nx">React</span><span class="o">!</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/p&gt;;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>每一个类组件都是 <code>React.Component</code> 类的子类，其中我们需要重载 <code>render</code> 函数以定义这个组件在屏幕上的展示方式（用户界面）。<code>render</code> 函数的返回值为使用标签语法编写的 <code>ReactElement</code>。比如说上述 <code>App</code> 组件就返回了一句问候语，这就代表 <code>App</code> 组件在实例化的时候会渲染出这一句问候语。</p>
 <div class="admonition note">
 <p class="admonition-title">JSX 语法拓展</p>
 <p>React 对 JavaScript 语言作了一定的语法拓展，拓展后的 JavaScript 称为 JSX。JSX 和原生 JavaScript 的最大差别就是引入了标签语法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="err">/p&gt;;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="w"> </span><span class="nx">world</span><span class="o">!&lt;</span><span class="err">/p&gt;;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这类类似于 HTML 标签的语法定义了一个对象，其等价于以下表达：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
-    <span class="s2">&quot;p&quot;</span><span class="p">,</span>
-    <span class="kc">undefined</span><span class="p">,</span>
-    <span class="s2">&quot;Hello world!&quot;</span>
-<span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;p&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kc">undefined</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;Hello world!&quot;</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>JSX 的标签对象中允许嵌入 JavaScript 表达式，其会运算出其值后转为字符串嵌入：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Adam&quot;</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/p&gt;;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Adam&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/p&gt;;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>转化为字符串的目的是防止 XSS 攻击。</p>
 <p>此外，JSX 的标签语法和 HTML 类似，允许定义各种属性，这些特性以后会讲到。</p>
 <p>另外，本文档基于 TypeScript 的标签化拓展 TSX 语言，其标签语法基本和 JSX 一致。</p>
 </div>
 <p>实例化一个组件也是简单的，类似 HTML 语法。比如下面都是合法的实例化 <code>App</code> 组件的语句：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">;</span>
-<span class="o">&lt;</span><span class="nx">App</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&quot;SAST-React&quot;</span> <span class="o">/&gt;</span><span class="p">;</span> <span class="c1">// &#39;props&#39; will be introduced later</span>
-<span class="o">&lt;</span><span class="nx">App</span><span class="o">&gt;&lt;</span><span class="nx">div</span> <span class="o">/&gt;&lt;</span><span class="err">/App&gt;;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="nx">title</span><span class="o">=</span><span class="s2">&quot;SAST-React&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &#39;props&#39; will be introduced later</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">App</span><span class="o">&gt;&lt;</span><span class="nx">div</span><span class="w"> </span><span class="o">/&gt;&lt;</span><span class="err">/App&gt;;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title"><code>index.tsx</code> 文件的作用</p>
 <p>我们下发的框架的 <code>src</code> 目录下仅仅有 <code>App.tsx</code> 和 <code>index.tsx</code> 两个文件。其中我们已经介绍了 <code>App.tsx</code> 文件的作用，其定义了一个类组件，并且规定了这个组建的显示方式。</p>
 <p>而 <code>index.tsx</code> 文件的作用就是将定义好的类组件渲染到 DOM 树上。我们观察其文件内容：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">HTMLElement</span>
-<span class="p">);</span>
-<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">HTMLElement</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>第一个语句的含义为在 DOM 树上寻找 ID 为 <code>root</code> 的元素，并将其设定为 React 应用的根元素。而如果打开 React 应用 <code>public</code> 文件夹下的 <code>index.html</code> 文件，我们就可以找到这个根元素（其一般位于第 31 行左右）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;root&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;root&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <p>而第二个语句就是将 <code>&lt;App /&gt;</code> 这个组件渲染到获取到的根元素上。</p>
 <p>所以 <code>index.tsx</code> 的作用就是搭建起传统 HTML 和 React TSX 之间的桥梁，让我们可以自由地使用 TSX 语法编写组件，而将这些组件转换到 HTML 的任务则交给了 React 框架。</p>
 </div>
 <h2 id="_2">编写第一个自定义组件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>我们说过组件是独立可复用的，也就是说我们可以编写自己的组件并使用。比如说我们可以使用类组件写一个渲染一个红色正方形的组件 <code>Square</code>（直接在 <code>App.tsx</code> 文件内插入下述代码即可）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Square</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="nx">width</span>: <span class="kt">100</span><span class="p">,</span> <span class="nx">height</span>: <span class="kt">100</span><span class="p">,</span> <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}}</span> <span class="o">/&gt;</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Square</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">100</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">100</span><span class="p">,</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">}}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个时候我们就可以在 <code>App</code> 组件的 <code>render</code> 函数里面使用这个组件了：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2461,28 +2454,26 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;App&#39;</span>
-<span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">square</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
-            <span class="o">&lt;</span><span class="nx">Square</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/div&gt;</span>
-    <span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;App&#39;</span><span class="w"></span>
+<span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">This</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">square</span><span class="o">!&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Square</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>编译之后就能看到屏幕上的一个红色正方形。</p>
 <h2 id="props">自定义组件的状态（传入 <code>props</code>）<a class="headerlink" href="#props" title="Permanent link">&para;</a></h2>
 <p>刚刚编写 <code>Square</code> 的时候应该注意到了，正方形的尺寸和颜色都是写死的，实际上我们可以通过传入属性的方式完成对组件形态的控制，正如 HTML 标签的属性。</p>
 <p>我们在实例化 <code>Square</code> 的时候可以如下面代码一样传入若干的属性：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Part of &#39;render&#39; function in Component &#39;App&#39;</span>
-<span class="o">&lt;</span><span class="nx">Square</span> <span class="nx">size</span><span class="o">=</span><span class="p">{</span><span class="mf">100</span><span class="p">}</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span> <span class="o">/&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Part of &#39;render&#39; function in Component &#39;App&#39;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">Square</span><span class="w"> </span><span class="nx">size</span><span class="o">=</span><span class="p">{</span><span class="mf">100</span><span class="p">}</span><span class="w"> </span><span class="nx">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>那么这些属性我们怎么在组件内部捕获呢？答案是通过 <code>this.props</code> 变量：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2491,69 +2482,64 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span>
-<span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
-        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
-            <span class="nx">width</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">height</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">backgroundColor</span>: <span class="kt">this.props.color</span>
-        <span class="p">}}</span>
-    <span class="o">/&gt;</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span><span class="w"></span>
+<span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"></span>
+<span class="w">        </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.color</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w"></span>
+<span class="w">    </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>但你会发现报错，基本的意思就是 <code>props</code> 上没有成员 <code>size, color</code>。这实际上就是 TypeScript 的要求，你需要为组件指定这个组件需要哪些属性，哪些属性是可选的等等，这样可以有效避免出现难以探查的 <code>undefined</code> 的问题。</p>
 <p>指定的方式是 <code>interface</code>，你需要在这个接口之中定义这个组件接受的所有属性。比如说 <code>Square</code> 只需要接受尺寸和颜色：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
-    <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">SquareProps</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里也可以指定部分属性是可选的，这样的话实例化组件就没必要传入这一部分属性，并且通过 <code>this.props</code> 访问这些属性会得到 <code>undefined</code> 。但是这样的行为显然更为可控。</p>
 <p>我们在 <a href="/languages/typescript">TypeScript 文档</a> 中提到过接口的属性除了可以规定为可选属性，还可以规定为只读属性。实际上 React 严格要求属性是不可更改的，这种要求类似于纯函数，纯函数的参数传入之后不可修改，至少不会影响到原变量。</p>
 <p>所以如果严格要求的话，接口定义应该写为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareProps</span> <span class="p">{</span>
-    <span class="k">readonly</span> <span class="nx">size</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">SquareProps</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">readonly</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">readonly</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>如果不写的话可能会在部分较为严格的条件下编译失败。</p>
 <p>之后将其挂载到组件的定义上，挂载的语法类似于 C++ 的模板语法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Square</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="o">&gt;</span> <span class="p">{</span> <span class="c1">// Register &#39;props&#39; here</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Square</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Register &#39;props&#39; here</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这样你就基本了解了如何给组件传入属性。不过现在你应该已经注意到了属性是从父组件向子组件传递的，这也是后续会提到的<strong>瀑布数据流</strong>，也就是说这些控制组件形态的属性数据的流向永远是向下的。</p>
 <h2 id="ui-state">实现动态的 UI（添加组件的 <code>state</code>）<a class="headerlink" href="#ui-state" title="Permanent link">&para;</a></h2>
 <p>我们已经提到了使用 <code>props</code> 来自定义组件的形态，但根据 <code>props</code> 的不可变性就可以知道只使用 <code>props</code> 控制的组件等价于纯函数，也就是说其渲染的 UI 是完全静态的，只是单纯地简化了一些代码写法而已。</p>
 <p>为了实现动态的效果，比如最简单的点击变色，就需要让组件具有一定的记忆功能，让组件管理自己的状态，这就是 <code>state</code>。</p>
 <p>就和类成员一样，组件的 <code>state</code> 是每一个实例化的对象所管理的一些变量，这些变量可能需要通过父组件初始化，但是这之后这些 <code>state</code> 就完全受控于管理它们的组件本身。</p>
 <p>比如说我们想让正方形的颜色不受控于父组件 <code>App</code>，那么我们可以设立 <code>state</code> 来管理。给组件创建状态的方式是简单的，我们需要编写一个自定义的构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span>
-<span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">SquareProps</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span> <span class="c1">// Never forget this when writing constructor!</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span> <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span><span class="w"></span>
+<span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">SquareProps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span><span class="w"> </span><span class="c1">// Never forget this when writing constructor!</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>之后在渲染函数之中就可以将合适的 <code>this.props</code> 替换为 <code>this.state</code>，这就意味着一部分渲染结果由组件本身状态接管，不受控于父组件传入的属性。比如说这里，正方形尺寸本身还是受控于父组件，但是颜色由自身控制：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2562,24 +2548,22 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span>
-<span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
-        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
-            <span class="nx">width</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">height</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">backgroundColor</span>: <span class="kt">this.state.color</span>
-        <span class="p">}}</span>
-    <span class="o">/&gt;</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span><span class="w"></span>
+<span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"></span>
+<span class="w">        </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="kt">this.state.color</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w"></span>
+<span class="w">    </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>变更当前组件的状态使用的函数为 <code>this.setState</code>，这个函数由 <code>React.Component</code> 实现，可以直接继承使用。</p>
 <p><strong>一定注意，不要使用 <code>this.state = ...</code> 这样的赋值句改变状态，因为 <code>this.setState</code> 内部除了修改状态还包括触发再次渲染等等过程，具体流程见下面的讲解。</strong></p>
 <p>修改状态的方式为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span> <span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这个语句就会把状态之中的 <code>color</code> 属性修改为 <code>blue</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">修改组件状态的时候 React 在做什么</p>
@@ -2589,7 +2573,7 @@
 <p>这也就说明了，我们不能直接使用 <code>this.state = ...</code> 这类赋值语句直接修改状态，否则可能导致组件数据和显示方式不一致。</p>
 </div>
 <p>为了让用户可以调用到这个函数，我们可以将这个函数绑定成点击正方形时的回调，这样用户点击正方形的时候就可以触发这个函数，修改正方形颜色：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2599,35 +2583,33 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span>
-<span class="nx">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">ReactElement</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span>
-        <span class="nx">style</span><span class="o">=</span><span class="p">{{</span>
-            <span class="nx">width</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">height</span>: <span class="kt">this.props.size</span><span class="p">,</span>
-            <span class="nx">backgroundColor</span>: <span class="kt">this.state.color</span>
-        <span class="p">}}</span>
-        <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span> <span class="p">})}</span>
-    <span class="o">/&gt;</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span><span class="w"></span>
+<span class="nx">render</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"></span>
+<span class="w">        </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">this.props.size</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="kt">this.state.color</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="w"> </span><span class="p">})}</span><span class="w"></span>
+<span class="w">    </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>现在我们希望让用户点击正方形的时候，正方形颜色在红色和蓝色之间相互切换。那么我们可以首先编写一个切换颜色的函数，内部调用 <code>this.setState()</code> 方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span>
-<span class="nx">switchColor</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">((</span><span class="nx">prev</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">({</span>
-        <span class="p">...</span><span class="nx">prev</span><span class="p">,</span>
-        <span class="nx">color</span>: <span class="kt">prev.color</span> <span class="o">===</span> <span class="s2">&quot;red&quot;</span> <span class="o">?</span> <span class="s2">&quot;blue&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
-    <span class="p">}));</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Component &#39;Square&#39;</span><span class="w"></span>
+<span class="nx">switchColor</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">((</span><span class="nx">prev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="nx">prev</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">prev.color</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>这里注意，我们在 <code>this.setState</code> 函数中传入了一个回调函数，原因见下述解释。</p>
 <div class="admonition note">
 <p class="admonition-title">状态的时间依赖性</p>
@@ -2638,34 +2620,32 @@
 </ul>
 <p>不过这两个问题，React 框架都做出了回答。</p>
 <p>第一个问题有两个解决方案，一个是给 <code>this.setState</code> 的第二个参数传入一个回调函数，该回调函数将会在状态更新完毕后执行：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">({</span>
-    <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span>
-    <span class="nx">data</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mf">114514</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">),</span> <span class="c1">// A large array updated in setState</span>
-<span class="p">},</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;State updated!&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mf">114514</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">// A large array updated in setState</span><span class="w"></span>
+<span class="p">},</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;State updated!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>第二个方案为使用 <code>componentDidUpdate</code> 生命周期方法，该方法将会在下一部分介绍。</p>
 <p>第二个问题的解决方案则是给 <code>this.setState</code> 的第一个参数传入回调函数，该回调函数接受的参数为旧状态，返回值将会被设定为新状态。在类似于计数器递增、状态机切换状态等场景中，使用回调函数作为第一个参数是更为合适的选择。这里的代码示例见上述 <code>switchColor</code> 函数。</p>
 </div>
 <p>属性也应当使用接口定义并且在组件定义上体现，否则可能无法通过编译：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nx">SquareStates</span> <span class="p">{</span>
-    <span class="k">readonly</span> <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">SquareStates</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">readonly</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">class</span> <span class="nx">Square</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="p">,</span> <span class="nx">SquareStates</span><span class="o">&gt;</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Square</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">SquareProps</span><span class="p">,</span><span class="w"> </span><span class="nx">SquareStates</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">瀑布数据流</p>
 <p>瀑布数据流形容的是 React 框架中数据流的管理方式，描述的是 React 组件间的数据仅存在从上至下的流动。</p>
@@ -2695,10 +2675,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2707,7 +2688,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../prepare/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 环境配置" rel="prev">
@@ -2762,10 +2744,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

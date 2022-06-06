@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2392,59 +2393,55 @@
 
 <h2 id="if"><code>if</code> 语句<a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
 <p>使用 <code>if</code> 进行条件判断，不需要加括号，值必须为 <code>Bool</code> 类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">condition</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">condition</span> <span class="p">{</span>
     <span class="c1">// statements</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">condition2</span> <span class="p">{</span>
     <span class="c1">// statements</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="c1">// statements</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>多个需要同时满足的条件可以用 <code>,</code> 隔开，与 <code>&amp;&amp;</code> 效果相同：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">condition1</span><span class="p">,</span> <span class="n">condition2</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">condition1</span><span class="p">,</span> <span class="n">condition2</span> <span class="p">{</span>
     <span class="c1">// executed only if condition1 and condition2 are true</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>一个或多个 <code>if let</code> 可以和条件语句利用 <code>,</code> 结合，只需要写一个 <code>if</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">optionalData</span><span class="p">,</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">optionalData</span><span class="p">,</span>
    <span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">),</span>
    <span class="o">!</span><span class="n">string</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>等价于：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">optionalData</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">optionalData</span> <span class="p">{</span>
     <span class="k">if</span> <span class="kd">let</span> <span class="nv">string</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="o">!</span><span class="n">string</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
             <span class="bp">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果成员是 Optional，可以利用一种叫做 optional chaining 的语法进行解包：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2455,7 +2452,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">foo</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
 <span class="p">}</span>
 
@@ -2467,46 +2464,43 @@
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">stringCount</span> <span class="p">=</span> <span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">?.</span><span class="n">foo</span><span class="p">?.</span><span class="bp">count</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">stringCount</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在一条“链” <code>b.a?.foo?.count</code> 中，<code>a</code> 和 <code>foo</code> 都有可能为空，当其中之一为空时，<code>stringCount</code> 为 <code>nil</code>；当均不为空时，<code>stringCount</code> 非空。</p>
 <h2 id="guard"><code>guard</code> 语句<a class="headerlink" href="#guard" title="Permanent link">&para;</a></h2>
 <p>使用 <code>guard...else</code> 来处理需要跳出当前作用域的情形。<code>guard</code> 后可以是条件表达式，也可以是与 <code>if let</code> 类似的对 Optional 的解包：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">iterate</span><span class="p">(</span><span class="kc">_</span> <span class="n">array</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]?)</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">iterate</span><span class="p">(</span><span class="kc">_</span> <span class="n">array</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]?)</span> <span class="p">{</span>
     <span class="k">guard</span> <span class="kd">let</span> <span class="nv">array</span> <span class="p">=</span> <span class="n">array</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
     <span class="c1">// Proceed with a non-nil array</span>
     <span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">array</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>guard</code> 后必须有 <code>else</code> 语句，表示条件不成立（<code>guard let</code> 语句中是值为 <code>nil</code>）时如何处理并退出。注意，<code>else</code> 语句中必须退出当前函数（<code>return</code>）、抛出异常或触发严重错误（<code>fatalError()</code>）。总之，<strong>不成立时，函数不能够继续执行</strong>。</p>
 <div class="admonition note">
 <p class="admonition-title">何时使用 <code>guard</code></p>
 <p><code>guard</code> 语句其实可以用 <code>if</code> 语句替代：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">iterate</span><span class="p">(</span><span class="kc">_</span> <span class="n">array</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]?)</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">iterate</span><span class="p">(</span><span class="kc">_</span> <span class="n">array</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]?)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="n">array</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
     <span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">array</span><span class="p">!</span> <span class="p">{</span>
         <span class="c1">// ...</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>那么，为什么还需要 <code>guard</code> 语句呢？</p>
 <p><code>guard</code> 语句要求不满足的情况不能继续向下执行，在<strong>编译期</strong>避免了需要立即返回但没有返回的情况，如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2515,7 +2509,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">unlockPaidItem</span><span class="p">()</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">unlockPaidItem</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">userSubscribed</span> <span class="p">=</span> <span class="n">getSubscriptionStatus</span><span class="p">()</span>
     <span class="k">guard</span> <span class="n">userSubscribed</span> <span class="k">else</span> <span class="p">{</span>
         <span class="n">showAlert</span><span class="p">(</span><span class="s">&quot;You have not subscribed yet!&quot;</span><span class="p">)</span>
@@ -2525,14 +2519,13 @@
 <span class="p">}</span>
 <span class="c1">// error: &#39;guard&#39; body must not fall through,</span>
 <span class="c1">// consider using a &#39;return&#39; or &#39;throw&#39; to exit the scope</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果使用 <code>if</code>，上面的情况不会产生编译错误，可能要到运行期间出现问题才能发现错误。</p>
 </div>
 <h2 id="for"><code>for</code> 循环语句<a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0007-remove-c-style-for-loops.md">在 Swift 3 中，C 风格 for 循环被删除</a>，从此 Swift 只支持 <code>for ... in ...</code> 类型的 <code>for</code> 循环。</p>
 <p>Swift 中范围可以用 <code>...</code> 和 <code>..&lt;</code> 表示，前者表示闭区间，后者表示前闭后开区间；使用 <code>stride(from:to:by:)</code> 以特定步长进行遍历：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2542,7 +2535,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">..</span><span class="mi">10</span> <span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">..</span><span class="mi">10</span> <span class="p">{</span>
     <span class="c1">// Iterate through 1, 2, ..., 10</span>
 <span class="p">}</span>
 
@@ -2553,37 +2546,34 @@
 <span class="k">for</span> <span class="n">tickMark</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// render the tick mark every 5 minutes (0, 5, 10, 15 ... 45, 50, 55)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，数组等也可使用 <code>for</code> 循环进行遍历：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="while-repeat-while"><code>while</code> 和 <code>repeat-while</code> 语句<a class="headerlink" href="#while-repeat-while" title="Permanent link">&para;</a></h2>
 <p><code>while</code> 循环和 C/C++ 相同，<code>repeat-while</code> 循环对应 <code>do-while</code> 循环：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="n">condition</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">while</span> <span class="n">condition</span> <span class="p">{</span>
     <span class="c1">// statements</span>
 <span class="p">}</span>
 
 <span class="k">repeat</span> <span class="p">{</span>
     <span class="c1">// statements</span>
 <span class="p">}</span> <span class="k">while</span> <span class="n">condition</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="switch"><code>switch</code> 语句<a class="headerlink" href="#switch" title="Permanent link">&para;</a></h2>
 <p><code>switch</code> 语句用于匹配值，可以用范围表达式进行范围匹配。</p>
 <p>与 C/C++ 不同，匹配后跳出 <code>switch</code> 不需要 <code>break</code> 语句，如果需要跳到下一个 <code>case</code>，使用 <code>fallthrough</code>。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2595,7 +2585,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="mi">21</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="mi">21</span>
 <span class="k">switch</span> <span class="n">age</span> <span class="p">{</span>
 <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;New born&quot;</span><span class="p">)</span>
@@ -2608,45 +2598,42 @@
 <span class="p">}</span>
 
 <span class="c1">// Young People</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Swift 中的 <code>switch</code> 语句有非常多用法，详见 <a href="https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID127">官方文档</a>。</p>
 </div>
 <h2 id="_1">控制转移<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在循环中，使用 <code>continue</code> 转到下一次循环：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">characters</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">characters</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">character</span> <span class="k">in</span> <span class="s">&quot;Swift Programming Language&quot;</span> <span class="p">{</span>
     <span class="k">if</span> <span class="n">character</span> <span class="p">==</span> <span class="s">&quot; &quot;</span> <span class="p">{</span>
         <span class="k">continue</span>
     <span class="p">}</span>
     <span class="n">characters</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用 <code>break</code> 退出循环：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">character</span> <span class="k">in</span> <span class="s">&quot;Swift Programming Language&quot;</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">character</span> <span class="k">in</span> <span class="s">&quot;Swift Programming Language&quot;</span> <span class="p">{</span>
     <span class="k">if</span> <span class="n">character</span> <span class="p">==</span> <span class="s">&quot; &quot;</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Blank character exists!&quot;</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>使用标签跨越多层循环进行控制：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2660,7 +2647,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">words</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Swift&quot;</span><span class="p">,</span> <span class="s">&quot;烫&quot;</span><span class="p">,</span> <span class="s">&quot;Programming&quot;</span><span class="p">,</span> <span class="s">&quot;Language&quot;</span><span class="p">]</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">words</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Swift&quot;</span><span class="p">,</span> <span class="s">&quot;烫&quot;</span><span class="p">,</span> <span class="s">&quot;Programming&quot;</span><span class="p">,</span> <span class="s">&quot;Language&quot;</span><span class="p">]</span>
 <span class="n">outerLoop</span><span class="p">:</span> <span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">words</span> <span class="p">{</span>
     <span class="c1">// A stupid switch just to demostrate</span>
     <span class="k">switch</span> <span class="n">word</span><span class="p">.</span><span class="bp">first</span> <span class="p">{</span>
@@ -2675,8 +2662,7 @@
 
 <span class="c1">// Swift</span>
 <span class="c1">// Invalid word!</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
   <hr>
 <div class="md-source-file">
@@ -2699,10 +2685,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2711,7 +2698,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../variable-function/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 变量和函数" rel="prev">
@@ -2766,10 +2754,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

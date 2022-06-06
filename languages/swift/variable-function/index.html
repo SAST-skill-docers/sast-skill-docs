@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2337,156 +2338,140 @@
 <h2 id="_1">变量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>用 <code>var</code> 声明可更改的变量，<code>let</code> 声明不可更改的变量（常量）。</p>
 <p>声明变量时，在变量名后用 <code>: Type</code> 声明类型：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">myVariable</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">42</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">myVariable</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">42</span>
 <span class="n">myVariable</span> <span class="p">=</span> <span class="mi">50</span>
 <span class="kd">let</span> <span class="nv">myConstant</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">42</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果上下文明确，编译器能够自动确定变量的类型，那么类型声明可以省略（比如，<code>42</code> 是整数字面值，自动推断为 <code>Int</code> 类型）：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">myInt</span> <span class="p">=</span> <span class="mi">42</span> <span class="c1">// Int</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">myInt</span> <span class="p">=</span> <span class="mi">42</span> <span class="c1">// Int</span>
 <span class="kd">let</span> <span class="nv">myString</span> <span class="p">=</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="s">&quot;, World!&quot;</span> <span class="c1">// String</span>
 <span class="kd">let</span> <span class="nv">myDouble</span> <span class="p">=</span> <span class="mf">42.0</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// Double</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>需要注意的是，Swift 不允许隐式类型转换，进行类型转换只能通过目标类型的构造函数进行：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">intValue</span> <span class="p">=</span> <span class="mi">12</span> <span class="c1">// 类型为 Int</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span> <span class="nv">intValue</span> <span class="p">=</span> <span class="mi">12</span> <span class="c1">// 类型为 Int</span>
 <span class="kd">let</span> <span class="nv">uint64Value</span> <span class="p">=</span> <span class="nb">UInt64</span><span class="p">(</span><span class="n">intValue</span><span class="p">)</span>  <span class="c1">// 类型为 UInt64</span>
 
 <span class="c1">// let uint64Value: UInt64 = intValue</span>
 <span class="c1">// error: cannot convert value of type &#39;Int&#39; to specified type &#39;UInt64&#39;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p><code>var</code> 和 <code>let</code> 声明的变量在使用之前<strong>必须初始化</strong>，否则编译不通过。不同之处在于，<code>var</code> 可以多次赋值，而 <code>let</code> 只能赋值一次。</p>
 <p>Swift 支持空值（Optional），表示变量的值“不存在”。在类型后加上 <code>?</code> 声明可空的变量，关键字 <code>nil</code> 表示值为空：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">result</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span> <span class="nv">result</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// nil</span>
 
 <span class="n">result</span> <span class="p">=</span> <span class="mi">1</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// Optional(1)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>注意到，即使 Optional 值不为空，Optional 与原来的类型是不同的两个类型，不能直接获取其值。</p>
 <p>Optional 的值有两种读取方法。第一种是当确保 Optional 不为空时，在变量名后加上 <code>!</code> 表示强制解除包装获取值。当值为空时，使用 <code>!</code> 会导致运行错误，程序直接崩溃：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">result</span><span class="p">!)</span>
 <span class="p">}</span>
 
 <span class="n">result</span> <span class="p">=</span> <span class="kc">nil</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">result</span><span class="p">!)</span>
 <span class="c1">// Fatal error: Unexpectedly found nil while unwrapping an Optional value</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另一种是建议使用的方法，通过 Swift 的一个语法糖 <code>if let</code>（或 <code>if var</code>）实现：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">realResult</span> <span class="p">=</span> <span class="n">result</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">realResult</span> <span class="p">=</span> <span class="n">result</span> <span class="p">{</span>
     <span class="c1">// 此时 realResult 类型为 Int，不是 Optional&lt;Int&gt;</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">realResult</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>相当于</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">realResult</span> <span class="p">=</span> <span class="n">result</span><span class="p">!</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">realResult</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果 <code>if let</code> 大括号内不需要再引用原来的 Optional，一般 <code>if let</code> 语句 <code>let</code> 后面新的变量名直接使用原有的变量名，省去重复命名的困扰：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">result</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">result</span> <span class="p">{</span>
     <span class="c1">// 此时 result 类型为 Int，存在于括号作用域中</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>另外，可以使用 <code>??</code> 给 Optional 提供默认值，当值为空时，使用默认值：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">result</span> <span class="p">??</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">result</span> <span class="p">??</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>与 Optional 有关的更多条件判断语句将在后面介绍。</p>
 <h2 id="_2">函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>使用关键字 <code>func</code> 声明函数。函数参数的声明与变量声明类似，需要显式指出类型；返回值用 <code>-&gt; Type</code> 显式指出；可以为参数指定默认值：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如果函数体只有一行，可以省略 <code>return</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>调用时，需要写出标签：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>Swift 函数声明的特点是，其参数有两个“名称”：参数名（函数体内部使用）和标签（调用时指出），按照 <code>标签 参数名: 类型</code> 的形式声明。如果不区分标签和函数名，则使用 <code>参数名: 类型</code> 声明。</p>
 <p>对于上面的 <code>add</code>，参数只有名称，<code>a</code> 和 <code>b</code> 既作为参数名称，又作为标签。与之对应，有时候我们将标签和参数名分离，如 <code>Array</code> 的 <code>remove</code> 方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">at</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Element</span> <span class="p">{...}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">at</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Element</span> <span class="p">{...}</span>
 <span class="n">myArray</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1">// at 为标签，调用时使用</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>调用函数时，必须写出标签，因此上面的调用不能写成 <code>add(1, 1)</code>。如果需要省略标签，在标签的位置使用下划线 <code>_</code> 替代：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{...}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="kc">_</span> <span class="n">a</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kc">_</span> <span class="n">b</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{...}</span>
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Swift 的标签和参数名的设计有以下几点好处：</p>
 <p><strong>1. 需要明确写出标签，使得调用时语义更加明确。</strong></p>
 <p>C 风格函数调用时没有标签，各参数的顺序可能会造成困扰，比如 <code>memcpy(buf1, buf2)</code>，究竟哪个是 <code>src</code>，哪个是 <code>dest</code>？</p>
 <p>而 Swift 中可以利用标签来明确：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">copyMemory</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">buffer1</span><span class="p">,</span> <span class="n">dest</span><span class="p">:</span> <span class="n">buffer2</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">copyMemory</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">buffer1</span><span class="p">,</span> <span class="n">dest</span><span class="p">:</span> <span class="n">buffer2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>2. 标签增强代码可读性，同时参数名保持应有的含义</strong></p>
 <p>还是上面的例子。我们可以将 <code>copyMemory</code> 的标签和参数名分离：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">copyMemory</span><span class="p">(</span><span class="n">from</span> <span class="n">source</span><span class="p">:</span> <span class="n">SomeType</span><span class="p">,</span> <span class="n">to</span> <span class="n">dest</span><span class="p">:</span> <span class="n">SomeType</span><span class="p">)</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span> <span class="nf">copyMemory</span><span class="p">(</span><span class="n">from</span> <span class="n">source</span><span class="p">:</span> <span class="n">SomeType</span><span class="p">,</span> <span class="n">to</span> <span class="n">dest</span><span class="p">:</span> <span class="n">SomeType</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Copying from </span><span class="si">\(</span><span class="n">source</span><span class="si">)</span><span class="s"> to </span><span class="si">\(</span><span class="n">dest</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="p">...</span>
 <span class="p">}</span>
 
 <span class="n">copyMemory</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">buffer1</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">buffer2</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这样调整之后，函数调用 <code>copyMemory(from: buffer1, to: buffer2)</code> 就可以用英文从左往右读出来：“Copy memory from buffer 1 to buffer 2”。这是 Swift 的 <a href="https://www.swift.org/about/">三个特点</a> 之一：expressive。</p>
 <p>同时，函数体内部引用两个参数时仍然保持 <code>source</code> 和 <code>dest</code> 的语义，避免了 <code>print("Copying from \(from) to \(to)")</code> 这样的情形。</p>
 <p>关于标签和参数名的使用规范，详见 Swift 的 <a href="https://www.swift.org/documentation/api-design-guidelines/">API Design Guidelines</a>。</p>
@@ -2513,10 +2498,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2525,7 +2511,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../basic/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 基础知识" rel="prev">
@@ -2580,10 +2567,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

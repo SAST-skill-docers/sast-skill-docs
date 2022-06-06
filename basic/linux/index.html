@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2745,25 +2746,23 @@
 <p>如果你用 root 身份打开 Shell，呈现的提示符大概是这样 <code>root@SAST-Training:~#</code>。即 <code>#</code> 符号表明了 <code>root</code> 身份。</p>
 <h3 id="how-does-shell-run-command">How does shell run command?<a class="headerlink" href="#how-does-shell-run-command" title="Permanent link">&para;</a></h3>
 <p>在 Shell 中你每次输入一个命令，这个命令被 Shell 解析、运行，并将结果输出到终端。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>training@SAST:~$ <span class="nb">echo</span> <span class="s2">&quot;Hello SAST!&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>training@SAST:~$ <span class="nb">echo</span> <span class="s2">&quot;Hello SAST!&quot;</span>
 Hello SAST!
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Shell 的命令由空格分割，第一个是要运行的程序（如上例 <code>echo</code>），后面跟它的参数（如上例 <code>"Hello World!"</code>）。</p>
 <p>注意到我们把想输出的 <code>Hello SAST!</code> 用引号扩了起来，这样本来空格分隔的两个词就合并成了一个参数。（其实这个例子中并不需要将它们合并，因为 <code>echo</code> 指令可以接受多个字符串输入。）</p>
 <p>可是 Shell 怎么知道 <code>echo</code> 指的是什么呢？这些程序都是 Shell 内置的吗？其实当 Shell 遇到它不认识的程序关键字时，会查询环境变量 <code>$PATH</code>，在里面记录的路径中寻找 <code>echo</code> 这个程序，如果找到便执行。如果我们想知道这个程序实际所在的位置，可以使用 <code>which echo</code>。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>training@SAST:~$ <span class="nb">echo</span> <span class="nv">$PATH</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>training@SAST:~$ <span class="nb">echo</span> <span class="nv">$PATH</span>
 /usr/local/sbin:/usr/local/bin:
 /usr/sbin:/usr/bin:/sbin:/bin
 training@SAST:~$ which <span class="nb">echo</span>
 /usr/bin/echo
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>所以当我们执行 <code>echo "Hello"</code> 时，实质上等价于执行 <code>/usr/bin/echo "Hello"</code>，后者明确指定了要执行程序的所在目录和它的名字。</p>
 <h3 id="basic-commands">Basic Commands<a class="headerlink" href="#basic-commands" title="Permanent link">&para;</a></h3>
 <p>接下来我们看一些基本指令。</p>
@@ -2885,17 +2884,16 @@ training@SAST:~$ which <span class="nb">echo</span>
 </ul>
 <h3 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h3>
 <p>Linux 系统支持多用户同时登录并执行各自的任务。为了对不同用户进行管理控制，可以定义用户组（英语：group）来划分不同的访问权限。我们通过具体例子来理解。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>training@SAST: /Documents/sast-training $ ls -l
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>training@SAST: /Documents/sast-training $ ls -l
 total <span class="m">8</span>
 drwxrwxr-x <span class="m">2</span> training training <span class="m">4096</span> 7月  <span class="m">11</span> <span class="m">22</span>:31 folder
 -rw-rw-r-- <span class="m">1</span> training training    <span class="m">0</span> 7月  <span class="m">11</span> <span class="m">20</span>:16 hello.txt
 -rwxrwxr-x <span class="m">1</span> training training   <span class="m">27</span> 7月  <span class="m">11</span> <span class="m">22</span>:33 program.sh
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>对于目录中每一项开头的 "-rw-rw-r--"（以文本 <code>hello.txt</code> 为例）字样，下图给了一些解释：</p>
 <p><img alt="IMG_2021-07-11T22-47-19" src="https://i.loli.net/2021/10/10/iJtCH3Un6uOpkKb.jpg" /></p>
 <ul>
@@ -2904,13 +2902,12 @@ drwxrwxr-x <span class="m">2</span> training training <span class="m">4096</span
 <li>除了用 rwx 字符来表示外，还可以用二进制编码表示，其中 r 为最高位 4，w 中间位 2，x 最低位 1。例如可读写可执行的权限编码为 7，可读写不可执行为 6，可读可执行为 5 等。</li>
 </ul>
 <p>对于一些重要文件，你大概不希望组内其他用户或者任意用户对它有过多的访问权限；或者对于一些刚写好的脚本文件默认为可读写不可执行，你希望能够获得执行它的权限。这时我们可以通过 <code>chmod</code> 指令来改变文件的权限设置。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>chmod +x script.sh     <span class="c1"># 给脚本添加可执行权限（默认对于任何人 (a)）</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod +x script.sh     <span class="c1"># 给脚本添加可执行权限（默认对于任何人 (a)）</span>
 chmod <span class="m">777</span> public.py    <span class="c1"># 让文件可被任何人读写执行，777 等价于 a+rwx</span>
 chmod o-rw journal.txt <span class="c1"># 禁止组外用户 (o) 的读写</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="shell-operations">Shell Operations<a class="headerlink" href="#shell-operations" title="Permanent link">&para;</a></h3>
 <p>以下是一些 Shell 中能用到的操作符。最好还是结合实际应用来掌握。</p>
 <table>
@@ -2950,9 +2947,8 @@ chmod o-rw journal.txt <span class="c1"># 禁止组外用户 (o) 的读写</span
 </tbody>
 </table>
 <h3 id="read-the-manual">Read The Manual<a class="headerlink" href="#read-the-manual" title="Permanent link">&para;</a></h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>man &lt;command-name&gt;
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>man &lt;command-name&gt;
+</code></pre></div></td></tr></table></div>
 <p><code>man</code> 指令是了解各种指令具体用法的最快途径，绝大多数的指令和软件都会有对应的 Manual 提供查看，在里面你可以看到指令的名称来源、作者、描述和用法等等。</p>
 <p><code>man</code> 所打开的界面支持多种浏览方式，Vim 的 J/K、方向键、回车键、翻页键等都可以使用，并且支持搜索功能。</p>
 <p>比如我们想了解 <code>ls</code> 的 <code>-h</code> 选项的作用，可以在 <code>man ls</code> 中输入 <code>/-h</code> 并回车，搜索到的 <code>-h</code> 选项就会高亮显示，继续回车找到下一个结果。<code>/</code> 是向后搜索，而 <code>?</code> 是向前搜索。</p>
@@ -2962,56 +2958,50 @@ chmod o-rw journal.txt <span class="c1"># 禁止组外用户 (o) 的读写</span
 <p>现在我们回到 SSH 上来。</p>
 <h3 id="executing-commands">Executing commands<a class="headerlink" href="#executing-commands" title="Permanent link">&para;</a></h3>
 <p>SSH 可以直接远程执行命令而不需要连接到远程的 Shell 中，在连接命令后加上需要执行的命令：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ssh foobar@server <span class="o">[</span>command<span class="o">]</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh foobar@server <span class="o">[</span>command<span class="o">]</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="copying-files">Copying Files<a class="headerlink" href="#copying-files" title="Permanent link">&para;</a></h3>
 <p><code>scp</code> 指令可以从远程拷贝文件到本地/从本地拷贝文件到远程，基本格式是 <code>scp &lt;from&gt; &lt;to&gt;</code>。如果要拷贝一个文件夹，应该使用 flag <code>-r</code> 表示递归深入目录。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># 将本地当前目录的 test.zip 拷贝到远程的 ~/test.zip</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 将本地当前目录的 test.zip 拷贝到远程的 ~/test.zip</span>
 scp test.zip training@153.223.56.12:~/test.zip 
 <span class="c1"># 将远程的 data.csv 拷贝到本地当前目录</span>
 scp training@152.32.34.12:~/data.csv . 
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="config-file">Config File<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
 <p>每次连接服务器都要输入用户名、IP 和端口未免过于繁琐，我们可以通过编辑 SSH 配置文件来简化命令。这个配置文件位于家路径的 <code>.ssh</code> 文件夹下，名字为 <code>config</code>（如果不存在需自己创建），即 <code>~/.ssh/config</code>。对于 Windows 系统而言，这个 <code>.ssh</code> 文件夹位于用户目录下 <code>C:\Users\&lt;username&gt;\.ssh\config</code>。配置文件写法如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>HOST sast
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>HOST sast
     HostName 152.136.177.53
     Port 8000     (默认22，此时不需要指定)
     User root
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这样每次我们想连接到 <code>root@152.136.177.53 -p 8000</code> 时只需要输入 <code>ssh sast</code> 即可。</p>
 <p>这个配置文件同样适用于 <code>scp</code> 命令：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code># 前一小节例子的简略版
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code># 前一小节例子的简略版
 scp test.zip sast:~/test.zip 
 scp sast:~/data.csv . 
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="key-authentication">Key Authentication<a class="headerlink" href="#key-authentication" title="Permanent link">&para;</a></h3>
 <p>SSH 配置文件并不能指定登录时的密码（显然这样会很不安全），所以我们登录时还是要输入密码。能不能连密码都不用输入？</p>
 <p>利用密码学中的公钥-私钥非对称加密机制，我们只需要在服务器中预存好自己的公钥，就可以在登录时自动化验证流程而免去密码。这个过程的关键是向服务器 Alice 证明自己是持有私钥的那个客户端 Bob：Alice 用 Bob 预存的公钥加密一个用于验证的串发给 Bob，Bob 用私钥解密得到这个串后发给 Alice，就能证明自己确实持有与公钥对应的私钥。</p>
 <p><img alt="Screenshot from 2021-07-15 10-59-22" src="https://i.loli.net/2021/10/10/nhiC3kRQ9ZVgoBD.png" /></p>
 <p><strong>秘钥生成</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ssh-keygen
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen
+</code></pre></div></td></tr></table></div>
 <p>按照命令行提示流程，默认在 <code>~/.ssh</code> 下生成公钥 <code>id_rsa.pub</code> 和私钥 <code>id_rsa</code>，后者需要妥善保存。通过 <code>ssh-keygen -y -f ~/.ssh/id_rsa</code> 检验密钥的存在。</p>
 <p><strong>在服务器中存放公钥</strong></p>
 <p>在接受 SSH 连接请求时，服务器的 SSH 会在目标用户的 <code>~/.ssh/authorized_keys</code> 中查找公钥。因此我们需要将自己的 <code>id_rsa.pub</code> 中的内容追加到服务器的 <code>authorized_keys</code> 中。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cat ~/.ssh/id_rsa.pub <span class="sb">`</span>ssh training <span class="s1">&#39;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cat ~/.ssh/id_rsa.pub <span class="sb">`</span>ssh training <span class="s1">&#39;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;</span>
 <span class="s1">~/.ssh/authorized_keys&#39;</span> <span class="c1"># Windows 下路径为 ~/.ssh/id_rsa.pub</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>上面的命令完成了将本地公钥保存到远程服务器的过程，经过之前的学习，你能理解这个命令是如何执行的吗？</p>
 <p><code>ssh-copy-id</code> 提供了更简便的解决方案：<code>ssh-copy-id -i ~/.ssh/id_rsa.pub training</code>。</p>
 <h2 id="basic-tools">Basic Tools<a class="headerlink" href="#basic-tools" title="Permanent link">&para;</a></h2>
@@ -3021,38 +3011,35 @@ scp sast:~/data.csv .
 <p>包管理器的指令一般都很符合直观，如果失败了可以通过 <code>man</code> 或者 <code>help</code> 查看用法。</p>
 <p>系统中包管理器所使用的仓库往往默认位于国外，这使得每次从仓库拉取东西时耗费很长时间或者甚至连不上。好在我们国内有许多的镜像源，比如清华的 Tuna，访问 <a href="https://mirrors.tuna.tsinghua.edu.cn/help">https://mirrors.tuna.tsinghua.edu.cn/help</a> 可以找到 Ubuntu 在内的各种仓库镜像源配置方法。</p>
 <p>Homebrew 的安装方法：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/bin/bash -c <span class="se">\</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>/bin/bash -c <span class="se">\</span>
 <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="vim">Vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h3>
 <p><code>vimtutor</code> explains it all. <code>vimtutor -g zh</code> for Chinese learner.</p>
 <p><img alt="hottest_editors" src="https://i.loli.net/2021/10/10/DFpv8LzXEIRiCPr.png" /></p>
 <h3 id="tmux">Tmux<a class="headerlink" href="#tmux" title="Permanent link">&para;</a></h3>
 <p>我们每次打开终端或是 SSH 登录远程服务器时，都是创建了一个会话（英文：session）来进行临时的交互，此时窗口（或连接）是和它开启的进程（比如 Shell）绑定在一起。当我们关闭窗口或者断开连接时，对应的进程也随之终止了。</p>
 <p>为了在会话结束后其开启的进程还能继续进行，我们需要先进行"解绑"，在后续需要时再重新进行绑定。Tmux 完成的就是这样一个任务。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>tmux            <span class="c1"># 创建新的 Tmux 会话</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>tmux            <span class="c1"># 创建新的 Tmux 会话</span>
 tmux detach     <span class="c1"># 分离当前 Tmux 会话，快捷键 Ctrl+B D</span>
 tmux ls         <span class="c1"># tmux list-session</span>
 tmux attach -t &lt;session-name&gt; <span class="c1"># sessions are labeled by numbers by default</span>
 tmux kill-session -t &lt;session-name&gt;
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>除了能够让任务持续进行，Tmux 还有一个很重要的功能是分窗口和分屏。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Ctrl+B %      <span class="c1"># Split Horizontally</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Ctrl+B %      <span class="c1"># Split Horizontally</span>
 Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
 <span class="s2">Ctrl+B 方向键  # Switch between panes</span>
 <span class="s2"># ...</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这一系列操作的快捷键基本上都是 Ctrl+B xxx，请自行学习掌握。</p>
 <p>附：<a href="https://tmuxcheatsheet.com/">https://tmuxcheatsheet.com/</a></p>
 <h2 id="_2">后续拓展<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -3088,10 +3075,11 @@ Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3100,7 +3088,8 @@ Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../git/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Git 入门" rel="prev">
@@ -3155,10 +3144,10 @@ Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

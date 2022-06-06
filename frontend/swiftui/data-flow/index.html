@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2351,7 +2352,7 @@
 <p>我们之前介绍的都是一些非常简单的情况：它们都不涉及变化的状态。然而，几乎所有的应用都需要依赖于变化的数据。我们需要一种方法，使得当数据更新时及时、正确地更新我们的 UI。我们将介绍 UI 与数据绑定过程中涉及的一些最基本的常见数据流。</p>
 <h2 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h2>
 <p>我们来看一个简单的例子。在我们的 View 中，需要记录用户点击的次数，并显示在屏幕上。你可能想要这样写：给 <code>ContentView</code> 加上一个变量 <code>count</code>，然后在 <code>Button</code> 中更改这个值：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2360,7 +2361,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
 <span class="hll">    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
 </span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
@@ -2370,19 +2371,16 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>但这样是不能正常工作的。</p>
 <p>首先，这个代码并不能通过编译：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Left side of mutating operator isn&#39;t mutable: &#39;self&#39; is immutable
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Left side of mutating operator isn&#39;t mutable: &#39;self&#39; is immutable
+</code></pre></div></td></tr></table></div>
 <p>原因是，<code>struct</code> 是值类型，一般的函数不能够修改其变量的值。</p>
 <p>而且，有一个更加深层的原因。我们改变了 <code>count</code>，并且希望 <code>Text("\(count)")</code> 能显示最新的值。但是，<code>ContentView</code> 并不知道当 <code>count</code> 更新时需要更新 UI。</p>
 <p>修改的方法很简单，只需要在 <code>var count: Int = 0</code> 前加上 <code>@State</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">@</span><span class="n">State</span> <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">@</span><span class="n">State</span> <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <p>这样，就能够通过编译，并且我们的界面会随着 <code>count</code> 的更新而更新了：</p>
 <p><img alt="" src="../../../static/frontend/swiftui/data-flow-state-1.gif" /></p>
 <p><strong><code>@State</code> 是什么语法？为什么能够修改 <code>count</code>？</strong></p>
@@ -2411,14 +2409,14 @@
 <h2 id="binding">Binding<a class="headerlink" href="#binding" title="Permanent link">&para;</a></h2>
 <p><code>@State</code> 解决了在<strong>单个</strong> View 中根据数据更新 View 的问题。但是，有时我们为了重用代码或保持代码的简洁，需要将一些 View 拆分出来，这就产生了一个问题：<strong>如何在父 View 和子 View 中共享一个可由子 View 修改的值？</strong>也就是说，数据如何从子视图流向父视图？</p>
 <p>比如，我们希望把「点击一次使得值加 1」的按钮封装起来，以便重复使用，那么上面的 <code>Button</code> 不再在 <code>ContentView</code> 中定义，而是在另一个 View 中出现：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">IncrementButton</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">IncrementButton</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
     <span class="c1">// </span><span class="cs">TODO:</span><span class="c1"> Data</span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
         <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Increase&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -2426,26 +2424,24 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>如何在这两个 View 共享 <code>count</code> 使得 <code>IncrementButton</code> 可以修改呢？这就需要 <code>@Binding</code>。在 <code>IncrementButton</code> 中，添加一个成员 <code>@Binding var value: Int</code>，并在 <code>Button</code> 的 <code>action</code> 中将其值加 1：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">IncrementButton</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">IncrementButton</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
 <span class="hll">    <span class="p">@</span><span class="n">Binding</span> <span class="kd">var</span> <span class="nv">value</span><span class="p">:</span> <span class="nb">Int</span>
 </span>
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
         <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Increase&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>而在父 View 中，通过在 <code>@State</code> 变量名前加上一个 <code>$</code> 来传递 <code>Binding</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2454,7 +2450,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
     <span class="p">@</span><span class="n">State</span> <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
 
     <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
@@ -2464,8 +2460,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在 <code>IncrementButton</code> 中修改 <code>value</code>，<code>ContentView</code> 中的 <code>count</code> 就会同步变化。换而言之，我们实现了<strong>父 View 和子 View 数据的绑定。</strong></p>
 <div class="admonition note">
 <p class="admonition-title">关于 <code>$count</code></p>
@@ -2474,40 +2469,36 @@
 <div class="admonition note">
 <p class="admonition-title">更多的原生 View</p>
 <p>掌握了 <code>@Binding</code> 后，你可以使用更多的与数据相关的原生 View 了。比如，一个文本框：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">TextField</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">myText</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">TextField</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">myText</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>当用户输入文本时，<code>TextField</code> 中的文本会同步到 <code>myText</code> 中。</p>
 <p>你可以在文档中探索更多的原生 View。</p>
 </div>
 <details class="note">
 <summary><code>$count</code> 的实质</summary>
 <p>在文档中，你可以看到 <code>Binding</code> 有这样一种构造函数：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">init</span><span class="p">(</span><span class="kr">get</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Value</span><span class="p">,</span> <span class="kr">set</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">Value</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">init</span><span class="p">(</span><span class="kr">get</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Value</span><span class="p">,</span> <span class="kr">set</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">Value</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>第一个参数 <code>get</code> 用于返回 <code>Binding</code> 变量读取的值，第二个参数 <code>set</code> 是当 <code>Binding</code> 变量改变时所执行的操作。</p>
 <p>因此，你完全可以用这种方法取代 <code>$count</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">IncrementButton</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> 
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">IncrementButton</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> 
     <span class="n">Binding</span><span class="p">(</span>
         <span class="kr">get</span><span class="p">:</span> <span class="p">{</span> <span class="bp">count</span> <span class="p">},</span> 
         <span class="kr">set</span><span class="p">:</span> <span class="p">{</span> <span class="bp">count</span> <span class="p">=</span> <span class="nv">$0</span> <span class="p">}</span> 
     <span class="p">)</span>
 <span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>当 <code>IncrementButton</code> 获取 <code>value</code> 时，调用 <code>get</code> 获取当前的值；当 <code>IncrementButton</code> 改变 <code>value</code> 时，调用 <code>set</code> 更新 <code>count</code>。由 <code>@State</code> 生成的 <code>Binding</code> 变量无非就是实现这样的功能。</p>
 </details>
 <h2 id="ui">UI 是状态的函数<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h2>
 <p>通过上面的一些例子，你应该能总结出 SwiftUI 中 View 的一些特点。最明显的是：<strong>View 唯一地由数据确定。</strong>如果将 <code>@State</code>、<code>@Binding</code> 所代表的数据视作一种“状态”，那么我们可以写出这样一条式子：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>View = f(state)
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>View = f(state)
+</code></pre></div></td></tr></table></div>
 <p>其中的 <code>f</code>，其实就是 <code>View</code> 中的 <code>body</code>。每次 <code>state</code> 更新时，View 通过 <code>body</code> 的定义计算出新状态下的 UI，并进行更新。所以，这也是为什么 <code>body</code> 应当是一个<strong>计算变量</strong>，而不是储存变量——它本质上是一个函数。</p>
 <p>这种性质一个很自然的结果是：<strong>我们无法获得 View 的引用，也无法直接修改其 UI，所有对 UI 的修改都源自于数据的改变</strong>。</p>
 <p>我们在下一节中进行更深入的讨论。</p>
@@ -2533,10 +2524,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2545,7 +2537,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../build-views/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 构建 View" rel="prev">
@@ -2600,10 +2593,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

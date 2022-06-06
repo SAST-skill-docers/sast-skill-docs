@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
@@ -17,11 +17,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -2686,7 +2687,7 @@
 <h2 id="_2">源程序的结构与预编译<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">源程序的结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>一个经典的 C++ 代码文件的结构为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2694,7 +2695,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span><span class="c1">// 头文件与编译指令</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 辅助函数定义</span>
@@ -2703,8 +2704,7 @@
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="_4">预编译指令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><strong>定义</strong></p>
 <p>上文代码中提及的“头文件与编译指令”中的编译指令实际上是预编译指令的意思，而预编译与预处理是同一概念。</p>
@@ -2726,26 +2726,22 @@
 <li>无参数宏</li>
 </ul>
 <p>用一个用户指定的称为宏名的标识符来代表一个代码序列，这种定义的一般形式为 <code>#define 标识符 代码序列</code>。其中 <code>#define</code> 之后的标识符称为宏定义名（简称宏名），在宏定义 <code>#define</code> 之前可以有若干个空格、制表符，但不允许有其它字符，宏名与代码序列之间用空格符分隔。例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define PI 3.1415926535</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define PI 3.1415926535</span>
+</code></pre></div></td></tr></table></div>
 <p>在 C++ 中，这种替换一般被 <code>const</code> 取代，进而能保证类型的正确性。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415926535</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415926535</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>带参数宏</li>
 </ul>
 <p>带参数宏定义进一步扩充了无参数宏定义的能力，这时的宏展开既进行宏名的替换又进行宏参数的替换。带参数的宏定义的一般形式为 <code>#define 标识符(参数表) 代码序列</code>，其中参数表中的参数之间用逗号分隔，在代码序列中必须要包含参数表中的的参数。在定义带参数的宏时，宏名与左圆括号之间不允许有空白符，应紧接在一起，否则变成了无参数的宏定义。带参数宏调用提供的实在参数个数必须与宏定义中的形式参数个数相同。例如：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define sqr(x) ((x) * (x))</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define sqr(x) ((x) * (x))</span>
 <span class="n">sqr</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// ((3 + 2) * (3 + 2));</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>在 C++ 中，这种替代一般被内联函数取代，进而能保证类型的正确性。内联函数我们会在后续章节中讲解。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>宏作用域</li>
 </ul>
@@ -2755,18 +2751,16 @@
 </ul>
 <p>预处理器在处理宏定义时，会对宏进行展开（即宏替换）。宏替换首先将源文件中在宏定义随后所有出现的宏名均用其所代表的代码序列替换之，如果是带参数宏则接着将代码序列中的宏形参名替换为宏实参名。</p>
 <p>宏替换只作代码字符序列的替换工作，不作任何语法的检查，也不作任何的中间计算，一切其它操作都要在替换完后才能进行。如果宏定义不当，错误要到预处理之后的编译阶段才能发现。 源代码中的宏名和宏定义代码序列中的宏形参名必须是标识符才会被替换，即只替换标识符，不替换别的东西，像注释、字符串常量以及标识符内出现的宏名或宏形参名则不会被替换。例如下列宏：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define NAME vrmozart</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define NAME vrmozart</span>
+</code></pre></div></td></tr></table></div>
 <p>宏替换不会替换掉 <code>// NAME</code>、<code>/* NAME */</code>、<code>"NAME"</code>、<code>my_NAME_blog</code> 中的 <code>NAME</code>。</p>
 <p>标识符的概念在后续章节中阐述。</p>
 <ul>
 <li>宏的独立性</li>
 </ul>
 <p>前文提及，宏名和宏形参名所代表的内容及意义在宏展开前后必须一直是独立且保持不变的，不能分开解释和执行。然而，在宏调用时，预处理器用宏定义的代码序列替换宏名，用宏实参名替换宏形参名。替换后，宏定义的代码序列就与源文件中相邻的代码自然连接，宏实参名也与代码序列中相邻的代码自然连接，宏定义的代码序列和宏实参名的独立性就不一定依旧存在。例如，我们希望使用下列宏实现平方操作：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define SQR(x) x * x</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define SQR(x) x * x</span>
+</code></pre></div></td></tr></table></div>
 <p>对于宏调用 <code>p = SQR(y)</code>，能得到希望的宏展开 <code>p = y * y</code>。但对于宏调用 <code>q = SQR(u + v)</code>，得到的宏展开是 <code>q = u + v * u + v</code>。显然，后者的展开结果不是程序设计者所希望的。为能保持宏实参名替换后的独立性，应在宏定义中给形式参数加上括号。进一步，为了保证宏名调用的独立性，作为算式的宏定义代码序列也应加括号。<code>SQR</code> 宏定义改写成 <code>#define SQR(x) ((x) * (x))</code> 才是正确的宏定义。即便如此，这样的宏定义依然很危险。</p>
 <ul>
 <li>宏调用与函数调用</li>
@@ -2790,55 +2784,51 @@
 <li>防止头文件重复包含</li>
 </ul>
 <p>我们先前提到过 <code>#include</code> 指令的效果是把源文件<strong>直接复制</strong>到源代码中，那么考虑这样的多文件。头文件 <code>A.h</code> 中包含了头文件 <code>B.h</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// A.h</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// A.h</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
 <span class="cm">/* A.h CODE */</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>而主文件同时包含 <code>A.h</code> 和 <code>B.h</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// main.cpp</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// main.cpp</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;A.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>预处理器处理到主文件的 <code>#include "A.h"</code> 的时候直接将 <code>A.h</code> 的内容复制过来：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// main.cpp</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// main.cpp</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
 <span class="cm">/* A.h CODE */</span><span class="w"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;B.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>会发现这里出现了重复包含，如果 <code>B.h</code> 中有函数定义，则有可能导致冲突，从而无法编译成功。那么为了防止这样的头文件重复包含，我们可以给每一个头文件按照这样的格式编写，如 <code>B.h</code>：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// B.h</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// B.h</span>
 <span class="cp">#ifndef B_H</span>
 <span class="cp">#define B_H</span>
 
 <span class="cm">/* B.h CODE */</span><span class="w"></span>
 
 <span class="cp">#endif </span><span class="c1">// B_H</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>这样即使出现重复包含，由于第一次包含的时候 <code>B_H</code> 宏就已经定义过了，所以后面的 <code>#ifndef</code> 就会保证 <code>B.h</code> 的代码不会再次包含进来。</p>
 <p>事实上现在更常用的防止重复包含的预编译指令为 <code>#pragma once</code>。</p>
 <ul>
@@ -2860,15 +2850,15 @@
 <li><code>#pragma</code></li>
 </ul>
 <p><code>#pragma</code> 指令可能是最复杂的预处理指令（也最方便），它的作用是设定编译器的状态或指示编译器完成一些特定的动作。一般形式为 <code>#pragma para</code>，其中 <code>para</code> 为参数，下面介绍一些常用的参数。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>- `#pragma once`，只要在头文件的最开始加入这条指令就能够保证头文件被编译一次。
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>- `#pragma once`，只要在头文件的最开始加入这条指令就能够保证头文件被编译一次。
 - `#pragma message(&quot;info&quot;)`，在编译信息输出窗口中输出相应的信息，例如 `#pragma message(&quot;Hello&quot;)`。
 - `#pragma warning`，设置编译器处理编译警告信息的方式，例如 `#pragma warning(disable: 4507 34; once: 4385; error: 164)` 表示不显示 4507 和 34 号警告信息、4385 号警告信息仅报告一次、把 164 号警告信息作为一个错误。
 - `#pragma comment(...)`，设置一个注释记录到对象文件或者可执行文件中。常用  `lib` 注释类型，用来将一个库文件链接到目标文件中，一般形式为 `#pragma comment(lib, &quot;*.lib&quot;)`，其作用与在项目属性链接器“附加依赖项”中输入库文件的效果相同。
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
+
 <h2 id="_7">标识符<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <h3 id="_8">定义<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>标识符即为编程的时候使用的“名字”, 给类、接口、方法、变量、常量名等起名字的字符序列。</p>
@@ -2922,15 +2912,13 @@
 <h2 id="_19">函数的声明与定义<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <h3 id="_20">概念<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>函数声明的语法为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// 变量名可省略，例如后缀运算符重载中的哑元</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>函数定义（即实现）的语法为：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>同一个函数可以有多次声明，但只能有一次实现，多次实现会导致链接错误。注意这和重载的区别，重载是同名函数但是参数不同，重载我们后续介绍。</p>
 <h3 id="_21">变量的声明与定义<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p>TODO</p>
@@ -2962,10 +2950,11 @@
     
 
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -2974,7 +2963,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
         <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语言面向对象" rel="prev">
@@ -3029,10 +3019,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
