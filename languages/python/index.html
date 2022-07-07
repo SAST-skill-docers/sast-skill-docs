@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2597,7 +2597,7 @@
 <h3 id="python_2">Python 的安装<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">Python 版本的选择</p>
-<p>Python 现在的主流版本是 <strong>Python3</strong>，目前的最新版本是 3.9，官方会对该版本进行 Bug 修复，而较为稳定的版本是 3.8，针对其仅会推出安全性相关的修复。</p>
+<p>Python 现在的主流版本是 <strong>Python3</strong>，目前的最新版本是 3.10，官方会对该版本进行 Bug 修复，而较为稳定的版本是 3.9 与 3.8，针对其仅会推出安全性相关的修复。</p>
 <p>目前在网络上找到的很多教程都还是 <strong>Python2</strong> 风格的，而 Python 官方在 2020/1/1 已经停止了对 Python2 的官方支持。因此，尽快升级并熟悉 <strong>Python3</strong> 的语法，是很有必要的。</p>
 </div>
 <div class="admonition info">
@@ -2606,7 +2606,7 @@
 <p>而我们将要介绍的 Python 是一种<strong>解释型语言</strong>。每次执行程序都需要一边转换一边执行，用到哪些源代码就将哪些源代码转换成机器码，用不到的不进行任何处理。每次执行程序时可能使用不同的功能，这个时候需要转换的源代码也不一样。相比于编译型语言，解释型语言几乎都能跨平台，“<strong>一次编写，到处运行</strong>”是真实存在的。也就是说，可以轻松实现在 Windows 上编写 Python 源代码，然后丢到 Linux 上去运行，只要双方配置了相同的解释器环境即可。</p>
 <p>参考自 <a href="http://c.biancheng.net/view/4136.html">http://c.biancheng.net/view/4136.html</a>.</p>
 </div>
-<p>针对 Windows 用户，请访问 <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>。针对 Mac OS 用户，请访问 <a href="https://www.python.org/downloads/macos/">https://www.python.org/downloads/macos/</a>。下载对应的包然后安装即可。</p>
+<p>针对 Windows 用户，请访问 <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>。针对 macOS 用户，请访问 <a href="https://www.python.org/downloads/macos/">https://www.python.org/downloads/macos/</a>。下载对应的包然后安装即可。</p>
 <p>在安装时记得勾选 Add To Path，将安装路径保存为系统环境变量。</p>
 <div class="admonition note">
 <p class="admonition-title">什么是环境变量？</p>
@@ -2695,10 +2695,10 @@
 <span class="n">c7w</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
-<p class="admonition-title">Python 是一种弱类型语言</p>
-<p>我们尝试与熟悉的 C++ 语言对比，解释强类型语言与弱类型语言的区别。</p>
-<p><strong>强类型语言</strong>也称为强类型定义语言。是一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用。也就是说，一旦一个变量被指定了某个数据类型，如果不经过强制转换，那么它就永远是这个数据类型了。</p>
-<p>与其相对应的是弱类型语言：数据类型可以被忽略的语言。它与强类型定义语言相反， 一个变量可以赋不同数据类型的值。</p>
+<p class="admonition-title">Python 是一种动态类型语言</p>
+<p>我们尝试与熟悉的 C++ 语言对比，解释静态类型语言与动态类型语言的区别。</p>
+<p><strong>静态类型语言</strong>中，每个变量都有确定的数据类型。变量的类型在编译期就被完全确定，且此后变量的类型无法改变。</p>
+<p>与其相对应的是<strong>动态类型语言</strong>：变量并没有确定的数据类型，这意味着变量的类型可以在运行期改变。</p>
 <p>比如，在 C++ 中：</p>
 <p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2718,6 +2718,50 @@
 </code></pre></div></td></tr></table></div>
 我们并没有对变量 <code>a</code> 进行过声明，而可以直接使用，并且在使用过程中可以随意地变换其类型。</p>
 <p>Reference: <a href="https://blog.csdn.net/alashan007/article/details/100742591">https://blog.csdn.net/alashan007/article/details/100742591</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Python 是一种强类型语言</p>
+<p>注意区分“强/弱类型”与“静态/动态类型”，这是一对相互正交的概念。</p>
+<p><strong>强类型</strong>指值拥有确定的类型且不可（隐式地）相互转换，<strong>弱类型</strong>则指不同类型的值之间可以隐式转换。</p>
+<p>类型系统的强/弱并不像动态/静态那样有明显的界限。一般认为，JavaScript、Visual Basic 等是典型的弱类型语言，允许一部分隐式转换的 C 和 C++ 也被认为是弱类型语言，而 Java、C#、Python 等则是典型的强类型语言。</p>
+<p>例如，在 JavaScript 中：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">3</span><span class="p">];</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">d</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Output:</span><span class="w"></span>
+<span class="c1">// 13</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>可以看到即使这些变量的类型完全不同，它们也能进行运算并产出不太符合直觉的结果。</p>
+<p>而在 Python 中：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;5&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">Output</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="o">//</span> <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">//</span> <span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="o">//</span> <span class="n">Output</span><span class="p">:</span>
+<span class="o">//</span> <span class="mi">54</span>
+</code></pre></div></td></tr></table></div>
+<p>可见将不同类型的值直接进行运算会导致错误，必须先将其中的一些值显式转换为正确类型的值。</p>
 </div>
 <h3 id="_5">运算符<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>下列是 Python 语言之中的合法运算符，其含义与 C/C++ 语言基本一致。其后列出了相应的重载函数，这些重载函数的用法在后续的面向对象章节之中再详细介绍。</p>
@@ -2785,7 +2829,7 @@
 <p><span class="arithmatex"><span class="MathJax_Preview">a = 10^{-200} \times 10^{-400}</span><script type="math/tex">a = 10^{-200} \times 10^{-400}</script></span></p>
 </li>
 </ol>
-<p>【提示】程序中科学计数法表示。我们可以用 <code>1e-5</code> 来表示 <span class="arithmatex"><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span>。</p>
+<p>【提示】程序中可以使用科学计数法表示：我们可以用 <code>1e-5</code> 来表示 <span class="arithmatex"><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span>。</p>
 </li>
 <li>
 <p>请尝试解释以下表达式的输出结果。</p>
@@ -3305,7 +3349,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年7月7日</span>
       
     
   </small>
@@ -3315,7 +3359,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (25.83%), <a href='mailto:admin@cc7w.cf'>c7w</a> (74.17%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (24.21%), <a href='mailto:admin@cc7w.cf'>c7w</a> (69.6%), <a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (6.19%)</span>
             </small>
         </div>
     
@@ -3325,7 +3369,7 @@
           </div>
         </div>
         
-          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             回到页面顶部
           </a>
@@ -3390,10 +3434,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
