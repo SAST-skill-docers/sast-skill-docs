@@ -79,7 +79,7 @@ nav:
     - courses/index.md
   - 基本技能:
     - basic/index.md
-    - 如何使用搜索引擎: basic/search-engine.md
+    - 如何解决问题: basic/meet-problems.md
     - VSCode 配置: basic/vscode.md
     - Git 入门: basic/git.md
     - Linux 入门: basic/linux.md
