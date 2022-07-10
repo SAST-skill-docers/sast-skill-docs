@@ -2935,6 +2935,11 @@ chmod o-rw journal.txt <span class="c1"># 禁止组外用户 (o) 的读写</span
 <td><code>echo "Hello" &gt; hello.txt</code></td>
 </tr>
 <tr>
+<td>&lt;</td>
+<td>重定向输入</td>
+<td>./main &lt; in.txt</td>
+</tr>
+<tr>
 <td>&gt;&gt;</td>
 <td>重定向输出并采取“追加”模式</td>
 <td><code>echo cirno &gt;&gt; visitors.txt</code></td>
@@ -2999,8 +3004,8 @@ scp sast:~/data.csv .
 <p><strong>在服务器中存放公钥</strong></p>
 <p>在接受 SSH 连接请求时，服务器的 SSH 会在目标用户的 <code>~/.ssh/authorized_keys</code> 中查找公钥。因此我们需要将自己的 <code>id_rsa.pub</code> 中的内容追加到服务器的 <code>authorized_keys</code> 中。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cat ~/.ssh/id_rsa.pub <span class="sb">`</span>ssh training <span class="s1">&#39;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;</span>
-<span class="s1">~/.ssh/authorized_keys&#39;</span> <span class="c1"># Windows 下路径为 ~/.ssh/id_rsa.pub</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cat ~/.ssh/id_rsa.pub <span class="p">|</span> ssh training <span class="s1">&#39;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&#39;</span> 
+<span class="c1"># Windows 下路径为 ~/.ssh/id_rsa.pub</span>
 </code></pre></div></td></tr></table></div>
 <p>上面的命令完成了将本地公钥保存到远程服务器的过程，经过之前的学习，你能理解这个命令是如何执行的吗？</p>
 <p><code>ssh-copy-id</code> 提供了更简便的解决方案：<code>ssh-copy-id -i ~/.ssh/id_rsa.pub training</code>。</p>
@@ -3059,7 +3064,7 @@ Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月13日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年7月10日</span>
       
     
   </small>
@@ -3069,7 +3074,7 @@ Ctrl+B <span class="s2">&quot;      # Split Vertically</span>
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (19.58%), <a href='mailto:admin@cc7w.cf'>c7w</a> (80.42%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (19.23%), <a href='mailto:admin@cc7w.cf'>c7w</a> (80.77%)</span>
             </small>
         </div>
     
