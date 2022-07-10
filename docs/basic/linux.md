@@ -180,6 +180,7 @@ chmod o-rw journal.txt # 禁止组外用户 (o) 的读写
 | &        | 允许命令在后台执行            | `cp -r ./here ./there &`                     |
 | &&       | 执行多条指令，逻辑和 c++ 类似 | `wget someurl/install.sh . && ./install.sh ` |
 | >        | 重定向输出                    | `echo "Hello" > hello.txt`                   |
+| <        | 重定向输入                    | ./main < in.txt                              |
 | >>       | 重定向输出并采取“追加”模式    | `echo cirno >> visitors.txt`                 |
 | \|       | 连接前后两个程序的输出和输入  | `ls ~/Documents | grep note.txt`             |
 
@@ -264,8 +265,8 @@ ssh-keygen
 在接受 SSH 连接请求时，服务器的 SSH 会在目标用户的 `~/.ssh/authorized_keys` 中查找公钥。因此我们需要将自己的 `id_rsa.pub` 中的内容追加到服务器的 `authorized_keys` 中。
 
 ```bash
-cat ~/.ssh/id_rsa.pub `ssh training 'mkdir -p ~/.ssh && cat >>
-~/.ssh/authorized_keys' # Windows 下路径为 ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub | ssh training 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' 
+# Windows 下路径为 ~/.ssh/id_rsa.pub
 ```
 
 上面的命令完成了将本地公钥保存到远程服务器的过程，经过之前的学习，你能理解这个命令是如何执行的吗？
