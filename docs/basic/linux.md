@@ -12,7 +12,7 @@
 
 ## 序言 Prologue
 
-### What is Linux?
+### What Is Linux?
 
 Linux 是一种自由和开放源码的类 UNIX 操作系统，其内核由 Linus Torvalds 在 1991 年发布。
 
@@ -34,7 +34,7 @@ Linux 以各种形式被广泛应用在各个领域，包括但不限于：
 
 我们一般使用的虚拟机的发行版为 Ubuntu 20.04。
 
-### Ways to use Linux
+### Ways to Use Linux
 
 我们接触 Linux 的方式通常有以下几种：
 
@@ -69,7 +69,7 @@ Linux 以各种形式被广泛应用在各个领域，包括但不限于：
 
 如果你用 root 身份打开 Shell，呈现的提示符大概是这样 `root@SAST-Training:~#`。即 `#` 符号表明了 `root` 身份。
 
-### How does shell run command?
+### How Does Shell Run Commands?
 
 在 Shell 中你每次输入一个命令，这个命令被 Shell 解析、运行，并将结果输出到终端。
 
@@ -130,7 +130,7 @@ training@SAST:~$ which echo
 
 现在我们可以用 `ls` 和 `cd` 来翻阅系统里的文件了！
 
-首先是一些基本的表示：`/` 表示根路径，`~` 表示家路径（`/home/username/`，如果是 roo t则为 `/root/`），`.` 表示当前目录，`..` 表示上一级目录。这些表示省去了很多写绝对路径的麻烦。你可以试试 `cd` 到这些地方，然后用 `ls` 查看目录里的内容。
+首先是一些基本的表示：`/` 表示根路径，`~` 表示家路径（`/home/username/`，如果是 root 则为 `/root/`），`.` 表示当前目录，`..` 表示上一级目录。这些表示省去了很多写绝对路径的麻烦。你可以试试 `cd` 到这些地方，然后用 `ls` 查看目录里的内容。
 
 我们来看看根路径下都有哪些文件夹：
 
@@ -178,13 +178,13 @@ chmod o-rw journal.txt # 禁止组外用户 (o) 的读写
 | Operator | Description                   | Example                                      |
 | -------- | ----------------------------- | -------------------------------------------- |
 | &        | 允许命令在后台执行            | `cp -r ./here ./there &`                     |
-| &&       | 执行多条指令，逻辑和 c++ 类似 | `wget someurl/install.sh . && ./install.sh ` |
+| &&       | 执行多条指令，逻辑和 C++ 类似 | `wget someurl/install.sh . && ./install.sh ` |
 | >        | 重定向输出                    | `echo "Hello" > hello.txt`                   |
-| <        | 重定向输入                    | ./main < in.txt                              |
+| <        | 重定向输入                    | `./main < in.txt`                              |
 | >>       | 重定向输出并采取“追加”模式    | `echo cirno >> visitors.txt`                 |
 | \|       | 连接前后两个程序的输出和输入  | `ls ~/Documents | grep note.txt`             |
 
-### Read The Manual
+### Read the Manual
 
 ```bash
 man <command-name>
@@ -204,7 +204,7 @@ man <command-name>
 
 现在我们回到 SSH 上来。
 
-### Executing commands
+### Executing Commands
 
 SSH 可以直接远程执行命令而不需要连接到远程的 Shell 中，在连接命令后加上需要执行的命令：
 
@@ -252,7 +252,7 @@ SSH 配置文件并不能指定登录时的密码（显然这样会很不安全�
 
 ![Screenshot from 2021-07-15 10-59-22](https://i.loli.net/2021/10/10/nhiC3kRQ9ZVgoBD.png)
 
-**秘钥生成**
+**密钥生成**
 
 ```bash
 ssh-keygen
@@ -279,11 +279,11 @@ cat ~/.ssh/id_rsa.pub | ssh training 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorize
 
 **软件包管理系统**是在电脑中自动安装、配置、卸载和升级软件包的工作组合。使用软件包管理系统可以大大简化在 Linux 发行版中安装软件的流程。常见的软件包有两种类型：deb 软件包（由 dpkg 和它的前端 apt 管理，使用于 Debian、Ubuntu）和 RPM 软件包（由 dnf、yum、ZYpp 等前端管理）。
 
-绝大多数的 Linux 发行版都有它的包管理器，Ubuntu 有 `apt`，Arch Linx 有 `pacman`，MacOS 有 `Homebrew`。
+绝大多数的 Linux 发行版或类 Unix 系统都有它的包管理器，Ubuntu 有 `apt`，Arch Linux 有 `pacman`，macOS 有 `Homebrew`。
 
 包管理器的指令一般都很符合直观，如果失败了可以通过 `man` 或者 `help` 查看用法。
 
-系统中包管理器所使用的仓库往往默认位于国外，这使得每次从仓库拉取东西时耗费很长时间或者甚至连不上。好在我们国内有许多的镜像源，比如清华的 Tuna，访问 https://mirrors.tuna.tsinghua.edu.cn/help 可以找到 Ubuntu 在内的各种仓库镜像源配置方法。
+系统中包管理器所使用的仓库往往默认位于国外，这使得每次从仓库拉取东西时耗费很长时间或者甚至连不上。好在我们国内有许多的镜像源，比如清华的 TUNA，访问 https://mirrors.tuna.tsinghua.edu.cn/help 可以找到 Ubuntu 在内的各种仓库镜像源配置方法。
 
 Homebrew 的安装方法：
 
@@ -298,25 +298,25 @@ Homebrew 的安装方法：
 
 ![hottest_editors](https://i.loli.net/2021/10/10/DFpv8LzXEIRiCPr.png)
 
-### Tmux
+### tmux
 
 我们每次打开终端或是 SSH 登录远程服务器时，都是创建了一个会话（英文：session）来进行临时的交互，此时窗口（或连接）是和它开启的进程（比如 Shell）绑定在一起。当我们关闭窗口或者断开连接时，对应的进程也随之终止了。
 
-为了在会话结束后其开启的进程还能继续进行，我们需要先进行"解绑"，在后续需要时再重新进行绑定。Tmux 完成的就是这样一个任务。
+为了在会话结束后其开启的进程还能继续进行，我们需要先进行"解绑"，在后续需要时再重新进行绑定。tmux 完成的就是这样一个任务。
 
 ```bash
-tmux            # 创建新的 Tmux 会话
-tmux detach     # 分离当前 Tmux 会话，快捷键 Ctrl+B D
+tmux            # 创建新的 tmux 会话
+tmux detach     # 分离当前 tmux 会话，快捷键 Ctrl+B D
 tmux ls         # tmux list-session
-tmux attach -t <session-name> # sessions are labeled by numbers by default
+tmux attach -t <session-name> # Sessions are labeled by numbers by default
 tmux kill-session -t <session-name>
 ```
 
-除了能够让任务持续进行，Tmux 还有一个很重要的功能是分窗口和分屏。
+除了能够让任务持续进行，tmux 还有一个很重要的功能是分窗口和分屏。
 
 ```bash
-Ctrl+B %      # Split Horizontally
-Ctrl+B "      # Split Vertically
+Ctrl+B %      # Split horizontally
+Ctrl+B "      # Split vertically
 Ctrl+B 方向键  # Switch between panes
 # ...
 ```
