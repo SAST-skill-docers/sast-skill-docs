@@ -100,7 +100,7 @@
 	2. 请尝试编写脚本文件使其能正确输出 1. 中的欢迎信息。并思考，C++ 中你是怎样实现对于不同的用户，可以呈现不同的欢迎信息的呢？
 	
 	提示：
-
+	
 	- 你可以通过仔细观察上面的图片来解决问题
 	- 接下来我们将讲解变量的定义与程序的输入输出
 
@@ -145,7 +145,7 @@ c7w
 	与其相对应的是**动态类型语言**：变量并没有确定的数据类型，这意味着变量的类型可以在运行期改变。
 	
 	比如，在 C++ 中：
-
+	
 	```cpp
 	int c = 1;
 	char m = 'x';
@@ -154,7 +154,7 @@ c7w
 	我们不能尝试使用 `a = 1`，因为我们已经规定了 `a` 是 `std::string` 类型。
 	
 	而在 Python 中，我们可以尝试：
-
+	
 	```python
 	a = 123
 	a = 100.0
@@ -168,41 +168,41 @@ c7w
 !!! note "Python 是一种强类型语言"
 
     注意区分“强/弱类型”与“静态/动态类型”，这是一对相互正交的概念。
-
-	**强类型**指值拥有确定的类型且不可（隐式地）相互转换，**弱类型**则指不同类型的值之间可以隐式转换。
-
-	类型系统的强/弱并不像动态/静态那样有明显的界限。一般认为，JavaScript、Visual Basic 等是典型的弱类型语言，允许一部分隐式转换的 C 和 C++ 也被认为是弱类型语言，而 Java、C#、Python 等则是典型的强类型语言。
-
-	例如，在 JavaScript 中：
-
-	```javascript
-	var a = "5";
-	var b = 4;
-	var c = [3];
-	var d = null;
-	console.log(a - b + c - d);
-	// Output:
-	// 13
-	```
-
-	可以看到即使这些变量的类型完全不同，它们也能进行运算并产出不太符合直觉的结果。
-
-	而在 Python 中：
-
-	```python
-	a = "5"
-	b = 4
-	print(a + b)
-	// Output:
-	// Traceback (most recent call last):
-	// File "<stdin>", line 1, in <module>
-	// TypeError: can only concatenate str (not "int") to str
-	print(a + str(b))
-	// Output:
-	// 54
-	```
-
-	可见将不同类型的值直接进行运算会导致错误，必须先将其中的一些值显式转换为正确类型的值。
+    
+    **强类型**指值拥有确定的类型且不可（隐式地）相互转换，**弱类型**则指不同类型的值之间可以隐式转换。
+    
+    类型系统的强/弱并不像动态/静态那样有明显的界限。一般认为，JavaScript、Visual Basic 等是典型的弱类型语言，允许一部分隐式转换的 C 和 C++ 也被认为是弱类型语言，而 Java、C#、Python 等则是典型的强类型语言。
+    
+    例如，在 JavaScript 中：
+    
+    ```javascript
+    var a = "5";
+    var b = 4;
+    var c = [3];
+    var d = null;
+    console.log(a - b + c - d);
+    // Output:
+    // 13
+    ```
+    
+    可以看到即使这些变量的类型完全不同，它们也能进行运算并产出不太符合直觉的结果。
+    
+    而在 Python 中：
+    
+    ```python
+    a = "5"
+    b = 4
+    print(a + b)
+    # Output:
+    # Traceback (most recent call last):
+    # File "<stdin>", line 1, in <module>
+    # TypeError: can only concatenate str (not "int") to str
+    print(a + str(b))
+    # Output:
+    # 54
+    ```
+    
+    可见将不同类型的值直接进行运算会导致错误，必须先将其中的一些值显式转换为正确类型的值。
 
 ### 运算符
 
@@ -278,7 +278,7 @@ c7w
 		2. `3 and 4`
 	
 		3. `0 or 1 and 2`
-
+	
 		4. `0 and 1 or 2`
 	
 		5. `1 or 0 and 2`
