@@ -2421,6 +2421,7 @@
 <li>精确匹配 <code>"Exact Match"</code></li>
 <li>必须包含 <code>+</code> 与必须不包含 <code>-</code></li>
 <li>任意匹配 <code>*</code></li>
+<li>指定时间范围，例如只获取过去 1 年内的搜索结果，这样可以保证搜索结果的时效性</li>
 </ul>
 <p>参考资料：<a href="https://www.instructables.com/How-to-Properly-Use-a-Search-Engine/">How to properly use a search engine</a>.</p>
 <h2 id="_5">如何查阅官方文档<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -2431,10 +2432,11 @@
 <p>要想搜索不同的内容，我们一般会选择不同的网站。这里我们针对一些常见的问题，列出一些常用的网站：</p>
 <p><code>Runtime Error / Compilation Error</code></p>
 <p>程序运行时遇到了我不了解的报错，即使查看了函数调用栈也不理解最终的报错信息；程序编译不过，其中用了我不理解的编译特性... <strong>StackOverflow</strong> 是这些问题的好帮手，可以替代 CSDN 作为你的搜索首选。事实上，CSDN 的部分内容是直接从 StackOverflow 上搬运而来，而这些搬运而来的内容在国内网站上又相互爬取、相互展示...</p>
+<p>但这也不意味着中文内容都是差的，如果使用 Google 并且语言为中文，通常能查到一些中文个人博客的内容，这些内容一般不会是机器搬运的，可以作为参考。例如如果想要配置 <code>DN42</code> 实验网络，由于官方文档不详细，个人博客的内容也是非常重要的参考。</p>
 <p><code>What is the original paper of XXX...</code></p>
 <p>我们想知道某篇学术论文的出处，或者是其引用格式。这时 <strong>scholar.google.com</strong> 就可以起到很好的作用。如果你知道这篇论文的全名，你可以直接进行搜索，然后便捷地获取引用格式与论文原文的 PDF 版本。</p>
 <p><code>I want to know whether or not someone has implemented this...</code></p>
-<p>想找过往的轮子？好办，在 <strong>GitHub</strong> 中进行搜索，你可以看到规模庞大的开源代码...但是，在使用时请务必遵守其对应的 LICENSE。</p>
+<p>想找过往的轮子？好办，在 <strong>GitHub</strong> 中进行搜索，你可以看到规模庞大的开源代码...但是，在使用时请务必遵守其对应的 LICENSE。可以尝试使用 <a href="https://cs.github.com">GitHub Code Search</a>，能够更加精确、全面的搜索公开仓库的代码。</p>
 <p>此外，在学习对应的内容时，我们推荐到对应的官方网站、教程、文档或 Wiki 上进行学习。在学习一些公开课程可能涉及到的知识时（如 CS231n），我们推荐先搜索课程主页，进而在 YouTube 上搜索对应的讲解视频，然后在 B 站与知乎等国内平台上进行检索。</p>
 <h2 id="_7">如何有效地进行提问<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>在你尝试了如上内容无果之后，自己闷头苦干或许已经不能解决你的问题了。是时候进行提问了 —— 打开微信列表，翻出一个人的账号，然后敲下一句“在吗”，等待回复 —— 不，这并不是正确的提问方式，至少对方从一句“在吗”中并没有获得任何的信息增益。他/她可能认为你想邀他/她喝一杯下午茶，而不是帮你还有 24 个小时就到 DDL 的 DSA 编程作业 Debug。</p>
@@ -2469,7 +2471,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年7月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年7月15日</span>
       
     
   </small>
@@ -2479,7 +2481,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:admin@cc7w.cf'>c7w</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:admin@cc7w.cf'>c7w</a> (95.4%), <a href='mailto:prnake@gmail.com'>Papersnake</a> (4.6%)</span>
             </small>
         </div>
     
