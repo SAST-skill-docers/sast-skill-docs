@@ -4,7 +4,8 @@
 
 本教程主要涉及已对 Markdown 较为熟识之后的迁移学习。
 
-<!--more-->
+!!! note
+    实际上，你可以在 Markdown 里使用LaTeX的子集[KaTeX](https://katex.org/)
 
 ## 前置知识
 
