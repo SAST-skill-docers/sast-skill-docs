@@ -124,3 +124,4 @@ Markdown 还有一些高级玩法，例如表格、公式、HTML 元素、画时
 + 菜鸟教程 <https://www.runoob.com/markdown/md-tutorial.html>
 + **（推荐学习）**公式编辑教程 <https://www.jianshu.com/p/25f0139637b7>
 + 绘制流程图、时序图、甘特图 <https://www.jianshu.com/p/6dbcc3aff98b>
++ CommonMark，一个常用的Markdown标准 <https://spec.commonmark.org/>
