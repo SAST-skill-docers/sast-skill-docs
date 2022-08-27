@@ -1,0 +1,4256 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Go - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#go" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Go
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        欢迎来到 SAST skill docs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/" class="md-tabs__link">
+        课程指引
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic/" class="md-tabs__link">
+        基本技能
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../languages/" class="md-tabs__link">
+        编程语言
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../frontend/" class="md-tabs__link">
+        前端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        后端框架
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai-ml/" class="md-tabs__link">
+        人工智能 & 机器学习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../source/" class="md-tabs__link">
+        资源链接
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">欢迎来到 SAST skill docs</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="欢迎来到 SAST skill docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          欢迎来到 SAST skill docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/reader/" class="md-nav__link">
+        读者须知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/editor/" class="md-nav__link">
+        编辑者须知
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../courses/">课程指引</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="课程指引" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          课程指引
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../basic/">基本技能</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="基本技能" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本技能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/meet-problems/" class="md-nav__link">
+        如何解决问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/vscode/" class="md-nav__link">
+        VSCode 配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/git/" class="md-nav__link">
+        Git 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/linux/" class="md-nav__link">
+        Linux 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/markdown/" class="md-nav__link">
+        Markdown 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic/latex/" class="md-nav__link">
+        LaTeX 入门
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/">编程语言</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          编程语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/c-oop/">C++ 语言面向对象</a>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="C++ 语言面向对象" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++ 语言面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/environment/" class="md-nav__link">
+        编程环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/function/" class="md-nav__link">
+        C++ 语言函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/class-easy/" class="md-nav__link">
+        C++ 类语法初步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/class-advanced/" class="md-nav__link">
+        C++ 类语法进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/reference-copy/" class="md-nav__link">
+        引用与复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/combination-and-derivation/" class="md-nav__link">
+        组合与继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/virtual-function/" class="md-nav__link">
+        虚函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/polymorphism-and-templates/" class="md-nav__link">
+        多态与模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/templates-and-intro-to-stl/" class="md-nav__link">
+        模板进阶与 STL 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/stl-and-string/" class="md-nav__link">
+        STL 与字符串处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/function-object-and-smart-pointers/" class="md-nav__link">
+        函数对象和智能指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/c-oop/behavioral-pattern/" class="md-nav__link">
+        设计模式与行为型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/modern-cpp/" class="md-nav__link">
+        现代 C++ 语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/python/">Python 语言基础</a>
+          
+            <label for="__nav_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Python 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/pip/" class="md-nav__link">
+        Python 包管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/python/crawler/" class="md-nav__link">
+        Python 网络请求与爬虫基础
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/html/" class="md-nav__link">
+        HTML 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/css/">CSS 语言基础</a>
+          
+            <label for="__nav_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="CSS 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          CSS 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/bootstrap/" class="md-nav__link">
+        Bootstrap 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/css/mdui/" class="md-nav__link">
+        MDUI 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/javascript/">JavaScript 语言基础</a>
+          
+            <label for="__nav_4_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/variable/" class="md-nav__link">
+        JavaScript 的变量与变量类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/control/" class="md-nav__link">
+        JavaScript 的控制语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/function/" class="md-nav__link">
+        JavaScript 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop/" class="md-nav__link">
+        JavaScript 的面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/async/" class="md-nav__link">
+        JavaScript 的异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/oop-advance/" class="md-nav__link">
+        JavaScript 的面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/javascript/browser/" class="md-nav__link">
+        浏览器中的 JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/typescript/" class="md-nav__link">
+        TypeScript 语言基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/rust/">Rust 语言基础</a>
+          
+            <label for="__nav_4_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Rust 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Rust 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/whyrust/" class="md-nav__link">
+        Rust 入门的一点经验
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/variable/" class="md-nav__link">
+        Rust 的变量与类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/control/" class="md-nav__link">
+        Rust 中的流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/function/" class="md-nav__link">
+        Rust 的函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/matching/" class="md-nav__link">
+        Rust 模式匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/struct/" class="md-nav__link">
+        Rust 的结构体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/rust/reference/" class="md-nav__link">
+        Rust 的引用与借用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/node.js/">Node.js 基础</a>
+          
+            <label for="__nav_4_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Node.js 基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js 基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/node.js/npm/" class="md-nav__link">
+        npm 简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../languages/swift/">Swift 语言基础</a>
+          
+            <label for="__nav_4_11">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Swift 语言基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Swift 语言基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/basic/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/variable-function/" class="md-nav__link">
+        变量和函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/control-flow/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/types/" class="md-nav__link">
+        类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/generics/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/internal-types/" class="md-nav__link">
+        部分内置类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../languages/swift/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../frontend/">前端框架</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="前端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          前端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../frontend/swiftui/">SwiftUI 与 iOS 开发入门</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="SwiftUI 与 iOS 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SwiftUI 与 iOS 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/hello-world/" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/build-views/" class="md-nav__link">
+        构建 View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/data-flow/" class="md-nav__link">
+        数据流基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/declaritive-mvvm/" class="md-nav__link">
+        声明式 UI 与 MVVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/swiftui/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../frontend/react/">React 开发入门</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="React 开发入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          React 开发入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/prepare/" class="md-nav__link">
+        环境配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/basic/" class="md-nav__link">
+        组件、属性与状态
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/lifecycle/" class="md-nav__link">
+        生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/dataflow/" class="md-nav__link">
+        非常规数据流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/function-component/" class="md-nav__link">
+        函数组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react/extensions/" class="md-nav__link">
+        后续拓展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">后端框架</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="后端框架" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          后端框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../expressjs/express-js/" class="md-nav__link">
+        ExpressJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Go
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Go
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前置知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-go" class="md-nav__link">
+    1. Go 语言编译器安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ide" class="md-nav__link">
+    2. IDE 选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go_1" class="md-nav__link">
+    Go 基本语法
+  </a>
+  
+    <nav class="md-nav" aria-label="Go 基本语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hello-world" class="md-nav__link">
+    1. Hello, world!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 常见语句的格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-json" class="md-nav__link">
+    3. JSON 数据处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    搭建 Web 后端服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="搭建 Web 后端服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-naive" class="md-nav__link">
+    1. Naive 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fancy" class="md-nav__link">
+    2. Fancy 一点的版本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gin-gorm" class="md-nav__link">
+    Gin + GORM 进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="Gin + GORM 进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-http" class="md-nav__link">
+    1. 为路径添加不同种的 HTTP 方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 接收前端传来的参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cookie" class="md-nav__link">
+    3. 中间件与 Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gorm-gorm-automigrate" class="md-nav__link">
+    4. GORM 和 GORM 的 AutoMigrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 增删查改和一些小技巧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    如何完成一个并发任务
+  </a>
+  
+    <nav class="md-nav" aria-label="如何完成一个并发任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 并发安全性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 锁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-produce-consume" class="md-nav__link">
+    3. Produce-Consume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    部署
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    后续拓展
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    资源链接
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../ai-ml/">人工智能 & 机器学习</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="人工智能 & 机器学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          人工智能 & 机器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/pytorch/" class="md-nav__link">
+        Pytorch 入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai-ml/adversarial-search/" class="md-nav__link">
+        对抗搜索
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../source/">资源链接</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源链接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          资源链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/book/" class="md-nav__link">
+        书目推荐
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source/source/" class="md-nav__link">
+        外部链接
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前置知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-go" class="md-nav__link">
+    1. Go 语言编译器安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ide" class="md-nav__link">
+    2. IDE 选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go_1" class="md-nav__link">
+    Go 基本语法
+  </a>
+  
+    <nav class="md-nav" aria-label="Go 基本语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hello-world" class="md-nav__link">
+    1. Hello, world!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 常见语句的格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-json" class="md-nav__link">
+    3. JSON 数据处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    搭建 Web 后端服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="搭建 Web 后端服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-naive" class="md-nav__link">
+    1. Naive 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fancy" class="md-nav__link">
+    2. Fancy 一点的版本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gin-gorm" class="md-nav__link">
+    Gin + GORM 进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="Gin + GORM 进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-http" class="md-nav__link">
+    1. 为路径添加不同种的 HTTP 方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 接收前端传来的参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cookie" class="md-nav__link">
+    3. 中间件与 Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gorm-gorm-automigrate" class="md-nav__link">
+    4. GORM 和 GORM 的 AutoMigrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 增删查改和一些小技巧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    如何完成一个并发任务
+  </a>
+  
+    <nav class="md-nav" aria-label="如何完成一个并发任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 并发安全性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 锁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-produce-consume" class="md-nav__link">
+    3. Produce-Consume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    部署
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    后续拓展
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    资源链接
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+  <a href="https://github.com/Ashitemaru/sast-skill-docs/edit/master/docs/backend/go/go.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="go">Go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h1>
+<p>Go 语言是一门由 Google 开发的编译型语言。其语法与 C 较为接近，OOP 水平介于 C 和 C++ 之间，特点是能比较轻易地进行并行编程。Go 被广泛地用于<strong>后端开发</strong>中，相比 Python、JavaScript 等解释型语言往往拥有更高的运行效率。</p>
+<p>本文我们侧重介绍如何用 Go 搭建一个简易的 Web 服务器，并且完成与后端数据库通信的增删查改功能，对并发安全的内容亦会稍有介绍。</p>
+<p>Credit: 基于 @pyz 的 2022 暑培讲稿，少量修改而成。</p>
+<!--more-->
+
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>一种 C-family 语言的使用经验</li>
+<li>MySQL 数据库的基础操作</li>
+<li>对前后端分离架构的初步了解</li>
+</ul>
+<h2 id="_2">环境配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-go">1. Go 语言编译器安装<a class="headerlink" href="#1-go" title="Permanent link">&para;</a></h3>
+<p>推荐访问 Go 语言官方网站的<a href="https://golang.google.cn/doc/install">下载页</a>。在 Go install 的选项框里选择你的操作系统，下载打包好的安装文件并安装。不推荐 install from source，较为繁琐。</p>
+<div class="admonition note">
+<p class="admonition-title">安装提示</p>
+<p>如果本地已经安装了 Go 编译器，请检查大版本是否大于等于 <code>1.18</code> 。本文章内容全部基于 <code>1.18.3</code> 版本的 Go。</p>
+<p>Linux 用户不要用 yum、apt 等方式安装 golang，可能由于国内换源的原因导致所安装的版本很低。</p>
+<p>Windows 用户不要安装在需要管理员权限的文件夹下 (这会在后续带来不必要的麻烦)。建议 D 盘或 E 盘开一个 D:\Golang 之类的文件夹用于安装 Golang 以及后续下载的第三方 package。</p>
+</div>
+<p>确认自己成功安装的方式是在命令行运行 <code>go version</code>，查看是否有提示版本信息。</p>
+<h3 id="2-ide">2. IDE 选择<a class="headerlink" href="#2-ide" title="Permanent link">&para;</a></h3>
+<p>推荐使用 JetBrains 公司的 GoLand 作为 IDE，对于大学生而言，可以获取免费的学生版。也可使用 VSCode + Go 语言插件。</p>
+<details class="note">
+<summary>验证学生身份</summary>
+<p>对于清华大学的学生，在使用校园邮箱验证 JetBrains 学生身份时，请将邮箱后缀替换为 <code>@mails.thu.edu.cn</code>。</p>
+</details>
+<p>Go 语言提供了官方的代码风格整理器 gofmt，简单配置 GoLand 可以完成自动格式化代码。</p>
+<h2 id="go_1">Go 基本语法<a class="headerlink" href="#go_1" title="Permanent link">&para;</a></h2>
+<p>本节将会用几个示例程序来展示 Golang 的语法，并对其加以讲解。请认真阅读此处的代码，并尝试在电脑上运行它们，这会让你对这门语言有最基本的了解和直观感受。</p>
+<h3 id="1-hello-world">1. Hello, world!<a class="headerlink" href="#1-hello-world" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 声明一个名叫 main 的 package</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>在文件所在路径下使用命令 <code>go run &lt;文件名&gt;.go</code>，即可运行程序。</p>
+<p>示例代码中的文件是 main.go 这一段代码由三部分组成，它们之间的顺序是不可调换的，一般而言一段可运行的 Go 程序都是由这三部分组成，下面讲解它们的意义。</p>
+<ul>
+<li>Package 声明部分</li>
+</ul>
+<p>Package 是 Go 语言管理代码的方式，我们一般把 package 称为“包”。Package 和其它语言中的库或者模块 (module) 的地位类似。一般而言，一个包由一个或多个 .go 源文件组成。特别地，我们不以 <code>*_test.go</code> 的形式命名源文件，所有这样结尾的文件会被视为测试文件。</p>
+<p>每一个 package 的名字描述了这个 package 的功能，一般而言和这个 package 所处的文件目录的最后一级名字相同。</p>
+<p><code>main</code> package 是特殊的 package，用来定义一个可执行的程序，这个可执行程序的执行起点是 <code>main</code> package 里面的 <code>main</code> 函数。</p>
+<ul>
+<li>Import 部分</li>
+</ul>
+<p>Go 以 package 管理代码，相应地，想使用标准库或者第三方库中提供的方法或对象，就需要使用 import 来导入它们。Import 的语法有两种，它们都是可以通过编译的。一般而言，第二种写法是被推荐的，它在格式上显得较为整齐。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span><span class="w"> </span><span class="c1">// 单行import </span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// 一系列其他包</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>通过 import 导入包的顺序是无关紧要的，但是有几点仍是需要关注的：</p>
+<ol>
+<li>
+<p>Import 的优化：Go 语言不允许出现导入但未使用的包。</p>
+</li>
+<li>
+<p>Import cycle 问题：Go 语言不允许两个 package 互相 import。这为写 Go 代码的人带来了一定的麻烦 (不能像使用 C 一样定义很多头文件后随意调用了)，但这也给 Go 语言带来了一个优势——编译时间较短。</p>
+<p>解决 import cycle 的办法多种多样，但这不是本教程的重点，有兴趣的同学可以自行搜索各类方法。</p>
+</li>
+<li>
+<p>Import 两个名字一样的包会发生什么：我们注意到第三部分的 main 函数使用了 <code>fmt</code> 来调用 <code>fmt</code> 包内的方法，但是如果很不巧，我需要调用一个别人写的包，它的名字也叫 <code>fmt</code>，该如何做到？</p>
+<p>可能很多人第一眼觉得这个问题不是问题，毕竟没人会和自己过不去，用一个和标准库同样的名字，但事实上在标准库里这个问题已经发生了。标准库包含两个涉及随机的 package，分别是 <code>math</code> 和 <code>crypto</code> 包中的 <code>rand</code> 包。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;crypto/rand&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;math/rand&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="c1">// ...</span><span class="w"></span>
+<span class="cm">/*</span>
+<span class="cm">试图编译会有如下输出</span>
+<span class="cm"># command-line-arguments</span>
+<span class="cm">./main.go:4:2: imported and not used: &quot;crypto/rand&quot; 未使用</span>
+<span class="cm">./main.go:6:2: rand redeclared in this block</span>
+<span class="cm">        ./main.go:4:2: other declaration of rand declaration</span>
+<span class="cm">./main.go:6:2: imported and not used: &quot;math/rand&quot; 未使用</span>
+<span class="cm">*/</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>解决方法其实也很简单，比如我们在 Python 中可以使用 <code>import xxx as xxx</code> 的语法， Go 也为 import 提供了类似的机制：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="nx">crand</span><span class="w"> </span><span class="s">&quot;crypto/rand&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">mrand</span><span class="w"> </span><span class="s">&quot;math/rand&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span><span class="c1">// crand 和 mrand 可以理解为一个“别名”</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// 使用 crand.xxx 和 mrand.xxx 调用其中的方法即可</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>主体代码部分</p>
+</li>
+</ol>
+<p>我们可以看到，<code>main</code> 函数里调用了 <code>fmt</code> 包的 <code>Println</code> 方法进行输出。</p>
+<p>!!! notes</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。
+</code></pre></div></td></tr></table></div>
+
+<p>在这里讲一下 Go 的运行机制：</p>
+<ol>
+<li>
+<p>并发</p>
+<p>可以简单地把并发理解为多个程序的同时执行。在代码层面，我们一般会认为并发是几段代码在同时执行，它们之间可以有交互。在后端的编程中，并发是必要的，因为每时每刻，访问网站的用户不能都局限到 1 个人。</p>
+<p>关于并发有两个相关的概念是进程和线程。打开 Windows 任务管理器，我们就可以看到许多“进程”，这些进程相互之间独立，一般而言不共享一块地址空间。一个进程包含多个线程，线程均可以访问进程内公共的数据。</p>
+</li>
+<li>
+<p>Goroutine</p>
+<p>Go 语言中，每一个并发活动被称为 goroutine，你可以把他理解为一个较为智能的线程，能自己完成调度，合理占用多核的 CPU。当启动一个 Go 程序的时候，会有一个 goroutine 调用 <code>main</code> 函数，这个 goroutine 被称为主 goroutine，通过 <code>go &lt;函数名&gt;(参数)</code> 的方式新建 goroutine，执行调用的函数。</p>
+<p>需要注意的是，一旦主 goroutine 结束，所有的 goroutine 都会相应地结束。</p>
+</li>
+</ol>
+<h3 id="2">2. 常见语句的格式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>下面这个示例展示了基本的变量声明和函数声明的格式。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// 输入两个数，输出它们的和 </span><span class="w"></span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">        两种声明变量的办法，var &lt;变量名&gt; &lt;类型&gt; 或是 := 运算符 </span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+<span class="w">    </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 使用 _ 作为占位符，可以达到接受但不使用返回参数的目的</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// if 后的条件没有小括号，要和大括号在同一行内</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Bad Input&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 当输入格式不匹配时，会输出 Bad Input，程序 exit status 1</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Good Input&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Result is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">// 声明函数以 func 开始，格式为：func &lt;函数名&gt;(参数名) 返回参数 </span><span class="w"></span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="3-json">3. JSON 数据处理<a class="headerlink" href="#3-json" title="Permanent link">&para;</a></h3>
+<p>读取一个 JSON 文件，将其中的学生信息取出，打印。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;encoding/json&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;io/ioutil&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Go 语言的 OOP 是依靠方法第一个字母的大小写来判断的，大写开头公有，可以随意访问，小写开头私有</span><span class="w"></span>
+<span class="w">    </span><span class="nx">StudentInfo</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;name&quot;`</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Score</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="s">`json:&quot;score&quot;`</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">InfoList</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Title</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;title&quot;`</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Infos</span><span class="w"> </span><span class="p">[]</span><span class="nx">StudentInfo</span><span class="w"> </span><span class="s">`json:&quot;info&quot;`</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">InfoList</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// os.Open 返回一个指向文件对象的指针和一个 error，如选择使用返回的参数则必须接受所有的参数</span><span class="w"></span>
+<span class="w">    </span><span class="nx">jsonFile</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;info.json&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">bytedata</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">jsonFile</span><span class="p">)</span><span class="w"> </span><span class="c1">// 使用 _ 作为占位符，可以达到接受但不使用返回参数的目的</span><span class="w"></span>
+<span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">bytedata</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">data</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">Infos</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// range 遍历可迭代对象，当只有一个变量时为索引遍历，两个变量时，第一个变量为索引，第二个为对象的拷贝</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;student name: %s, score is %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="p">.</span><span class="nx">Score</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="cm">/*</span>
+<span class="cm">输出:</span>
+<span class="cm">student name: a, score is 100</span>
+<span class="cm">student name: b, score is 99</span>
+<span class="cm">student name: c, score is 60</span>
+<span class="cm">student name: d, score is 120</span>
+<span class="cm">student name: e, score is 100</span>
+<span class="cm">student name: f, score is 40</span>
+<span class="cm">*/</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>以下为配套的 <code>info.json</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;student-Info-2022&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="web">搭建 Web 后端服务器<a class="headerlink" href="#web" title="Permanent link">&para;</a></h2>
+<p>什么是 Web 后端？这个问题很复杂，我们可以把它简单地理解为一系列和前端交互，和数据交互的逻辑，它一般而言不会部署在用户一侧。你甚至可以说，除去网络传输这一步，剩下用户不可见的都可以称为后端。</p>
+<p>对后端的要求是不断变化的，相应地，后端的架构、功能、设计思路是不断更新的。这也就是为什么很多大厂正在用 Go 代码逐步取代 Django，重构之前的代码。</p>
+<h3 id="1-naive">1. Naive 版本<a class="headerlink" href="#1-naive" title="Permanent link">&para;</a></h3>
+<p>Go语言的标准库提供了支持简单 Web 服务器的方法，我们可以用它来搭建一个简单的 Web server，它向访问者返回一个“hello visitor”。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">html_handle</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">html_handle</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&lt;h1&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;hello visitor&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;/h1&gt;&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>上面代码的大致思路是这样的：对路径为 "/" 的 HTTP 请求，使用函数 <code>html_handle</code> 做处理，我们一般把这种处理请求的函数称作 handler function，它运行在 8080 端口上。直接用浏览器访问 127.0.0.1:8080，就可以看见 hello visitor 字样。</p>
+<div class="admonition notes">
+<p class="admonition-title">对于 WSL 用户</p>
+<p>如果是在 WSL 中运行程序，用浏览器访问 8080 端口并不能直接获取结果。需要在 WSL 中使用 ifconfig，获得 WSL 的网卡地址，然后用浏览器访问地址和对应的端口号。</p>
+</div>
+<h3 id="2-fancy">2. Fancy 一点的版本<a class="headerlink" href="#2-fancy" title="Permanent link">&para;</a></h3>
+<p>Go 提供的标准库并不是那么地好用，我们更希望使用一些轻量级的 Web 框架来辅助我们搭建网络的后端。这里我们使用的框架是 Gin。这个框架是最为流行的，效率较高，使用范围很广，而且有十分完善的文档。</p>
+<p>Gin 是一个第三方的 package，如何使用它？我们需要下载第三方的源码，然后用 <code>go mod</code> 管理这个项目所需要的第三方包。我们将 Gin 包导入，尝试使用它。使用步骤如下：</p>
+<ol>
+<li>在源代码中添加</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/gin-gonic/gin&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>使用 <code>go mod init &lt;module 名字&gt;</code> 来初始化项目，一般而言这个 module 名字就是你的项目根目录名字 (即你的项目的名字)，这时你应该可以看到一个 go.mod 文件。</p>
+</li>
+<li>
+<p>使用 <code>go mod tidy</code> 来自动拉取缺少的 module ，移除多余的 module 。</p>
+</li>
+</ol>
+<p>!!! notes "网络问题"</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>   如果出现拉取 connection timeout 的情况，这是因为访问 GitHub 等国外网站出现了问题，可以使用更改 Go 拉取代理的方式来解决。使用 `go env -w GOPROXY=https://goproxy.cn,direct`，如无意外此时再运行 `go mod tidy` 将会出现一系列下载提示，并可以看到一个 go.sum 文件，同时 go.mod 文件也被修改了。
+</code></pre></div></td></tr></table></div>
+
+<p>下载的第三方包一般会在 $GOPATH/pkg/mod 文件夹下，而 Go 标准库一般在 $GOROOT/src，这两个环境变量都可以通过 <code>go env</code> 命令获知，一般情况下不要改动。</p>
+<p>以下为完整的服务器代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s">&quot;github.com/gin-gonic/gin&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 完成一个接受 POST 方法的计算器，接收两个数，输出它们的和</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 不考虑溢出，输入的数字超出 int 的问题</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">Default</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">POST</span><span class="p">(</span><span class="s">&quot;/calculator&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandleCal</span><span class="p">)</span><span class="w">    </span><span class="c1">// 使用函数 HandleCal 处理 /calculator 下的 POST 请求</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">)</span><span class="w">                      </span><span class="c1">// 在 8080 端口运行</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">AddPost</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">A</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="s">`json:&quot;a&quot;`</span><span class="w"></span>
+<span class="w">    </span><span class="nx">B</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="s">`json:&quot;b&quot;`</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandleCal</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">addpost</span><span class="w"> </span><span class="nx">AddPost</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">ShouldBindJSON</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">addpost</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Invalid Form&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusAccepted</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">addpost</span><span class="p">.</span><span class="nx">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">addpost</span><span class="p">.</span><span class="nx">B</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="gin-gorm">Gin + GORM 进阶<a class="headerlink" href="#gin-gorm" title="Permanent link">&para;</a></h2>
+<p>Gin 在上文中已经提到，是一个 Web 后端框架。GORM 是一个数据库连接及交互框架，一般用于连接关系型数据库。接下来将详细介绍两者的核心用法。</p>
+<h3 id="1-http">1. 为路径添加不同种的 HTTP 方法<a class="headerlink" href="#1-http" title="Permanent link">&para;</a></h3>
+<p>代码示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/gin-gonic/gin&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">Default</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;/some-get&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandleGet</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">POST</span><span class="p">(</span><span class="s">&quot;/some-post&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandlePost</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Any</span><span class="p">(</span><span class="s">&quot;/any&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">Method</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 也可以使用 r.PATCH() r.PUT() 等一系列 HTTP 方法</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandleGet</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;This is a get request from %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">Host</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandlePost</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;This is a post request from %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">Host</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>这段代码中分别使用 <code>.GET()</code>、<code>.POST()</code>、<code>.Any()</code> 等方法为对应的路径下添加相应的 HTTP 方法，如果用错误的 HTTP 方法访问了路径，会被返回 404。</p>
+<p>运行如下的 bash 脚本，得到以下结果，如果你在观察运行时的输出，往往也能得到相应的结果。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>curl -X GET <span class="m">127</span>.0.0.1:8080/some-get
+curl -X POST <span class="m">127</span>.0.0.1:8080/some-get
+<span class="nb">echo</span>
+curl -X GET <span class="m">127</span>.0.0.1:8080/some-post
+<span class="nb">echo</span>
+curl -X POST <span class="m">127</span>.0.0.1:8080/some-post
+curl -X GET <span class="m">127</span>.0.0.1:8080/any
+<span class="nb">echo</span>
+curl -X POST <span class="m">127</span>.0.0.1:8080/any
+<span class="nb">echo</span>
+
+
+<span class="c1"># This is a get request from 127.0.0.1:8080</span>
+<span class="c1"># 404 page not found</span>
+<span class="c1"># 404 page not found</span>
+<span class="c1"># This is a post request from 127.0.0.1:8080</span>
+<span class="c1"># {&quot;method&quot;:&quot;GET&quot;}</span>
+<span class="c1"># {&quot;method&quot;:&quot;POST&quot;}</span>
+</code></pre></div></td></tr></table></div>
+<p>这里在为 /any 路径添加 handler function 时使用了匿名函数的语法。很多教程中会使用这种匿名函数的语法，但笔者不建议在工程中使用，它会降低代码的可读性。匿名函数的大致语法是这样的:</p>
+<p><code>func(参数列表) 返回值 {函数体} (调用参数)</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">}</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span>
+<span class="c1">// 这里 c = 3，为 int 类型</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition notes">
+<p class="admonition-title">为什么要区分方法</p>
+<p>区分 GET、POST 等方法是为了更好的设计后端的接口 (API)，比如同一路径下，GET 方法往往用于获取资源，而 POST 往往用于添加资源。(当然，其他 HTTP 方法也有对应的动作，不过它们常常都被 POST 及其不同的参数取代了)</p>
+</div>
+<h3 id="2_1">2. 接收前端传来的参数<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>我们已经在前文 <em>fancy 版本的 Web 服务器</em>中展示了一种向后端传递请求参数的办法，这种 JSON 传参的方式一般搭配 POST 方法使用。下文主要讲解另外 2 种传参的方式，其中 <strong>query string</strong> 和 <strong>JSON 传参</strong>是较为重要的，而<strong>路径传参</strong>作为知识补充。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/gin-gonic/gin&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;strconv&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">Default</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;/add&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandleGetAdd</span><span class="p">)</span><span class="w">         </span><span class="c1">// 使用 query string 的路由</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Any</span><span class="p">(</span><span class="s">&quot;/:name/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandleName</span><span class="p">)</span><span class="w">     </span><span class="c1">// 设置路径传参</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandleGetAdd</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Atoi</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;What are you doing?\n&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Atoi</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;The answer is %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandleName</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Param</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">id</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Param</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">JSON</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">id</span><span class="p">})</span><span class="w">    </span><span class="c1">// 返回 200 状态码与相关信息</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>运行如下脚本，可看到注释中的输出。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># GET 求和，注意 bash 中 ’&amp;‘ 是有特殊意义的</span>
+curl -X GET <span class="s1">&#39;127.0.0.1:8080/add?a=1234&amp;b=2333&#39;</span> <span class="c1"># 路径参数</span>
+curl -X GET <span class="m">127</span>.0.0.1:8080/pyz/114514
+<span class="nb">echo</span>
+<span class="c1"># 输出:</span>
+<span class="c1"># The answer is 3567 #{&quot;name&quot;:&quot;pyz&quot;,&quot;uuid&quot;:&quot;114514&quot;}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Query string 传参</li>
+</ul>
+<p>形如 127.0.0.1:8080/add?a=1234&amp;b=2333 的请求就是在用 query string 传参。</p>
+<p>Query string 传参主要使用于 GET 方法，在某些前端的 JS 库里面，它可能会禁止你在 GET 方法时使用请求体中的 JSON 传参数。</p>
+<ul>
+<li>路径传参</li>
+</ul>
+<p>访问自己的 B 站，可以看到 <code>https://space.bilibili.com/xxxxxxx</code> 这样形式的 URL。这种 ID，名称的参数在主页形式的路径上用得较多。(从性质上讲，它可以被看作是强制请求者给出的参数)</p>
+<p>传参数的方法多种多样，在项目接口设计的时候，我们一般需要保持<strong>设计的一致性</strong>，尽量合乎大众的设计准则。</p>
+<div class="admonition notes">
+<p class="admonition-title">关于 HTTP 状态码</p>
+<p>返回时，HTTP 状态码的作用是对 HTTP 请求处理做一个概括，2~5 开头的状态码分别对应：请求被正常接收和理解 (2xx)、请求需要客户端进一步执行操作 (3xx)、请求有错误 (4xx)、处理请求出现了服务器侧的问题 (5xx)。</p>
+<p>具体到本节课涉及的代码，都应该返回 200 (<code>StatusOK</code>)，202 这样的返回一般用于异步接口。</p>
+</div>
+<h3 id="3-cookie">3. 中间件与 Cookie<a class="headerlink" href="#3-cookie" title="Permanent link">&para;</a></h3>
+<p>当我们想完成一系列 handler function 的时候，我们经常发现，我们需要重复很多的逻辑，比如，我们的网站要求登录的用户才有权访问，那么大量的页面都要有登录鉴权的逻辑，所以我们想把一些统一的逻辑放在一起。更进一步地，我们希望通过鉴权机制完成更为高级的逻辑。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;crypto/sha256&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;encoding/hex&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/gin-gonic/gin&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Hash</span><span class="p">(</span><span class="nx">ip</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">hasher</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sha256</span><span class="p">.</span><span class="nx">New</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">hasher</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">ip</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="nx">hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">hex</span><span class="p">.</span><span class="nx">EncodeToString</span><span class="p">(</span><span class="nx">hasher</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="kc">nil</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">Default</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;login&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">HandleLogin</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Group</span><span class="p">(</span><span class="s">&quot;/verified&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Verify</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;/accumulate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Accumulate</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;/multiply&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Multiply</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 使用 make 声明动态大小的空 map</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Verify</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cookie</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Cookie</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusForbidden</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You did not login!\n&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">Abort</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">record</span><span class="p">[</span><span class="nx">cookie</span><span class="p">];</span><span class="w"> </span><span class="p">!</span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// _ 下划线用于丢弃不使用的变量。尽管 Golang 要求接受所有返回变量，并且使用它们，但可以用 _ 这个占位符来无视掉那些不想用的变量</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You did not login!\n&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">Abort</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">Next</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Accumulate</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cookie</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Cookie</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">record</span><span class="p">[</span><span class="nx">cookie</span><span class="p">]</span><span class="o">++</span><span class="w"></span>
+<span class="w">    </span><span class="nx">times</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">record</span><span class="p">[</span><span class="nx">cookie</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You&#39;ve logged in %d times&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">times</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Multiply</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cookie</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Cookie</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">record</span><span class="p">[</span><span class="nx">cookie</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="nx">times</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">record</span><span class="p">[</span><span class="nx">cookie</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You&#39;ve logged in %d times&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">times</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">HandleLogin</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ipAddr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">RemoteAddr</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ipAddrHash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Hash</span><span class="p">(</span><span class="nx">ipAddr</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">record</span><span class="p">[</span><span class="nx">ipAddrHash</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You&#39;ve Already Logged In!\n&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">record</span><span class="p">[</span><span class="nx">ipAddrHash</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">SetCookie</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ipAddrHash</span><span class="p">,</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You logged in!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>上述代码设计了很多个知识点，下面一一进行说明：</p>
+<ol>
+<li>路由组的概念和中间件</li>
+</ol>
+<p>我们使用了 <code>r.Group()</code> 声明一个路由组 /verified ，在这个路径下所有的访问都需要先执行 <code>Verifiy()</code> 这一 handler function。</p>
+<p>Handler function 是递归执行的，可以认为 <code>.Next()</code> 是这个递归向深层的一个标志，而 <code>Abort()</code> 则 是结束整个访问，直接返回，类似递归中的 <code>return</code>。</p>
+<ol>
+<li>登录赋予 cookie</li>
+</ol>
+<p>这里，示例代码使用访问者 IP 的 SHA256 分配 cookie 值。赋予用户这个 cookie 的同时，服务器端也要保存这个 cookie 到内存中，从而实现快速的信息获取。在这里，这个信息是由 <code>record</code> 这一 map 数据结构存储的。</p>
+<p>!!! notes "关于 Cookie"</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>   此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。
+</code></pre></div></td></tr></table></div>
+
+<ol>
+<li>Cookie 鉴权和存储信息</li>
+</ol>
+<p><code>Verify()</code> 中间件使用 cookie 存在、且在 record 中作为合法登录的标志，实际应用中我们可能要考虑 cookie 是否过期等其他因素。两个数值操作 <code>accumulate</code> 和 <code>multiply</code> 则对用户的信息作了进一步更改与存储。</p>
+<p>这看起来是一个“有记忆的”后端了，但这还远远不够——存储在内存里的信息随着掉电就将丢失。我们不希望 B 站服务器一停机，收藏夹里的东西没了，学校也不希望服务器一停电，学生成绩没了。因此，我们需要用 GORM 来对接数据库。</p>
+<p>当然 cookie 信息还有可能有被篡改的危险，我们需要更鲁棒的方式分级存储不同敏感程度的用户信息。我们需要我们的后端和数据库做交互。</p>
+<h3 id="4-gorm-gorm-automigrate">4. GORM 和 GORM 的 AutoMigrate<a class="headerlink" href="#4-gorm-gorm-automigrate" title="Permanent link">&para;</a></h3>
+<p>我们介绍 GORM 作为我们与数据库交互的框架，GORM 框架保留了 Go 的并发性 (如果出了 bug，一般而言报错的 goroutine 不会是 1 号 goroutine ，即主进程)，效率较高，同时较为人性化地维护了和数据库的连接，使编程时不必考虑保存问题。 </p>
+<p>GORM 采用了默认事务操作的机制，并发安全性较高，GORM 还提供了读写分离的支持，更适合大规模的业务。如果对数据库的“事务”概念不了解的话，可以把它理解为不受其他并行指令干扰的一系列指令。</p>
+<p>下面提供一个简单的示例，展示 GORM 的使用。如果没有数据库相关的基础知识，可以先去阅读 MySQL 相关教程。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;gorm.io/driver/mysql&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;gorm.io/gorm&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">StudentInfo</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Name</span><span class="w">   </span><span class="kt">string</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ID</span><span class="w">     </span><span class="kt">uint</span><span class="w"></span>
+<span class="w">    </span><span class="nx">secret</span><span class="w"> </span><span class="kt">uint</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">dsn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;root:YOUR_USERNAME@(192.168.0.108:3306)/goservertest?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span><span class="w">  </span><span class="c1">// 数据库连接信息</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">dsn</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Config</span><span class="p">{})</span><span class="w">   </span><span class="c1">// 建立连接</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">AutoMigrate</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">StudentInfo</span><span class="p">{});</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// migrate 模型，不成功则 Fatal</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">pyz</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">StudentInfo</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Name</span><span class="p">:</span><span class="w">   </span><span class="s">&quot;some&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">ID</span><span class="p">:</span><span class="w">     </span><span class="mi">2020123456</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">secret</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">some</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>上述代码完成了与数据连接，迁移模型，新建一个条目三件事情。</p>
+<p>如果你亲自去运行这一段代码，并查看修改后的数据库，会注意到建立的 <code>student_infos</code> 数据表只有两列，<code>secert</code> 一项丢失了，这是由于 Go 的 OOP 特性，小写成员变量私有，这直接导致这一项将不会被 GORM 访问，存放到数据库中。</p>
+<h3 id="5">5. 增删查改和一些小技巧<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>这里仅仅展示最基本的增删查改，GORM 提供了 <code>gorm.Model</code> 来支持软删除等高级模型操作，这里不做涉及。<code>Ops</code> 函数中是增删查改操作。需要特别注意的一个方法是 <code>update</code>，其可以用来修改已有条目的值——尽量不要采用选出数据库中条目，再使用 <code>save</code>，依靠主键冲突更新的方法完成这一操作。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;gorm.io/driver/mysql&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;gorm.io/gorm&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;strconv&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">FindPerson</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Name</span><span class="w">   </span><span class="kt">string</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Gender</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">ShortInfo</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ID</span><span class="w">   </span><span class="kt">uint</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Name</span><span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="s">`gorm:&quot;type:varchar(20)&quot;`</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ID</span><span class="w">     </span><span class="kt">uint</span><span class="w">   </span><span class="s">`gorm:&quot;not null;autoIncrement&quot;`</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Age</span><span class="w">    </span><span class="kt">uint</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Gender</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`gorm:&quot;type:varchar(20)&quot;`</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">dsn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;root:YOUR_USERNAME@(192.168.0.108:3306)/goservertest?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">dsn</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Config</span><span class="p">{})</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">AutoMigrate</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{})</span><span class="w"></span>
+<span class="w">    </span><span class="nx">CreateFromStudent</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Ops</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">CreateFromStudent</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">info</span><span class="w"> </span><span class="nx">ShortInfo</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 从一个指定表中寻找信息</span><span class="w"></span>
+<span class="w">    </span><span class="nx">tx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">Table</span><span class="p">(</span><span class="s">&quot;student_infos&quot;</span><span class="p">).</span><span class="nx">Where</span><span class="p">(</span><span class="s">&quot;1=1&quot;</span><span class="p">).</span><span class="nx">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">info</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">tx</span><span class="p">.</span><span class="nx">Error</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">Error</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">db</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w">   </span><span class="nx">info</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Age</span><span class="p">:</span><span class="w">    </span><span class="mi">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Gender</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Male&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Ops</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">stus</span><span class="w"> </span><span class="p">[]</span><span class="nx">Person</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// batch create</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Person</span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Age</span><span class="p">:</span><span class="w">  </span><span class="nb">uint</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">p</span><span class="p">.</span><span class="nx">Gender</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Male&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">p</span><span class="p">.</span><span class="nx">Gender</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Female&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">stus</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stus</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">stus</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 删除操作，语法有很多种，详见官网</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{}).</span><span class="nx">Where</span><span class="p">(</span><span class="s">&quot;age=?&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="nx">Delete</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{})</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 切片查找，运用和模型相同名但更小的条目，更准确的查找所需要的条目</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">PersonList</span><span class="w"> </span><span class="p">[]</span><span class="nx">FindPerson</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{}).</span><span class="nx">Where</span><span class="p">(</span><span class="s">&quot;age &lt; ?&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">).</span><span class="nx">Find</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">PersonList</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">PersonList</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//修改</span><span class="w"></span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Person</span><span class="p">{}).</span><span class="nx">Where</span><span class="p">(</span><span class="s">&quot;gender=?&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Male&quot;</span><span class="p">).</span><span class="nx">Updates</span><span class="p">(</span><span class="o">&amp;</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;gender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;qwq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_3">如何完成一个并发任务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 并发安全性<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>我们来运行以下程序。你可以预测一下，输出结果会是多少？</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;time&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">PrintTask1</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">shared</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">     </span><span class="c1">// 尝试把 shared 的值 + 1</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%dth done!\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">PrintTask1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="w">               </span><span class="c1">// 使用 go &lt;函数名称&gt; 开启一个执行函数的 goroutine</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>运行程序，发现尽管所有 <code>Add</code> 函数都执行完成，但结果却远不及预期的 10 * 10000 = 100000，而且每次的结果不一致。 这便是出现了<strong>并发问题</strong>！</p>
+<p>如果使用 <code>go run -race main.go</code> ，Go 编译器会启动检测运行时竞争的编译模式。<code>-race</code> 报警如下:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>==================
+WARNING: DATA RACE
+Read at 0x0000005cf5c0 by goroutine 7:
+main.Add() /mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6-
+concurrency/demo1/main.go:18 +0x3b
+  main.PrintTask1.func1()
+/mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6- concurrency/demo1/main.go:25 +0x39
+Previous write at 0x0000005cf5c0 by goroutine 8:
+  main.Add()
+/mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6- concurrency/demo1/main.go:18 +0x53
+main.PrintTask1.func1()
+/mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6- concurrency/demo1/main.go:25 +0x39
+Goroutine 7 (running) created at:
+  main.PrintTask1()
+/mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6- concurrency/demo1/main.go:25 +0x6f
+main.main() /mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6-
+concurrency/demo1/main.go:9 +0x29
+Goroutine 8 (finished) created at:
+  main.PrintTask1()
+/mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6- concurrency/demo1/main.go:25 +0x6f
+main.main() /mnt/c/Users/lipin/Desktop/year_2/暑培/Golang-上课示例代码/6-
+concurrency/demo1/main.go:9 +0x29
+==================
+</code></pre></div></td></tr></table></div>
+<p>并且以 exit status 66 退出。</p>
+<p>简单来说，多个 goroutine 尝试修改内存中同一个变量的值。然而，修改某一变量的值并不是一个 “原子操作”，对于最底层的处理器而言，需要多个步骤来完成 (例如取值、对值进行运算、存储新值)，因此会出现如下情况：</p>
+<ol>
+<li>
+<p>Goroutine 1 想要将变量的值加 1，因此得到了目前的变量值 a。</p>
+</li>
+<li>
+<p>Goroutine 2 也想要将变量的值加 1，而此时 goroutine 1 还没有完成对变量值的修改，因此 goroutine 2 也得到了目前的变量值 a。</p>
+</li>
+<li>
+<p>两个 goroutine 先后完成了运算、存储新值的过程，但是最终得到的变量值只是 a + 1, 与预期的 a + 2 不符。</p>
+</li>
+</ol>
+<p>其他编程语言没有 goroutine 这一概念，但并发安全的问题也广泛存在，往往是各个线程间的竞争。</p>
+<div class="admonition notes">
+<p class="admonition-title">随机数？</p>
+<p>尽管这个结果有一定的随机性，但请<strong>不要</strong>拿它做随机数生成器，因为这种竞态访问还是有一定规律可循的。</p>
+</div>
+<h3 id="2_2">2. 锁<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p>锁是解决上述问题的一个方案。正如它的名字所言，对于全局的变量，我们可以为它上一个“锁”，有锁的人可以对它修改，没有锁的人只能在一边看着。Go 提供了简单易用的锁，它自动完成了取锁不成的阻塞。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;sync&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;time&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">PrintTask1</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">shared</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span><span class="w">    </span><span class="c1">// 声明一个锁</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">m</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span><span class="w">    </span><span class="c1">// 上锁，只有我能改！</span><span class="w"></span>
+<span class="w">        </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="nx">m</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span><span class="w">  </span><span class="c1">// 交出锁，允许其他人修改</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%dth done!\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Add2</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// m.Lock()</span><span class="w"></span>
+<span class="w">        </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// m.Unlock()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%dth done!\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">PrintTask1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition notes">
+<p class="admonition-title">关于锁的理解</p>
+<p>首先，锁是一个<strong>约定</strong>，你总可以写一段不使用锁，直接访问全局变量的代码。(当然，可以声明一些自带锁的变量，对于他们的访问都会被重载为先获得锁，再访问)</p>
+<p>其次，锁是一个不同线程之间的约定，它代表了执行一个公共操作 (代码中，这个“公共操作”是对 shared 这个变量加 1) 的机会，尽管这个操作能被很多个线程 (或者是 goroutine) 执行，但我们希望它在某一个时刻至多只有一个线程在执行。所以可以认为锁的管控范围是执行这个公共操作的机会。</p>
+<p>最后，虽然看起来锁是一个全局变量，和其他的全局变量没什么区别，但不能用一个全局变量替代他，执行它的功能。因为锁的实现依赖于更底层的帮助，比如<strong>线程级别的锁可能依赖操作系统的调度</strong>，来实现互斥的访问。</p>
+</div>
+<h3 id="3-produce-consume">3. Produce-Consume<a class="headerlink" href="#3-produce-consume" title="Permanent link">&para;</a></h3>
+<p>这是上述问题的另一个解决方案。</p>
+<p>如果我们把为全局变量加一看作一个任务的话，我们可以专门设立一个完成这个任务的 worker。其他进程通过 channel 和 worker 通信，把他们的任务交给这个 worker 来做。</p>
+<p>尽管在这个场景下，使用 worker 看起来有点多此一举，但是在后端搭建中，这样的思路是十分常见的。比如，我想完成一个从视频网站自动下载视频的存储器，我可能只希望在前端输入视频的名字，视频在后台完成下载，当前的页面应该有一个迅速的返回值。那么这个时候，就可以从我们的 handler function 中，通过管道，把视频相应的信息传给 worker ，由 worker 一个一个完成下载。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;time&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">task</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Producer</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Content</span><span class="w">  </span><span class="kt">int</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">shared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">work_channel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="nx">task</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">)</span><span class="w">   </span><span class="c1">// 声明一个容量为 10000 的非阻塞管道</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="nx">Produce</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="nx">Work</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">shared</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Produce</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">work_channel</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">task</span><span class="p">{</span><span class="w">               </span><span class="c1">// 向管道中添加任务</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Producer</span><span class="p">:</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Content</span><span class="p">:</span><span class="w">  </span><span class="nx">j</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">NotDone</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Work</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">NotDone</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">work_channel</span><span class="w"></span>
+<span class="w">        </span><span class="nx">arr</span><span class="p">[</span><span class="nx">t</span><span class="p">.</span><span class="nx">Producer</span><span class="p">]</span><span class="o">++</span><span class="w"></span>
+<span class="w">        </span><span class="nx">shared</span><span class="o">++</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Done!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_4">部署<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>对于 Go 后端而言，有两种常见的部署方式:</p>
+<ol>
+<li>
+<p>直接编译可执行文件，在后端服务器上运行，这是 naive 的部署方法，主要适用于纯后端的场景。 当前端的负载均衡，前后端沟通在一个内网时，这就足够了。(软工课就是这样的)</p>
+</li>
+<li>
+<p>结合 Docker 做部署，请参考网站内 Docker 教程 (可能尚未更新)。</p>
+</li>
+</ol>
+<h2 id="_5">后续拓展<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>了解 RESTful API 的概念：<a href="https://restfulapi.net/">What is REST</a></li>
+<li>了解 Go 后端的 Redis </li>
+<li>进行单元测试</li>
+<li>深入了解 Gin、GORM (可以参考资源链接中的材料)</li>
+</ul>
+<h2 id="_6">资源链接<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The Go Programing Language，中文版见 <a href="https://github.com/golang-china/gopl-zh">Go 语言圣经中文版</a></li>
+<li><a href="https://golang.google.cn/doc/">Go 语言官方文档</a></li>
+<li><a href="https://gorm.io/zh_CN/docs/">GORM 中文官网</a></li>
+<li>Gin 框架 repo 中的 readme，文件中有很多使用示例。Repo 链接：<a href="https://github.com/gin-gonic/gin">gin-gonic/gin</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月27日</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+              
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (48.05%), <a href='mailto:yf-li21@mails.tsinghua.edu.cn'>YfLi</a> (51.95%)</span>
+            </small>
+        </div>
+    
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../expressjs/express-js/" class="md-footer__link md-footer__link--prev" aria-label="上一页: ExpressJS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              ExpressJS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../ai-ml/" class="md-footer__link md-footer__link--next" aria-label="下一页: 人工智能 &amp; 机器学习" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              人工智能 & 机器学习
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
