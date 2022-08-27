@@ -28,8 +28,11 @@
 | [Ashitemaru](https://ashitemaru.github.io) | JavaScript、TypeScript <br /> 文档维护 |
 | [c7w](https://c7w.tech) | Git、Linux、Python 基础 <br /> 文档维护 |
 | xmh | Markdown <br /> 文档维护 |
+| abmfy | 文档维护 |
 | ayf | Python 爬虫、Python 包管理、Node.js |
 | [ChrisZhang](https://zcy.moe/) | Rust |
 | livingshade | 对抗搜索 |
 | lys | Swift、Swift UI |
 | [zcy0](https://zhaochenyang20.github.io) | C++ OOP |
+| lifeihan | PyTorch 入门 |
+| pyz | Go |
