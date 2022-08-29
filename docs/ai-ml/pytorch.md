@@ -18,18 +18,18 @@ Credit: 原作者 lifeihan
 (1) **机器学习相关基础知识：** 机器学习的部分知识只作为理解深度学习知识的基础，不必在一些相较之下更深入的知识上进行纠结，~~因为我学完了回头不用也忘了~~。同时如果以 PyTorch 入门，训练神经网络为目的，不必进行相应的代码训练，而掌握知识点即可。此处对应该掌握的机器学习基础知识做一提纲，可对照着查缺补漏：
 
 - 数据预处理：数据清洗、数据变换
-  - [总结：数据清洗的一些总结](https://blog.csdn.net/MrLevo520/article/details/77573757)
-  - [机器学习数据预处理代码汇总](https://blog.csdn.net/weixin_35757704/article/details/89280715?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164553726516780264084676%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=164553726516780264084676&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2)
-  - [读完本文，让你快速掌握数据预处理｜机器学习](https://zhuanlan.zhihu.com/p/135237642)
+    - [总结：数据清洗的一些总结](https://blog.csdn.net/MrLevo520/article/details/77573757)
+    - [机器学习数据预处理代码汇总](https://blog.csdn.net/weixin_35757704/article/details/89280715?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164553726516780264084676%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=164553726516780264084676&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2)
+    - [读完本文，让你快速掌握数据预处理｜机器学习](https://zhuanlan.zhihu.com/p/135237642)
 - 特征工程：
-  - [特征工程](https://blog.csdn.net/lc013/article/details/100033144?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&utm_relevant_index=6)
+    - [特征工程](https://blog.csdn.net/lc013/article/details/100033144?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&utm_relevant_index=6)
 - 监督学习：
-  - 分类算法：K-近邻算法，决策树，朴素贝叶斯，Logistic 回归，SVM，Softmax 回归
-  - 回归算法：线性回归，局部加权线性回归
+    - 分类算法：K-近邻算法，决策树，朴素贝叶斯，Logistic 回归，SVM，Softmax 回归
+    - 回归算法：线性回归，局部加权线性回归
 - 无监督学习：
-  - K-means，层次聚类，DBSCAN
+    - K-means，层次聚类，DBSCAN
 - 模型评估方法：准确率，召回率，P-R 曲线，ROC，AUC，MSE
-  - [机器学习模型评估的方法总结（回归、分类模型的评估）](https://blog.csdn.net/sinat_16388393/article/details/91427631?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164639688216780264063596%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164639688216780264063596&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2)
+    - [机器学习模型评估的方法总结（回归、分类模型的评估）](https://blog.csdn.net/sinat_16388393/article/details/91427631?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164639688216780264063596%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164639688216780264063596&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2)
 
 **算法部分学习资料推荐：**
 
@@ -37,36 +37,35 @@ Credit: 原作者 lifeihan
 2. 对着知识提纲名字逐个在 CSDN/知乎/StackOverflow 搜索进行学习，而非啃书或者看视频，效率更高。
 3. 如果想对知识有更深入的理解，建议阅读李航的《统计学习方法》一书，相关知识点啃一遍后收获颇丰。（周志华的《机器学习》也称西瓜书也可考虑，笔者有但没阅读过故不做推荐，此书风评也不错～）
 
-(2) **深度学习相关基础知识：** 此部分知识建议首先以视频资料为起始进行了解学习，然后根据提纲进行拓展补充，查缺补漏～
+(2) **深度学习相关基础知识：**此部分知识建议首先以视频资料为起始进行了解学习，然后根据提纲进行拓展补充，查缺补漏～
 
 - 视频资料推荐：李宏毅的机器学习课程（虽然叫机器学习，实则涵盖着大量的深度学习内容），老师风趣幽默，同时针对知识有着简明易懂的讲解，也不乏数学推导的自愿学习；针对一些延伸内容也有助教做了相关的学习讲解，非常推荐～
-  - 课程搬运视频链接：[李宏毅 2021/2022 春机器学习课程](https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0)
-  - 课程主页（作业链接，讲义下载使用）：[Machine Learning 2021 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php)
-    **注：**课程前 27 讲针对基础，务必看完；而后不一定要将后续所有课程学完，建议先行学习比较常见且基础的 CNN，Self-Attention，Transformer，RNN 部分，而余下的内容有余力可以全部学习，否则在以后需要时再观看学习更佳。
+    - 课程搬运视频链接：[李宏毅 2021/2022 春机器学习课程](https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0)
+    - 课程主页（作业链接，讲义下载使用）：[Machine Learning 2021 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php)<br/> **注：**课程前 27 讲针对基础，务必看完；而后不一定要将后续所有课程学完，建议先行学习比较常见且基础的 CNN，Self-Attention，Transformer，RNN 部分，而余下的内容有余力可以全部学习，否则在以后需要时再观看学习更佳。
 
 - 知识提纲：
-  - **数据预处理 & 数据增强：** 
-    - 图像剪裁：中心剪裁，随机剪裁，随机长宽比剪裁
-    - 翻转和旋转：概率水平翻转，概率垂直旋转，随机旋转
-    - 图像变换：Resize，标准化，填充，灰度化，线性变化，仿射变换，Tensor
-  - **层次结构：**
-    - 卷积层：标准卷积，空洞卷积，分组卷积，可变形卷积，可分离卷积
-    - 激励层：sigmoid，tanh，ReLU，Leaky ReLU，ELU，SELU
-    - 池化层：平均池化，最大池化，随机池化，全局平均池化
-    - 上采样层：双线性插值，反卷积，反池化
-  - **损失函数：**zero one loss，cross entropy loss，MSE loss，focal loss，logistic loss，center loss，wing loss，dice loss，hinge loss，arcface loss
-  - **优化算法：**BCD，SGD，MBGD，Momentum，RMSProp，AdaGrad，Adam
-  - **权重初始化：**零初始化，随机初始化，Xavier 初始化，He 初始化，预训练模型
-  - **学习率调整：**LamdalLR，MultiplicativeLR，StepLR，MultiStepLR，ExponentialLR，CosineAnnealingLR，CyclicLR，OneCycleLR，Warmup
+    - **数据预处理 & 数据增强：** 
+        - 图像剪裁：中心剪裁，随机剪裁，随机长宽比剪裁
+        - 翻转和旋转：概率水平翻转，概率垂直旋转，随机旋转
+        - 图像变换：Resize，标准化，填充，灰度化，线性变化，仿射变换，Tensor
+    - **层次结构：**
+        - 卷积层：标准卷积，空洞卷积，分组卷积，可变形卷积，可分离卷积
+        - 激励层：sigmoid，tanh，ReLU，Leaky ReLU，ELU，SELU
+        - 池化层：平均池化，最大池化，随机池化，全局平均池化
+        - 上采样层：双线性插值，反卷积，反池化
+    - **损失函数：**zero one loss，cross entropy loss，MSE loss，focal loss，logistic loss，center loss，wing loss，dice loss，hinge loss，arcface loss
+    - **优化算法：**BCD，SGD，MBGD，Momentum，RMSProp，AdaGrad，Adam
+    - **权重初始化：**零初始化，随机初始化，Xavier 初始化，He 初始化，预训练模型
+    - **学习率调整：**LamdalLR，MultiplicativeLR，StepLR，MultiStepLR，ExponentialLR，CosineAnnealingLR，CyclicLR，OneCycleLR，Warmup
 
-## 三. 入门 PyTorch 工具
+## 三、入门 PyTorch 工具
 
 入门工具的过程也是锻炼码力的过程，此处推荐以下路线:
 
 - 观看官方文档的简单示例并跟随写代码作为最基础的入门 ：
-  - [PyTorch 中文官方教程 1.7](https://pytorch.apachecn.org/#/docs/1.7/README)
+    - [PyTorch 中文官方教程 1.7](https://pytorch.apachecn.org/#/docs/1.7/README)
 - 寻找 Kaggle 网站的几个最基础示例比赛（如 MNIST 库的识别），在其 Code 中寻找基础的解决方案进行摹写学习：
-  - [Kaggle](https://www.kaggle.com/)
+    - [Kaggle](https://www.kaggle.com/)
 - 完成李宏毅课程作业，跟随公布的最佳方案进行一遍摹写，遇到不懂的函数/处理进行搜索引擎搜索补充学习，更好的做法是学会查询官方的函数库词典：[Torch](https://pytorch.org/docs/stable/torch.html)
 - 尝试在 Kaggle 上自行寻找有开源 Code 的比赛自行撰写并提交看看结果，学习他人经验。
 
@@ -80,7 +79,7 @@ Credit: 原作者 lifeihan
 - 对模型参数，模型结构有自己深刻的认识，能够根据运算结果做出合理的调整并获取进一步优化的结果；
 - 能够自行改变模型结构，利用自身理解对数据处理，模型计算等多方面做出优化，在领域翘楚模型的基础上创造性改造以获取更好的结果，甚至进行创造性的突破。
 
-## 五. 结语
+## 五、结语
 
 ~~快逃~~）祝大家能够坚持下来找到自己喜欢的方向并尽快入门这一年轻的学科～
 
