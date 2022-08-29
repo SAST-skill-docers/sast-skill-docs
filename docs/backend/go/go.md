@@ -66,88 +66,88 @@ func main() {
 
 - Package 声明部分
 
-  Package 是 Go 语言管理代码的方式，我们一般把 package 称为“包”。Package 和其它语言中的库或者模块 (module) 的地位类似。一般而言，一个包由一个或多个 .go 源文件组成。特别地，我们不以 `*_test.go` 的形式命名源文件，所有这样结尾的文件会被视为测试文件。
+    Package 是 Go 语言管理代码的方式，我们一般把 package 称为“包”。Package 和其它语言中的库或者模块 (module) 的地位类似。一般而言，一个包由一个或多个 .go 源文件组成。特别地，我们不以 `*_test.go` 的形式命名源文件，所有这样结尾的文件会被视为测试文件。
 
-  每一个 package 的名字描述了这个 package 的功能，一般而言和这个 package 所处的文件目录的最后一级名字相同。
+    每一个 package 的名字描述了这个 package 的功能，一般而言和这个 package 所处的文件目录的最后一级名字相同。
 
-  `main` package 是特殊的 package，用来定义一个可执行的程序，这个可执行程序的执行起点是 `main` package 里面的 `main` 函数。
+    `main` package 是特殊的 package，用来定义一个可执行的程序，这个可执行程序的执行起点是 `main` package 里面的 `main` 函数。
 
 - Import 部分
 
-  Go 以 package 管理代码，相应地，想使用标准库或者第三方库中提供的方法或对象，就需要使用 import 来导入它们。Import 的语法有两种，它们都是可以通过编译的。一般而言，第二种写法是被推荐的，它在格式上显得较为整齐。
+    Go 以 package 管理代码，相应地，想使用标准库或者第三方库中提供的方法或对象，就需要使用 import 来导入它们。Import 的语法有两种，它们都是可以通过编译的。一般而言，第二种写法是被推荐的，它在格式上显得较为整齐。
 
-  ```go
-  import "fmt" // 单行import 
-  import (
-      "fmt"
-      "os" 
-      // 一系列其他包
-  )
-  ```
+    ```go
+    import "fmt" // 单行import 
+    import (
+        "fmt"
+        "os" 
+        // 一系列其他包
+    )
+    ```
 
-  通过 import 导入包的顺序是无关紧要的，但是有几点仍是需要关注的：
+    通过 import 导入包的顺序是无关紧要的，但是有几点仍是需要关注的：
 
-  1. Import 的优化：Go 语言不允许出现导入但未使用的包。
+    1. Import 的优化：Go 语言不允许出现导入但未使用的包。
 
-  2. Import cycle 问题：Go 语言不允许两个 package 互相 import。这为写 Go 代码的人带来了一定的麻烦 (不能像使用 C 一样定义很多头文件后随意调用了)，但这也给 Go 语言带来了一个优势——编译时间较短。
+    2. Import cycle 问题：Go 语言不允许两个 package 互相 import。这为写 Go 代码的人带来了一定的麻烦 (不能像使用 C 一样定义很多头文件后随意调用了)，但这也给 Go 语言带来了一个优势——编译时间较短。
 
-     解决 import cycle 的办法多种多样，但这不是本教程的重点，有兴趣的同学可以自行搜索各类方法。
+       解决 import cycle 的办法多种多样，但这不是本教程的重点，有兴趣的同学可以自行搜索各类方法。
 
-  3. Import 两个名字一样的包会发生什么：我们注意到第三部分的 main 函数使用了 `fmt` 来调用 `fmt` 包内的方法，但是如果很不巧，我需要调用一个别人写的包，它的名字也叫 `fmt`，该如何做到？
+    3. Import 两个名字一样的包会发生什么：我们注意到第三部分的 main 函数使用了 `fmt` 来调用 `fmt` 包内的方法，但是如果很不巧，我需要调用一个别人写的包，它的名字也叫 `fmt`，该如何做到？
 
-     可能很多人第一眼觉得这个问题不是问题，毕竟没人会和自己过不去，用一个和标准库同样的名字，但事实上在标准库里这个问题已经发生了。标准库包含两个涉及随机的 package，分别是 `math` 和 `crypto` 包中的 `rand` 包。
+       可能很多人第一眼觉得这个问题不是问题，毕竟没人会和自己过不去，用一个和标准库同样的名字，但事实上在标准库里这个问题已经发生了。标准库包含两个涉及随机的 package，分别是 `math` 和 `crypto` 包中的 `rand` 包。
 
-     ```go
-     package main
-     import (
-         "crypto/rand"
-         "math/rand"
-     )
-     // ...
-     /*
-     试图编译会有如下输出
-     # command-line-arguments
-     ./main.go:4:2: imported and not used: "crypto/rand" 未使用
-     ./main.go:6:2: rand redeclared in this block
-             ./main.go:4:2: other declaration of rand declaration
-     ./main.go:6:2: imported and not used: "math/rand" 未使用
-     */
-     ```
+       ```go
+       package main
+       import (
+           "crypto/rand"
+           "math/rand"
+       )
+       // ...
+       /*
+       试图编译会有如下输出
+       # command-line-arguments
+       ./main.go:4:2: imported and not used: "crypto/rand" 未使用
+       ./main.go:6:2: rand redeclared in this block
+               ./main.go:4:2: other declaration of rand declaration
+       ./main.go:6:2: imported and not used: "math/rand" 未使用
+       */
+       ```
 
-     解决方法其实也很简单，比如我们在 Python 中可以使用 `import xxx as xxx` 的语法， Go 也为 import 提供了类似的机制：
+       解决方法其实也很简单，比如我们在 Python 中可以使用 `import xxx as xxx` 的语法， Go 也为 import 提供了类似的机制：
 
-     ```go
-     import (
-         crand "crypto/rand"
-         mrand "math/rand"
-     ) // crand 和 mrand 可以理解为一个“别名”
+       ```go
+       import (
+           crand "crypto/rand"
+           mrand "math/rand"
+       ) // crand 和 mrand 可以理解为一个“别名”
      
-     func foo() { 
-         // 使用 crand.xxx 和 mrand.xxx 调用其中的方法即可
-     }
-     ```
+       func foo() { 
+           // 使用 crand.xxx 和 mrand.xxx 调用其中的方法即可
+       }
+       ```
 
 - 主体代码部分
 
-  我们可以看到，`main` 函数里调用了 `fmt` 包的 `Println` 方法进行输出。
+    我们可以看到，`main` 函数里调用了 `fmt` 包的 `Println` 方法进行输出。
 
-  !!! notes
+!!! notes
 
-      一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。
+    一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。
 
-  在这里讲一下 Go 的运行机制：
+    在这里讲一下 Go 的运行机制：
 
-  1. 并发
+    1. 并发
 
-     可以简单地把并发理解为多个程序的同时执行。在代码层面，我们一般会认为并发是几段代码在同时执行，它们之间可以有交互。在后端的编程中，并发是必要的，因为每时每刻，访问网站的用户不能都局限到 1 个人。
+         可以简单地把并发理解为多个程序的同时执行。在代码层面，我们一般会认为并发是几段代码在同时执行，它们之间可以有交互。在后端的编程中，并发是必要的，因为每时每刻，访问网站的用户不能都局限到 1 个人。
 
-     关于并发有两个相关的概念是进程和线程。打开 Windows 任务管理器，我们就可以看到许多“进程”，这些进程相互之间独立，一般而言不共享一块地址空间。一个进程包含多个线程，线程均可以访问进程内公共的数据。
+         关于并发有两个相关的概念是进程和线程。打开 Windows 任务管理器，我们就可以看到许多“进程”，这些进程相互之间独立，一般而言不共享一块地址空间。一个进程包含多个线程，线程均可以访问进程内公共的数据。
 
-  2. Goroutine
+    2. Goroutine
 
-     Go 语言中，每一个并发活动被称为 goroutine，你可以把他理解为一个较为智能的线程，能自己完成调度，合理占用多核的 CPU。当启动一个 Go 程序的时候，会有一个 goroutine 调用 `main` 函数，这个 goroutine 被称为主 goroutine，通过 `go <函数名>(参数)` 的方式新建 goroutine，执行调用的函数。
+         Go 语言中，每一个并发活动被称为 goroutine，你可以把他理解为一个较为智能的线程，能自己完成调度，合理占用多核的 CPU。当启动一个 Go 程序的时候，会有一个 goroutine 调用 `main` 函数，这个 goroutine 被称为主 goroutine，通过 `go <函数名>(参数)` 的方式新建 goroutine，执行调用的函数。
 
-     需要注意的是，一旦主 goroutine 结束，所有的 goroutine 都会相应地结束。
+         需要注意的是，一旦主 goroutine 结束，所有的 goroutine 都会相应地结束。
 
 ### 2. 常见语句的格式
 
@@ -330,9 +330,9 @@ Gin 是一个第三方的 package，如何使用它？我们需要下载第三�
 
 3. 使用 `go mod tidy` 来自动拉取缺少的 module ，移除多余的 module 。
 
-   !!! notes "网络问题"
+!!! notes "网络问题"
 
-       如果出现拉取 connection timeout 的情况，这是因为访问 GitHub 等国外网站出现了问题，可以使用更改 Go 拉取代理的方式来解决。使用 `go env -w GOPROXY=https://goproxy.cn,direct`，如无意外此时再运行 `go mod tidy` 将会出现一系列下载提示，并可以看到一个 go.sum 文件，同时 go.mod 文件也被修改了。
+    如果出现拉取 connection timeout 的情况，这是因为访问 GitHub 等国外网站出现了问题，可以使用更改 Go 拉取代理的方式来解决。使用 `go env -w GOPROXY=https://goproxy.cn,direct`，如无意外此时再运行 `go mod tidy` 将会出现一系列下载提示，并可以看到一个 go.sum 文件，同时 go.mod 文件也被修改了。
 
 下载的第三方包一般会在 $GOPATH/pkg/mod 文件夹下，而 Go 标准库一般在 $GOROOT/src，这两个环境变量都可以通过 `go env` 命令获知，一般情况下不要改动。
 
@@ -606,9 +606,9 @@ func HandleLogin(g *gin.Context) {
 
    这里，示例代码使用访问者 IP 的 SHA256 分配 cookie 值。赋予用户这个 cookie 的同时，服务器端也要保存这个 cookie 到内存中，从而实现快速的信息获取。在这里，这个信息是由 `record` 这一 map 数据结构存储的。
 
-   !!! notes "关于 Cookie"
+!!! notes "关于 Cookie"
 
-       此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。
+    此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。
 
 3. Cookie 鉴权和存储信息
 
