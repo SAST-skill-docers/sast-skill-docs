@@ -2187,7 +2187,7 @@
       
         <li class="md-nav__item">
   <a href="#pytorch_1" class="md-nav__link">
-    三. 入门 PyTorch 工具
+    三、入门 PyTorch 工具
   </a>
   
 </li>
@@ -2201,7 +2201,7 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    五. 结语
+    五、结语
   </a>
   
 </li>
@@ -2364,7 +2364,7 @@
       
         <li class="md-nav__item">
   <a href="#pytorch_1" class="md-nav__link">
-    三. 入门 PyTorch 工具
+    三、入门 PyTorch 工具
   </a>
   
 </li>
@@ -2378,7 +2378,7 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    五. 结语
+    五、结语
   </a>
   
 </li>
@@ -2422,19 +2422,29 @@
 <h2 id="pytorch">二、入门 PyTorch 的基础知识学习<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
 <p>(1) <strong>机器学习相关基础知识：</strong> 机器学习的部分知识只作为理解深度学习知识的基础，不必在一些相较之下更深入的知识上进行纠结，<del>因为我学完了回头不用也忘了</del>。同时如果以 PyTorch 入门，训练神经网络为目的，不必进行相应的代码训练，而掌握知识点即可。此处对应该掌握的机器学习基础知识做一提纲，可对照着查缺补漏：</p>
 <ul>
-<li>数据预处理：数据清洗、数据变换</li>
+<li>数据预处理：数据清洗、数据变换<ul>
 <li><a href="https://blog.csdn.net/MrLevo520/article/details/77573757">总结：数据清洗的一些总结</a></li>
 <li><a href="https://blog.csdn.net/weixin_35757704/article/details/89280715?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164553726516780264084676%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=164553726516780264084676&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2">机器学习数据预处理代码汇总</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/135237642">读完本文，让你快速掌握数据预处理｜机器学习</a></li>
-<li>特征工程：</li>
+</ul>
+</li>
+<li>特征工程：<ul>
 <li><a href="https://blog.csdn.net/lc013/article/details/100033144?spm=1001.2101.3001.6650.3&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_paycolumn_v3&amp;utm_relevant_index=6">特征工程</a></li>
-<li>监督学习：</li>
+</ul>
+</li>
+<li>监督学习：<ul>
 <li>分类算法：K-近邻算法，决策树，朴素贝叶斯，Logistic 回归，SVM，Softmax 回归</li>
 <li>回归算法：线性回归，局部加权线性回归</li>
-<li>无监督学习：</li>
+</ul>
+</li>
+<li>无监督学习：<ul>
 <li>K-means，层次聚类，DBSCAN</li>
-<li>模型评估方法：准确率，召回率，P-R 曲线，ROC，AUC，MSE</li>
+</ul>
+</li>
+<li>模型评估方法：准确率，召回率，P-R 曲线，ROC，AUC，MSE<ul>
 <li><a href="https://blog.csdn.net/sinat_16388393/article/details/91427631?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164639688216780264063596%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164639688216780264063596&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2">机器学习模型评估的方法总结（回归、分类模型的评估）</a></li>
+</ul>
+</li>
 </ul>
 <p><strong>算法部分学习资料推荐：</strong></p>
 <ol>
@@ -2442,17 +2452,18 @@
 <li>对着知识提纲名字逐个在 CSDN/知乎/StackOverflow 搜索进行学习，而非啃书或者看视频，效率更高。</li>
 <li>如果想对知识有更深入的理解，建议阅读李航的《统计学习方法》一书，相关知识点啃一遍后收获颇丰。（周志华的《机器学习》也称西瓜书也可考虑，笔者有但没阅读过故不做推荐，此书风评也不错～）</li>
 </ol>
-<p>(2) <strong>深度学习相关基础知识：</strong> 此部分知识建议首先以视频资料为起始进行了解学习，然后根据提纲进行拓展补充，查缺补漏～</p>
+<p>(2) <strong>深度学习相关基础知识：</strong>此部分知识建议首先以视频资料为起始进行了解学习，然后根据提纲进行拓展补充，查缺补漏～</p>
 <ul>
-<li>视频资料推荐：李宏毅的机器学习课程（虽然叫机器学习，实则涵盖着大量的深度学习内容），老师风趣幽默，同时针对知识有着简明易懂的讲解，也不乏数学推导的自愿学习；针对一些延伸内容也有助教做了相关的学习讲解，非常推荐～</li>
-<li>课程搬运视频链接：<a href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0">李宏毅 2021/2022 春机器学习课程</a></li>
 <li>
-<p>课程主页（作业链接，讲义下载使用）：<a href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php">Machine Learning 2021 Spring</a>
-    <strong>注：</strong>课程前 27 讲针对基础，务必看完；而后不一定要将后续所有课程学完，建议先行学习比较常见且基础的 CNN，Self-Attention，Transformer，RNN 部分，而余下的内容有余力可以全部学习，否则在以后需要时再观看学习更佳。</p>
+<p>视频资料推荐：李宏毅的机器学习课程（虽然叫机器学习，实则涵盖着大量的深度学习内容），老师风趣幽默，同时针对知识有着简明易懂的讲解，也不乏数学推导的自愿学习；针对一些延伸内容也有助教做了相关的学习讲解，非常推荐～</p>
+<ul>
+<li>课程搬运视频链接：<a href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0">李宏毅 2021/2022 春机器学习课程</a></li>
+<li>课程主页（作业链接，讲义下载使用）：<a href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php">Machine Learning 2021 Spring</a><br/> <strong>注：</strong>课程前 27 讲针对基础，务必看完；而后不一定要将后续所有课程学完，建议先行学习比较常见且基础的 CNN，Self-Attention，Transformer，RNN 部分，而余下的内容有余力可以全部学习，否则在以后需要时再观看学习更佳。</li>
+</ul>
 </li>
 <li>
 <p>知识提纲：</p>
-</li>
+<ul>
 <li><strong>数据预处理 &amp; 数据增强：</strong> <ul>
 <li>图像剪裁：中心剪裁，随机剪裁，随机长宽比剪裁</li>
 <li>翻转和旋转：概率水平翻转，概率垂直旋转，随机旋转</li>
@@ -2471,13 +2482,19 @@
 <li><strong>权重初始化：</strong>零初始化，随机初始化，Xavier 初始化，He 初始化，预训练模型</li>
 <li><strong>学习率调整：</strong>LamdalLR，MultiplicativeLR，StepLR，MultiStepLR，ExponentialLR，CosineAnnealingLR，CyclicLR，OneCycleLR，Warmup</li>
 </ul>
-<h2 id="pytorch_1">三. 入门 PyTorch 工具<a class="headerlink" href="#pytorch_1" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+<h2 id="pytorch_1">三、入门 PyTorch 工具<a class="headerlink" href="#pytorch_1" title="Permanent link">&para;</a></h2>
 <p>入门工具的过程也是锻炼码力的过程，此处推荐以下路线:</p>
 <ul>
-<li>观看官方文档的简单示例并跟随写代码作为最基础的入门 ：</li>
+<li>观看官方文档的简单示例并跟随写代码作为最基础的入门 ：<ul>
 <li><a href="https://pytorch.apachecn.org/#/docs/1.7/README">PyTorch 中文官方教程 1.7</a></li>
-<li>寻找 Kaggle 网站的几个最基础示例比赛（如 MNIST 库的识别），在其 Code 中寻找基础的解决方案进行摹写学习：</li>
+</ul>
+</li>
+<li>寻找 Kaggle 网站的几个最基础示例比赛（如 MNIST 库的识别），在其 Code 中寻找基础的解决方案进行摹写学习：<ul>
 <li><a href="https://www.kaggle.com/">Kaggle</a></li>
+</ul>
+</li>
 <li>完成李宏毅课程作业，跟随公布的最佳方案进行一遍摹写，遇到不懂的函数/处理进行搜索引擎搜索补充学习，更好的做法是学会查询官方的函数库词典：<a href="https://pytorch.org/docs/stable/torch.html">Torch</a></li>
 <li>尝试在 Kaggle 上自行寻找有开源 Code 的比赛自行撰写并提交看看结果，学习他人经验。</li>
 </ul>
@@ -2490,7 +2507,7 @@
 <li>对模型参数，模型结构有自己深刻的认识，能够根据运算结果做出合理的调整并获取进一步优化的结果；</li>
 <li>能够自行改变模型结构，利用自身理解对数据处理，模型计算等多方面做出优化，在领域翘楚模型的基础上创造性改造以获取更好的结果，甚至进行创造性的突破。</li>
 </ul>
-<h2 id="_4">五. 结语<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">五、结语<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><del>快逃</del>）祝大家能够坚持下来找到自己喜欢的方向并尽快入门这一年轻的学科～</p>
 <h2 id="_5">可用链接<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>读者可以尝试阅读下列文档学习 PyTorch 框架：</p>
@@ -2503,7 +2520,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月27日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月29日</span>
       
     
   </small>
@@ -2516,7 +2533,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.49%), <a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (94.51%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.56%), <a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (94.44%)</span>
             </small>
         </div>
     

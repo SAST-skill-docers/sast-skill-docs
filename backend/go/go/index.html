@@ -2776,14 +2776,14 @@
 <p>在文件所在路径下使用命令 <code>go run &lt;文件名&gt;.go</code>，即可运行程序。</p>
 <p>示例代码中的文件是 main.go 这一段代码由三部分组成，它们之间的顺序是不可调换的，一般而言一段可运行的 Go 程序都是由这三部分组成，下面讲解它们的意义。</p>
 <ul>
-<li>Package 声明部分</li>
-</ul>
+<li>
+<p>Package 声明部分</p>
 <p>Package 是 Go 语言管理代码的方式，我们一般把 package 称为“包”。Package 和其它语言中的库或者模块 (module) 的地位类似。一般而言，一个包由一个或多个 .go 源文件组成。特别地，我们不以 <code>*_test.go</code> 的形式命名源文件，所有这样结尾的文件会被视为测试文件。</p>
 <p>每一个 package 的名字描述了这个 package 的功能，一般而言和这个 package 所处的文件目录的最后一级名字相同。</p>
 <p><code>main</code> package 是特殊的 package，用来定义一个可执行的程序，这个可执行程序的执行起点是 <code>main</code> package 里面的 <code>main</code> 函数。</p>
-<ul>
-<li>Import 部分</li>
-</ul>
+</li>
+<li>
+<p>Import 部分</p>
 <p>Go 以 package 管理代码，相应地，想使用标准库或者第三方库中提供的方法或对象，就需要使用 import 来导入它们。Import 的语法有两种，它们都是可以通过编译的。一般而言，第二种写法是被推荐的，它在格式上显得较为整齐。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2804,10 +2804,12 @@
 </li>
 <li>
 <p>Import cycle 问题：Go 语言不允许两个 package 互相 import。这为写 Go 代码的人带来了一定的麻烦 (不能像使用 C 一样定义很多头文件后随意调用了)，但这也给 Go 语言带来了一个优势——编译时间较短。</p>
-<p>解决 import cycle 的办法多种多样，但这不是本教程的重点，有兴趣的同学可以自行搜索各类方法。</p>
 </li>
-<li>
-<p>Import 两个名字一样的包会发生什么：我们注意到第三部分的 main 函数使用了 <code>fmt</code> 来调用 <code>fmt</code> 包内的方法，但是如果很不巧，我需要调用一个别人写的包，它的名字也叫 <code>fmt</code>，该如何做到？</p>
+</ol>
+<p>解决 import cycle 的办法多种多样，但这不是本教程的重点，有兴趣的同学可以自行搜索各类方法。</p>
+<ol>
+<li>Import 两个名字一样的包会发生什么：我们注意到第三部分的 main 函数使用了 <code>fmt</code> 来调用 <code>fmt</code> 包内的方法，但是如果很不巧，我需要调用一个别人写的包，它的名字也叫 <code>fmt</code>，该如何做到？</li>
+</ol>
 <p>可能很多人第一眼觉得这个问题不是问题，毕竟没人会和自己过不去，用一个和标准库同样的名字，但事实上在标准库里这个问题已经发生了。标准库包含两个涉及随机的 package，分别是 <code>math</code> 和 <code>crypto</code> 包中的 <code>rand</code> 包。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2857,13 +2859,12 @@
 </li>
 <li>
 <p>主体代码部分</p>
-</li>
-</ol>
 <p>我们可以看到，<code>main</code> 函数里调用了 <code>fmt</code> 包的 <code>Println</code> 方法进行输出。</p>
-<p>!!! notes</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。
-</code></pre></div></td></tr></table></div>
-
+</li>
+</ul>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。</p>
 <p>在这里讲一下 Go 的运行机制：</p>
 <ol>
 <li>
@@ -2877,6 +2878,7 @@
 <p>需要注意的是，一旦主 goroutine 结束，所有的 goroutine 都会相应地结束。</p>
 </li>
 </ol>
+</div>
 <h3 id="2">2. 常见语句的格式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>下面这个示例展示了基本的变量声明和函数声明的格式。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3158,10 +3160,10 @@
 <p>使用 <code>go mod tidy</code> 来自动拉取缺少的 module ，移除多余的 module 。</p>
 </li>
 </ol>
-<p>!!! notes "网络问题"</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>   如果出现拉取 connection timeout 的情况，这是因为访问 GitHub 等国外网站出现了问题，可以使用更改 Go 拉取代理的方式来解决。使用 `go env -w GOPROXY=https://goproxy.cn,direct`，如无意外此时再运行 `go mod tidy` 将会出现一系列下载提示，并可以看到一个 go.sum 文件，同时 go.mod 文件也被修改了。
-</code></pre></div></td></tr></table></div>
-
+<div class="admonition notes">
+<p class="admonition-title">网络问题</p>
+<p>如果出现拉取 connection timeout 的情况，这是因为访问 GitHub 等国外网站出现了问题，可以使用更改 Go 拉取代理的方式来解决。使用 <code>go env -w GOPROXY=https://goproxy.cn,direct</code>，如无意外此时再运行 <code>go mod tidy</code> 将会出现一系列下载提示，并可以看到一个 go.sum 文件，同时 go.mod 文件也被修改了。</p>
+</div>
 <p>下载的第三方包一般会在 $GOPATH/pkg/mod 文件夹下，而 Go 标准库一般在 $GOROOT/src，这两个环境变量都可以通过 <code>go env</code> 命令获知，一般情况下不要改动。</p>
 <p>以下为完整的服务器代码：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3570,10 +3572,10 @@ curl -X GET <span class="m">127</span>.0.0.1:8080/pyz/114514
 <li>登录赋予 cookie</li>
 </ol>
 <p>这里，示例代码使用访问者 IP 的 SHA256 分配 cookie 值。赋予用户这个 cookie 的同时，服务器端也要保存这个 cookie 到内存中，从而实现快速的信息获取。在这里，这个信息是由 <code>record</code> 这一 map 数据结构存储的。</p>
-<p>!!! notes "关于 Cookie"</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>   此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。
-</code></pre></div></td></tr></table></div>
-
+<div class="admonition notes">
+<p class="admonition-title">关于 Cookie</p>
+<p>此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。</p>
+</div>
 <ol>
 <li>Cookie 鉴权和存储信息</li>
 </ol>
@@ -4155,7 +4157,7 @@ concurrency/demo1/main.go:9 +0x29
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月27日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月29日</span>
       
     
   </small>
@@ -4168,7 +4170,7 @@ concurrency/demo1/main.go:9 +0x29
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (48.05%), <a href='mailto:yf-li21@mails.tsinghua.edu.cn'>YfLi</a> (51.95%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (48.25%), <a href='mailto:yf-li21@mails.tsinghua.edu.cn'>YfLi</a> (51.75%)</span>
             </small>
         </div>
     
