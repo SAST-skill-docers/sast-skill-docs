@@ -2745,10 +2745,10 @@
 <p>确认自己成功安装的方式是在命令行运行 <code>go version</code>，查看是否有提示版本信息。</p>
 <h3 id="2-ide">2. IDE 选择<a class="headerlink" href="#2-ide" title="Permanent link">&para;</a></h3>
 <p>推荐使用 JetBrains 公司的 GoLand 作为 IDE，对于大学生而言，可以获取免费的学生版。也可使用 VSCode + Go 语言插件。</p>
-<details class="note">
-<summary>验证学生身份</summary>
+<div class="admonition note">
+<p class="admonition-title">验证学生身份</p>
 <p>对于清华大学的学生，在使用校园邮箱验证 JetBrains 学生身份时，请将邮箱后缀替换为 <code>@mails.thu.edu.cn</code>。</p>
-</details>
+</div>
 <p>Go 语言提供了官方的代码风格整理器 gofmt，简单配置 GoLand 可以完成自动格式化代码。</p>
 <h2 id="go_1">Go 基本语法<a class="headerlink" href="#go_1" title="Permanent link">&para;</a></h2>
 <p>本节将会用几个示例程序来展示 Golang 的语法，并对其加以讲解。请认真阅读此处的代码，并尝试在电脑上运行它们，这会让你对这门语言有最基本的了解和直观感受。</p>
@@ -2860,11 +2860,10 @@
 <li>
 <p>主体代码部分</p>
 <p>我们可以看到，<code>main</code> 函数里调用了 <code>fmt</code> 包的 <code>Println</code> 方法进行输出。</p>
-</li>
-</ul>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <p>一个语言中的方法有很多，即使是熟悉标准库中的常用方法都需要大量的编程练习。作为一篇入门教程，掌握基本的语法即可，无需纠结自己为何记不住相应的方法。多上网冲浪，和他人沟通，就能逐渐掌握各类方法。</p>
+</div>
 <p>在这里讲一下 Go 的运行机制：</p>
 <ol>
 <li>
@@ -2878,7 +2877,8 @@
 <p>需要注意的是，一旦主 goroutine 结束，所有的 goroutine 都会相应地结束。</p>
 </li>
 </ol>
-</div>
+</li>
+</ul>
 <h3 id="2">2. 常见语句的格式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>下面这个示例展示了基本的变量声明和函数声明的格式。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3564,24 +3564,26 @@ curl -X GET <span class="m">127</span>.0.0.1:8080/pyz/114514
 </code></pre></div></td></tr></table></div>
 <p>上述代码设计了很多个知识点，下面一一进行说明：</p>
 <ol>
-<li>路由组的概念和中间件</li>
-</ol>
+<li>
+<p>路由组的概念和中间件</p>
 <p>我们使用了 <code>r.Group()</code> 声明一个路由组 /verified ，在这个路径下所有的访问都需要先执行 <code>Verifiy()</code> 这一 handler function。</p>
 <p>Handler function 是递归执行的，可以认为 <code>.Next()</code> 是这个递归向深层的一个标志，而 <code>Abort()</code> 则 是结束整个访问，直接返回，类似递归中的 <code>return</code>。</p>
-<ol>
-<li>登录赋予 cookie</li>
-</ol>
+</li>
+<li>
+<p>登录赋予 cookie</p>
 <p>这里，示例代码使用访问者 IP 的 SHA256 分配 cookie 值。赋予用户这个 cookie 的同时，服务器端也要保存这个 cookie 到内存中，从而实现快速的信息获取。在这里，这个信息是由 <code>record</code> 这一 map 数据结构存储的。</p>
 <div class="admonition notes">
 <p class="admonition-title">关于 Cookie</p>
 <p>此处我们使用访问者 IP 的 SHA256 作为 cookie，这显然是不妥当的，但作为示例未尝不可。在实际场景中会有更稳妥的算法和合适的 cookie 过期机制。</p>
 </div>
-<ol>
-<li>Cookie 鉴权和存储信息</li>
-</ol>
+</li>
+<li>
+<p>Cookie 鉴权和存储信息</p>
 <p><code>Verify()</code> 中间件使用 cookie 存在、且在 record 中作为合法登录的标志，实际应用中我们可能要考虑 cookie 是否过期等其他因素。两个数值操作 <code>accumulate</code> 和 <code>multiply</code> 则对用户的信息作了进一步更改与存储。</p>
 <p>这看起来是一个“有记忆的”后端了，但这还远远不够——存储在内存里的信息随着掉电就将丢失。我们不希望 B 站服务器一停机，收藏夹里的东西没了，学校也不希望服务器一停电，学生成绩没了。因此，我们需要用 GORM 来对接数据库。</p>
 <p>当然 cookie 信息还有可能有被篡改的危险，我们需要更鲁棒的方式分级存储不同敏感程度的用户信息。我们需要我们的后端和数据库做交互。</p>
+</li>
+</ol>
 <h3 id="4-gorm-gorm-automigrate">4. GORM 和 GORM 的 AutoMigrate<a class="headerlink" href="#4-gorm-gorm-automigrate" title="Permanent link">&para;</a></h3>
 <p>我们介绍 GORM 作为我们与数据库交互的框架，GORM 框架保留了 Go 的并发性 (如果出了 bug，一般而言报错的 goroutine 不会是 1 号 goroutine ，即主进程)，效率较高，同时较为人性化地维护了和数据库的连接，使编程时不必考虑保存问题。 </p>
 <p>GORM 采用了默认事务操作的机制，并发安全性较高，GORM 还提供了读写分离的支持，更适合大规模的业务。如果对数据库的“事务”概念不了解的话，可以把它理解为不受其他并行指令干扰的一系列指令。</p>
@@ -4019,7 +4021,7 @@ concurrency/demo1/main.go:9 +0x29
 <p class="admonition-title">关于锁的理解</p>
 <p>首先，锁是一个<strong>约定</strong>，你总可以写一段不使用锁，直接访问全局变量的代码。(当然，可以声明一些自带锁的变量，对于他们的访问都会被重载为先获得锁，再访问)</p>
 <p>其次，锁是一个不同线程之间的约定，它代表了执行一个公共操作 (代码中，这个“公共操作”是对 shared 这个变量加 1) 的机会，尽管这个操作能被很多个线程 (或者是 goroutine) 执行，但我们希望它在某一个时刻至多只有一个线程在执行。所以可以认为锁的管控范围是执行这个公共操作的机会。</p>
-<p>最后，虽然看起来锁是一个全局变量，和其他的全局变量没什么区别，但不能用一个全局变量替代他，执行它的功能。因为锁的实现依赖于更底层的帮助，比如<strong>线程级别的锁可能依赖操作系统的调度</strong>，来实现互斥的访问。</p>
+<p>最后，虽然看起来锁是一个全局变量，和其他的全局变量没什么区别，但不能用一个全局变量替代它，执行它的功能。因为锁的实现依赖于更底层的帮助，比如<strong>线程级别的锁可能依赖操作系统的调度</strong>，来实现互斥的访问。</p>
 </div>
 <h3 id="3-produce-consume">3. Produce-Consume<a class="headerlink" href="#3-produce-consume" title="Permanent link">&para;</a></h3>
 <p>这是上述问题的另一个解决方案。</p>
@@ -4157,7 +4159,7 @@ concurrency/demo1/main.go:9 +0x29
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月29日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月30日</span>
       
     
   </small>
@@ -4170,7 +4172,7 @@ concurrency/demo1/main.go:9 +0x29
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (48.25%), <a href='mailto:yf-li21@mails.tsinghua.edu.cn'>YfLi</a> (51.75%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (48.46%), <a href='mailto:yf-li21@mails.tsinghua.edu.cn'>YfLi</a> (51.54%)</span>
             </small>
         </div>
     
