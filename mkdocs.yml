@@ -120,7 +120,12 @@ nav:
       - JavaScript 的异步: languages/javascript/async.md
       - JavaScript 的面向对象进阶: languages/javascript/oop-advance.md
       - 浏览器中的 JavaScript: languages/javascript/browser.md
-    - TypeScript 语言基础: languages/typescript.md
+    - TypeScript 语言基础:
+      - languages/typescript/index.md
+      - TypeScript 的变量与变量类型: languages/typescript/variable.md
+      - TypeScript 的函数: languages/typescript/function.md
+      - TypeScript 的面向对象: languages/typescript/oop.md
+      - TypeScript 的复杂类型: languages/typescript/type.md
     - Rust 语言基础: 
       - languages/rust/index.md
       - Rust 入门的一点经验: languages/rust/whyrust.md

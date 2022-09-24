@@ -87,9 +87,13 @@ yarn start
 
     如果你现在能够在 3000 端口访问到一个写有 `Hello, React!` 字样的页面，则已经完成了配置。
 
-## 使用 ESLint 规范码风
+## 代码格式化
 
 这是一个**可选项**，但是我们认为开发较大工程的时候，尤其是需要多人协作的时候，统一的码风是必要的。
+
+即使每个人都可以有自己习惯的编写风格，但为了其他人阅读方便，在提交代码之前应该使用代码格式化工具统一码风。这里简单介绍两种常用的格式化工具。
+
+### ESLint
 
 在应用目录下执行下列命令，即可初步配置一个 ESLint：
 
@@ -100,7 +104,7 @@ npm install eslint --save-dev
 
 # yarn
 yarn add eslint --dev
-./node_modules/.bin/eslint --init
+yarn eslint --init
 ```
 
 执行第二条命令后，ESLint 会询问你的配置。对于前几个问题我们建议选择“强制调整码风” “使用 JavaScript modules(import/export) ” “使用 React 框架” “使用 TypeScript ” “在浏览器上运行代码”。
@@ -130,3 +134,30 @@ yarn add eslint --dev
 这一行的意思是执行 `yarn fix` 的时候会使用 ESLint 将 `src` 目录下的所有扩展名为 `js / jsx / ts / tsx` 的文件修复码风。
 
 不过要注意的是，自动修复能力有限，所以更多的时候还需要手动对文件进行一些调整。自动修复也有可能会出错，这个时候可以自己手动添加让 ESLint 忽略这一部分的注释。
+
+### Prettier
+
+在 Node.js 项目中添加 Prettier：
+
+```bash
+yarn add -D prettier
+```
+
+在 `package.json` 中添加：
+
+```json
+{
+    "scripts": {
+        ...
+        "fix": "prettier --write 'src/**/*{.js,.jsx,.ts,.tsx}'"
+    }
+}
+```
+
+这里的含义与 ESLint 相似，只不过这次是由 Prettier 尝试修复码风。
+
+!!! note "ESLint 和 Prettier 的区别"
+
+    需要注意的是，Prettier 仅仅尝试修复码风，它所进行的一切修改在语法上都是等价的，也即 Prettier 并不关心代码的正确性，甚至不会检查是否符合语法规范；同时 Prettier 可以配置的项目相当少，这是由于 Prettier 的开发者更希望能强制统一标准而非在具体 lint 配置上陷入无意义的争论。
+
+    ESLint 在检查风格的同时也可以进行更多的语法检查，还可以通过插件来检查更加具体的错误，例如 React Hook 的不当使用等；相比于 Prettier，ESLint 还可以对代码风格进行更复杂的配置。

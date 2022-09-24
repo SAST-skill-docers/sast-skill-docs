@@ -102,7 +102,13 @@ npm install -g pnpm
 
 在另一些情况下（比如创建 React 项目），我们虽然需要执行一些类似于 `prettier` 的命令，但以后并不需要安装这个模块，更没有必要把这个模块写在 `package.json` 中，此时我们可以执行 `npx create-react-app example-app`，npx 会自动下载这一模块并运行，但并不会保留在当前文件夹中，也不会对 `package.json` 造成影响。
 
-yarn 和 pnpm 也支持这一语法。
+yarn 和 pnpm 也支持这一语法：
+
+```bash
+pnpx create-react-app example-app
+# yarn 并不普遍地支持这种用法，但是对于常见的创建项目，yarn 提供如下方法
+yarn create react-app example-app
+```
 
 ### TypeScript 相关
 
@@ -114,11 +120,34 @@ yarn 和 pnpm 也支持这一语法。
 }
 ```
 
-然后运行 `yarn build` 即可对 TypeScript 代码进行编译，更多的配置详见资源链接。
+然后运行 `yarn build` 就会根据 `tsconfig.json` 中的配置编译 TypeScript 代码，例如一些配置的含义如下：
+
+```json
+{
+    // 编译选项
+    "compilerOptions": {
+      // 使用 CommonJS 模块管理
+      "module": "commonjs",
+      // 修正导入命名空间和默认导入时的错误
+      "esModuleInterop": true,
+      // 严格空类型检查
+      "strictNullChecks": true,
+      // 目标代码版本 ES 2020
+      // ESNext 指定最新版本 ES
+      "target": "ES2020",
+      // 执行模块解析方式
+      "moduleResolution": "node",
+      // 输出到 dist 文件夹
+      "outDir": "dist",
+      // 编译的根目录为 src （即从 src/index.ts）开始索引
+      "rootDir": "src"
+    }
+}
+```
 
 !!! tip "TypeScript 的类型标注"
 
-    我们知道 TypeScript 通过静态类型检查提供额外的安全性，在包管理器安装第三方模块时，通常已经包含了相应模块的类型标注（形如 `index.d.ts` 的文件），但也有部分项目并没有自带类型标注，这部分项目许多都有单独的类型标注模块，这些模块形如 `@types/name`，例如 lodash 并没有自带类型标注，但可以通过 `yarn add -D @types/lodash` 来添加类型标注。
+    我们知道 TypeScript 通过静态类型检查提供额外的安全性，在包管理器安装第三方模块时，通常已经包含了相应模块的类型标注（形如 `index.d.ts` 的文件，或原本就是以 TypeScript 编写的），但也有部分项目并没有自带类型标注，这部分项目许多都有单独的类型标注模块，这些模块形如 `@types/name`，例如 lodash 并没有自带类型标注，但可以通过 `yarn add -D @types/lodash` 来添加类型标注。
 
 ### 资源链接
 
