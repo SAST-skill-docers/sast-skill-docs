@@ -4,6 +4,8 @@
 
 JavaScript 语言之中声明变量的关键字有三个，分别为 `var, let, const`。从字面意义上来看，`const` 用于声明常量，而 `var, let` 则用于声明变量。在 `var, let` 选取的问题上，编者建议尽量全部使用 `let` 关键字声明变量以防止混乱，具体原因可以参照讲解 JavaScript 函数部分的**变量提升**注解。
 
+在运行中，直接使用未出现过的变量相当于 `var` 声明，但这是很不好的编码习惯。
+
 ```javascript
 var a = 0;
 a = 1; // OK
@@ -30,13 +32,7 @@ weakType = "You are a string now!"; // OK
 
     其中，已经被作为语法特性而被广泛运用的用法将会在正文中指出，而其他用法将会在这一节的最后具体介绍。如果你是 JavaScript 语言的初学者，编者并不建议阅读这一部分，因为这可能会造成不良好的编码习惯和编程思维的混乱。就初学而言，阅读本文档的正文就足以写出实用且强大的代码。但如果你想要深入了解这一门语言，编者认为理解这些运算符的具体表现是有必要的。
 
-JavaScript 语言支持五种基本类型，即数字、字符串、布尔值、`undefined` 类型和 `null` 类型。前三个类型是容易理解的，而后两者则会在最后讲解。
-
-!!! note "一些适当的简化"
-
-    实际上最新的 JavaScript 具有七种基本类型，多出的两种为 `Symbol` 类型和大整数类型。但由于这两者在实际工程之中使用较少，所以本文档作为入门文档并不会介绍，本文档默认 JavaScript 只有五种基本类型。
-
-    如果需要学习这两个拓展类型，可以参考文档末给出的链接。
+JavaScript 语言支持七种基本类型，即数字、大整数、字符串、布尔值、`symbol` 类型、`undefined` 类型和 `null` 类型。前五个类型是容易理解的，而后两者则会在最后讲解。
 
 获取数据的类型可以使用 `typeof` 关键字：
 
@@ -66,7 +62,7 @@ true || false; // true
 1 === true; // false
 ```
 
-JavaScript 语言之中的数字不区分整数和浮点数，统一使用浮点数表示。所以除法没有类似 C/C++ 的向下取整的性质：
+JavaScript 语言之中的数字不区分整数和浮点数，统一使用浮点数表示。仅当在 `Number.MAX_SAFE_INTEGER` 和 `Number.MIN_SAFE_INTEGER` 之间的整数运算是安全的，否则将会是使用双浮点数的近似值。所以除法没有类似 C/C++ 的向下取整的性质：
 
 ```javascript
 5 / 2; // 2.5
@@ -139,6 +135,8 @@ Infinity - Infinity; // NaN
 Infinity === Infinity; // true
 ```
 
+JavaScript 可以任意使用单双引号来表示字符串。JavaScript 中的 `string` 是原始值，也即 `string` 是不可改变的，这与 Python 类似，对 `string` 的任何操作会返回新的 `string` 值，而不是对旧的值做了部分修改。
+
 JavaScript 的字符串支持使用加法运算符拼接，同时也支持相当多的常用函数。这里展示一部分：
 
 ```javascript
@@ -155,6 +153,8 @@ JavaScript 的字符串支持使用加法运算符拼接，同时也支持相当
 let i = 1;
 `The val of i + 1 is ${i + 1}.`; // "The val of i + 1 is 2."
 ```
+
+当然，最好不要在同一段代码中混用单双引号，也不要用反引号写非模板字符串。
 
 另外注意一点，JavaScript 允许任意变量和字符串相加。而最常用的是字符串在加号左侧，其他变量在加号右侧的形式，这种运算的逻辑是将其他变量转化为字符串后进行字符串拼接。这就诞生了一个 trick，即用一个空字符串加一个变量，就可以方便地将这个变量转化为字符串：
 
@@ -193,6 +193,26 @@ parseInt("hello", 10); // NaN
 parseInt("123abc", 10); // 123
 ```
 
+##### `bigint` 类型 (ES 2020 新增)
+
+```javascript
+let a = 9007199254740991n;
+```
+
+顾名思义，`bigint` 类型用于存储和计算超过 `number` 类型限制的大数。
+
+需要注意的是，JavaScript 中 `number` 能表示的最大值约为 1.7976931348623157e+308，继续增加会得到 `Infinity`，且超出 9007199254740991 的数字的计算就不再是精确的。
+
+##### `symbol` 类型 (ES 6 新增)
+
+```javascript
+let sym = Symbol('SAST');
+```
+
+`symbol` 是 JavaScript 中非常独特的值，`symbol` 值只能通过调用 `Symbol()` 构造，传入的参数除用于调试外无其他意义，**该函数每次调用都会返回不同的 `symbol` 值**，故 `symbol` 类型值的唯一作用就是作为独一无二的标识符。
+
+值得注意的是 `symbol` 值是**可以哈希**的，这也使得 `symbol` 成为了仅有的三种可以作为对象的键的类型（另外两种是 `number` 和 `string`，但实际上 `number` 会被当作 `string` 处理）。
+
 #### 对象和数组
 
 对象类型是 JavaScript 语言之中最常用的复合类型，其由若干的键值对组成，每一个键值对之中值可以是任何类型的变量，同时也允许对象的嵌套。对象字面量使用花括号表示，花括号内部键值对使用逗号分隔，每一个键值对的键和值使用冒号分隔：
@@ -208,12 +228,77 @@ let obj = {
 };
 ```
 
-每一个键值对之中的键称为这个对象的**属性**。访问给定对象的属性使用 `.` 运算符：
+每一个键值对之中的键称为这个对象的**属性**。访问给定对象的属性使用 `.` 或 `[]` 运算符：
 
 ```javascript
 let obj = { foo: 1, };
 obj.foo; // 1
+obj['foo']; // 1
 ```
+
+为了方便查看更多细节，我们使用 Chrome 浏览器运行上述代码，当我们在控制台中尝试输出：
+
+```javascript
+obj.__proto__
+```
+
+!!! caution "废弃警告"
+
+    `__proto__` 是即将废弃的属性，并且和 Python 类似，其名称使用双下划线包围实际上就代表了其理应私有，不能直接访问。但出于演示的目的我们仍然可以查看它的属性。
+
+我们将会看到变量 `obj` 上已经定义了一系列方法：
+
+```javascript
+constructor: ƒ Object()
+hasOwnProperty: ƒ hasOwnProperty()
+isPrototypeOf: ƒ isPrototypeOf()
+propertyIsEnumerable: ƒ propertyIsEnumerable()
+toLocaleString: ƒ toLocaleString()
+toString: ƒ toString()
+valueOf: ƒ valueOf()
+__defineGetter__: ƒ __defineGetter__()
+__defineSetter__: ƒ __defineSetter__()
+__lookupGetter__: ƒ __lookupGetter__()
+__lookupSetter__: ƒ __lookupSetter__()
+__proto__: (...)
+get __proto__: ƒ __proto__()
+set __proto__: ƒ __proto__()
+```
+
+这是由于我们创建的对象默认是使用构造函数 `Object` 创建的，这就使它可以访问**原型**上定义的方法，关于原型的更多细节，将会在[JavaScript 的面向对象进阶](../oop-advance)中详细展开。
+
+!!! note "对象的原型"
+
+    JavaScript 的一切对象都有它的原型，通过在原型上定义方法可以使得以该对象为原型的对象都可以访问这些方法。通常而言，我们只需要了解如何构造特定原型的对象，并使用该原型的方法即可。
+
+对象的属性名可以是**任何有效的 JavaScript 字符串或 `symbol` 值**，但如果变量名不是合法的 JavaScript 标识符（例如包含空格等特殊字符、或使用 `symbol` 等），就只能使用 `[]` 来访问：
+
+```javascript
+const sym = Symbol();
+const obj = {
+    [sym]: 1,
+    valid: 2,
+    'invalid identifier': 3,
+};
+
+console.log(obj[sym]);
+console.log(obj.valid);
+console.log(obj['invalid identifier']);
+```
+
+需要注意的是，JavaScript 可以接受数字作为属性名，但实际上**数字被转换为字符串使用**（例如在下面的 `Array` 中），为了避免出现意料之外的访问，建议总是使用确定的类型访问对象的属性。
+
+```javascript
+const obj = {};
+obj['1'] = 'value1';
+obj['2'] = 'value2';
+console.log(obj[1]);    // 可能出现非预期的访问，但 JavaScript 并不会报错
+console.log(obj['1']);
+```
+
+!!! note "对象的可变性"
+
+    需要注意的是，虽然可以使用 `const` 声明对象常量，但这指的是这一变量名始终指向该对象，而非该对象的属性不可变，你可以使用 `const` 声明对象并任意修改它的属性，如果需要添加不可修改或不可删除的属性，可以使用 [`Object.defineProperty`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 方法。
 
 JavaScript 的数组使用中括号，各元素之间使用逗号分隔，且 JavaScript 不要求数组元素都是同一类型。访问数组的某个元素使用 `[]` 运算符：
 
@@ -229,6 +314,14 @@ let arr = [1];
 arr[100] = 2;
 arr.length; // 101
 ```
+
+如果尝试输出
+
+```javascript
+arr.__proto___
+```
+
+会发现变量 `arr` 有更多的方法和属性，其中我们注意到 `constructor` 为 `Array()`，也即数组的构造函数是 `Array`；另外其中有一个属性为 `length`，表示数组的长度。
 
 JavaScript 数组的真正强大之处在于其内置的方法，除去常用的取索引、切片方法之外，还支持传入回调函数的遍历、映射、迭代、筛选、排序方法。这里先介绍前面的简单方法，涉及到回调函数方法则会在回调模式讲解完毕后讲解：
 
@@ -255,6 +348,134 @@ arr.join("."); // "1.2.3"
     ```
 
     如果有些方法会影响到原有数组而你并不想这样做，请一定要在调用方法前创建副本以防止数据丢失。此外，为了养成良好编码习惯，在使用语言内置的方法，乃至第三方库的方法的时候，一定**仔细阅读文档**以确定这些方法的行为符合预期且可控。
+
+##### 其他内置对象
+
+除了按照上述的方法构造对象外，JavaScript 还提供了很多内置对象，这使得我们可以很容易地构造一些常用的数据结构，或构造包含特定方法的对象。以下介绍几种最常见的内置对象的构造，更多的内置对象以及方法请参考 [JavaScript 标准内置对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects)。
+
+- 正则表达式
+
+    通过以下方法构造正则表达式：
+    
+    ```javascript
+    let reg = /sast/;
+    ```
+
+    正则表达式的构造函数为 `RegExp`。
+
+- 日期
+
+    通过以下方式构造 `Date` 对象并获取当前时间：
+    
+    ```javascript
+    let date = new Date();
+    console.log(date.toLocaleString()); // => 2022/7/23 12:11:01
+    ```
+
+    `Date` 对象的构造函数是 `Date`。
+
+- 集合
+
+    通过以下方式构造集合：
+
+    ```javascript
+    let docs = new Set();
+    docs.add('JavaScript');
+    ```
+
+    集合对象的构造函数是 `Set`。
+
+- 其他
+
+    并非所有的内置对象都是用来构造对象，一些内置对象只用作存储一类方法或值，称为**命名空间对象**，例如：
+
+    ```javascript
+    // 数学常数和常用函数
+    Math.PI;           // => 3.141592653589793
+    Math.floor(5 / 2); // => 2
+    Math.sin(Math.PI); // => 1.2246467991473532e-16
+
+    // 序列化和反序列化 JSON
+    JSON.stringify({ sast: 'yyds' }); // => '{"sast":"yyds"}'
+    JSON.parse('{"sast":"yyds"}');    // => { sast: 'yyds' }
+
+    // 控制台对象
+    console.log('Hello, world');
+    console.error('Some error occurred!');
+    ```
+
+##### 展开语法 (Spread Syntax)
+
+在构造对象、数组字面量和函数调用时，可以将数组和对象展开，如下所示：
+
+```javascript
+// 构造对象
+let obj1 = { foo: 'bar', x: 42 };
+let obj2 = { foo: 'barrrr', y: 13 };
+let clonedObj = { ...obj1 };            // 与 obj1 完全相同
+let mergedObj = { ...obj1, ...obj2 };   // 包含两者的内容，相同的键后出现的会覆盖先出现的
+let halfClonedObj = { ...obj1, x: 13 }; // 也可以另外覆盖或添加部分内容
+
+// 构造数组
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5];   // => [1, 2, 3, 4, 5]
+
+// 函数调用
+console.log(...arr2);  // => 1 2 3 4 5
+```
+
+##### 解构赋值
+
+通过解构赋值可以将属性/值从对象/数组中取出，赋值给其他变量：
+
+```javascript
+let a, b, rest;
+[a, b] = [10, 20];  // => a = 10, b = 20
+[a, b] = [b, a];    // => a = 20, a = 10
+
+[a, b, ...rest] = [10, 20, 30, 40, 50]; // => a = 10, b = 20, rest = [30, 40, 50]
+
+// 这里最外层的括号是为了消歧义，防止将大括号认为是代码块
+({ a, b } = { a: 10, b: 20 }); // => a = 10, b = 20
+({ a, b, ...rest } = { a: 10, b: 20, c: 30 }); // => a = 10, b = 20, rest = { c: 30 }
+```
+
+可以忽略一部分值，也可以提供默认值：
+
+```javascript
+let a;
+[, a] = [10, 20];           // => a = 20
+({ a } = { a: 10, b: 20 }); // => a = 10
+
+[, a = 20] = [10];        // => a = 20
+({ a = 10 } = { b: 20 }); // => a = 10
+```
+
+解构对象时还可以重命名：
+
+```javascript
+let { b: a } = { b: 10 };   // => 声明变量 a = 10，没有声明变量 b
+```
+
+以上方法还可以嵌套使用：
+
+```javascript
+let a: number;
+({ b: { c: { d: a } } } = { b: { c: { d: 10 } } });  // => a = 10
+```
+
+##### 对象字面量的简记
+
+从 ES 6 开始支持以下简记：
+
+```javascript
+let a = 1;
+let b = { a };  // 等价于 let b = { a: a }
+```
+
+##### 其他
+
+需要注意的是，JavaScript 中各种数据类型（尤其是内置对象）上实现了丰富的方法，熟悉使用这些方法可以帮助你写出更好的代码，一些数组方法的示例将在 [JavaScript 的函数](../function) 中给出。
 
 #### 空类型
 
@@ -328,6 +549,16 @@ undefined?.anyProp; // undefined
 
 这一次程序不会报错。
 
+对于不便使用 `.` 运算符的索引，如 `number`，可以使用 `?.[]`：
+
+```javascript
+let arr1 = [1, 2, 3];
+let arr2;               // 此时 arr2 的值为 undefined
+console.log(arr1[1]);   // => 2
+console.log(arr2[1]);   // TypeError: Cannot read properties of undefined (reading '1')
+console.log(arr2?.[1]); // => undefined
+```
+
 ---
 
 而 `null` 相较于 `undefined` 则较为少见。其一个常见的应用场景是在 React 框架里表示这里不需要渲染：
@@ -381,6 +612,23 @@ null?.anyProp; // undefined
     if (y === undefined || y === null) x = "default";
     else x = y;
     ```
+
+    !!! note "JavaScript 中的 Falsy 值和 Nullish 值"
+    
+        你可能注意到在取值时 `||` 和 `??` 的行为比较类似，二者的区别在于 `||` 判断逻辑假，而 `??` 判断空值。
+
+        JavaScript 中的假（Falsy）值有：
+
+        - `false`
+        - `0`
+        - `-0`
+        - `0n` (`bigint`)
+        - `''`, `""`, ` `` `
+        - `null`
+        - `undefined`
+        - `NaN`
+
+        而空（Nullish）值只有 `null` 和 `undefined` 两个。
 
     此外，还有一种常见的需求：
 
