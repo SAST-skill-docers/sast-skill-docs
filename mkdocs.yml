@@ -123,6 +123,7 @@ nav:
     - TypeScript 语言基础:
       - languages/typescript/index.md
       - TypeScript 的变量与变量类型: languages/typescript/variable.md
+      - TypeScript 的函数: languages/typescript/function.md
     - Rust 语言基础: 
       - languages/rust/index.md
       - Rust 入门的一点经验: languages/rust/whyrust.md
