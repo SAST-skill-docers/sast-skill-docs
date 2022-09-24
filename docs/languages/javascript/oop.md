@@ -31,6 +31,9 @@ Complex.printInfo(); // "This is a complex class."
 
 - 类方法内使用类成员的时候必须使用 `this` 调用
 - JavaScript 的所有类成员和类方法均是公有的，JavaScript 不具有访问权限修饰符
+    - 但也并非完全没有办法限制，你可以考虑使用 `getter` 和 `setter`，或使用 `Proxy` 对象来解决这一问题，这些技巧我们并不作过多展开，感兴趣的同学可以参考这些内容：
+        - [定义 getters 与 setters](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#定义_getters_与_setters)
+        - [Proxy](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ### `this` 的指向问题
 
@@ -57,7 +60,7 @@ obj.foo(); // { foo: foo }
 
 !!! note "全局对象"
 
-    事实上 JavaScript 的全局变量都是全局对象的属性，每一个 JavaScript 运行环境都有一个全局对象。比如说浏览器的全局对象往往是 `window`。你声明的每一个全局变量都会绑定为全局对象的属性（下述代码在浏览器运行）：
+    事实上 JavaScript 的全局变量都是全局对象的属性，每一个 JavaScript 运行环境都有一个全局对象。比如说浏览器的全局对象往往是 `window`，而 Node.js 的全局变量则是 `global`。你声明的每一个全局变量都会绑定为全局对象的属性（下述代码在浏览器运行）：
 
     ```javascript
     var a = 1;
@@ -143,7 +146,9 @@ another.foo(); // 1
 
 ### 箭头函数
 
-这一个章节本应该在函数部分讲解，但是由于箭头函数的出现很大的原因是为了解决 `this` 问题，编者还是将其放到了 OOP 章节。
+之前我们已经讲过如何使用箭头函数，但并没有讲它除了写法简便以外的实现区别，实际上箭头函数的设计很大程度上是为了解决 `this` 问题。
+
+前面提到过，`this` 总是指向最近的调用者，对于一个 `function`，在内部使用 `this` 时，指向的是函数调用时的上下文；但对于箭头函数，其本身并没有 `this`，也即箭头函数的 `this` 实际上是定义箭头函数时从上下文中获取的，**箭头函数作为一个闭包，保存了定义它时的 `this`**，这样就解决了 `this` 指向不明确的问题。
 
 箭头函数只是函数的另外一种写法：
 
