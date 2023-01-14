@@ -168,6 +168,9 @@ nav:
     - backend/index.md
     - ExpressJS: backend/expressjs/express-js.md
     - Go: backend/go/go.md
+  - 硬件设计:
+    - hardware/index.md
+    - 计算机组成与设计: hardware/cod.md
   - 人工智能 & 机器学习:
     - ai-ml/index.md
     - PyTorch 入门: ai-ml/pytorch.md  
