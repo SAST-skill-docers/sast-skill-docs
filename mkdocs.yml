@@ -111,6 +111,14 @@ nav:
       - languages/css/index.md
       - Bootstrap 简介: languages/css/bootstrap.md
       - MDUI 简介: languages/css/mdui.md
+    - Java 语言基础:
+      - languages/java/index.md
+      - Tour of Java 第0章 Introduction and Installation: languages/java/tour-of-java-chapter0-introduction-and-installation.md
+      - Tour of Java 第1章 Basic Language Structure: languages/java/tour-of-java-chapter1-basic-language-structure.md
+      - Tour of Java 第2章 Fundamental OOP: languages/java/tour-of-java-chapter2-fundamental-oop.md
+      - Tour of Java 第3章 Design Patterns: languages/java/tour-of-java-chapter3-design-patterns.md
+      - Tour of Java 第4章 Advanced Language Feature: languages/java/tour-of-java-chapter4-advanced-language-feature.md
+
     - JavaScript 语言基础:
       - languages/javascript/index.md
       - JavaScript 的变量与变量类型: languages/javascript/variable.md
