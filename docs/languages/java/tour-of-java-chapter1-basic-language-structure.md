@@ -645,10 +645,12 @@ API Ref: [java.lang.Math](https://docs.oracle.com/en/java/javase/17/docs/api/jav
 
 - Java API Ref: https://docs.oracle.com/en/java/javase/17/docs/api/
 	-  java.util.Arrays https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html
-	- java.lang.String https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html
-	- java.lang.Math https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html
-	-  java.util.Scannerhttps://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html
-	-  java.math.BigIntegerhttps://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigInteger.html
-	-  java.math.BigDecimalhttps://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html
+	-  java.lang.String https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html
+	-  java.lang.Math https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html
+	-  java.util.Scanner https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html
+	-  java.math.BigInteger https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigInteger.html
+	-  java.math.BigDecimal https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html
 	
-	
+- JEP https://openjdk.org/jeps
+    - JEP 286 `var` type inference https://openjdk.org/jeps/286
+    - JEP 378 Text Block https://openjdk.org/jeps/378

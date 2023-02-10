@@ -1064,7 +1064,8 @@ $2 ==> 3
 
 ## 资源链接：
 
-Object 类 ：[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html)
-
-Enum 类 ：[java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)
+- 本章CodeLab :暑培讲师未将其放到仓库中。
+- Object 类 ：[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html)
+- Enum 类 ：[java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)
+  
 

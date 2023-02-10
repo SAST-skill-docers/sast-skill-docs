@@ -179,11 +179,17 @@ helloworld
 - 目前最强大、使用最广泛的 Java IDE。
 - IntelliJ IDEA Community Edition 是免费开源版本，其包含了基础的 Java 语言支持、分析、构建与版本管理和 Docker 支持。
 - IntelliJ IDEA Ultimate 是收费版本，支持性能剖析，企业级框架支持，Web 技术支持，数据库工具，远程协作开发支持。
-  - 使用`@mails.thu.edu.cn`可以申请 JetBrains 学生包以获取全部开发工具。
+    - 使用`@mails.thu.edu.cn`可以申请 JetBrains 学生包以获取全部开发工具。
 
 ## 资源链接
 
-本章CodeLab
-
-https://github.com/xsun2001/tour-of-java/tree/master/codelab/chapter0
+- Eclipse Adoptium https://adoptium.net/
+- JEP https://openjdk.org/jeps
+- JDK:
+    - TUNA镜像 https://mirrors.tuna.tsinghua.edu.cn/help/adoptium/
+    - Azul Zulu https://www.azul.com/downloads/
+    - BellSoft Liberica JDK https://bell-sw.com/pages/downloads/?
+    - GraalVM https://www.graalvm.org/
+- JetBrains IntelliJ IDEA https://www.jetbrains.com/idea/
+- 本章CodeLab https://github.com/xsun2001/tour-of-java/tree/master/codelab/chapter0
 

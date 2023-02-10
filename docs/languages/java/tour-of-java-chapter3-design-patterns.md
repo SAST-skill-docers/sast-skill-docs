@@ -6,21 +6,20 @@
 
 - 前两章中介绍的 Java 基本语法以及 OOP 相关语法以及概念。
 
-## What are Design Patterns
 
-- *设计模式  Design Patterns* 是一套最佳实践，描述了软件开发人员在面临一些一般性问题时使用和总结出的解决方案。
-- 1994年， Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides合著了*Design Patterns - Elements of Reusable Object-Oriented Software*（《设计模式——可复用面向对象软件的基础》），首次提出了设计模式的概念，并对大多数常见的设计模式进行了分类组织和讨论。这四位作者也被称为*四人帮 GoF, Gang of Four*。
-- 合理的利用设计模式让代码组织真正的工程化，减少耦合、提升可维护性、提升复用度。
-- 本章我会带大家认识一些常见的设计模式，并介绍 Java 标准库中相应的设计范例。
+???+ 何为设计模式
+    - *设计模式  Design Patterns* 是一套最佳实践，描述了软件开发人员在面临一些一般性问题时使用和总结出的解决方案。
+    - 1994年， Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides合著了*Design Patterns - Elements of Reusable Object-Oriented Software*（《设计模式——可复用面向对象软件的基础》），首次提出了设计模式的概念，并对大多数常见的设计模式进行了分类组织和讨论。这四位作者也被称为*四人帮 GoF, Gang of Four*。
+    - 合理的利用设计模式让代码组织真正的工程化，减少耦合、提升可维护性、提升复用度。
+    - 本章我会带大家认识一些常见的设计模式，并介绍 Java 标准库中相应的设计范例。
 
-!!! note "OOP Principle"
 
-```markdown
- 对接口编程而不是对实现编程
- 组合优先于继承。
- 单一职责原则：类的职责应当尽可能的少而清晰。
- 合理使用设计模式，而不要滥用。
-```
+???+ note "OOP Principle"
+    - 对接口编程而不是对实现编程。
+    - 组合优先于继承。
+    - 单一职责原则：类的职责应当尽可能的少而清晰。
+    - 合理使用设计模式，而不要滥用。
+
 ##  Creational Patterns 创造型模式
 
 创造型模式描述了如何创建对象：
@@ -902,14 +901,7 @@ var comparator = Comparator<User>
 
 ## 资源链接
 
-Spring
-https://spring.io/
-
-ing Data JPA
-https://spring.io/projects/spring-data-jpa
-
-JPA
-https://jakarta.ee/specifications/persistence/3.0/
-
-CrudRepository
-https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
+- Spring https://spring.io/
+- Spring Data JPA https://spring.io/projects/spring-data-jpa
+- JPA https://jakarta.ee/specifications/persistence/3.0/
+- Crud Repository https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/rudRepository.html
