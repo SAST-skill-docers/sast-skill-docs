@@ -1,14 +1,10 @@
-# Tour of Java: Chapter 1 :Basic  Language Structure
+# Basic Language Structure
 
 ## 前置知识
 
-+无。
++ 无。
 
-
-
-## Java is a *C-style* language
-
-### Comments
+## Comments 注释
 
 ```java
 // This is a one-line comment
@@ -22,9 +18,7 @@
  */
 ```
 
-
-
-### Variable Declare & Assignment / Data types
+## Variable Declare & Assignment / Data types 变量声明、赋值、数据类型
 
 ```java
 jshell> int a;
@@ -55,17 +49,17 @@ jshell> double d = 1.0
 d ==> 1.0
 ```
 
-- 整数类型：`byte` `short` `int` `long`分别为 1、2、4、8 字节*有符号*整数。
+- 整数类型: `byte` `short` `int` `long`分别为 1、2、4、8 字节*有符号*整数。
 
-- 浮点数：`float` `double`分别为 4、8 字节浮点数。
+- 浮点数: `float` `double`分别为 4、8 字节浮点数。
 
-- 逻辑值：`boolean`。
+- 逻辑值: `boolean`。
 
-- 字符：`char` 2 字节 Unicode 字符。
+- 字符: `char` 2 字节 Unicode 字符。
 
-  
+## Operators: 运算符
 
-### Operators: Arithmetic
+### Arithmetic 算数
 
 ```java
 jshell> 1 + 1
@@ -95,9 +89,7 @@ jshell> a %= 20;
 $20 ==> 13
 ```
 
-
-
-### Operators: ++ --
+### ++ -- 自增自减
 
 ```java
 jshell> int a = 1;
@@ -114,10 +106,7 @@ jshell> a--
 $32 ==> 2
 ```
 
-
-
-### Operators: Bitwise
-
+### Bitwise 位运算
 
 ```java
 jshell> 1 & 2
@@ -148,21 +137,19 @@ jshell> -1024 >>> 3;
 $25 ==> 536870784
 ```
 
-对最后两个例子的解释 :
+对最后两个例子的解释:
 
 Java 中 ```-1024``` 作为字面量，被视为**有符号的**```int```类型，以补码表示为```11111111 11111111 11111100 00000000```。
 
-```>>```的行为：如果被操作的数的最高位是```1```，则右移时在高位补```1``` ；如果被操作的数的最高位是```0```，则右移时在高位补```0```。
+```>>```的行为: 如果被操作的数的最高位是```1```，则右移时在高位补```1``` ；如果被操作的数的最高位是```0```，则右移时在高位补```0```。
 
-```>>>```的行为：右移时在高位补```0```。
+```>>>```的行为: 右移时在高位补```0```。
 
 因此，```-1024 >> 3```   得到 ```11111111 11111111 11111111 10000000``` ，即```-128```。
 
 因此，```-1024 >>> 3``` 得到 ```00011111 11111111 11111111 10000000``` ，即```563870784```。
 
-
-
-### Operators: Compare
+### Compare 比较
 
 ```java
 jshell> int a = 1, b = 2;
@@ -188,9 +175,7 @@ jshell> a > b
 $8 ==> false
 ```
 
-
-
-### Operators: Logic
+### Logic 逻辑
 
 ```java
 jshell> true && false
@@ -220,7 +205,7 @@ Col1	Col2
 
 
 
-### Function / Method Syntax
+## Function / Method Syntax 函数、方法
 
 ```java
 jshell> int mul(int a, int b) {
@@ -233,8 +218,9 @@ $20 ==> 6
 ```
 
 
+## ControlFlow: 控制流
 
-### Control Flow: if-else
+###  if-else
 
 ```java
 jshell> boolean canIGetA(double score) {
@@ -266,7 +252,7 @@ $4 ==> false
 
 
 
-### Control Flow: ?:
+###  ?:
 
 ```java
 jshell> int gcd(int a, int b) {
@@ -280,7 +266,7 @@ $26 ==> 6
 
 
 
-### Control Flow: switch
+###  switch
 
 ```java
 jshell> int calculate(int a, int b, char op) {
@@ -310,7 +296,7 @@ $10 ==> -1
 
 
 
-### Control Flow: for
+###  for
 
 ```java
 jshell> boolean isPrime(int a) {
@@ -330,7 +316,7 @@ jshell> for (int a = 1; a <= 100; a++) {
 
 
 
-### Control Flow: while
+###  while
 
 ```java
 jshell> import java.lang.Math;
@@ -349,7 +335,7 @@ jshell> while( (x = Math.random()) < 0.8) {
 
 
 
-### Control Flow: do-while
+###  do-while
 
 ```java
 jshell> do {
@@ -361,126 +347,7 @@ x ==> 0.8346328176085303
 ```
 
 
-
-## Other basic syntax & API
-
-### *[[JEP286](https://openjdk.org/jeps/286), Java10]* `var` type inference
-
-```java
-jshell> var mapOfMap = new HashMap<String, Map<String, String>>()
-mapOfMap ==> {}
-
-jshell> mapOfMap.put("Java", Map.of("Type", "Strong-Typed", "Paradigm", "OOP"))
-$111 ==> null
-
-jshell> mapOfMap
-mapOfMap ==> {Java={Paradigm=OOP, Type=Strong-Typed}}
-
-jshell> mapOfMap.forEach(
-    ..>     (var key, var val) -> System.out.println(key + " : " + val))
-Java : {Paradigm=OOP, Type=Strong-Typed}
-```
-
-
-
-
-
-### *[[JEP378](https://openjdk.org/jeps/378), Java15]* Text Blocks
-
-`"""`包含的字符串称为*文本块 TextBlock*。
-文本块允许使用`"`而不需转义，`\"""`则需要转义。
-
-```java
-jshell> """
-   ...> Line 1
-   ...> Line 2
-   ...> Line 3
-   ...> Line 4
-   ...> """
-$4 ==> "Line 1\nLine 2\nLine 3\nLine 4\n"
-```
-
-
-使用`\`取消换行
-
-```java
-jshell> """
-   ...> Line 1 \
-   ...> Line 2 \
-   ...> Line 3 \
-   ...> Line 4 \
-   ...> """
-$5 ==> "Line 1 Line 2 Line 3 Line 4\n"
-```
-
-
-使用`\s`保证末尾空格不会删除，否则末尾空格会被替换为换行符。下面用`·`表示空格，而非实际字符：
-
-
-```java
-jshell> """
-   ...> red···
-   ...> green·
-   ...> blue··
-   ...> """
-$1 ==> "red\ngreen\nblue\n"
-    
-jshell> """
-   ...> red···\s
-   ...> green·\s
-   ...> blue··\s
-   ...> """
-$1 ==> "red···\ngreen·\nblue··\n"
-```
-
-
-
-
-### Array
-
-```java
-jshell> var matrix = new int[5][5];
-matrix ==> int[5][] { int[5] { 0, 0, 0, 0, 0 }, int[5] { 0,  ... int[5] { 0, 0, 0, 0, 0 } }
-jshell> for (int i = 0; i<5; i++) {
-   ...>     for(int j = 0; j<5; j++) {
-   ...>         matrix[i][j] = i * j;
-   ...>     }
-   ...> }
-jshell> matrix
-matrix ==> int[5][] {
-    int[5] { 0, 0, 0, 0, 0 },
-    int[5] { 0, 1, 2, 3, 4 },
-    int[5] { 0, 2, 4, 6, 8 },
-    int[5] { 0, 3, 6, 9, 12 },
-    int[5] { 0, 4, 8, 12, 16 } }
-```
-
-Array Utility:
-```java
-jshell> import java.util.Arrays;
-jshell> Arrays.sort(intArr)
-jshell> intArr
-intArr ==> int[10] { 0, 0, 0, 1, 1, 2, 5, 8, 9, 9 }
-jshell> Arrays.binarySearch(intArr, 5)
-$64 ==> 6
-
-jshell> System.out.println(intArr)
-[I@2d6eabae
-jshell> System.out.println(Arrays.toString(intArr))
-[0, 0, 0, 1, 1, 2, 5, 8, 9, 9]
-jshell> System.out.println(Arrays.deepToString(matrix))
-[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
-```
-
-API Ref: [java.util.Arrays](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html)
-
-- API是*应用编程接口 (英语 ：Application Programming Interface）*，描述了 Java 类库向外提供的功能、使用方法、注意事项等信息。
-- JavaDoc 是内置的生成网站形式的 API 文档的方式，Java 标准库参考文档，也就是 [API Ref](https://docs.oracle.com/en/java/javase/17/docs/api/)就使用 JavaDoc 生成的。
-- Java 标准库内容丰富，生态庞大，学会阅读、查找、遵循 API 文档是充分利用 Java 优势的第一步。
-
-
-
-### String
+## String 字符串
 
 ```java
 jshell> String s = "I Love Java"
@@ -520,8 +387,7 @@ $50 ==> true
 API Ref: [java.lang.String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html)
 
 
-
-### Console IO
+## Console IO 命令行输入输出
 ```java
 jshell> System.out.println("I Love Java")
 I Love Java
@@ -546,6 +412,51 @@ $89 ==> false
 API Ref: [java.util.Scanner](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html)
 
 
+## Array 数组
+
+```java
+jshell> var matrix = new int[5][5];
+matrix ==> int[5][] { int[5] { 0, 0, 0, 0, 0 }, int[5] { 0,  ... int[5] { 0, 0, 0, 0, 0 } }
+jshell> for (int i = 0; i<5; i++) {
+   ...>     for(int j = 0; j<5; j++) {
+   ...>         matrix[i][j] = i * j;
+   ...>     }
+   ...> }
+jshell> matrix
+matrix ==> int[5][] {
+    int[5] { 0, 0, 0, 0, 0 },
+    int[5] { 0, 1, 2, 3, 4 },
+    int[5] { 0, 2, 4, 6, 8 },
+    int[5] { 0, 3, 6, 9, 12 },
+    int[5] { 0, 4, 8, 12, 16 } }
+```
+
+Array Utility:
+```java
+jshell> import java.util.Arrays;
+jshell> Arrays.sort(intArr)
+jshell> intArr
+intArr ==> int[10] { 0, 0, 0, 1, 1, 2, 5, 8, 9, 9 }
+jshell> Arrays.binarySearch(intArr, 5)
+$64 ==> 6
+
+jshell> System.out.println(intArr)
+[I@2d6eabae
+jshell> System.out.println(Arrays.toString(intArr))
+[0, 0, 0, 1, 1, 2, 5, 8, 9, 9]
+jshell> System.out.println(Arrays.deepToString(matrix))
+[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+```
+
+API Ref: [java.util.Arrays](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html)
+
+???+ 何为API
+    - API是*应用编程接口 (英语 :Application Programming Interface）*，描述了 Java 类库向外提供的功能、使用方法、注意事项等信息。
+    - JavaDoc 是内置的生成网站形式的 API 文档的方式，Java 标准库参考文档，也就是 [API Ref](https://docs.oracle.com/en/java/javase/17/docs/api/)就使用 JavaDoc 生成的。
+    - Java 标准库内容丰富，生态庞大，学会阅读、查找、遵循 API 文档是充分利用 Java 优势的第一步。
+
+
+## 数学相关
 
 ### BigInteger  
 
@@ -564,8 +475,6 @@ $93 ==> true
 
 API Ref: [java.math.BigInteger](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigInteger.html)
 
-
-
 ### BigDecimal
 
 ```java
@@ -583,9 +492,7 @@ $100 ==> "1E-9"
 
 API Ref: [java.math.BigDecimal](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html)
 
-
-
-### Math
+### Math库
 
 ```java
 jshell> Math.
@@ -617,7 +524,72 @@ $109 ==> 1.4142135623730951
 
 API Ref: [java.lang.Math](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html)
 
+## 一些语法糖
 
+### *[[JEP286](https://openjdk.org/jeps/286), Java10]* `var` type inference
+
+```java
+jshell> var mapOfMap = new HashMap<String, Map<String, String>>()
+mapOfMap ==> {}
+
+jshell> mapOfMap.put("Java", Map.of("Type", "Strong-Typed", "Paradigm", "OOP"))
+$111 ==> null
+
+jshell> mapOfMap
+mapOfMap ==> {Java={Paradigm=OOP, Type=Strong-Typed}}
+
+jshell> mapOfMap.forEach(
+    ..>     (var key, var val) -> System.out.println(key + " : " + val))
+Java : {Paradigm=OOP, Type=Strong-Typed}
+```
+
+### *[[JEP378](https://openjdk.org/jeps/378), Java15]* Text Blocks
+
+`"""`包含的字符串称为*文本块 TextBlock*。
+文本块允许使用`"`而不需转义，`\"""`则需要转义。
+
+```java
+jshell> """
+   ...> Line 1
+   ...> Line 2
+   ...> Line 3
+   ...> Line 4
+   ...> """
+$4 ==> "Line 1\nLine 2\nLine 3\nLine 4\n"
+```
+
+使用`\`取消换行
+
+```java
+jshell> """
+   ...> Line 1 \
+   ...> Line 2 \
+   ...> Line 3 \
+   ...> Line 4 \
+   ...> """
+$5 ==> "Line 1 Line 2 Line 3 Line 4\n"
+```
+
+使用`\s`保证末尾空格不会删除，否则末尾空格会被替换为换行符。下面用`·`表示空格，而非实际字符:
+
+
+```java
+jshell> """
+   ...> red···
+   ...> green·
+   ...> blue··
+   ...> """
+$1 ==> "red\ngreen\nblue\n"
+    
+jshell> """
+   ...> red···\s
+   ...> green·\s
+   ...> blue··\s
+   ...> """
+$1 ==> "red···\ngreen·\nblue··\n"
+```
+
+## 本章 CodeLab
 
 ### *CodeLab 1-1* a +-*/^&| b
 
@@ -625,9 +597,9 @@ API Ref: [java.lang.Math](https://docs.oracle.com/en/java/javase/17/docs/api/jav
 
 - `codelab/chapter1/src/Lab1.java`
 - 标准输入输出
-- 输入格式：若干行`a op b`，其中`op`是`+-*/^&|`中的其中一种，以标准输入结束为终止
-- 输出格式：若干行计算结果
-- 提示：计算结果可能非常大
+- 输入格式: 若干行`a op b`，其中`op`是`+-*/^&|`中的其中一种，以标准输入结束为终止
+- 输出格式: 若干行计算结果
+- 提示: 计算结果可能非常大
 
 ### *CodeLab 1-2* QuickSort
 
@@ -641,16 +613,16 @@ API Ref: [java.lang.Math](https://docs.oracle.com/en/java/javase/17/docs/api/jav
 
 ## 资源链接
 
-本章CodeLab：https://github.com/xsun2001/tour-of-java/tree/master/codelab/chapter1
+- [本章CodeLab](https://github.com/xsun2001/tour-of-java/tree/master/codelab/chapter1)
 
-- Java API Ref: https://docs.oracle.com/en/java/javase/17/docs/api/
-	-  java.util.Arrays https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html
-	-  java.lang.String https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html
-	-  java.lang.Math https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html
-	-  java.util.Scanner https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html
-	-  java.math.BigInteger https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigInteger.html
-	-  java.math.BigDecimal https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html
+- [Java API Ref](https://docs.oracle.com/en/java/javase/17/docs/api/)
+	- [java.util.Arrays](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html)
+	- [java.lang.String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html)
+	- [java.lang.Math](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html)
+	- [java.util.Scanner](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html)
+	- [java.math.BigInteger](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigInteger.html)
+	- [java.math.BigDecimal](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html)
 	
-- JEP https://openjdk.org/jeps
-    - JEP 286 `var` type inference https://openjdk.org/jeps/286
-    - JEP 378 Text Block https://openjdk.org/jeps/378
+- [JEP](https://openjdk.org/jeps)
+    - [JEP 286 `var` type inference](https://openjdk.org/jeps/286)
+    - [JEP 378 Text Blocks](https://openjdk.org/jeps/378)

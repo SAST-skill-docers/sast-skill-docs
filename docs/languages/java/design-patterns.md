@@ -1,11 +1,8 @@
-
-
-# Tour of Java: Chapter 3 Design Patterns
+# Chapter 3 Design Patterns
 
 ## 前置知识
 
 - 前两章中介绍的 Java 基本语法以及 OOP 相关语法以及概念。
-
 
 ???+ 何为设计模式
     - *设计模式  Design Patterns* 是一套最佳实践，描述了软件开发人员在面临一些一般性问题时使用和总结出的解决方案。
@@ -13,16 +10,15 @@
     - 合理的利用设计模式让代码组织真正的工程化，减少耦合、提升可维护性、提升复用度。
     - 本章我会带大家认识一些常见的设计模式，并介绍 Java 标准库中相应的设计范例。
 
-
 ???+ note "OOP Principle"
     - 对接口编程而不是对实现编程。
     - 组合优先于继承。
-    - 单一职责原则：类的职责应当尽可能的少而清晰。
+    - 单一职责原则: 类的职责应当尽可能的少而清晰。
     - 合理使用设计模式，而不要滥用。
 
-##  Creational Patterns 创造型模式
+## Creational Patterns 创造型模式
 
-创造型模式描述了如何创建对象：
+创造型模式描述了如何创建对象:
 
 1. *Builder*  构建者模式。
 2. *Factory Method*  工厂方法模式。
@@ -31,8 +27,8 @@
 
 ### Builder 构建者模式
 
-构建者（英语： Builder）模式通常由一个*指导者 Director* 类、一个*构造者 Builder* 接口/抽象类和若干个具体构建者实现类组成。
-在我们的例子中，*Builder* 提供构建其他格式文档所需要的接口：
+构建者（英语:  Builder）模式通常由一个*指导者 Director* 类、一个*构造者 Builder* 接口/抽象类和若干个具体构建者实现类组成。
+在我们的例子中，*Builder* 提供构建其他格式文档所需要的接口:
 
 ```java
 interface DocumentBuilder {
@@ -44,7 +40,7 @@ interface DocumentBuilder {
 }
 ```
 
-*Director*  管理 Markdown 的解析，并使用 *Builder*  构建转化后的文档：
+*Director*  管理 Markdown 的解析，并使用 *Builder*  构建转化后的文档:
 
 ```java
 class MarkdownDirector {
@@ -60,7 +56,7 @@ class MarkdownDirector {
 }
 ```
 
-*Director* 管理 Markdown的解析，并使用 *Builder*  构建转化后的文档：
+*Director* 管理 Markdown的解析，并使用 *Builder*  构建转化后的文档:
 
 ```java
 // Demo implement
@@ -74,7 +70,7 @@ private void parseLine(String line) {
 }
 ```
 
-具体的 *Builder*  实现包含了对应具体目标文件格式的转化实现，比如：
+具体的 *Builder*  实现包含了对应具体目标文件格式的转化实现，比如:
 
 ```java
 class HtmlBuilder implements DocumentBuilder {
@@ -90,7 +86,7 @@ class HtmlBuilder implements DocumentBuilder {
 }
 ```
 
-具体的 *Builder* 实现包含了对应具体目标文件格式的转化实现，比如：
+具体的 *Builder* 实现包含了对应具体目标文件格式的转化实现，比如:
 
 ```java
 class HtmlBuilder implements DocumentBuilder {
@@ -100,7 +96,7 @@ class HtmlBuilder implements DocumentBuilder {
     }
 }
 ```
-作为这个格式转化系统的使用者，我们可以根据需要的文件格式提供相应的构建器：
+作为这个格式转化系统的使用者，我们可以根据需要的文件格式提供相应的构建器:
 ```java
 public static void main(String[] args) throws IOException {
     DocumentBuilder builder = switch (args[2]) {
@@ -114,16 +110,16 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
-使用建造者模式的好处在于：
+使用建造者模式的好处在于:
 
 1. 分离 *指导者* 和 *构建者* 的具体实现。*指导者* 无需关心具体结果对象的具体内部表示形式、实现方法和组成顺序。
 2. 提升模块化，有利于合作开发，也有利于快速定位错误。
 
-在以下情况使用建造者模式：
+在以下情况使用建造者模式:
 
 1. 复杂对象的创建*流程*和*具体内部实现、数据表示*是分离的。
 
-Java内最知名的构建者实例就是`java.lang.StringBuilder`，它提供了构建大型字符串所需的所有方法：
+Java内最知名的构建者实例就是`java.lang.StringBuilder`，它提供了构建大型字符串所需的所有方法:
 
 - `append(*)` `insert(int, *)` `replace(int, int, String)`
 - `length()` `charAt(int)` `substring(int, int)`
@@ -135,7 +131,7 @@ Java内最知名的构建者实例就是`java.lang.StringBuilder`，它提供了
 
 我们发现，GUI 一般都由一些基本的元素组成，如按钮、菜单、文本框、文本区等。这些基本元素被称为*组件 Widget*。它们可能会有不同的渲染实现，但是 GUI 的布局总是相同的。因此我们可以分离这两者。
 
-不同的皮肤实际上是提供了不同实现的组件的类，这个类被称为抽象工厂 （ 英语：Abstract Factory） 。
+不同的皮肤实际上是提供了不同实现的组件的类，这个类被称为抽象工厂（英语: Abstract Factory）。
 
 ```java
 class Button    { /* ... */ }
@@ -196,12 +192,12 @@ class GUI {
 }
 ```
 
-应用抽象工厂模式可以：
+应用抽象工厂模式可以:
 
 1. 隔离具体实现类。
 2. 更换具体实现类的家族，并保证这些实现类的行为一致性。
 
-应当使用抽象工厂模式，当：
+应当使用抽象工厂模式，当:
 
 1. 你的系统和它所以依赖的组件的创建、组合和内部表示是独立的。
 2. 你的系统需要更换组件家族，而组件家族被设计为需要一起使用。
@@ -214,7 +210,7 @@ Java Swing 是 Java 提供的跨平台 GUI 库，它就提供了和我们例子�
 
 考虑一个需要数据库连接的应用。对不同数据库的连接是由不同类来实现和处理的，但是具体的数据库类型一般不是编译期决定的，而是由运行时的配置文件等控制。
 
-通过工厂方法（英语： Factory Method），可以将创建具体数据库连接的责任转移给工厂方法内部。其得名，就是因为它负责“制造”对象，就如同一个工厂一样。
+通过工厂方法（英语: Factory Method），可以将创建具体数据库连接的责任转移给工厂方法内部。其得名，就是因为它负责“制造”对象，就如同一个工厂一样。
 
 
 
@@ -256,7 +252,7 @@ public static main(String[] args) {
 }
 ```
 
-工厂方法通常也可以是静态的`static`：
+工厂方法通常也可以是静态的`static`:
 
 ```java
 class DatabaseConnectionFactory {
@@ -277,9 +273,9 @@ var conn = DatabaseConnectionFactory.createConnection(args[0]);
 1. 消除对具体实现类的编译期绑定，进而强化了面向接口编程
 2. 工厂方法实际上和构造器的功能非常相似，这个设计模式有时还被称作*虚拟构造器 virtual constructor*。工厂方法命名和语法都更加自由，可以作为更灵活、语义更明显的构造器使用。
 
-Java 中工厂方法的应用随处可见：
+Java 中工厂方法的应用随处可见:
 
-- 各个接口中的`of`系列静态方法几乎都是静态工厂方法：
+- 各个接口中的`of`系列静态方法几乎都是静态工厂方法:
   - `Set.of(...)` `Map.of(...)` `List.of(...)`
   - `Year.of()` `Mouth.of()` `DayOfWeek.of()`
   - `Path.of()`
@@ -294,7 +290,7 @@ Java 中工厂方法的应用随处可见：
 
 ### Singleton 单例
 
-单例（英语： Singleton）模式说明某些类只应当存在一个实例。比如OS只应该有一个窗口管理器，也只应该有一个（逻辑上的）文件系统。对 Java 程序来说，Java 运行时环境也应该是唯一的。事实也是如此，`java.lang.Runtime` 类的确是一个单例，需要使用 `java.lang.Runtime#getRuntime()` 获取这个对象。
+单例（英语: Singleton）模式说明某些类只应当存在一个实例。比如OS只应该有一个窗口管理器，也只应该有一个（逻辑上的）文件系统。对 Java 程序来说，Java 运行时环境也应该是唯一的。事实也是如此，`java.lang.Runtime` 类的确是一个单例，需要使用 `java.lang.Runtime#getRuntime()` 获取这个对象。
 
 ```java
 class Singleton {
@@ -323,7 +319,7 @@ class Singleton {
 
 ### Adapter 适配器
 
-适配器（英语：Adapter）模式，顾名思义，是通过 *Adapter* 类将两个不兼容的接口连接到一起，如下面的例子：
+适配器（英语: Adapter）模式，顾名思义，是通过 *Adapter* 类将两个不兼容的接口连接到一起，如下面的例子:
 
 ```java
 interface AppleLightning { /* ... */ }
@@ -338,9 +334,9 @@ class TypeC2Lightning implements AppleLightning {
 
 Java标准库中最常用的适配器，就是连接`Reader` `Writer`与`InputStream` `OutputStream`的`InputStreamReader` `OutputStreamWriter`。
 
-- `Reader` `Writer`：用于读取**字符流**。
-- `InputStream` `OutputStream`：用于读取**字节流**。
-- `InputStreamReader` `OutputStreamWriter`：适配器类，用于处理原始**字节流**，通过字符集编码等信息转化为**字符流**。
+- `Reader` `Writer`: 用于读取**字符流**。
+- `InputStream` `OutputStream`: 用于读取**字节流**。
+- `InputStreamReader` `OutputStreamWriter`: 适配器类，用于处理原始**字节流**，通过字符集编码等信息转化为**字符流**。
 
 ```java
 var fileInput = new FileInputStream("input.txt");
@@ -356,7 +352,7 @@ var str = new String(charBuf);
 
 ### Decorator 装饰器
 
-装饰器（英语： Decorator）模式在暑培的 python 课程中有涉及到（ python 语言有对装饰器函数的语法支持）。装饰器和适配器都是*包装*对象的模式，但是装饰器的重要区别在于，它是将接口包装到*同一个*接口，只不过装饰上增强的功能性。而适配器是包装为另一个不兼容的接口。
+装饰器（英语: Decorator）模式在暑培的 python 课程中有涉及到（ python 语言有对装饰器函数的语法支持）。装饰器和适配器都是*包装*对象的模式，但是装饰器的重要区别在于，它是将接口包装到*同一个*接口，只不过装饰上增强的功能性。而适配器是包装为另一个不兼容的接口。
 
 考虑 VSCode 的代码区，是在最朴素的文本区上，加入了缩略图、滚动条等组件，而且缩略图这种组件实际上在配置中是可以移除的。需要添加额外功能并支持动态添加/移除时，就应当使用装饰器模式。
 
@@ -387,15 +383,15 @@ class GUIFactory {
 }
 ```
 
-`java.io`包的设计处处体现了装饰器模式。我们以输入流为例：
+`java.io`包的设计处处体现了装饰器模式。我们以输入流为例:
 
 - `java.io.InputStream` 是通用的基类，基本功能就是`read`读取一个字节或者字节数组
-- 终端流，即真正产生数据的流：
+- 终端流，即真正产生数据的流:
   - `java.io.ByteArrayInputStream` 从字节数组中读。
   - `java.io.FileInputStream` 从文件中读。
   - `java.io.PipedInputStream` 从连接到的另一个输出流中读。
 
-- 装饰器流，即为现有流添加额外功能的流：
+- 装饰器流，即为现有流添加额外功能的流:
   - `java.io.BufferedInputStream` 为现有流加个缓冲区以提升性能。
   - `java.util.zip.CheckedInputStream` 边读边算CRC32等校验码。
   - `java.util.zip.Inflater/DeflaterInputStream` 解压缩/压缩原始数据。
@@ -412,18 +408,18 @@ var checksum = checkedInput.getChecksum().getValue();
 assert(checksum == 1234567890L);
 ```
 
-装饰器模式带来的好处有：
+装饰器模式带来的好处有:
 
 1. 保证*单一职责原则*。可以看到，上面我介绍的一大堆输入流子类都可以用简短的一句话描述它们的全部功能。
 2. 提供比继承更多的灵活性。我们可以任意组合装饰器流来加任何我们想使用的功能。
 
-但是也有一些小缺点需要注意：
+但是也有一些小缺点需要注意:
 
 1. 可能会留下一大堆散件，比如获取校验码你仍然需要保留 `checkedInput`。
 
 ### Flyweight 享元
 
-考虑 Minecraft，一个（最初）使用 Java 编写的、全球最知名的沙盒游戏之一。Minecraft 的地形由一大堆方块组成，而这些方块都带有自己的数据，比如位置、方向、材质、碰撞箱、变种与其他信息（如铁砧损坏程度等）。我们很容易给出下面的简单设计：
+考虑 Minecraft，一个（最初）使用 Java 编写的、全球最知名的沙盒游戏之一。Minecraft 的地形由一大堆方块组成，而这些方块都带有自己的数据，比如位置、方向、材质、碰撞箱、变种与其他信息（如铁砧损坏程度等）。我们很容易给出下面的简单设计:
 
 ```java
 abstract class Block {
@@ -463,13 +459,13 @@ class World {
 }
 ```
 
-但是这种方法显然存在较大的性能问题：
+但是这种方法显然存在较大的性能问题:
 
 有很多数据对于相同种类的方块都是重复的，没有必要每个位置都单独存一遍。对于 Minecraft 这种，世界大小上限约为$6\times 10^6 \times 6\times 10^6  \times 400 = 1.44 \times 10^{16}$(1京4400兆)个`Block`的巨型对象，这些重复数据对于内存和硬盘空间来说都是不可接受的。
 
-我们可以通过分离重复的数据和不重复的数据，或称为固有状态（英语： intrinsic）和 外围状态 （英语：extrinsic），通过分离存储两种状态的对象，来减少运行时内存占用。比如，方块的材质、硬度、爆炸抗性等信息是固有状态，方块的位置、朝向等信息是外围状态。
+我们可以通过分离重复的数据和不重复的数据，或称为固有状态（英语:  intrinsic）和 外围状态 （英语: extrinsic），通过分离存储两种状态的对象，来减少运行时内存占用。比如，方块的材质、硬度、爆炸抗性等信息是固有状态，方块的位置、朝向等信息是外围状态。
 
-为了区分外围状态，一种方法是为方块的更新或事件处理函数加入外围状态参数：
+为了区分外围状态，一种方法是为方块的更新或事件处理函数加入外围状态参数:
 
 ```java
 abstract class Block {
@@ -478,7 +474,7 @@ abstract class Block {
 }
 ```
 
-另一种方式是直接为外围状态添加公开的`set`方法：
+另一种方式是直接为外围状态添加公开的`set`方法:
 
 ```java
 abstract class Block {
@@ -489,7 +485,7 @@ abstract class Block {
 }
 ```
 
-然后通过工厂类和享元对象池等技术储存、构建不同固有状态的方块的享元（英语： Flyweight）：
+然后通过工厂类和享元对象池等技术储存、构建不同固有状态的方块的享元（英语: Flyweight）:
 
 ```java
 class BlockFactory {
@@ -519,7 +515,7 @@ class World {
 }
 ```
 
-Java  中的享元实例是基本整数数据类型的包装类的`valueOf`方法：
+Java  中的享元实例是基本整数数据类型的包装类的`valueOf`方法:
 
 ```java
 public final class Integer extends Number implements Comparable<Integer>, Constable, ConstantDesc {
@@ -542,7 +538,7 @@ public final class Integer extends Number implements Comparable<Integer>, Consta
 
 ### Proxy 代理
 
-考虑远程过程调用（Remote Procedure Call, RPC），我们需要在本地调用远程代码。但是显然我们不可能`new`一个远程对象，我们不知道它具体的实现，更不知道怎么管理别的机器的内存。这时我们就需要一个代理 （英语： Proxy）类作为本地的占位符，代替本地代码发送远程过程调用请求。这样我们可以和具体实现解耦合，甚至可以无缝在本地实现和远程代码实现之间转换。
+考虑远程过程调用（Remote Procedure Call, RPC），我们需要在本地调用远程代码。但是显然我们不可能`new`一个远程对象，我们不知道它具体的实现，更不知道怎么管理别的机器的内存。这时我们就需要一个代理 （英语: Proxy）类作为本地的占位符，代替本地代码发送远程过程调用请求。这样我们可以和具体实现解耦合，甚至可以无缝在本地实现和远程代码实现之间转换。
 
 ```java
 interface UserInfoRepo {
@@ -569,13 +565,13 @@ class DBUserInfoRepo implements UserInfoRepo {
 }
 ```
 
-但是真正让代理模式在 Java 发光发热的是真正的*动态性*。 Java 允许在运行时改变字节码，创造新的类，换句话说，*运行时编译代码*。比如上例中的`RPCUserInfoRepo`和`DBUserInfoRepo`都不需要我们手动编写，我们只要声明：我们需要使用一个用户信息仓库，支持框架会自动生成、创建实现类并实例化对象供我们使用。
+但是真正让代理模式在 Java 发光发热的是真正的*动态性*。 Java 允许在运行时改变字节码，创造新的类，换句话说，*运行时编译代码*。比如上例中的`RPCUserInfoRepo`和`DBUserInfoRepo`都不需要我们手动编写，我们只要声明: 我们需要使用一个用户信息仓库，支持框架会自动生成、创建实现类并实例化对象供我们使用。
 
 我们这次使用[ **Spring Data JPA** ](https://spring.io/projects/spring-data-jpa)作为例子。[ **Spring** ](https://spring.io/)是 Java 最流行的后端框架的集合， **Spring Data** 是其关系型数据库支持，[ **JPA** ](https://jakarta.ee/specifications/persistence/3.0/)是 Java/Jakarta Persistence API 的缩写，是持久化层的 API 描述。
 
 
 
-我们声明一个`User`类：
+我们声明一个`User`类:
 
 ```java
 @Entity
@@ -589,7 +585,7 @@ public class User {
 }
 ```
 
-我们声明我们需要的数据仓库的接口，比如我们需要寻找对应昵称的所有用户：
+我们声明我们需要的数据仓库的接口，比如我们需要寻找对应昵称的所有用户:
 
 ```java
 @Repository
@@ -616,14 +612,14 @@ public class AccessingDataJpaApplication {
 }
 ```
 
-我们做了如下事情：
+我们做了如下事情:
 
 1. 定义了数据格式`User`类;
 2. 定义了我们想要的查询、更新方法`UserRepository`;
 3. 直接使用`UserRepository`进行数据操作;
 4. 让 Spring 启动程序。
 
-但是 Spring 替我们做的事情包括但不限于：
+但是 Spring 替我们做的事情包括但不限于:
 
 1. 自动发现`User`，根据`User`内部的注解和成员变量，自动生成数据库表生成语句，如有必要，自动合并、迁移、重整已有数据表中的数据;
 2. 自动发现`UserRepository`，根据方法名称、参数、返回值等信息，自动解析生成 SQL 语句，自动处理数据库连接和 SQL 执行，自动组织数据库的执行结果，生成本节所说的**Proxy**类;
@@ -641,7 +637,7 @@ public class AccessingDataJpaApplication {
 
 ## Behavioral Patterns 行为模式
 
-行为模式（英语：Behavioral Patterns ）告诉我们如何让系统中的对象协作，比如：
+行为模式（英语: Behavioral Patterns ）告诉我们如何让系统中的对象协作，比如:
 
 - *Template Method*  模版方法模式
 - *Iterator*  迭代器模式
@@ -654,13 +650,11 @@ public class AccessingDataJpaApplication {
 
 ### Template Method 模板方法
 
-模版方法（英语：Template Method）模式可以为方法比较多的接口提供一组共享的默认实现，来简化子类派生的过程。Java 的集合框架也大量应用了这个模式，典型的命名特征是`Inter`接口和`AbstractInter`抽象类来提供模板实现。
-
-
+模版方法（英语: Template Method）模式可以为方法比较多的接口提供一组共享的默认实现，来简化子类派生的过程。Java 的集合框架也大量应用了这个模式，典型的命名特征是`Inter`接口和`AbstractInter`抽象类来提供模板实现。
 
 比如`List`接口有27个需要实现的方法。但实际上，一个最简单的、不可变的列表只需要实现一个`get(int)`方法即可。这种列表实际上用途也非常广泛，比如在整个程序中传递支持的文件类型列表信息等。`AbstractList`就为这种用途提供了除了`get(int)`之外的所有接口的模版实现。
 
-`AbstractList<E>`为不同功能的列表提供了不同的重载方式：
+`AbstractList<E>`为不同功能的列表提供了不同的重载方式:
 
 - 不可变的列表只需要实现`get(int)` `size()`;
 - 可变的列表需要实现`get(int)` `set(int, E)`；
@@ -670,9 +664,9 @@ public class AccessingDataJpaApplication {
 
 ### Iterator 迭代器
 
-迭代器 （英语：Iterator）相信大家或多或少都听说过。Iterator提供了顺序访问一组*聚合*对象的通用方法，而无需关心内部存储实现，比如用数组还是用哈希表等。
+迭代器 （英语: Iterator）相信大家或多或少都听说过。Iterator提供了顺序访问一组*聚合*对象的通用方法，而无需关心内部存储实现，比如用数组还是用哈希表等。
 
-Java 集合框架提供了`java.util.Iterator`用于描述集合元素迭代器：
+Java 集合框架提供了`java.util.Iterator`用于描述集合元素迭代器:
 
 ```java
 package java.util;
@@ -688,14 +682,14 @@ public interface Iterator<E> {
 }
 ```
 
-它的接口都很简洁明了：
+它的接口都很简洁明了:
 
 - `hasNext()` 是否还有下一个元素（如果有）;
 - `next()` 获取下一个元素;
 - `remove()` 删除当前元素（默认不支持删除）;
 - `forEachRemaining(Consumer<? super E> action)` 对后续所有元素应用`action`。
 
-`Iterator`的基本使用可以直接参考`forEachRemaining`的实现：
+`Iterator`的基本使用可以直接参考`forEachRemaining`的实现:
 
 ```java
 var iter = getIterator();
@@ -705,7 +699,7 @@ while(iter.hasNext()) {
 }
 ```
 
-`java.lang.Iterable<T>`接口描述了可以被迭代的聚合对象：
+`java.lang.Iterable<T>`接口描述了可以被迭代的聚合对象:
 
 ```java
 public interface Iterable<T> {
@@ -721,15 +715,13 @@ public interface Iterable<T> {
 }
 ```
 
-- `java.lang.Iterable<T>`只有一个接口函数：`iterator`，返回一个迭代器`Iterator<T>`。
-- `forEach`方法的实现展现了`Iterable`的另一种用法：
-  - 除了使用`iterator()`方法获取迭代器并按照常规方法访问，Java支持*for-each*循环来遍历可迭代对象：
+- `java.lang.Iterable<T>`只有一个接口函数: `iterator`，返回一个迭代器`Iterator<T>`。
+- `forEach`方法的实现展现了`Iterable`的另一种用法: 
+  - 除了使用`iterator()`方法获取迭代器并按照常规方法访问，Java支持*for-each*循环来遍历可迭代对象:
   - `for (T t : iterable) { /* do something with t */ }`
 - `spliterator()`提供了*可并发的*迭代器实现。
 
-
-
-Java 集合框架和标准库的很多类都是可迭代的：
+Java 集合框架和标准库的很多类都是可迭代的:
 
 - 集合框架本身就是元素的集合，因此自然都是可迭代的;
 - `java.nio.file.Path`是自身的可迭代对象，便于分离目录结构;
@@ -737,9 +729,9 @@ Java 集合框架和标准库的很多类都是可迭代的：
 
 ### Vistor 访问者
 
-访问者（英语：Visitor）模式也是遍历一组对象所用的设计模式，但是与迭代器不同的是，访问者一般用于访问层次化、结构化对象，并且子对象的类型或者处理方式可能不同。
+访问者（英语: Visitor）模式也是遍历一组对象所用的设计模式，但是与迭代器不同的是，访问者一般用于访问层次化、结构化对象，并且子对象的类型或者处理方式可能不同。
 
-最经典的例子就是文件目录访问者：`java.nio.file.FileVisitor`。
+最经典的例子就是文件目录访问者: `java.nio.file.FileVisitor`。
 
 ```java
 package java.nio.file;
@@ -756,9 +748,7 @@ public interface FileVisitor<T> {
 }
 ```
 
-
-
-`FileVisitResult`是一个枚举类型，用于控制后续访问目录的过程，比如继续遍历文件，或者在找到所需要的文件后退出等等：
+`FileVisitResult`是一个枚举类型，用于控制后续访问目录的过程，比如继续遍历文件，或者在找到所需要的文件后退出等等: 
 
 ```java
 package java.nio.file;
@@ -775,7 +765,7 @@ public enum FileVisitResult {
 
 
 
-使用`java.nio.file.Files#walkFileTree`遍历文件树：
+使用`java.nio.file.Files#walkFileTree`遍历文件树:
 
 ```java
 var start = Path.of(".");
@@ -785,7 +775,7 @@ Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
 }
 ```
 
-比如我们来统计目录下java源代码文件的数量，就可以：
+比如我们来统计目录下java源代码文件的数量，就可以:
 
 ```java
 class FileCounter<T extends Path> extends SimpleFileVisitor<T> {
@@ -820,11 +810,9 @@ public static void main(String[] args) throws IOException{
     );
 ```
 
-
-
 ### Strategy 策略
 
-一个功能可能有多种不同的算法实现。抽象出*算法*实例的模式称为策略（英语：Strategy）模式。*Strategy*可以在运行时调配不同的算法实现，这对使用功能的客户端来说是无缝的。这个模式最经典的例子是对数组排序使用的不同*排序器 Comparator*。
+一个功能可能有多种不同的算法实现。抽象出*算法*实例的模式称为策略（英语: Strategy）模式。*Strategy*可以在运行时调配不同的算法实现，这对使用功能的客户端来说是无缝的。这个模式最经典的例子是对数组排序使用的不同*排序器 Comparator*。
 
 ```java
 @FunctionalInterface
@@ -833,9 +821,7 @@ public interface Comparator<T> {
 }
 ```
 
-
-
-比如我们要根据用户的年龄进行排序，可以定义这样的排序器：
+比如我们要根据用户的年龄进行排序，可以定义这样的排序器:
 
 ```java
 @Data
@@ -851,7 +837,7 @@ public class UserComparator implements Comparator<User> {
 }
 ```
 
-使用`Arrays#sort`排序数组，使用`Collections#sort`排序列表。它们均可以接受一个排序器作为第二个参数：
+使用`Arrays#sort`排序数组，使用`Collections#sort`排序列表。它们均可以接受一个排序器作为第二个参数:
 
 ```java
 User[] userArray = fetchUsers();
@@ -859,7 +845,7 @@ User[] userArray = fetchUsers();
 Arrays.sort(userArray, new UserComparator());
 ```
 
-由于`Comparator`是一个*函数式接口*`@FunctionalInterface`，因此可以使用 Lambda 表达式：
+由于`Comparator`是一个*函数式接口*`@FunctionalInterface`，因此可以使用 Lambda 表达式:
 
 ```java
 Arrays.sort(
@@ -868,15 +854,13 @@ Arrays.sort(
 );
 ```
 
-`Comparator`还提供了一些工厂方法，用于产生各种各样的比较器实现：
+`Comparator`还提供了一些工厂方法，用于产生各种各样的比较器实现:
 
-- `reversed()`：创建当前比较器的反转版;
-- `thenComparing()`系列：当前比较器如果相等，那么再用提供的比较器或键值比较;
-- `comparing()`系列：提取对象中的某个键进行比较。
+- `reversed()`: 创建当前比较器的反转版;
+- `thenComparing()`系列: 当前比较器如果相等，那么再用提供的比较器或键值比较;
+- `comparing()`系列: 提取对象中的某个键进行比较。
 
-
-
-比如我们要提供一个先根据年龄排序，再根据名字的长度排序，长度相同的忽略大小写进行排序的比较器，我们可以使用：
+比如我们要提供一个先根据年龄排序，再根据名字的长度排序，长度相同的忽略大小写进行排序的比较器，我们可以使用:
 
 ```java
 var comparator = Comparator<User>
@@ -887,21 +871,18 @@ var comparator = Comparator<User>
         )
 ```
 
-
-
 ## Recap
 
 设计模式是面向对象编程的重要一环。上面讲的内容可能确实较多也比较难以理解，但是这些知识都不限于Java，其他面向对象编程语言都可以应用，而且对各位的OOP课程应该有比较大的帮助。
 
-最后一点：
+最后一点:
 
 **不要首先考虑设计模式，要首先考虑具体要实现的功能。** 与其在象牙塔上分析到底怎么实现比较好，不如先用具体的类写一写。在软件系统逐步演进、复杂度逐渐提高的过程中，再关注系统中耦合程度高、扩展困难、设计臃肿的地方，然后运用合适设计模式进行重构。
 
-
-
 ## 资源链接
 
-- Spring https://spring.io/
-- Spring Data JPA https://spring.io/projects/spring-data-jpa
-- JPA https://jakarta.ee/specifications/persistence/3.0/
-- Crud Repository https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/rudRepository.html
+- [Spring](https://spring.io/)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [JPA](https://jakarta.ee/specifications/persistence/3.0/)
+- [Crud Repository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/rudRepository.html)
+  

@@ -1,37 +1,33 @@
-
-
-# Tour of Java: Chapter 2 Fundamental OOP
+# Fundamental OOP
 
 ## 前置知识
 
 - 基本的 Java 语法。
-- （非必须）C++、python等语言的 OOP 语法。
+- （非必须）C++、Python 等语言的 OOP 语法。
 
 ## Basic Terms used in OOP
 
 - *OOP* 面向对象编程。
-- *object* 对象：数据和行为的集合。
-- *class* 类：定义对象的模版。
+- *object* 对象: 数据和行为的集合。
+- *class* 类: 定义对象的模版。
 
 ### Object 对象
 
 - *object*是数据和行为的集合。
-- 数据一般称为 *member variable*, *field*, *state*, *data *等。
+- 数据一般称为 *member variable*, *field*, *state*, *data* 等。
 - 行为一般称为 *method*, *function*, *interface*, *protocol* 等。
 - 面向对象编程原语是向*对象发送消息*，而不是面向过程编程中的*指令跳转* 。
 - *发送消息*就应当遵循一定的协议 *protocol* ，比如发送消息的类型和消息的内容，这表现为方法的名字和参数。
 
 ### Class 类
 
-- *class* 是 *object *的模版，是* object *的*类型* 。
+- *class* 是 *object* 的模版，是 *object* 的*类型* 。
 - *class* 定义了 *object* 所拥有的数据和行为，而 *object* 包含了具体的数据值和对应行为的真正执行者 。
 - *class* 本身可以拥有一些数据和行为。
-- 面向对象编程的基本流程为：
+- 面向对象编程的基本流程为:
   1. 设计类 `class Car { /* ... */ }`。
   2. 创建/实例化对象 `var myCar = new Car()`。
   3. 向对象发送消息 `myCar.move()`。
-
-
 
 ## OOP in Java
 
@@ -45,27 +41,24 @@
 
 
 
-## *CodeLab 2-1* Build a Car in Java
+## 基础OOP
 
-### `package`
+???+ 关于package
 
-`package tourofjava.ch2.lab1;`
+    - 例如: `package tourofjava.ch2.lab1;`
+    - Java 使用*包  package* 组织代码。
+    - 包名使用`.`建立层次结构，应当与文件目录结构相同。
+    - 包虽然有嵌套结构，但是父目录和子目录之间没有如包含等的任何关系，仅仅是名字不同。
+    - 包名通常全小写且单词之间无分隔。
 
-- Java使用*包  package* 组织代码。
-- 包名使用`.`建立层次结构，应当与文件目录结构相同。
-- 包虽然有嵌套结构，但是父目录和子目录之间没有如包含等的任何关系，仅仅是名字不同 。
-- 包名通常全小写且单词之间无分隔。
-
- 
-
-### Declare a class
+### Declare a Class
 
 ```java
 public class Car { ... }
 ```
 
 - `public`是*访问控制关键字*的一种。
-  - `public`代表其他所有*class* 都可以访问，`private`代表只有这个*class* 本身可以访问。
+  - `public`代表其他所有 *class* 都可以访问，`private`代表只有这个 *class* 本身可以访问。
   - 应用于*class* *field* *method*的声明中。
   - Java要求名为`<name>.java`的源文件中必须包含同名的`public class`。
 
@@ -75,9 +68,7 @@ public class Car { ... }
 
 - *class* 通常采用大驼峰命名。
 
-  
-
-### Declare member fields
+### Declare Member Fields
 
 ```java
 public class Car {
@@ -100,9 +91,9 @@ private String brand;
 - 访问控制 + 类型 + 成员域名 （通常采用小驼峰）。
 
 - *class成员变量的*默认值。
-  - 数字类型：`0` `0.0` 。
-  - `boolean`：`false` 。
-  - 对象：`null` 空指针 。
+  - 数字类型: `0` `0.0` 。
+  - `boolean`: `false` 。
+  - 对象: `null` 空指针 。
   
 - 可以定义时赋初始值。
 
@@ -123,7 +114,7 @@ private final String finalVar;
 
 
 
-### 构造器 constructor
+### Constructor 构造器
 
 ```java
 public class Car {
@@ -156,7 +147,7 @@ this.brand = brand;
 
   
 
-### 实例初始化块 Instance Initialization Block
+### Instance Initialization Block 实例初始化块
 
 在类中直接使用`{}`扩起来的部分称为实例初始化块，它会在任何构造器运行之前运行。
 
@@ -173,15 +164,11 @@ This is an Instance Initialization Block
 This is a constructor
 ```
 
-
-
-### 静态初始化块 Static Initialization Block
+### Static Initialization Block 静态初始化块
 
 在类中使用`static {}`扩起来的部分称为静态初始化块。这个块会在类加载的时候运行一次。如果现在不是很清楚Java类加载的顺序和机制，那只需要记住，在绝大多数情况下，这个块在一个Java程序运行的过程中，会且只会运行一次。
 
-
-
-### Member methods
+### Member Methods 成员方法
 
 ```java
 public class Car {
@@ -203,8 +190,6 @@ public class Car {
 - 成员方法就是定义在类内部的方法/函数 。
 - 并且也可以使用类内的成员变量和成员方法 。
 - 类的`public`方法组成了类所定义的对象的公开接口/功能 。
-
-
 
 ### Getters & Setters
 
@@ -230,8 +215,7 @@ public class Car {
   - Record 。
 
 
-
-### Using class & object
+### Using Class & Object
 
 ```java
 public class Car {
@@ -244,8 +228,6 @@ public class Car {
     }
 }
 ```
-
-
 
 ```java
 var myCar = new Car("BMW", "X7", "Black", 250, 245, 1_000_000);
@@ -265,12 +247,12 @@ myCar.introduce();
 
 ---
 
-## Reuse classes
+## Reuse Classes
 
 所有人都喜欢代码重用。
 在面向对象的语义中，类定义了几乎所有的行为和数据，那么代码重用指的*重用类*，即*用已有的类来生成新的类*的过程。
 
-下面就来介绍面向对象中最基本的*重用类*方式：
+下面就来介绍面向对象中最基本的*重用类*方式:
 
 - 组合 Composition。
 
@@ -278,10 +260,10 @@ myCar.introduce();
 
   
 
-### Composition：组合
+### Composition 组合
 
 - 组合指的是在新类中包含已有类的对象 *（的引用）*。
-  - 你可能会说：就这？那确实，就这。
+  - 你可能会说: 就这？那确实，就这。
   - 组合是最简单、但也是最基本的重用类的方式。
 - 在我们的 `Car` 类中，我们实际上组合了若干个 `String` 对象来描述车的一些基本信息。
 
@@ -293,12 +275,12 @@ public class Car {
 
 组合描述了 *"has-a"*  关系。
 
-- 我们可以这种语义来建模更复杂、更贴合实际的汽车，如：
+- 我们可以这种语义来建模更复杂、更贴合实际的汽车，如:
   - 一辆汽车 *有一个* 引擎。
   - 一辆汽车 *有四个* 轮子。
 - 那么*汽车*的最大速度，就可以通过重用*引擎*中的数据或方法来进行计算。
 
- 组合对象的初始化：
+ 组合对象的初始化:
 
 - 前面提到，对象*引用*的默认值是  `null` ，对其进行任何访问都会引发空指针异常 `java.lang.NullPointerException`  。
 
@@ -315,7 +297,7 @@ class Demo {
 
 
 
-### Inheritance：继承
+### Inheritance 继承
 
 - *继承*是面向对象编程的重要特征之一。
 - 在创建类的时候，总是使用了继承。在 Java 中，如果不手动指定，将会隐式继承自`java.lang.Object` 类，表达了任何对象的通用接口。
@@ -327,11 +309,11 @@ class Parent { ... }
 class Child extends Parent { ... }
 ```
 
-- Java不允许多重继承。原因在于：
+- Java不允许多重继承。原因在于:
   - 规避*diamond problem*，即继承具有相同接口的不同的类导致子类的接口实现的歧义。
   - 多重继承带来的设计负担与带来的架构优势不对等。
 
-组合描述了 *"is-a"*  关系。让我们考虑任何OOP课程都会讲的几何图形的例子：
+组合描述了 *"is-a"*  关系。让我们考虑任何OOP课程都会讲的几何图形的例子:
 
 ```java
 public class Shape {
@@ -344,11 +326,11 @@ public class Circle extends Shape { ... }
 public class Triangle extends Shape { ... }
 ```
 
-在这个例子中：
+在这个例子中:
 - 矩形`Rectangle` 圆形`Circle` 三角形`Triangle` 都 *是一个* 几何图形 `Shape` 。
 - `Rectangle` `Circle` `Triangle`都包含了`Shape`提供的三个公开接口，即获取表面积 `area()`  绘制 `draw()`  判断点是否在图形内部 `inside(double, double)` 。
 
-**Inheritance： Override/重载方法**
+**Inheritance:  Override/重载方法**
 
 子类会继承父类的接口，但是大多数情况下，子类需要提供自己的实现。这时就需要 *override/重载* 方法。比如`Shape` 的 `area()`和 `inside(double, double)` 都是无意义的。
 
@@ -385,7 +367,7 @@ public class Circle extends Shape {
 }
 ```
 
-如果函数名不小心输入错误，那么编译器会很不高兴：
+如果函数名不小心输入错误，那么编译器会很不高兴:
 
 ```java
 public class Circle extends Shape {
@@ -447,9 +429,9 @@ java: 对super的调用必须是构造器中的第一个语句
 
 这个限制是为了确保子类可以正确使用父类的域和方法。进而，`super()`的参数不可以传入、使用父类和子类的域或方法的返回值。
 
-*PS：不过确实有绕过这种限制的方法。但是试图访问未初始化的数据仍然是非常危险的，我在这里不介绍相关的方法，好奇的同学可以去查一查。*
+*PS: 不过确实有绕过这种限制的方法。但是试图访问未初始化的数据仍然是非常危险的，我在这里不介绍相关的方法，好奇的同学可以去查一查。*
 
-下面的代码是非法的：
+下面的代码是非法的:
 ```java
 class Parent {
    public String name;
@@ -482,7 +464,7 @@ class Child extends Parent {
 - 数据抽象、继承与多态时面向对象程序设计语言的三大基本特征.
 - 多态的作用在于，消除实际类型之间的耦合关系，使得代码设计中尽可能的依赖于公开接口而非具体实现 。
 
-**多态可以提升扩展性**。考虑下面更加实际的绘制图形的代码，图形的绘制函数接收一个画板对象，用于执行实际的绘图指令，如`drawLine(int, int, int, int)`等：
+**多态可以提升扩展性**。考虑下面更加实际的绘制图形的代码，图形的绘制函数接收一个画板对象，用于执行实际的绘图指令，如`drawLine(int, int, int, int)`等:
 
 ```java
 class Shape { public void draw(Canvas c) {} }
@@ -491,7 +473,7 @@ class Rectangle extends Shape { @Override public void draw(Canvas c) { ... } }
 class Triangle extends Shape { @Override public void draw(Canvas c) { ... } }
 ```
 
-如果没有多态，我们需要根据具体的类型来调用具体的绘图实现：
+如果没有多态，我们需要根据具体的类型来调用具体的绘图实现:
 
 ```java
 class GUI {
@@ -503,7 +485,7 @@ class GUI {
 
 先不论这份代码做了多少重复工作，我们考虑加入一个新的图形子类`Ellipse`，那么`GUI`类还需要再添加一行`render`函数。
 
-如果没有多态，我们需要根据具体的类型来调用具体的绘图实现：
+如果没有多态，我们需要根据具体的类型来调用具体的绘图实现:
 
 ```java
 class GUI {
@@ -527,7 +509,7 @@ class GUI {
 
 因此，尽可能的用简单的语句进行成员变量初始化。
 
-Java中不是所有事物都支持多态：
+Java中不是所有事物都支持多态:
 
 1. `static`和`final`方法是*前期调用绑定*，即他们所调用的方法在编译时已经确定。
 2. 成员域不存在多态。如果存在重名，只会单纯的出现了标识符覆盖。对重名域的访问只和方法实现所在的类绑定。
@@ -537,7 +519,7 @@ Java中不是所有事物都支持多态：
 
 可以向上转型就可以向下转型。前提是需要判断一下是否真的是某个具体子类然后再尝试转型，否则会触发`java.lang.ClassCastException`异常。
 
-判断某个对象是否是一个类的实例，可以使用`instanceof`关键字：
+判断某个对象是否是一个类的实例，可以使用`instanceof`关键字:
 
 ```java
 if (shape instanceof Circle) {
@@ -546,7 +528,7 @@ if (shape instanceof Circle) {
 }
 ```
 
-一个小语法糖：*[JEP394, Java16]* Pattern Matching for `instanceof`
+一个小语法糖: *[JEP394, Java16]* Pattern Matching for `instanceof`
 
 ```java
 if (shape instanceof Circle circle) {
@@ -554,7 +536,7 @@ if (shape instanceof Circle circle) {
 }
 ```
 
-### Composition vs Inheritance
+### Composition vs. Inheritance
 
 - 两种方法都可以重用现有类的代码。
 
@@ -568,7 +550,7 @@ if (shape instanceof Circle circle) {
 
 **delegate 代理**
 
-考虑一辆可以载一些人的公共汽车，我们可以让公共汽车继承自`HashSet`来实现保存车上乘客信息的功能：
+考虑一辆可以载一些人的公共汽车，我们可以让公共汽车继承自`HashSet`来实现保存车上乘客信息的功能:
 
 ```java
 class Person { ... }
@@ -600,7 +582,7 @@ class Bus {
 
 
 
-### Abstract class
+### Abstract Class
 
 某些类本身就是作为其他类的父类而存在。比如上面提到的 `Shape` 类，它提供的接口实际上都是没有意义的哑实现，必须要借助具体的子类才能起作用。在 Java 中可以使用*抽象类  Abstract Class *来表达。
 
@@ -614,31 +596,25 @@ public abstract class Shape {
 
 抽象类可以包含*抽象方法  Abstract Methods *，也就是在签名中带有` abstract `关键字的方法。这些方法没有实现，类似于 C++ 中的*纯虚函数*。
 
-抽象类不能被直接实例化，因为它们不提供具体接口的实现，还因为这在概念上是没有意义的：
+抽象类不能被直接实例化，因为它们不提供具体接口的实现，还因为这在概念上是没有意义的:
 
 ```java
 var shape = new Shape(); // Error
 ```
 
+## Base of All: java.lang.Object
 
+`java.lang.Object`是所有类的超类，它代表的语义也非常直观: 所有对象都*是一个*对象，确切的来说，是Java语言内的对象`java.lang.Object`。
 
-
-
-
-
-## Base of all: java.lang.Object
-
-`java.lang.Object`是所有类的超类，它代表的语义也非常直观：所有对象都*是一个*对象，确切的来说，是Java语言内的对象`java.lang.Object`。
-
-根据继承的规则，任何类都包含了 `java.lang.Object` 中提供的公开接口，并应该在需要的时候提供正确的重载：
+根据继承的规则，任何类都包含了 `java.lang.Object` 中提供的公开接口，并应该在需要的时候提供正确的重载:
 
 - `String toString()`
 - `boolean equals(Object obj)`
 - `int hashCode()`
 
-其他函数与更加细致的描述参见API文档：[java.lang.Object ](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html) 。
+其他函数与更加细致的描述参见API文档: [java.lang.Object ](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html) 。
 
-对象的字符串描述：`String toString()`。
+对象的字符串描述: `String toString()`。
 
 `System.out.println` 和字符串拼接都接受对象作为参数或操作数，它们利用的就是 `toString()` 方法将任何对象都转化为字符串。设计好的字符串描述对于日志、调试等方面都有重要作用。
 
@@ -651,19 +627,17 @@ public String toString() {
 }
 ```
 
-
-
-### 是否相同：boolean equals(Object obj)
+### Boolean Equals
 
 `equals` 方法提供了比较对象*内容*是否相同、或者说在*逻辑上*而不是在*物理地址*上相同的实现。正确实现 `equals`  可以保证 Java 集合框架中判断包含、`Set` 去重复等基础语义的正确性。
 
-1. *自反性*：`x.equals(x) == true`。
-2. *对称性*：`x.equals(y) == y.equals(x)` 。
-3. *传递性*：`x.equals(y) && y.equals(z)` $\Rightarrow$ `x.equals(z) == true` 。
-4. *一致性*：连续的调用`equals`方法的结果应当一致。
+1. *自反性*: `x.equals(x) == true`。
+2. *对称性*: `x.equals(y) == y.equals(x)` 。
+3. *传递性*: `x.equals(y) && y.equals(z)` $\Rightarrow$ `x.equals(z) == true` 。
+4. *一致性*: 连续的调用`equals`方法的结果应当一致。
 5. `x.equals(null) == false`。
 
-但是，在 Java 中实现正确的`equals`实际上是一个较为困难的事情。我推荐的实现方法是：
+但是，在 Java 中实现正确的`equals`实际上是一个较为困难的事情。我推荐的实现方法是:
 
 ```java
 class Class {
@@ -677,7 +651,7 @@ class Class {
 ```
 
 - `if (!(o instanceof Class)) return false;` 如果不是这个类的对象，那么一定不相同。
-  - 有时这个实现为：`if (o == null || getClass() != o.getClass()) return false;` 。
+  - 有时这个实现为: `if (o == null || getClass() != o.getClass()) return false;` 。
   - 两种方法的区别在于是否接受子类与父类相同。一般情况是接受的，例如不同实现的集合`Set`，如果包含元素相同，也应当认为是相同的。当然，具体的实现选用需要具体情况讨论。
 
 - 比较各个域的方法。
@@ -687,22 +661,20 @@ class Class {
 
 *当然，如果没听懂，那就交给IDEA自动生成。如果你听懂了，也最好交给IDEA自动生成。*
 
-选择：Template = `java.util.Objects.equals and hashCode (java 7+)`
+选择: Template = `java.util.Objects.equals and hashCode (java 7+)`
 并且勾选 "Accept subclasses are parameter to equals() method"。
 
-
-
-### 散列函数：int hashCode()
+### Hash Code
 
 散列函数的有效实现可以提供`HashMap` `HashSet`等哈希表相关数据结构的正确性和高性能。
 
-应当保证：
+应当保证:
 
-1. 相同的对象散列值必须相同：`x.equals(y) == true` $\Rightarrow$ `x.hashCode() == y.hashCode()`
+1. 相同的对象散列值必须相同: `x.equals(y) == true` $\Rightarrow$ `x.hashCode() == y.hashCode()`
 2. 不同对象的散列值尽可能的不同
 3. `equals()`和`hashCode()`**必须同时重载**。IDEA会帮你同时生成。
 
-为了减轻程序员设计散列函数的负担，Java提供了`Objects#hash`静态方法计算散列值，你只需要：
+为了减轻程序员设计散列函数的负担，Java提供了`Objects#hash`静态方法计算散列值，你只需要:
 
 ```java
 class Class {
@@ -713,25 +685,17 @@ class Class {
 }
 ```
 
+## Interface
 
-
-
-
-
-
-## InterFace
-
-前面我们学习了重用现有类的技术。在这一大节中，我们将会认识扩展类的功能的技术：*接口 interface*
+前面我们学习了重用现有类的技术。在这一大节中，我们将会认识扩展类的功能的技术: *接口 interface*
 
 `interface` 实际上是` abstract class ` 的进一步抽象形式。` abstract class `允许含有不包含实现的抽象方法，而` interface ` 只定义了抽象方法，并且也不被允许有成员域（毕竟没有具体实现也不需要关联数据）。
 
 `interface` 描述了对象之间可以使用的方法，定义了对象之间互相通讯的协议。因为其只含有方法声明，因此也没有了继承的*只允许单一继承*的限制。实现接口会让类的功能扩展，而不会引入其他的实现依赖。
 
+### Using Interface
 
-
-### Using interface
-
-观察发现，我们的图形基类 `Shape` 只包含了抽象方法，因此可以直接转化为接口：
+观察发现，我们的图形基类 `Shape` 只包含了抽象方法，因此可以直接转化为接口:
 
 ```java
 interface Shape {
@@ -744,7 +708,7 @@ interface Shape {
 - 使用 `interface ` 关键字声明接口。
 - 接口中的方法应当都为 `public abstract` ，因此无需再次声明。
 
-其他具体的图形类也都应该进行相应的修改：
+其他具体的图形类也都应该进行相应的修改:
 
 ```java
 class Circle implements Shape {
@@ -765,9 +729,7 @@ class Circle implements Shape
 
 使用`implements`关键字声明实现的接口列表。
 
-
-
-### static fields
+### Static Fields
 
 可以为`interface`内声明变量，但是这不是成员变量，而是默认的`public static final`变量，也就是接口的静态常量。
 
@@ -779,9 +741,7 @@ interface Shape {
 int width = Shape.MAX_WIDTH;
 ```
 
-
-
-### static methods
+### Static Methods
 
 `interface`内允许有`static`方法，同样默认为`public`可见性。
 
@@ -793,9 +753,7 @@ interface Shape {
 var unit = Shape.createUnitCircle();
 ```
 
-
-
-### default methods
+### Default Methods
 
 - `default` 提供默认的方法实现，这也意味着实现接口的类可以进行重载。
 - 接口的某些方法可以由已有的方法导出，比如判断集合 `Set` 是否为空 `isEmpty()` 时，对于大多数集合来说，可以通过判断 `size() == 0` 实现。这时就可以使用 `default` 来避免每个子类都写一句 `size() == 0`。
@@ -827,12 +785,7 @@ class Test implements Inter1, Inter2 {
 - 接口没有单一继承限制，因此可以提升系统扩展性。
 
 
-
-
-
-
-
-## Inner class
+## Inner Class
 
 除了命名上的嵌套关系，内部类最重要的一点就是，具有对*外围对象*的访问权，甚至可以访问 *外围对象* 的`private`成员。
 
@@ -848,7 +801,7 @@ public class Outer {
 }
 ```
 
-如果出现命名覆盖或者想明确使用外围对象的成员，需要使用`.this`语法：
+如果出现命名覆盖或者想明确使用外围对象的成员，需要使用`.this`语法:
 
 ```java
 public class Outer {
@@ -863,7 +816,7 @@ public class Outer {
 }
 ```
 
-可以在外部类里直接实例化内部类。如果不在外部类内，那么必须显式提供外围对象的引用，并使用`.new`语法实例化：
+可以在外部类里直接实例化内部类。如果不在外部类内，那么必须显式提供外围对象的引用，并使用`.new`语法实例化:
 
 ```java
 public class Outer {
@@ -902,7 +855,7 @@ public class PowerBank {
 }
 ```
 
-### Local inner class **局部内部类**
+### Local Inner Class 局部内部类
 
 你可以在方法内部甚至任意的作用域内定义类。
 
@@ -919,9 +872,9 @@ public class PowerBank {
 
 ```
 
-### Anonymous inner class 匿名内部类
+### Anonymous Inner Class 匿名内部类
 
-观察下面的例子：
+观察下面的例子:
 
 ```java
 public class PowerBank {
@@ -935,14 +888,14 @@ public class PowerBank {
 }
 ```
 
-`new BaseClass() { /* ... */ };`创建了一个匿名内部类的对象，这实际上等价与（类名为编译器生成）：
+`new BaseClass() { /* ... */ };`创建了一个匿名内部类的对象，这实际上等价与（类名为编译器生成）:
 
 ```java
 class BaseClass$1 extends BaseClass { /* ... */ }
 new BaseClass$1();
 ```
 
-匿名内部类不允许有构造器，因为显然我们并不知道匿名类的名字。如果我们需要对类进行初始化操作，需要使用*实例初始化*：
+匿名内部类不允许有构造器，因为显然我们并不知道匿名类的名字。如果我们需要对类进行初始化操作，需要使用*实例初始化*:
 
 ```java
 public AppleLightning lightning() { 
@@ -967,11 +920,11 @@ Calculator mul(int x) {
 mul(5).apply(3); // == 15
 ```
 
-Java 对匿名内部类所用外部变量的 `final` 要求源自于内部管理闭包的机制：Java会在创建匿名内部类时，自动将所需的外部变量拷贝进去。如果后面对外部变量进行修改，那么匿名内部类中的值和外部变量的值会不一致，出现令人疑惑的语义问题。因此Java设计者让这些外部变量为`final`，不允许修改。
+Java 对匿名内部类所用外部变量的 `final` 要求源自于内部管理闭包的机制: Java会在创建匿名内部类时，自动将所需的外部变量拷贝进去。如果后面对外部变量进行修改，那么匿名内部类中的值和外部变量的值会不一致，出现令人疑惑的语义问题。因此Java设计者让这些外部变量为`final`，不允许修改。
 
 ### Lambda Expression
 
-以上的例子中，语法繁琐（不仅要`new`还得重写一遍方法签名)。Java  有如下的语法特性（Lambda Expression）：
+以上的例子中，语法繁琐（不仅要`new`还得重写一遍方法签名)。Java  有如下的语法特性（Lambda Expression）:
 
 ```java
 Calculator mul(int x) {
@@ -979,7 +932,7 @@ Calculator mul(int x) {
 }
 ```
 
-Lambda表达式的参数列表也支持`var`自动推断：
+Lambda表达式的参数列表也支持`var`自动推断:
 
 ```java
 Calculator mul(int x) {
@@ -987,18 +940,14 @@ Calculator mul(int x) {
 }
 ```
 
-Lambda表达式实际上可以看做一种特殊的匿名内部类：
+Lambda表达式实际上可以看做一种特殊的匿名内部类:
 
 - 只允许实现*函数式接口*，也就是只含有一个方法的接口。这种接口只代表了这个方法，也称为函数。
 - 比如我们的 `Calculator` 就只包含一个方法 `int apply(int)` ，因此可成为函数式接口。
 
 关于Lambda表达式的其他用法和标准库支持，我们会在*高级语法特性*章节中详细讲解。
 
-
-
-
-
-## Enum
+## Enum 枚举类
 
 *枚举 Enum*是一种特殊的类，用于为一系列相关的常量提供命名空间和更好的语义。
 
@@ -1006,7 +955,7 @@ Lambda表达式实际上可以看做一种特殊的匿名内部类：
 public enum Size { SMALL, MEDIUM, LARGE, EXTRA_LARGE }
 ```
 
-这等价于：
+这等价于:
 
 ```java
 public class Size extends Enum<Size> {
@@ -1017,7 +966,7 @@ public class Size extends Enum<Size> {
 }
 ```
 
-枚举类也可以有构造器，我们需要声明枚举项的同时提供构造器的参数：
+枚举类也可以有构造器，我们需要声明枚举项的同时提供构造器的参数:
 
 ```java
 public enum Size {
@@ -1029,43 +978,40 @@ public enum Size {
 }
 ```
 
-可以像访问类常量一样访问枚举项：`var mySize = Size.LARGE;`
+可以像访问类常量一样访问枚举项: `var mySize = Size.LARGE;`
 
-`toString()`被实现为返回枚举项的名字：
+`toString()`被实现为返回枚举项的名字:
 
 ```java
 jshell> Size.SMALL.toString()
 $1 ==> "SMALL"
 ```
 
-`ordinal()`返回枚举项的次序：
+`ordinal()`返回枚举项的次序:
 
 ```java
 jshell> Size.EXTRA_LARGE.ordinal()
 $2 ==> 3
 ```
 
-更多方法参见API文档：[java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)。
+更多方法参见API文档: [java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)。
 
 
 
 ## Recap
 
-在本章节*Fundamental OOP*中，我们学习了：
+在本章节*Fundamental OOP*中，我们学习了:
 
 - 面向对象的基本概念。
 - 创建、使用类的语法。
-- 重用类的方法：组合和继承。
-- 扩展类的方法：接口。
+- 重用类的方法: 组合和继承。
+- 扩展类的方法: 接口。
 - 使用内部类进一步封装实现。
 - 使用匿名内部类和Lambda表达式创建闭包。
 
 
 
-## 资源链接：
+## 资源链接
 
-- 本章CodeLab :暑培讲师未将其放到仓库中。
-- Object 类 ：[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html)
-- Enum 类 ：[java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)
-  
-
+- [Object 类: java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html)
+- [Enum 类: java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)
