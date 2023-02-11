@@ -111,6 +111,14 @@ nav:
       - languages/css/index.md
       - Bootstrap 简介: languages/css/bootstrap.md
       - MDUI 简介: languages/css/mdui.md
+    - Java 语言基础:
+      - languages/java/index.md
+      - Introduction and Installation: languages/java/introduction-and-installation.md
+      - Basic Language Structure: languages/java/basic-language-structure.md
+      - Fundamental OOP: languages/java/fundamental-oop.md
+      - Design Patterns: languages/java/design-patterns.md
+      - Advanced Language Feature: languages/java/advanced-language-feature.md
+
     - JavaScript 语言基础:
       - languages/javascript/index.md
       - JavaScript 的变量与变量类型: languages/javascript/variable.md
