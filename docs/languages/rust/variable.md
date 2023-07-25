@@ -188,7 +188,29 @@ let arr_long: [i32; 100] = [0; 100];
 
 !!! note "与 C++ 的对照"
 
-    Rust 的数组可以直接作为参数传递，这一点与 C/C++ 不同（C++ 中的 `std::tuple` 与 Rust 的数组更加类似）。与 C/C++ 类似的是，数组的长度都是不可变的，变长的线性容器在两门语言中分别叫做 `std::Vec` 和 `std::vector`。 
+    Rust 的数组可以直接作为参数传递，这一点与 C/C++ 不同（C++ 中的 `std::tuple` 与 Rust 的数组更加类似）。这是因为 Rust 的数组是在栈上分配的。与 C/C++ 类似的是，数组的长度都是不可变的，变长的线性容器在两门语言中分别叫做 `std::Vec` 和 `std::vector`。 
+
+Rust 的下标访问自带越界检查。
+
+下面的代码将会在编译时报错：
+
+```rust
+let arr = [1, 2, 3];
+let element = arr[3]; // 编译器报错：index out of bounds: the length is 3 but the index is 3
+```
+
+下面的代码能够通过编译，但当输入的下标超出数组长度时，程序会立即退出而不允许访问越界的内存：
+
+```rust
+use std::io;
+
+let arr = [1, 2, 3];
+let mut index = String::new();
+io::stdin().read_line(&mut index).expect("Failed to read line"); // 若输入10...
+let index: usize = index.trim().parse().expect("Index must be a number");
+let element = arr[index]; // ...程序产生运行时错误并退出
+println!("The value of element is: {}", element); // 该行不会被执行
+```
 
 ### 单元类型
 
