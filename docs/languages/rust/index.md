@@ -19,6 +19,6 @@
 ## 资源链接
 
 - The Rust Programming Language（也被称为 The Book）。Rust 官方网站推荐的 Rust 语言入门书籍 https://doc.rust-lang.org/book/
-    - The Book 的中文社区翻译版，版本可能落后于英文原版 https://rustwiki.org/zh-CN/book/
+    - The Book 的中文社区翻译版，更新很及时 https://kaisery.github.io/trpl-zh-cn/
 
 - Rustlings。Rust 官方推荐的另一种入门方式，适合喜欢边学边做的同学 https://github.com/rust-lang/rustlings/
