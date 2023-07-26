@@ -16,6 +16,8 @@
 
 不同于 JavaScript 和 Python 等语言，Rust 语言上手相对较为困难。因此，编写本文档的目的更类似于在假定读者拥有一定 C++ 基础的情况下，向读者提供一些学习 Rust 的对照性帮助，而非一个 Rust 入门教程。如果希望获得一份 Rust 入门教程，请参阅下方资源链接中的 The Book。
 
+本文档覆盖了 The Book 的 第3（常见编程概念）、5（结构体）、6（枚举和模式匹配）章的主要内容，介绍了最为基本的语法，且不怎么涉及新概念（如所有权、生命周期）。
+
 ## 资源链接
 
 - The Rust Programming Language（也被称为 The Book）。Rust 官方网站推荐的 Rust 语言入门书籍 https://doc.rust-lang.org/book/
