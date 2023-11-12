@@ -90,3 +90,35 @@ let must_be_one = loop {
 }; // must_be_one 的值应当为 1
 // 如果你发现程序没有结束，请多等一会
 ```
+
+### 循环标签
+
+如果存在嵌套循环，`break`、`continue` 都只作用于此时最内层的循环。在Rust中，你可以为特定循环指定 循环标签（loop label），然后将标签与 break 或 continue 一起使用，使这些关键字作用于所标记的循环，实现跳出多重循环的目的。
+
+在有这个特性之前，「跳出多重循环」其实颇为棘手——因为最优雅的方式是声名狼藉的"goto"。虽然「把循环封装在一个函数内用return跳出」是个好办法，但并不总适合这样做。
+
+```rust
+let matrix = vec![
+    vec![1, 2, 3],
+    vec![4, 5, 6],
+    vec![7, 8, 9]
+];
+
+let target = 5;
+let mut found = false;
+
+'outer: for row in &matrix { // 将循环标签放在循环前面. 格式为 'label
+    for &num in row {
+        if num == target {
+            found = true;
+            break 'outer;  // 使用循环标签直接跳出外层循环
+        }
+    }
+}
+
+if found {
+    println!("找到了目标元素！");
+} else {
+    println!("未找到目标元素。");
+}
+```
