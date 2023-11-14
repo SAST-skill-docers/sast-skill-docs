@@ -42,7 +42,7 @@
 + 胶水型语言，简洁灵活
 + <s>拯救你的大一小学期</s>
 
-## 安装与 Hello World
+## 安装、运行与 Hello World
 
 ### Python 的安装
 
@@ -68,13 +68,17 @@
 
 	可参考 https://zhuanlan.zhihu.com/p/82011100，在了解环境变量的基本概念后，如果你忘记了在安装时将 Python 所在路径添加到环境变量中，可以自行尝试将其添加入 Path。
 
+### 线上平台运行
+
+如果安装暂时有困难，可以先前往类似 [programiz](https://www.programiz.com/python-programming/online-compiler/) 或 [w3cschool](https://www.w3schools.com/python/trypython.asp?filename=demo_default) 的线上平台进行一些编程语法的实验。
+
 ### 交互式窗口与脚本文件
 
 基于解释型语言的特点，Python 代码可以分为**交互式窗口**和**脚本文件**两种**执行方式**。
 
 + 交互式窗口：如在命令行输入 `python`，即可进入交互式窗口，此时如同“问答”一般，输入一行代码后，Python 立刻执行该行代码并给出返回值。退出界面的方法是按 `Ctrl+D` 或者执行 `exit()`（Windows 用户请使用 `Ctrl+Z`）。
 
-+ 脚本：经典运行方法 `python xxx.py`，Python 会将整个脚本按照语句的顺序依次从头到尾执行。
++ 脚本：经典运行方法 `python <your file>`，Python 会将整个脚本按照语句的顺序依次从头到尾执行。
 
 <center>
 	<img src="https://i.loli.net/2021/09/28/x2OUFItBZC4oN7R.png" />
@@ -204,6 +208,22 @@ c7w
     
     可见将不同类型的值直接进行运算会导致错误，必须先将其中的一些值显式转换为正确类型的值。
 
+### 输入
+
+Python 语言之中，我们可以使用 `input()` 函数来获取用户的输入。
+
+```python
+a = input("请输入你的年龄")
+```
+
+这样做可以获取用户的输入，并将其赋值给变量 `a`，但默认会将你的输入当作字符串类型。如果你想要得到数字的话，需要用到一层类型转换：
+
+```python
+a = int(input("请输入你的年龄"))
+```
+
+这样就可以将输入转化为 `int` 类型。当你的输入字符无法转化为 `int` 时，会抛出 `ValureError` 异常。
+
 ### 运算符
 
 下列是 Python 语言之中的合法运算符，其含义与 C/C++ 语言基本一致。其后列出了相应的重载函数，这些重载函数的用法在后续的面向对象章节之中再详细介绍。
@@ -259,6 +279,16 @@ c7w
 + 同地址运算符 `is`，用于判定两个变量的地址是否相同
 + 不同地址运算符 `is not`
 
+!!! note "is运算符与None的配合"
+
+	按照上述定义，大家可能会把 `is` 理解为 C++ 中取地址再进行比较的操作，但在 Python 中其实际应用场景不止是这样。
+
+	在 Python 中，`None` 是一个内置的常量，表示值或对象的缺失。通常用来指示变量或对象没有值或尚未初始化。
+
+	`None` 经常用作函数的默认返回值，表示这些函数不返回任何有意义的值。其也可以指示变量或对象当前并未初始化。
+
+	由于其为一个**内置的常量**，所有值是None类型的变量都指向同一个地址。因此，当我要确认一个变量是否为 `None` 时，可以并且更加推荐使用 `is` 而非 `==` 运算符。
+
 !!! question "[Checkpoint Python-02] Operators"
 	
 	1. 【精度测试】Python 的“高精度”体现在何处？尝试使用 Python 进行以下运算，并输出其结果。
@@ -311,6 +341,10 @@ else:
     print('kid')
 ```
 
+虽然 `elif` 使代码更加简洁，减少了很多不必要的缩进，但是我们仍然需要避免大量多层嵌套的情况，建议仍然使用函数代替嵌套内的代码，达到“转移矛盾”的效果。
+
+事实上，任何一种语言的多层嵌套都需要缩进，无论如何总是会影响阅读、带来较大的心智复旦，我们在时间的过程中要尽量避免这种情况。
+
 ### 循环语句
 
 `while` 循环：
@@ -327,8 +361,9 @@ while a <= 100:
 ```python
 for i in range(0, 100): # range(0, 100) = [0, 1, 2, ..., 99]
 	print(i)            # 本质上是在一个可迭代对象中遍历所有元素
-    
 ```
+
+同时，`break` 和 `continue` 这些语句在 Python 循环中也是可以正常使用的。
 
 ### 函数的写法
 
@@ -343,6 +378,73 @@ def my_abs(x):
 ```
 
 注意第一行固定格式 `def <func_name>(params, ...):`，其他和 C/C++ 差别不大。作为动态类型语言，函数返回类型不固定，可以有多个 `return` 以在不同情况下返回不同内容，或者没有 `return`（等价于 `return None`）。
+
+如果要定义一个空的函数，可以使用：
+
+```python
+def Fl0at9973_do_nothing():
+    pass
+```
+
+也可以在函数定义行末尾添加上它的返回值，但这不会对代码运行造成任何影响与限制，只是给程序员自己看的而已。
+
+```python
+def shell_string() -> str:
+    ret = 3
+    return ret # No Error
+```
+
+### 函数的参数
+
+Python 函数的参数传递非常灵活，其支持四类参数：位置参数，关键字参数，默认参数和可变参数。
+
++ 位置参数
+	位置参数就是按照定义时的顺序传入函数，比如：
+	```python
+	def greet(name, message):
+		print(f"{message}, {name}!")
+	```
++ 关键字参数
+	关键字参数允许传入的参数名任意指定，不按照函数定义时的参数顺序传参：
+	```python
+	# 依然是上文的函数
+	greet(message="Hello", name="Kid")
+	# 输出：Hello, Kid!
+	```
++ 默认参数
+	默认参数就是当函数调用时没有传入参数时，使用默认参数的值。
+	```python
+	def greet(name, message="Hello"):
+		print(f"{message}, {name}!")
+	
+	greet("Alice")  # 输出 "Hello, Alice!"
+	greet("Bob", "Hi")  # 输出 "Hi, Bob!"
+	```
++ 可变参数
+	在Python中，可变参数有两种：`*args` 与  `**kwargs` 。我们先来看前者:
+
+	`*args` 表示任意多个位置参数，它是一个元组类型（元组在后文会介绍）。
+	```python
+	def add(*args):
+		res = 0
+		for num in args:
+			res += num
+		return res
+
+	print(add(1, 2, 3))  # 输出 6 
+	print(add(1, 2, 3, 4, 5))  # 输出 15
+	```
+	
+	`**kwargs` 表示任意多个关键字参数，它是一个字典类型（字典在后文会介绍），不过在传入时我们并不需要显式地写成字典。
+	```python
+	def greet(**kwargs):
+	   for key, value in kwargs.items(): 
+	       print(f"{key}: {value}")
+
+	greet(name="Alice", message="Hello")  # 输出 "name: Alice" 和 "message: Hello"
+
+	greet(name="Bob", age=30, city="New York")  # 输出 "name: Bob"、"age: 30" 和 "city: New York"
+	```
 
 !!! question "[Checkpoint Python-03] Runtime logic"
 	
@@ -437,6 +539,63 @@ The area of a circle with radius 2.5 is 19.62
 	>>> a.replace("北京大学", "清华大学")
 	'我爱清华大学，清华大学是世一大，清华大学yyds'
 	```
+	
+	+ `len(obj)` 常用语获取字符串、字节串或容器的长度
+	
+	+ `chr(i)` 将整型变量 `i` 转化为长度为 1 的字符串
+	
+	+ `ord(c)` 获取（长度为 1 的）字符（串）的编号（Unicode）
+
+!!! note "字节串"
+	`bytes` 是 Python 中的字节串，它表示最纯粹的“二进制”数据，非常像 C 中的 `unsigned char *` 、但是在显示上仅支持 ASCII 显示、用肉眼看会有些“不伦不类”。通常其值存在于数据的处理过程中。
+
+	`bytes` 的构造与字符串类似，但是要加一个 `b` 做前导：
+
+	```python
+	print(b'123')
+	# Output: b'123' 
+
+	print(b'\1')
+	# Output: b'\x01' 
+
+	print(b'\x41')
+	# Output: b'A'
+
+	print(b'\x61\x62')
+	# Output: b'ab' 
+
+	print(len(b'\x61\x62'))
+	# Output: 2
+	```
+
+	其中 `\x` 表示将字符转义成对应的 ASCII 字符。
+
+### 编码与解码
+
+上文中已经陈述了一些常见的编码。由于 Python 胶水语言的特性，读者以后很有可能会遇到使用 Python 处理文件的需求，这时候字符的编码解码将是必须的话题，以下介绍一些使用 Python 自带的编码和解码器的例子：
+
+```python
+In [1]: 'Hello world'.encode()
+Out[1]: b'Hello world'
+
+In [2]: b'Hello world'.decode() 
+Out[2]: 'Hello world'
+
+In [3]: '你好'.encode()
+Out[3]: b'\xe4\xbd\xa0\xe5\xa5\xbd' 
+
+In [4]: '你好'.encode('utf-8')
+Out[4]: b'\xe4\xbd\xa0\xe5\xa5\xbd' 
+
+In [5]: '你好'.encode('gbk')
+Out[5]: b'\xc4\xe3\xba\xc3'
+
+In [6]: b'\xe4\xbd\xa0\xe5\xa5\xbd'.decode('utf-8')   # 使⽤了正确的格式解码 
+Out[6]: '你好'
+
+In [7]: b'\xe4\xbd\xa0\xe5\xa5\xbd'.decode('gbk')   # 使⽤了错误的格式解码 
+Out[7]: '浣犲ソ'
+```
 
 ### 扩展数据类型
 
@@ -446,6 +605,9 @@ Python 内置的一种数据类型是列表。`list` 是一种类似于向量的
 
 ```python
 >>> a = [2, 3] # Init a list
+
+>>> Fl0at9973_blank = [] # Init a blank list
+# alternatively, Fl0at9973_blank = list()
 
 >>> a.append(4) # Append elements to list
 >>> a
@@ -693,6 +855,20 @@ Linux 用户可以使用 `sudo apt update && sudo apt install pip3` 来安装。
 
 Python 的强大之处在于其丰富的第三方库，为了进一步学习、运用 Python 语言，我们推荐读者自行搜索下列第三方库的介绍、文档，并尝试在自己的程序中使用它们。有余力的读者甚至可以去阅读这些第三方库的源代码。
 
+### 系统调用
+
++ os
++ sys
+
+### 日常工具
+
++ re
++ datetime
++ math
++ random
++ json
++ sqlite3
+
 ### 图像处理
 
 + Pillow
@@ -721,7 +897,9 @@ Python 的强大之处在于其丰富的第三方库，为了进一步学习、�
 ## 资源链接
 
 + 2020 暑培讲义 by rls
++ 2021 暑培讲义 by ayf
++ 2022 暑培讲义 by zcy
++ 2023 暑培讲义 by lyf
 + Python Docs <https://www.python.org/doc/>
 + Runoob <https://www.runoob.com/python3/python3-tutorial.html>
 + 廖雪峰 <https://www.liaoxuefeng.com/wiki/1016959663602400/>
-
