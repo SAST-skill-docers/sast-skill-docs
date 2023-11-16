@@ -23,13 +23,13 @@ React 作为广泛运用的网页前端框架，基本上可以应对大部分�
 
 ## 资源链接
 
-- React 官方中文文档 <https://react.docschina.org/>
+- React 官方中文文档 <https://zh-hans.react.dev/>
 
 !!! note "官方文档与我们的文档"
 
     React 官方文档提供了两种学习路径，分别是：
 
-    - 边做边学编写一个井字棋游戏 <https://react.docschina.org/tutorial/tutorial.html>
-    - 讲解具体的 React 设计哲学与各种概念 <https://react.docschina.org/docs/hello-world.html>
+    - 边做边学编写一个井字棋游戏 <https://zh-hans.react.dev/learn/tutorial-tic-tac-toe>
+    - 讲解具体的 React 设计哲学与各种概念 <https://zh-hans.react.dev/learn>
 
     本文档结合了这两条路径，提供了具体的示例也同时尝试着具体讲解各类概念。
