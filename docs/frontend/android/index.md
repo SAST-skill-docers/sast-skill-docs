@@ -13,8 +13,7 @@ Android 是一个开源的、基于 Linux 开发的移动设备操作系统，�
 ## 开发准备
 
 - Java 语言环境
-- 我们选择 Android Studio 作为开发平台，可以在 [Download Android Studio & App Tools - Android Developers (google.cn)](https://developer.android.google.cn/studio/) 下载。Android Studio 是一个基于 IntelliJ IDEA 的 Android 开发工具，为开发人员提供了广泛的功能和工具，用于设计、编写、调试和测试 Android 应用程序。我们在本课程需要用到的功能有：
-    - Java 编程窗口：Android 应用程序可以使用 Java 或 Kotlin 编写。我们在本课程选择 Java。
+- 我们选择 Android Studio 作为开发平台，可以在 [Download Android Studio & App Tools - Android Developers (google.cn)](https://developer.android.google.cn/studio/) 下载。Android Studio 是一个基于 IntelliJ IDEA 的 Android 开发工具，为开发人员提供了广泛的功能和工具，用于设计、编写、调试和测试 Android 应用程序。开发中常用的功能有：
     - 布局编辑器：Android Studio 提供了一个可视化布局编辑器，用于设计应用程序的用户界面。开发人员可以直观地添加 UI 元素、调整布局和设置属性。
     - 调试工具：Android Studio 具有内置的调试工具，开发人员可以在代码中设置断点，跟踪变量的值，并执行逐行调试。
     - 虚拟设备管理器：Android Studio 包含一个虚拟设备管理器，用于创建和管理模拟的 Android 设备。这使开发人员能够在没有实际设备的情况下进行应用程序的测试和调试。
