@@ -174,6 +174,7 @@ nav:
       - 后续拓展: frontend/react/extensions.md
     - Android 开发入门:
       - frontend/android/index.md
+      - 项目结构: frontend/android/structure.md
   - 后端框架:
     - backend/index.md
     - ExpressJS: backend/expressjs/express-js.md
