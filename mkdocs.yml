@@ -175,6 +175,7 @@ nav:
     - Android 开发入门:
       - frontend/android/index.md
       - Android 项目的构成: frontend/android/structure.md
+      - Android 的资源库: frontend/android/resources.md
   - 后端框架:
     - backend/index.md
     - ExpressJS: backend/expressjs/express-js.md
