@@ -4,7 +4,7 @@
 
     本文基于 2023 年学生科协暑培朱煜章同学主讲的 Android 课程的讲义完成。
 
-Android 是一个开源的、基于 Linux 开发的移动设备操作系统，编写一个 Android 应用可以使用的编程语言有 Java, Kotlin, C++ 等，本文档将以 Java 为例进行讲解
+Android 是一个开源的、基于 Linux 开发的移动设备操作系统，编写一个 Android 应用可以使用的编程语言有 Java, Kotlin, C++ 等，本文档将以 Java 为例进行讲解。
 
 ## 前置知识
 
