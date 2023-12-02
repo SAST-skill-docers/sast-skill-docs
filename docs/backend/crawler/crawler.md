@@ -53,14 +53,15 @@
     - 当你在高考成绩查询网站上准时查询时。
     - 双十一午夜十二点，当你在某网购平台上下单时。
     - 周四下午一点，当你在“新清华学堂”公众号上抢 40 元前排学生票时。
+    - 二字班科协迎新会上，当你没搞懂如何抢答，于是反复提交答案导致服务器被干爆时。
 
-如果服务器处理请求的能力较低，短时间内的大量请求可能导致服务器瘫痪，对服务提供者造成经济损失。故意攻击服务器的行为也是违反相关法律法规的，我们要时刻避免这种现象的发生。
+如果服务器处理请求的能力较低，短时间内的大量请求可能导致服务器瘫痪，对服务提供者造成经济损失。故意攻击服务器的行为是违反相关法律法规的，我们要时刻避免这种现象的发生。
 
 ### Requests Headers（请求标头）
 
 上面简单介绍了什么不可为，接下来介绍一下我们应怎样知道什么是可为的。但在这之前，我们要先了解一下 Requests Headers 相关内容。
 
-我们已经知道爬虫是向服务器发送特定网络请求并接收响应的自动化高效脚本。而通常来说，一次网络请求的主要内容包括：
+我们已经知道爬虫是向服务器发送特定网络请求并接收响应的自动化高效脚本。通常来说，一次网络请求的主要内容包括：
 
 - 你是谁：User-Agent 与 Cookie 。
 - 你从哪里来：IP （不包含在 Requests Headers 中，而是包含在 TCP/IP 协议栈中的 IP 数据包中，这里我们略过）。
@@ -92,7 +93,7 @@ Method 是 HTTP 请求中的方法，Parameter 是这一过程传入的参数。
 
 通过 Requests Headers ，服务器可以大概了解发送请求的用户的基本信息。服务器可以编写 `robots.txt` 文件来规定不同的爬虫对于网页上各文件的访问权限。但请注意，这份 `robots.txt` 文件只是一份“君子协议”，并没有严格的限制，网站会采取其他手段防止恶意攻击。
 
-通过在网站域名后加 `/robots.txt`，我们可以访问该网站的 `robots.txt` 文件。但请注意，子域名的 `robots.txt` 未必与主域名的相符。
+通过在网站域名后加 `/robots.txt`，我们可以访问该网站的 `robots.txt` 文件。但请注意，**子域名**的 `robots.txt` 未必与**主域名**的相符。
 
 我们建议您阅读 [Google for developers 对于 robots.txt 文件的说明](https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=zh-cn) 来进行简单的了解。这里我们仅讲解几个例子。
 
@@ -206,7 +207,71 @@ Sitemap: https://bbs.hupu.com/pc-sitemap.xml
 
 ### requests
 
-这一部分我们以爬取 [知乎热榜](https://www.zhihu.com/hot) 内容为例来进行分析。
+这部分代码省去 `import requests`。
 
-**发送请求**
+**headers 的重要性**
 
+首先我们尝试利用 Postman，使用默认 headers 对 [知乎热榜](www.zhihu.com/hot/) 发起 GET 请求，发现返回的响应如下图所示：
+
+![image-get-without-cookie](../../static/backend/crawler/get-without-cookie.png)
+
+可以看到这里需要输入账号密码登录才可以查看知乎内容。如果我们在浏览器中曾登录过知乎账号，再次进行访问时就可以自动登录。为了实现自动登录，我们可以尝试在 headers 中添加 cookie 来传递用户登录信息。cookie 的获取可以借助浏览器中的**检查**。我们可以在浏览器中右键打开检查页面。当然我们也可以使用默认的 F12 快捷键。随后我们找到**网络**部分，重新访问知乎，可以看到时间线最靠前的文件为 `hot`，我们可以找到请求标头中的 cookie 部分内容，这其中记录了我们的登录状态。新建 Postman headers 键值对，其中 key 为 cookie，value 为 刚刚找到的 cookie。重新发送 GET 请求，得到如下响应：
+
+![image-get-with-cookie](../../static/backend/crawler/get-with-cookie.png)
+
+可以看到当我们在 headers 中加入适当 cookie 就可以实现免密登录。
+
+接下来我们再看另一个例子。在 Python 中尝试使用 requests 默认 headers 访问 [北京卫健委](https://wjw.beijing.gov.cn/)。
+
+```Python
+url = "https://wjw.beijing.gov.cn/"
+response = requests.get(url=url)
+print(response.status_code)
+```
+
+我们发现响应的状态码为 403，证明服务器由于客户端原因拒绝了我们的访问。其实拒绝访问的原因是我们在利用 requests 默认 headers 进行 GET 请求时，网站通过我们的 User-Agent 直接发现了我们爬虫的身份，于是拒绝了我们的访问。这里尝试修改 requests 的 headers（组织形式为字典） 中的 User-Agent 为我们浏览器的 User-Agent（查找本地浏览器 User-Agent 的方法与上述查找 cookie 的方法类似）。
+
+!!! "fake-useragent 第三方库"
+
+    我们还可以利用 fake-useragent 第三方库生成随机的 User-Agent 字符串，以模拟不同的浏览器和设备来一定程度上突破某些网站的反爬机制。本文档仅作入门教学，设计样例无需借助 fake-useragent，结合篇幅原因不多赘述，有兴趣的读者可以阅读 [fake-useragent官方文档](https://fake-useragent.readthedocs.io/en/latest/) 自行学习。
+
+```Python
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+}
+response = requests.get(url=url, headers=headers)
+print(response.status_code)
+```
+
+此时响应的状态码为 200，证明此时我们成功访问了该网站。
+
+综上，合理修改 headers 既可以帮助我们免密登录，也可以使我们的身份由爬虫变为浏览器从而避免被部分网站拒绝访问。此外，我们还可以使用代理 IP 等手段来突破某些网站的反爬机制，有兴趣的读者可以自行学习。
+
+**爬取知乎热榜链接**
+
+
+
+### selenium + webdriver
+
+## scrapy 入门
+
+## 资源链接
+
+除了本文档之外，您还可以参考：
+- [2023年计算机系科协暑培 爬虫部分](https://summer23.net9.org/backend/crawler/) 以及 [课程回放](https://www.bilibili.com/video/BV1fP41147wS?vd_source=6c45737266d4ed9f41c3a60d96161fdd)。
+- [2021年计算机系科协暑培](https://www.xuetangx.com/course/THUSAST08091234567890/8571842?channel=i.area.manual_search) （请在学堂在线上加入学习）。
+- 赵晨阳学长组织编写的为一字班同学提供的 [Python 小学期预习材料](https://github.com/zhaochenyang20/Sino-Japanese-Relations-analysis)。
+- [Python requests 库官方文档](https://requests.readthedocs.io/en/latest/)
+- [Python selenium 库官方文档](https://selenium-python.readthedocs.io/)
+- [Python scrapy 库官方文档](https://docs.scrapy.org/en/latest/)
+- [Postman 官方网站](https://www.postman.com/)
+
+??? note "写给计算机系大一同学"
+
+    一般来讲，近几年大一小学期可选语言为：
+
+    - Java
+    - Python
+    - Rust
+
+    如果您打算选修 Python 小学期，我们强烈建议您参加对应年度计算机系科协举办的暑培，提前预习爬虫与 django 相关内容以减轻小学期的学业压力。此外，我们也建议您阅读 [科协技能引导文档 Django 部分](https://docs.net9.org/backend/django/)。不过也无需太过担心，小学期的给分相对不会太差。
