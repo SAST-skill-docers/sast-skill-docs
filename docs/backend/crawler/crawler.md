@@ -237,7 +237,7 @@ print(response.status_code)
 
 ```Python
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
 }
 response = requests.get(url=url, headers=headers)
 print(response.status_code)
@@ -245,10 +245,62 @@ print(response.status_code)
 
 此时响应的状态码为 200，证明此时我们成功访问了该网站。
 
-综上，合理修改 headers 既可以帮助我们免密登录，也可以使我们的身份由爬虫变为浏览器从而避免被部分网站拒绝访问。此外，我们还可以使用代理 IP 等手段来突破某些网站的反爬机制，有兴趣的读者可以自行学习。
+综上，合理修改 headers 既可以帮助我们免密登录，也可以使我们的身份由爬虫变为浏览器，从而避免被部分网站拒绝访问。此外，我们还可以使用代理 IP 等手段来突破某些网站的反爬机制，有兴趣的读者可以自行学习。
 
 **爬取知乎热榜链接**
 
+前面我们已经成功实现知乎热榜的访问，那么接下来尝试爬取知乎热榜中的链接。我们可以利用**检查**界面中**在页面中选择一个元素以进行检查**或快捷键 Ctrl + Shift + C 点击网页中的元素以快速找到相应元素在 HTML 中的位置。
+
+根据我们的常识，点击标题就可以跳转到详情页，于是利用上述方法查找，发现其果然是一条超链接。
+
+![image-get-url](../../static/backend/crawler/get-url.png)
+
+进行类似分析，我们可以发现热榜中的每一个条目都被封装在一个 class 为 HotItem-content 的容器中。因此我们可以利用 BeautifulSoup4（以下简称为BS）来筛选该 HTML 中特定类的容器从而获取到热榜链接。
+
+我们先给出代码，随后作以解释。
+
+```Python
+import requests
+from bs4 import BeautifulSoup as BS
+import json
+from typing import List
+def get_zhihu_hot_urls() -> List[str]:
+    """
+    Get the hot urls list of zhihu
+
+    Returns:
+        The hot urls list of zhihu
+    """
+    url = "https://www.zhihu.com/hot"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+        "cookie": "blabla", # replace with your cookie
+    }
+    resp = requests.get(url=url, headers=headers)
+    soup = BS(resp.text) # you can parse another parser like lxml instead
+    hot_list = []
+    for item in soup.find_all("div", class_="HotItem-content"):
+        tag = item.find("a")
+        hot_list.append(tag["href"])
+    return hot_list
+```
+
+resp 的 text 属性是 HTTP 响应内容，我们先把他构造为一个 BS 对象。在构造 BS 对象时，我们可以指定解析器。不同的解析器的主要差别为其解析的速度。这里选择使用 Python 标准库的默认解析器 html.parser。当然您也可以选择 lxml 等解析器，只需要把 `soup = BS(resp.text)` 修改为 `soup = BS(resp.txt, "lxml")` 即可。
+
+BS 的 find_all 方法接受以下参数：
+
+- name：指定要匹配的元素 HTML 标签，可以是字符串、正则表达式或列表，可以省略。
+- attrs：以字典形式指定要匹配的元素属性，可以省略。
+- class_：指定要匹配的元素的 CSS class（注意这里为了避免与 Python class 重复，参数名为 class_），可以省略。
+- string：指定要匹配的元素所包含的字符串，可以省略。
+- limit：指定最多匹配几个元素，默认显示全部匹配结果。
+- recursive：指定是否递归搜索子节点，默认值为 True。
+
+BS 的 find_all 的返回值为匹配元素列表，列表中的每个元素都是一个 tag 对象。代码段 `soup.find_all("div", class_="HotItem-content")` 即匹配 soup 中所有 CSS class 为 `HotItem-content` 的容器。
+
+BS 的 find 方法其实可以视为指定 limit 为 1 的 find_all，只不过 find_all 返回的是一个列表，而 find 返回的是一个 tag 对象。因此我们对于刚才返回的列表中的每个 item 再去匹配标签 `a` 即可得到超链接所在 tag。
+
+我们可以通过 `tag.name` 来获取 tag 的标签，可以通过 `tag[arg]` 来获取 tag 的 arg 属性。这里使用 `tag["href"]` 即可获得该标签的超链接。随后我们把该超链接加入至 hot_list 中即可。
 
 
 ### selenium + webdriver
@@ -263,6 +315,7 @@ print(response.status_code)
 - 赵晨阳学长组织编写的为一字班同学提供的 [Python 小学期预习材料](https://github.com/zhaochenyang20/Sino-Japanese-Relations-analysis)。
 - [Python requests 库官方文档](https://requests.readthedocs.io/en/latest/)
 - [Python selenium 库官方文档](https://selenium-python.readthedocs.io/)
+- [Python BeautifulSoup4 库官方文档](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Python scrapy 库官方文档](https://docs.scrapy.org/en/latest/)
 - [Postman 官方网站](https://www.postman.com/)
 
