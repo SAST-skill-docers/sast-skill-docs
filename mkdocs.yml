@@ -172,6 +172,13 @@ nav:
       - 非常规数据流: frontend/react/dataflow.md
       - 函数组件: frontend/react/function-component.md
       - 后续拓展: frontend/react/extensions.md
+    - Android 开发入门:
+      - frontend/android/index.md
+      - Android 项目的构成: frontend/android/structure.md
+      - Android 的资源库: frontend/android/resources.md
+      - Android 的组件: frontend/android/components.md
+      - 一些实用组件: frontend/android/useful-things.md
+      - 后续学习: frontend/android/extensions.md
   - 后端框架:
     - backend/index.md
     - ExpressJS: backend/expressjs/express-js.md
