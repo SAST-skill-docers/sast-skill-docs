@@ -33,6 +33,10 @@
     scrapy
     ```
 
+!!! warning
+
+    由于本文档所涉及到的所有 Python 库以及所有网页目前仍在不断更新迭代，它们的各项规范以及组织结构可能因时而异，因此**本文档**中的**所有**示例文件、代码和图片仅对笔者机器在当前时间节点（2024年1月）的结果负责。我们相信，根据本文档的教学，在发现本地运行结果与本文档不同时，您有能力辨别正误并对本文档中的示例进行更正。我们也格外欢迎您在评论区及时反馈由于上述更新所带来的问题。
+
 ## 环境配置
 
 本文档中主要使用了以下 Python 第三方库：
@@ -73,6 +77,7 @@
 ??? example "简单的例子"
 
     尽管谈论攻击还比较遥远，但我们不妨考虑以下日常生活场景：
+
     - 当你在高考成绩查询网站上准时查询时。
     - 双十一午夜十二点，当你在某网购平台上下单时。
     - 周四下午一点，当你在“新清华学堂”公众号上抢 40 元前排学生票时。
@@ -185,7 +190,7 @@ Sitemap: https://nba.hupu.com/players/index.xml
 
 解读：欢迎任何爬虫来爬我。此外，我还提供了 Sitemap（站点地图）来为爬取提供便利。
 
-??? "什么是 Sitemap？"
+??? question "什么是 Sitemap？"
 
     请参考 [Google for developers 对于 Sitemap 的解释](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=zh-cn)
 
@@ -277,7 +282,7 @@ https://httpbin.org/get?key2=value2&key1=value1
 
 我们发现响应的状态码为 403，证明服务器由于客户端原因拒绝了我们的访问。其实拒绝访问的原因是我们在利用 requests 的默认 headers 进行 GET 请求时，网站通过我们的 User-Agent 直接发现了我们爬虫的身份，于是拒绝了我们的访问。下面我们尝试将 requests 的 headers（组织形式为字典） 中的 User-Agent 修改为我们浏览器的 User-Agent（查找本地浏览器 User-Agent 的方法与上述查找 cookie 的方法类似）。
 
-!!! info "fake-useragent 第三方库"
+??? info "fake-useragent 第三方库"
 
     我们还可以利用 fake-useragent 第三方库生成随机的 User-Agent 字符串，以模拟不同的浏览器和设备来一定程度上突破某些网站的反爬机制。本文档仅作入门教学，设计样例无需借助 fake-useragent，结合篇幅原因不多赘述，有兴趣的读者可以阅读 [fake-useragent官方文档](https://fake-useragent.readthedocs.io/en/latest/) 自行学习。
 
@@ -423,7 +428,7 @@ None
 
 `Comment` 用于表示 HTML/XML 中的注释内容，使用很简单，也与上述类似，本文不作赘述。
 
-## 第一阶段实战
+## 实战练习
 
 至此，利用 HTTP 库和解析库进行爬虫的基本工具我们已经了解了，接下来让我们在实际操作中进行学习。本文档准备了两个实践范例以供大家学习，一个是爬取知乎热榜链接，另一个是爬取知乎某问题下的所有回答。
 
@@ -442,6 +447,7 @@ import requests
 from bs4 import BeautifulSoup as BS
 import json
 from typing import List
+
 def get_zhihu_hot_urls() -> List[str]:
     """
     Get the hot urls list of zhihu
@@ -489,6 +495,7 @@ def get_zhihu_hot_urls() -> List[str]:
 ??? example "异步请求响应"
 
     异步请求响应这项技术目前被各类网页广泛使用，下面是一些常见的例子。
+
     - 当你在 [B 站](https://www.bilibili.com) 首页上尝试刷到计算机系科协的视频时，你要不断向下滑动，然而每次都只能获取不超过指定数目的视频。
     - 当你在 [今日头条](https://www.toutiao.com) 首页上尝试刷到清华大学相关内容时，你要不断向下滑动，然而每次都只能获取不超过指定数目的内容。
     - 当你在 QQ 群“28届智能体原油会”中翻阅历史聊天记录想要看看群友聊了什么的时候，你要不断向上滑动，然而每次都只能获取不超过指定数目的聊天记录。（QQ 其实是一个内嵌浏览器的 app，当你在使用 QQ 时，大部分时间你其实都在不断向服务器发出请求并接收响应）
@@ -552,6 +559,12 @@ def get_zhihu_hot_urls() -> List[str]:
 在构造第一次请求的 url 后，我们就可以不断通过 `requests.get()` 来获取响应。然后把响应转化为 `json` 对象进行解析，把其中 `data` 属性加入 `answers` 列表。不断重复上述内容，直到 `paging["is_end"]` 为 `true`，即到达尾页。下面提供一份代码示例以供参考学习。
 
 ```Python
+import requests
+import json
+from typing import List, Dict
+from bs4 import BeautifulSoup as BS
+import re
+
 def get_all_answers(qid: str) -> List[Dict]:
     """
     Get all answers of a question
@@ -587,7 +600,165 @@ def get_all_answers(qid: str) -> List[Dict]:
 
 ## 使用 Selenium 和 WebDriver
 
-## 第二阶段实战
+这一部分的内容我们选择结合实际例子来进行讲解，其中例子仍为 [爬取知乎某问题下的所有回答](https://docs.net9.org/backend/crawler/crawler/#_10)。
+
+!!! question "什么是 Selenium 和 WebDriver？"
+
+    以下内容来自 ChatGPT。
+
+    Selenium 是一个用于自动化 Web 浏览器操作的开源工具集。它提供了一组 API 和工具，可用于编写自动化测试脚本、执行浏览器操作、模拟用户行为以及从 Web 应用程序中提取数据。
+
+    WebDriver 是 Selenium 的一个组成部分，它是用于控制和操作 Web 浏览器的接口。WebDriver 提供了一系列方法和命令，可以与不同的浏览器进行交互，并模拟用户在浏览器中的行为，如点击、填写表单、导航等。
+
+    以下是关于 Selenium 和 WebDriver 的一些要点：
+
+    - 跨浏览器兼容性：Selenium WebDriver 支持多种主流 Web 浏览器（如 Chrome、Firefox、Safari、Edge 等），可以在不同浏览器上执行相同的测试脚本。
+    - 编程语言支持：Selenium WebDriver 可与各种编程语言一起使用，包括 Java、Python、C# 等，使开发人员可以选择最适合他们的语言来编写自动化测试脚本。
+    - 功能丰富的API：WebDriver 提供了丰富的API，用于控制浏览器，包括页面导航、元素定位、元素操作、表单填写、JavaScript 执行等。
+    - 元素定位：WebDriver 支持各种元素定位方式，如通过 ID、类名、标签名、XPath、CSS 选择器等，可以精确定位页面中的元素来执行操作。
+    - 并行测试：Selenium WebDriver 支持并行测试，可以在多个浏览器实例中同时执行测试脚本，提高测试效率。
+    - 自动化场景：除了自动化测试，Selenium WebDriver 还可用于其他自动化场景，如数据抓取、网站监控、表单填写、模拟用户登录等。
+
+在开始讲解前，请引入如下必须库。
+
+```Python
+import json
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait as wdw
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+import selenium
+```
+
+WebDriver 是一个强大的工具。凭借于此，我们可以通过代码来控制浏览器的行为。我们可以利用 `selenium.webdriver.Chrome()` 来创建一个浏览器实例 `driver`。该函数可以接受 `service` 参数，这里我们将其传为 `ChromeService(ChromeDriverManager().install())`，也即根据本地已安装的浏览器配置文件来更新其配置文件。这里的细节无需过多注意，可以选择略过。于是我们就成功利用 Python 创建了一个 Chrome 浏览器实例。此外，您还可以随时调用 `driver.quit()` 来终止该实例。
+
+当然，您可也可以将其替换为其他浏览器，具体实现都是类似的，详细内容可以参考 [Selenium 官方文档](https://selenium-python.readthedocs.io/)。不过在利用 WebDriver 创建浏览器实例之前，请确保您的机器上已经安装过相应浏览器。接下来我们可以利用 `get(url)` 方法直接在浏览器中打开相应网页了。这里我们以上一节中的 [问题](https://www.zhihu.com/question/632832873) 来作实例。具体代码如下所示。
+
+```Python
+url = "https://www.zhihu.com/question/632832873"
+driver = selenium.webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+driver.get(url=url)
+```
+
+运行如上代码，我们可以在浏览器中看到如下界面。
+
+![image-login-window.png](../../static/backend/crawler/login-window.png)
+
+这里又出现了我们之前遇到过的登录界面。在上一节中，我们通过修改 cookie 来完成登录。然而由于不同账号每一次登录时所产生的 cookie 很可能不同，我们需要更新每次访问时的 cookie，过程稍显复杂。而在这一节中，我们依靠 WebDriver，可以较为方便地实现元素查找与元素交互。 
+
+WebDriver 为我们提供了 `find_element()` 方法来进行元素的查找、 `send_keys()` 方法来进行输入框的输入、`click()` 方法来进行按钮的点击······`selenium.webdriver.common.by` 为我们提供了大量的查找元素的方法，如 `By.CLASS_NAME`，`By.CSS_CELECTOR`，`By.ID`，`By.NAME`，`By.XPATH` 等等。
+
+!!! question "什么是 XPath？"
+
+    以下内容来自 ChatGPT，其中删除了有关 XPath 语法等内容介绍。在后续学习过程中您可以看到，我们不会主动构建 XPath 表达式，而是直接通过浏览器中的**检查**来获取 XPath。
+
+    XPath（XML Path Language）是一种用于在 XML 文档中定位和选择节点的查询语言。它提供了一种简洁而强大的方式来从 XML 文档中提取数据。XPath 使用路径表达式（Path Expression）来指定节点的位置，类似于文件系统中的路径。
+
+    XPath 的主要应用是在 XML/HTML 文档中进行节点的导航和选择。它可以通过节点名称、属性、层级关系和其他条件来筛选和定位特定的节点。XPath 表达式可以用于查找单个节点、多个节点或节点的属性，还可以使用一些内置函数来执行更复杂的操作。
+
+    XPath 可以在各种编程语言中使用，如 Python、Java 和 JavaScript。在爬虫和数据提取任务中，XPath 常用于从 HTML/XML 中提取所需的数据。许多解析库和工具提供了 XPath 的支持，使得节点选择和数据提取变得更加方便和灵活。
+
+这里我们选择 `By.XPATH` 作为讲解范例。其他部分没有太高难度，我们希望读者自行学习，我们也鼓励读者采用其他方法仿照 `By.XPATH` 来查找元素。
+
+!!! question "为什么选择 XPath？"
+
+    以下内容来自 ChatGPT。本文使用 XPath 主要是因为其获取较为简单，但对于更广泛的情况，XPath 可能没有优势。
+
+    通常情况下，可以使用 XPATH 来定位元素的情况包括：
+
+    - 元素没有唯一的标识：如果元素没有独特的 ID、类名或其他属性可以直接定位，可以使用 XPath 来描述元素的路径或其他属性来定位它。
+    - 需要根据元素的层级关系定位：当元素的定位依赖于其父元素、子元素或其他相对关系时，XPath 可以通过描述元素的层级关系来定位它。
+    - 需要根据元素的文本内容进行定位：如果需要根据元素的文本内容来定位元素，可以使用 XPath 的文本匹配功能来选择符合条件的元素。
+    - 需要使用高级定位功能：XPath 提供了一些高级定位功能，如逻辑运算符、索引选择、属性过滤等，可以更精确地定位元素。
+
+当 `find_element()` 的第一个参数被传为 `By.XPATH` 时，它的第二个参数接受一个 XPath 字符串，作为检索条件。因此我们在定位一个元素的时候，只需要设法找到他的 XPath 即可。
+
+我们可以利用**检查**中的**在页面中选择一个元素以进行检查**或使用快捷键 Ctrl + Shift + C，先定位到一个元素，然后右键 HTML 中的相应 tag，选择**复制**，再点击**复制完整的 XPath** 即可获取对应元素的 XPath 了。
+
+对于本例，我们选择密码登录而非验证码登录。原因是显然的，向手机发送验证码并自动获取验证码的程序显然是要比直接通过密码登录要复杂的。但进入网页后默认的登录方式是验证码登录，于是我们先要找到**密码登录**按钮的 XPath。一般来讲，一个按钮很可能是被**包装**起来的，比如其中除了最关键的按钮组件外，还很可能有图片部分，文字部分。然而如果我们定位到了非按钮组件的元素，那么此时调用 `click()` 就会报错，因为他们不是可交互的元素。这时，我们在利用上述方法定位时，就要关注相应 tag 中是否包含“button”的字眼。下图作为一个示例。
+
+![image-login-posi.png](../../static/backend/crawler/login-posi.png)
+
+![image-login-XPath.png](../../static/backend/crawler/login-XPath.png)
+
+如此我们便获得了**密码登录**按钮的 XPath，可以通过如下代码来进行登录方式的切换。
+
+```Python
+button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div/form/div[1]/div[2]')
+button.click()
+```
+
+运行后可以看到，确实发生了按钮点击，登录方式成功切换。
+
+![image-login-changed.png](../../static/backend/crawler/login-changed.png)
+
+接下来我们可以运用类似的方法找到**手机号或邮箱**输入框、**密码**输入框以及**登录**按钮。注意这里在定位输入框时也要注意**包装**的情况，一定要定位到包含有“input”字眼的 tag。下面是代码示例。
+
+```Python
+with open("config.json", "r") as f: # create your "config.json" according to your username and password
+    config = json.load(f)
+
+username = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div/form/div[2]/div/label/input')
+username.send_keys(config["username"])
+
+password = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div/form/div[3]/div/label/input')
+password.send_keys(config["password"])
+
+login = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div/form/button')
+login.click()
+```
+
+!!! note
+
+    目前我们完成了利用 Selenium + WebDriver 的登录。当然在这个例子中，由于我们只进行数据的读入而不进行写入，因此不登录账号，直接关闭登录框也是可以的。我们可以进行类似地处理，找到登录框的“X”（取消）按钮的 XPath，然后定位该元素并调用 `click()` 即可。这一内容我们留给读者自行尝试。
+
+一般来讲，在登录绝大多数网站时，您很可能会遇到**机器人检测**的验证环节。对于有些验证程序，我们可以通过一些方式来绕过检测，但对于很多程序，我们都很难绕过检测。由于其内容较为深入，本节对于该部分不作扩展。
+
+??? note "机器人检测"
+
+    我们提供了一些网络视频供您对其进行了解。
+
+    - [为什么机器人不能勾选“我不是机器人”？](https://www.bilibili.com/video/BV1PQ4y147kQ?vd_source=6c45737266d4ed9f41c3a60d96161fdd)
+    - [“验证码战争”二十年，最受伤的却是我们](https://www.bilibili.com/video/BV13h411M7u4?vd_source=6c45737266d4ed9f41c3a60d96161fdd)
+    - [验证码大战AI：神仙打架，我们遭殃，验证码还能变简单吗？](https://www.bilibili.com/video/BV1HG4y1K7vy?vd_source=6c45737266d4ed9f41c3a60d96161fdd)
+
+直至目前，您可能会觉得 Selenium 和 WebDriver 反而比使用 HTTP 库和解析库的方法要更加复杂。但很快我们就会看到前者的优势。让我们回忆一下，在上一节的同一个例子中，我们要进行复杂的 API 分析以及推测、验证，在这之后还要不断定位关键信息位置，利用解析库进行检索。然而借助于 Selenium 和 WebDriver，我们就能省去这些工作。还记得我们为什么要进行如此繁琐的 API 分析吗？没错，因为我们难以直接在 HTTP 库中完成**滑动**的操作，但是我们可以利用 `driver.execute_script(string)` 来执行一些指令从而实现**滑动**的操作。
+
+由于篇幅原因，我们这里直接给出需要用到的参数。
+
+- `driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")`：向下滑动直到网页底部。
+- `driver.execute_script("window.scrollBy(0, -10);")`：向上滑动 10 个单位。
+
+我们要实现的操作其实就是不断滑动到网页底部，直到展示了所有回答。于是我们可以循环调用 `driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")` 来实现此。但是在这一过程中有可能出现滑动速度过快，服务器没能及时捕获到“网页已达底部”的条件，因此这里选择在每次循环中先调用 `driver.execute_script("window.scrollBy(0, -10);")` 从而确保服务器能不断加载出回答。最后，我们要明确如何判断所有回答已经被展示了。通过研究一些回答相对较少的话题，我们发现可以用**写回答**按钮的出现来标记所有回答已被加载完成。
+
+![image-end-of-answers.png](../../static/backend/crawler/end-of-answers.png)
+
+通过之前提到过的方法，我们很容易就能获得这个按钮的 XPath，从而在每次循环中检索该元素是否存在，如果已经出现，那么退出循环即代表所有回答已被加载。下面给出这部分内容的示例代码。
+
+```Python
+while True:
+    driver.execute_script("window.scrollBy(0, -10);")
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    if driver.find_elements(By.XPATH, '/html/body/div[1]/div/main/div/div/div[3]/div[1]/div/div[2]/a/button'):
+        break
+```
+
+在展示所有回答后，我们就可以利用 `driver.find_elements()` 来直接筛选想要的内容了。下面是筛选作者名称的示例代码，我们鼓励您尝试更多内容的爬取，例如赞同数、评论数、评论内容等。
+
+```Python
+authors = [item.text for item in driver.find_elements(By.CLASS_NAME, 'UserLink-link')]
+authors = [item for item in authors if item != '']
+```
+
+以上便是 Selenium 和 WebDriver 的入门介绍，出去上述内容外，它们还有很多有趣实用的方法，包括但不限于以下列出的内容，我们鼓励您对所感兴趣的内容进行尝试。
+
+- 等待到某个元素加载完成。
+- Action 链。
+- 键盘组合键。
+- 几乎一切你在使用浏览器中会用到的操作。
+- ······
 
 ## scrapy 简介
 
