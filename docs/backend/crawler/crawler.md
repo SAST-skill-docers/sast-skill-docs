@@ -762,6 +762,10 @@ authors = [item for item in authors if item != '']
 
 ## scrapy 简介
 
+## 后续拓展
+
+您可以利用上述提到的任意方法来实现清华大学计算机系 Python 夏季学期的**爬虫**部分实验。您可以在 [程序设计训练文档](https://keg-course.github.io/python-docs/crawler/project/crawler/) 中了解到详细的要求。其中包含了课程助教所编写的一些课程指引，欢迎大家阅读学习。
+
 ## 资源链接
 
 除了本文档之外，您还可以参考：
