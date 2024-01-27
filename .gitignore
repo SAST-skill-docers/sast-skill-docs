@@ -2,4 +2,6 @@
 .venv
 .DS_Store
 /__pycache__/*
-crawler.ipynb
+*.ipynb
+*.html
+*.json

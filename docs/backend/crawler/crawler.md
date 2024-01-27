@@ -73,7 +73,6 @@
 ??? example "简单的例子"
 
     尽管谈论攻击还比较遥远，但我们不妨考虑以下日常生活场景：
-
     - 当你在高考成绩查询网站上准时查询时。
     - 双十一午夜十二点，当你在某网购平台上下单时。
     - 周四下午一点，当你在“新清华学堂”公众号上抢 40 元前排学生票时。
@@ -312,7 +311,7 @@ https://httpbin.org/get?key2=value2&key1=value1
 - `next_sibling`：返回标签的下一个兄弟节点。
 - `previous_sibling`：返回标签的上一个兄弟节点。
 
-通过以下例子，您可以大致了解他们与 HTML/XML 中 tag 的对应关系。这里用到了 `BeautifulSoup` 对象的构造函数解析 HTML 从而获得 `Tag` 对象。有关前者的内容，我们稍后会提及，这里可以忽略细节。
+通过以下例子，您可以大致了解他们与 HTML/XML 中 tag 的对应关系。这里用到了 `BeautifulSoup` 对象的构造函数解析 HTML 从而获得 `Tag` 对象。有关前者的内容，我们稍后会提及，这里可以忽略细节。当然，您也可以使用 `BeautifulSoup.new_tag(name, attrs, **kwargs)` 来构造一个 `Tag` 对象。
 
 ```Python
 >>> html = """
@@ -410,11 +409,13 @@ None
 
 **NavigableString**
 
-`NavigableString` 主要是通过其他对象的 `string` 属性得到的，它继承自 Python 的字符串类，并提供了一些额外的方法和属性来操作和访问文本内容。其整体上的方法与 `Tag` 类似，读者可以类比自行学习。
+`NavigableString` 主要是通过其他对象的 `string` 属性得到的，当然您也可以利用其自身构造函数 `NavigableString(string)` 来进行构造。它继承自 Python 的字符串类，并提供了一些额外的方法和属性来操作和访问文本内容。其整体上的方法与 `Tag` 类似，读者可以类比自行学习。
 
 **BeautifulSoup**
 
-`BeautifulSoup` 对象是 BS 中的核心对象，用于表示解析后的 HTML/XML。它与 `Tag` 对象很相似，但对比来看，它处理的是 HTML/XML 文档，而 `Tag` 处理的则是 HTML/XML 中的某个 tag。它的属性与接口也与 `Tag` 类似，请读者类比自行学习。
+`BeautifulSoup` 对象是 BS 中的核心对象，用于表示解析后的 HTML/XML。您可以通过 `BeautifulSoup(markup, parser)` 来进行构造。其中 `markup` 是要解析的 HTML/XML 字符串，而 `parser` 是解析器的类型，默认为 Python 库中的 HTML 解析器 `"html.parser"`，当然您也可以选择 `"lxml"`，`"xml"` 等解析器。
+
+`BeautifulSoup` 对象与 `Tag` 对象很相似，但对比来看，它处理的是 HTML/XML 文档，而 `Tag` 处理的则是 HTML/XML 中的某个 tag。它的属性与接口也与 `Tag` 类似，请读者类比自行学习。
 
 不过需要额外指出的是，我们可以通过访问 `BeautifulSoup` 的标签属性来得到该对象中的符合要求的第一个 `Tag` 对象，这与 `find()` 在一定程度上是等效的，但这只能适用于查找特定标签类型的情况。我们正是如此获得上文中的 `tag_p` 与 `tag_div` 的。
 
@@ -432,7 +433,7 @@ None
 
 ![image-get-url](../../static/backend/crawler/get-url.png)
 
-进行类似分析，我们可以发现热榜中的每一个条目都被封装在一个 `class` 为 `HotItem-content` 的容器中。因此我们可以利用 `BS` 来筛选该 HTML 中特定类的容器从而获取到热榜链接。
+进行类似分析，我们可以发现热榜中的每一个条目都被封装在一个 `class` 为 `HotItem-content` 的容器中。因此我们可以利用 BS 来筛选该 HTML 中特定类的容器从而获取到热榜链接。
 
 我们先给出代码，随后作以解释。
 
@@ -449,10 +450,12 @@ def get_zhihu_hot_urls() -> List[str]:
         The hot urls list of zhihu
     """
     url = "https://www.zhihu.com/hot"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-        "cookie": "blabla", # replace with your cookie
-    }
+    headers = {}
+    with open("config.json", "r") as f: # you should create your "config.json" according to your User-Agent and cookie
+        config = json.load(f)
+    headers["User-Agent"] = config["User-Agent"]
+    headers["cookie"] = config["cookie"]
+
     resp = requests.get(url=url, headers=headers)
     soup = BS(resp.text) # you can parse another parser like lxml instead
     hot_list = []
@@ -462,28 +465,91 @@ def get_zhihu_hot_urls() -> List[str]:
     return hot_list
 ```
 
-对象 `resp` 的 `text` 属性是 HTTP 响应内容，我们先把他构造为一个 `BS` 对象。在构造 `BS` 对象时，我们可以指定解析器。不同的解析器的主要差别为其解析的速度。这里选择使用 Python 标准库的默认解析器 `html.parser`。当然您也可以选择 `lxml` 等解析器，只需要把 `soup = BS(resp.text)` 修改为 `soup = BS(resp.txt, "lxml")` 即可。
+由于之前我们已经验证，若想浏览知乎内容必须要进行登录，因此需要在 `headers` 中添加 `"cookie"` 实现用户登录。此外，我们还要修改 `"User-Agent"` 为我们浏览器的 User-Agent 从而尽量避免被识别为爬虫。接下来，我们就可以利用 `requests.get(url, headers)` 来向知乎热榜发出请求，并将响应结果存储在 `resp` 中。
 
-`BS` 的 `find_all` 方法接受以下参数：
+由于我们要解析的是响应中的 HTML，因此调用 `resp.text` 从而获得响应的文本字符串，把他构造为 `BeautifulSoup` 对象 `soup`。
 
-- `name`：指定要匹配的元素 HTML 标签，可以是字符串、正则表达式或列表，可以省略。
-- `attrs`：以字典形式指定要匹配的元素属性，可以省略。
-- `class_`：指定要匹配的元素的 CSS class（注意这里为了避免与 Python `class` 重复，参数名为 `class_`），可以省略。
-- `string`：指定要匹配的元素所包含的字符串，可以省略。
-- `limit`：指定最多匹配几个元素，可以省略，默认显示全部匹配结果。
-- `recursive`：指定是否递归搜索子节点，可以省略，默认值为 `True`。
-
-`BS` 的 `find_all` 的返回值为匹配元素列表，列表中的每个元素都是一个 `tag` 对象。代码段 `for item in soup.find_all("div", class_="HotItem-content")` 即匹配 `soup` 中所有 CSS class 为 `HotItem-content` 的容器（div），然后遍历他们。
-
-接下来对遍历的每个 `item` 调用 `find` 方法，以试图找到该容器中的超链接。`BS` 的 `find` 方法其实可以视为指定 `limit` 为 1 的 `find_all`，只不过 `find_all` 返回的是一个列表，而 `find` 返回的是一个 `tag` 对象。因此我们对于刚才返回的列表中的每个 `item` 再去匹配标签 `a` 即可得到超链接所在的 `tag` 对象。
-
-我们可以通过 `tag.name` 来获取 `tag` 的 `name`，通过 `tag[attrs]` 来获取 `tag` 的 `attrs` 属性。这里使用 `tag["href"]` 即可获得该标签的超链接。随后我们把该超链接加入至 `hot_list` 中即可。至此，`hot_list` 就存放了所有知乎热榜链接的字符串。
+接下来我们调用 `soup.find_all()` 从而找到所有标签名为 `div` 且 CSS class 为 `HotItem-content` 的 `Tag` 对象。随后我们遍历刚刚得到的生成器中的元素 `item`，调用其 `find()` 方法从而找到所有标签名为 `a` 的 `Tag`，也即话题 url 所在的标签。对于刚刚被找到的 `tag` 对象，我们直接把它的 `attrs` 中的 `href` 属性加入 `hot_list`。最后在遍历完成后，返回 `hot_list` 即可实现知乎热榜链接的爬取。
 
 ### 爬取知乎某问题下的所有回答
 
-这一部分我们主要通过分析 HTML 和 JSON 来得到想要的数据。
+这一部分我们以编号为 632832873 的 [话题](https://www.zhihu.com/question/632832873) 为例进行示范。
 
+首先我们仿照上一个示例，运行以下代码（`headers` 的配置与上相同）。
 
+```Python
+>>> url = "https://www.zhihu.com/question/632832873"
+>>> resp = requests.get(url=url, headers=headers)
+>>> file = open("resp.html", "w")
+>>> file.write(resp.text)
+```
+
+随后我们检查 `resp.html` 中的内容，发现其中并没有包含该话题下的所有回答，而只是部分回答。这里需要考虑到 Web 相关的**异步**请求响应的内容。当我们访问一个话题下的回答时，服务器并没有把所有回答都作为响应返回给用户，而是仅返回了部分回答。当我们向下滑动，直到展示了所有服务器返回的回答后，浏览器才会再次向服务器发起请求获取更多的回答。如此考虑后，就不难理解为什么简单地调用一次 `requests.get()` 是不能展现所有回答的了。
+
+??? example "异步请求响应"
+
+    异步请求响应这项技术目前被各类网页广泛使用，下面是一些常见的例子。
+    - 当你在 [B 站](https://www.bilibili.com) 首页上尝试刷到计算机系科协的视频时，你要不断向下滑动，然而每次都只能获取不超过指定数目的视频。
+    - 当你在 [今日头条](https://www.toutiao.com) 首页上尝试刷到清华大学相关内容时，你要不断向下滑动，然而每次都只能获取不超过指定数目的内容。
+    - 当你在 QQ 群“28届智能体原油会”中翻阅历史聊天记录想要看看群友聊了什么的时候，你要不断向上滑动，然而每次都只能获取不超过指定数目的聊天记录。（QQ 其实是一个内嵌浏览器的 app，当你在使用 QQ 时，大部分时间你其实都在不断向服务器发出请求并接收响应）
+
+那么我们应该如何获取所有回答呢？我们已经明确，正是因为异步请求响应，我们才不能一次性获取某个话题下的全部回答。而异步请求响应的文件一般在 XHR 中，那么这时我们就可以通过追踪 XHR 来尝试找到突破口。这时又要用到之前提到过的浏览器中的**检查**。由于我们要追踪的是“加载回答”的响应，因此在第一次得到响应后要先**清除网络日志**，我们可以点击**检查**页面中的相应图标，也可以利用快捷键 Ctrl + L 来完成。
+
+![image-clear-network-log](../../static/backend/crawler/clear-network-log.png)
+
+随后向下滑动，直至出现加载新问题的界面，这时我们可以尝试去定位究竟是哪个 XHR 文件可能作为这些回答数据的载体。我们可以利用如下简洁的方法：先在检查页面中**筛选** Fetch/XHR ，然后使用快捷键 Ctrl + F 打开**搜索**工具来搜索网页中的某段文字出现在哪个 XHR 文件中。以下是一个简单的例子。
+
+![image-filter-XHR](../../static/backend/crawler/filter-XHR.png)
+
+通过这种方式我们可以发现，相关回答的数据被保存在包含“feeds”字眼的 Feeds 文件中。于是我们可以在**筛选器**中筛选包含“feeds”字眼的文件。
+
+??? question "什么是 Feeds？"
+
+    Feeds 是一种常见的数据源格式，用于获取和跟踪网站上的内容更新。Feeds 文件通常以 RSS 或 Atom 格式提供，包含了发布者的文章、新闻、博客等更新的摘要或全文内容。
+
+    由于本文只作入门讲解，我们只需简单认为 Feeds 文件是一种包含发布者内容更新摘要或全文的格式，用于帮助爬虫跟踪和获取网站上的最新内容。
+
+![image-filter-feeds](../../static/backend/crawler/filter-feeds.png)
+
+大致观察筛选得到的**响应**文件，发现他们的组织形式类似，都是一个字典，该字典共有 3 个 `key`：
+
+- `data`：是一个列表，其中每个元素是一个字典，推测每个字典中存储着每个回答的相关信息。
+- `session`：是一个字典，仅包含一个键值对，其中 `key` 为 `"id"`，而 `value` 为一段数字字符串。
+- `paging`：也是一个字典，包含三个键值对。`page` 对应一个正整数，`is_end` 对应一个布尔值，`next` 对应一个 url 字符串。推测上述三个 `key` 分别代表当前回答所在页、是否到达页尾、下一次发送请求的 url。
+
+![image-feeds-detail](../../static/backend/crawler/feeds-detail.png)
+
+我们上面进行了四个推测。
+
+对于第一个推测，我们简单比对文件与网页显示内容即可验证。
+
+对于第二个推测，我们也进行相应比对，发现 `page` 较大的文件中对应的 `data` 内部的回答一定处于相对靠后的位置，也得以验证。
+
+而对于该话题，我们不方便验证第三个推测，因为该话题下有太多回答，想要找到最后一条回答比较麻烦。于是我们考虑回答相对较少的 [该问题](https://www.zhihu.com/question/326675268)。不断向下滑动，筛选 Feeds 文件响应，发现当滑动到回答底部后，已接收的 Feeds 文件响应中有一个文件恰好对应回答的最后一页，其 `page` 为 7，`is_end` 为 `true`。因此第三个推测也得以验证。
+
+![image-last-page](../../static/backend/crawler/last-page.png)
+
+至于第四个推测，我们可以观察文件名、`page`、`next` 之间的关系。可以发现每个 `next` 中包含一段形如 `feeds?cursor={x}` 的字段，其中 `x` 为某一数字序列，而 `feeds?cursor={x}` 正与他们的文件名开头格式相似。再考虑 `page`，发现对于 `page` 为 `k` 的文件响应，他的 `next` 中的 `feeds?cursor={x}` 字段即为 `page` 为 `k + 1` 的文件名开头字段的一部分。因此第四个推测也在一定程度上得到了验证。
+
+??? question "cursor 是什么？"
+
+    在 Web 开发中，cursor 一般用来标记网页当前滑动的位置。其具体计算与解析的规则一般与服务器的后端有关，这里我们不作深入了解。
+
+![image-feeds-cursor](../../static/backend/crawler/feeds-cursor.png)
+
+!!! note "“猜”的艺术"
+
+    您可能注意到，我们在爬虫时经常通过“猜”来尝试获取相关信息。这种感觉是正确的，我们在进行 API 分析时常常需要根据文件名、变量名等内容来猜测他们的含义，然后进行简单的实验即可验证。
+
+    您可以在实践的过程中找寻这种“猜”的感觉，体会这门艺术。
+
+至此，我们已经大概理解了 `data` 和 `paging` 的含义，然而 `session["id"]` 的含义我们尚不明了。首先我们要验证其是否有用。通过比对不同上述文件响应，发现他们的 `session["id"]` 是相同的，并且作为参数被包含在 `paging["next"]` 中。那是否意味着这段数据是无用的呢？在刚刚接触这个问题时我们很可能会认为这是无用的，但是在后续过程中容易发现，当我们过一段时间或者是换一个浏览器再次发出请求时，`session["id"]` 也会随之发生改变。因此我们推测其很可能与 `cookie` 有着类似的效果，于是在第一次构造 url 请求时，我们需要提前获取 `session["id"]`。
+
+在获取 `sessionId` 时，我们很容易想到可以利用上述 Feeds 文件从而解析获得。但是实际上在我们获取某个问题下的响应时，该文件并不会直接发送给我们，而是当我们向下滑动加载更多回答时才会从服务器接收相应内容。因此我们就需要尝试从其他角度来获取相关信息。这里我们不妨从 HTML 入手，考虑其中是否包含 `sessionId` 信息。我们先向下滑动以获取 Feeds 文件，然后在其中找到 `session["id"]`，然后复制下来，利用 Ctrl + F 来检索包含该串数字的文件。发现除了 Feeds 文件以外，还有一个 HTML 文件中也包含了这段数字，且这个 HTML 文件是在向下滑动前到达浏览器的。于是我们就可以先利用 BS 来解析该 HTML，然后利用 Python 内置正则表达式库来获得 `sessionId`。
+
+![image-session-id-in-html](../../static/backend/crawler/session-id-in-html.png)
+
+在构造第一次请求的 url 后，我们就可以不断通过 `requests.get()` 来获取响应。然后把响应转化为 `json` 对象进行解析，把其中 `data` 属性加入 `answers` 列表。不断重复上述内容，直到 `paging["is_end"]` 为 `true`，即到达尾页。下面提供一份代码示例以供参考学习。
 
 ```Python
 def get_all_answers(qid: str) -> List[Dict]:
@@ -496,16 +562,15 @@ def get_all_answers(qid: str) -> List[Dict]:
     Returns:
         The list of all answers
     """
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15",
-    }
-    with open("config.json", "r") as f:
+    headers = {}
+    with open("config.json", "r") as f: # you should create your "config.json" according to your User-Agent and cookie
         config = json.load(f)
+    headers["User-Agent"] = config["User-Agent"]
     headers["cookie"] = config["cookie"]
 
     url = f"https://www.zhihu.com/question/{qid}"
     resp = requests.get(url=url, headers=headers)
-    soup = BS(resp.text, "lxml")
+    soup = BS(resp.text)
     sessionId = soup.find("script", id="js-initialData").text
     sessionId = re.findall(r'"sessionId":"(.*?)"', sessionId)[0]
     url = f"https://www.zhihu.com/api/v4/questions/{qid}/feeds?include=data%5B%2A%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Ceditable_content%2Cattachment%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Ccreated_time%2Cupdated_time%2Creview_info%2Crelevant_info%2Cquestion%2Cexcerpt%2Cis_labeled%2Cpaid_info%2Cpaid_info_content%2Creaction_instruction%2Crelationship.is_authorized%2Cis_author%2Cvoting%2Cis_thanked%2Cis_nothelp%3Bdata%5B%2A%5D.mark_infos%5B%2A%5D.url%3Bdata%5B%2A%5D.author.follower_count%2Cvip_info%2Cbadge%5B%2A%5D.topics%3Bdata%5B%2A%5D.settings.table_of_content.enabled&limit=5&offset=0&order=default&platform=desktop&session_id={sessionId}"
