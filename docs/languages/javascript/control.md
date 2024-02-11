@@ -26,7 +26,7 @@ for (let j = 0; j < arr.length; ++j) {
 ```javascript
 if (new Boolean(false)) {
     console.log("WTF?");
-} // "WTF!"
+} // "WTF?"
 ```
 
 值得注意的是 `for` 循环除了经典 C 风格外还可以实现类似 Python 的迭代方法。
