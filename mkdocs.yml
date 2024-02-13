@@ -185,6 +185,7 @@ nav:
     - ExpressJS: backend/expressjs/express-js.md
     - Go: backend/go/go.md
     - Django: backend/django/django.md
+    - 爬虫: backend/crawler/crawler.md
   - 硬件设计:
     - hardware/index.md
     - 计算机组成与设计: hardware/cod.md

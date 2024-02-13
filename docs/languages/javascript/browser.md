@@ -151,7 +151,7 @@ node.innerHTML = ' The color is <span style="color:red"> RED </span> ! '
 
 就会发现原先的文本 `This is a test text node.` 替换成了我们设置的文本。
 
-!!! caution "XSS 攻击"
+!!! caution "XSS 攻击（英文：Cross-Site Scripting）"
 
     你可能已经意识到了，赋给 `innerHTML` 属性的字符串值中可以包括新的 HTML 节点，这意味着通过编写特定的字符串值，我们可以给 DOM 树插入新节点，甚至通过 `<script>` 标签引入恶意 JavaScript 代码。
 

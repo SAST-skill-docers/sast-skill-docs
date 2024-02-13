@@ -21,7 +21,7 @@ Node.js 有自己的包管理工具 npm（即 Node.js package manager），但�
 
 ### Windows
 
-访问 [Node.js 官网](https://nodejs.org/zh-cn/) 下载最新 LTS 版本安装包并打开根据提示安装。
+访问 [Node.js 官网](https://nodejs.org/en/) 下载最新 LTS 版本安装包并打开根据提示安装。
 
 ### macOS
 
@@ -35,7 +35,7 @@ brew install node
 
 ### Linux
 
-建议通过包管理器安装 Node.js，参考[通过包管理器方式安装 Node.js](https://nodejs.org/zh-cn/download/package-manager/)，以下为常见发行版安装方法：
+建议通过包管理器安装 Node.js，参考[通过包管理器方式安装 Node.js](https://nodejs.org/en/download/package-manager/)，以下为常见发行版安装方法：
 
 #### ArchLinux
 
