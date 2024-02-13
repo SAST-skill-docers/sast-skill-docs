@@ -85,6 +85,7 @@ nav:
     - Linux 入门: basic/linux.md
     - Markdown 入门: basic/markdown.md
     - LaTeX 入门: basic/latex.md
+    - Web 与 Web 应用基础: basic/web.md
   - 编程语言:
     - languages/index.md
     - C++ 语言面向对象:
@@ -134,7 +135,7 @@ nav:
       - TypeScript 的函数: languages/typescript/function.md
       - TypeScript 的面向对象: languages/typescript/oop.md
       - TypeScript 的复杂类型: languages/typescript/type.md
-    - Rust 语言基础: 
+    - Rust 语言基础:
       - languages/rust/index.md
       - Rust 入门的一点经验: languages/rust/whyrust.md
       - Rust 的变量与类型: languages/rust/variable.md
@@ -188,7 +189,7 @@ nav:
     - 计算机组成与设计: hardware/cod.md
   - 人工智能 & 机器学习:
     - ai-ml/index.md
-    - PyTorch 入门: ai-ml/pytorch.md  
+    - PyTorch 入门: ai-ml/pytorch.md
     - 对抗搜索: ai-ml/adversarial-search.md
   - 资源链接:
     - source/index.md
