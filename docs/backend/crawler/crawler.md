@@ -266,7 +266,7 @@ https://httpbin.org/get?key2=value2&key1=value1
 
 ### headers 的重要性
 
-接下来，我们通过几个实验来了解 headers 的重要性。我们利用 Postman，使用默认 headers 对 [知乎热榜](www.zhihu.com/hot/) 发起 GET 请求，发现返回的响应如下图所示：
+接下来，我们通过几个实验来了解 headers 的重要性。我们利用 Postman，使用默认 headers 对 [知乎热榜](https://www.zhihu.com/hot/) 发起 GET 请求，发现返回的响应如下图所示：
 
 ![image-get-without-cookie](../../static/backend/crawler/get-without-cookie.png)
 
