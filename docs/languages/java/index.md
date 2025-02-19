@@ -4,4 +4,4 @@
 
 ## 相关链接
 
-- 2024 年科协暑培的 [Java 课程作业](https://github.com/sast-summer-training-2024/sast2024-java)
+- [2024 年科协暑培的 Java 课程作业](https://github.com/sast-summer-training-2024/sast2024-java)
