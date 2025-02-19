@@ -1043,7 +1043,7 @@ Disallow: /
 
 除了本文档之外，您还可以参考：
 
-- [2024年计算机系科协暑培 爬虫部分的讲义](https://summer24.net9.org/backend/crawler/slide.pdf) 以及 [课程回放](https://www.bilibili.com/video/BV1cb421J7u9/?vd_source=a80492aa87f464b5346dca18c3a9e9b3)。
+- [2024年计算机系科协暑培 爬虫讲义](https://summer24.net9.org/backend/crawler/slide.pdf) 以及 [课程回放](https://www.bilibili.com/video/BV1cb421J7u9/?vd_source=a80492aa87f464b5346dca18c3a9e9b3)。
 - [2023年计算机系科协暑培 爬虫部分](https://summer23.net9.org/backend/crawler/) 以及 [课程回放](https://www.bilibili.com/video/BV1fP41147wS?vd_source=6c45737266d4ed9f41c3a60d96161fdd)。
 - [2021年计算机系科协暑培](https://www.xuetangx.com/course/THUSAST08091234567890/8571842?channel=i.area.manual_search) （请在学堂在线上加入学习）。
 - 赵晨阳学长组织编写的为一字班同学提供的 [Python 小学期预习材料](https://github.com/zhaochenyang20/Sino-Japanese-Relations-analysis)。
