@@ -36,3 +36,4 @@
 | [zcy0](https://zhaochenyang20.github.io) | C++ OOP |
 | lifeihan | PyTorch 入门 |
 | pyz | Go |
+| [Clever_Jimmy](https://leverimmy.top/) | Java、Android |
