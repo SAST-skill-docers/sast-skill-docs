@@ -18,9 +18,9 @@ class App extends React.Component {
 
 每一个类组件都是 `React.Component` 类的子类，其中我们需要重载 `render` 函数以定义这个组件在屏幕上的展示方式（用户界面）。`render` 函数的返回值为使用标签语法编写的 `ReactElement`。比如说上述 `App` 组件就返回了一句问候语，这就代表 `App` 组件在实例化的时候会渲染出这一句问候语。
 
-!!! note "JSX 语法拓展"
+!!! note "语法拓展"
 
-    React 对 JavaScript 语言作了一定的语法拓展，拓展后的 JavaScript 称为 JSX。JSX 和原生 JavaScript 的最大差别就是引入了标签语法：
+    React 对 JS/TS 语言作了一定的语法拓展，拓展后的 JS/TS 称为 JSX/TSX，最大差别就是引入了标签语法：
 
     ```javascript
     const p = <p>Hello world!</p>;
@@ -36,7 +36,7 @@ class App extends React.Component {
     );
     ```
 
-    JSX 的标签对象中允许嵌入 JavaScript 表达式，其会运算出其值后转为字符串嵌入：
+    标签对象中允许嵌入 JS/TS 表达式，其会运算出其值后转为字符串嵌入：
 
     ```javascript
     const name = "Adam";
@@ -45,9 +45,13 @@ class App extends React.Component {
 
     转化为字符串的目的是防止 XSS 攻击。
 
-    此外，JSX 的标签语法和 HTML 类似，允许定义各种属性，这些特性以后会讲到。
+JSX/TSX 的标签语法和 HTML 类似，允许定义各种属性，这些特性以后会讲到。本文档基于 TSX 语言。
 
-    另外，本文档基于 TypeScript 的标签化拓展 TSX 语言，其标签语法基本和 JSX 一致。
+!!! warning "TSX 的限制"
+    在 TSX 中，只能在以下两种场景中使用大括号：
+
+    1. 标签内文本：`<h1>{name}'s To Do List</h1>` 有效，`<{tag}>Gregorio Y. Zara's To Do List</{tag}>` 无效。
+    2. 紧跟在 `=` 符号后的属性：`src={avatar}` 会读取 `avatar` ，`src="{avatar}"` 只会传字符串 `"{avatar}"`。
 
 实例化一个组件也是简单的，类似 HTML 语法。比如下面都是合法的实例化 `App` 组件的语句：
 
