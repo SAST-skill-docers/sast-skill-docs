@@ -33,7 +33,7 @@
 | [ChrisZhang](https://zcy.moe/) | Rust |
 | livingshade | 对抗搜索 |
 | lys | Swift、Swift UI |
-| [zcy0](https://zhaochenyang20.github.io) | C++ OOP |
+| [zcy0](https://zhaochenyang20.github.io/Chayenne/) | C++ OOP |
 | lifeihan | PyTorch 入门 |
 | pyz | Go |
 | [Clever_Jimmy](https://leverimmy.top/) | Java、Android |
