@@ -977,8 +977,6 @@ $2 ==> 3
 
 更多方法参见API文档: [java.lang.Enum<E>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html)。
 
-
-
 ## Recap
 
 在本章节*Fundamental OOP*中，我们学习了:
@@ -989,8 +987,6 @@ $2 ==> 3
 - 扩展类的方法: 接口。
 - 使用内部类进一步封装实现。
 - 使用匿名内部类和Lambda表达式创建闭包。
-
-
 
 ## 资源链接
 
