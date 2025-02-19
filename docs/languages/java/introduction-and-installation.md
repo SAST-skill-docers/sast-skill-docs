@@ -2,7 +2,7 @@
 
 ## 前置知识
 
-+ 无。
+- 无。
 
 ##  Introduction to Java Platform
 
@@ -14,8 +14,6 @@
 - Java 是一门*类 C 语言*。
 - 从 1995 年开始，历史悠久的 Java 平台积累了兼具广度和可靠性的生态系统和开发者社区。
 - Java 至今仍然是最流行、最知名、使用最广的编程语言之一。
-
-
 
 ### History of Java
 
@@ -29,8 +27,6 @@
 - 2018, Java 10 started to adopt Time-Based Release Versioning
 - Today, Java 17 is current LTS, Java 18 GA, Java 19 RDP 2
 
-
-
 ### Why Java
 
 - Easy!
@@ -38,8 +34,6 @@
 - Rich and Reliable Ecosystem
 - Forward evolution with backwards compatibility
 - Performance
-
-
 
 ### Why NOT  Java
 - Performance ?
@@ -50,10 +44,7 @@
   - Kotlin 获得了 Google 的青睐和 Android 平台的优先支持。
   - Scala 极为灵活的语法和强大的表达能力长期以来收到科学计算领域和分布式数据处理领域的欢迎。
 
-
-
 ### Some Terms of Java
-
 
 - JDK, Java Develop Kit, Java 开发工具包
 - JRE, Java Runtime Environment, Java 运行时环境
@@ -61,9 +52,6 @@
 - OpenJDK, 开源 Java 平台实现的合作组织
 - LTS，Long Term Support, 长期支持版本
 - IDE, Integrated Development Environment, 集成开发环境
-
-
-
 
 ## Installation of JDK & IntelliJ IDEA
 
@@ -75,15 +63,11 @@
 - Eclipse Adoptium 是 AdoptOpenJDK 的继任者 。
 - 它们提供的 OpenJDK 分发版称为 Eclipse Temurin 。
 
-  
-
 ### Java Version
 
 - 作为最新的*长期支持版本 LTS*，**Java 17** 将成为本次课程的目标平台。Java 平台保证前向兼容，因此更新版本的 Java 支持本课程讲的绝大多数内容。
 - Java 的语法特性和版本绑定，大版本的后续更新大多都是 bug 修复和性能增强。但是 Java7-9 的发布时间分别是 2011-2014-2017，以多年为跨度的更新使 Java 语法特性的进化严重落后于时代。
 - 因此，从 *[[JEP 322](https://openjdk.org/jeps/322), Java10]*  开始，采用新的根据固定时间的新版本发布计划和命名方案。Java 将会*每六个月*固定发布新版本，用于快速滚动开发、预览、发布新语法特性和修改。
-
-
 
 ### Install JDK *(Eclipse Temurin)*
 
@@ -131,8 +115,6 @@ OpenJDK Runtime Environment Temurin-17.0.3+7 (build 17.0.3+7)
 OpenJDK 64-Bit Server VM Temurin-17.0.3+7 (build 17.0.3+7, mixed mode)
 ```
 
----
-
 ### *CodeLab 0-1*: helloworld
 
 **第$i$章的 CodeLab 代码位于 `codelab/chapter<i>/src`。**
@@ -168,24 +150,42 @@ helloworld
 
 ```
 
----
-
 ### JetBrains IntelliJ IDEA
 
 - [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
 - 目前最强大、使用最广泛的 Java IDE。
 - IntelliJ IDEA Community Edition 是免费开源版本，其包含了基础的 Java 语言支持、分析、构建与版本管理和 Docker 支持。
 - IntelliJ IDEA Ultimate 是收费版本，支持性能剖析，企业级框架支持，Web 技术支持，数据库工具，远程协作开发支持。
-    - 使用`@mails.thu.edu.cn`可以申请 JetBrains 学生包以获取全部开发工具。
+  - 使用 `<你的邮箱用户名>@mails.thu.edu.cn` 可以申请 JetBrains 学生包以获取全部开发工具。
+
+在 IntelliJ IDEA 中，点击 File-New-New Project... 新建一个新的项目，项目名为 `hello-world`：
+
+![新建一个新的项目](../../static/languages/java/create-new-project.png)
+
+IDEA 会自动生成一个 demo 代码，代码内容如下：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
+    }
+}
+```
+
+点击右上角的“编译并运行”按钮。
+
+![编译并运行后的输出界面](../../static/languages/java/compile-and-run.png)
+
+如果你的程序输出：`Hello world!`，那么，你已经能够成功编译并运行 Java 程序了！
 
 ## 资源链接
 
 - [Eclipse Adoptium](https://adoptium.net/)
 - [JEP](https://openjdk.org/jeps)
 - JDK:
-    - [TUNA镜像](https://mirrors.tuna.tsinghua.edu.cn/help/adoptium/)
-    - [Azul Zulu](https://www.azul.com/downloads/)
-    - [BellSoft Liberica JDK](https://bell-sw.com/pages/downloads/?)
-    - [GraalVM](https://www.graalvm.org/)
+  - [TUNA镜像](https://mirrors.tuna.tsinghua.edu.cn/help/adoptium/)
+  - [Azul Zulu](https://www.azul.com/downloads/)
+  - [BellSoft Liberica JDK](https://bell-sw.com/pages/downloads/?)
+  - [GraalVM](https://www.graalvm.org/)
 - [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [本章CodeLab](https://github.com/xsun2001/tour-of-java/tree/master/codelab/chapter0)
