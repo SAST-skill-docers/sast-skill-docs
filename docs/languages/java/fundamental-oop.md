@@ -39,8 +39,6 @@
   - 你只需要关系如何`new`，而无需担心对象是何时或如何被`delete` 。
   - Java 拥有多种优秀的垃圾收集器GC实现。
 
-
-
 ## 基础OOP
 
 ???+ 关于package
@@ -142,10 +140,7 @@ this.brand = brand;
 ```
 
 - *class* 的成员方法可以访问类的域和方法而不需要`this`指定。
-
 - 但是如果出现了变量或者形参名字冲突，则需要`this.`手动指定。
-
-  
 
 ### Instance Initialization Block 实例初始化块
 
@@ -243,10 +238,6 @@ myCar.introduce();
 
 - 使用`.`调用对象的方法/接口。
 
-
-
----
-
 ## Reuse Classes
 
 所有人都喜欢代码重用。
@@ -255,10 +246,7 @@ myCar.introduce();
 下面就来介绍面向对象中最基本的*重用类*方式:
 
 - 组合 Composition。
-
 - 继承 Inheritance。
-
-  
 
 ### Composition 组合
 
@@ -273,14 +261,14 @@ public class Car {
 }
 ```
 
-组合描述了 *"has-a"*  关系。
+组合描述了 *"has-a"* 关系。
 
 - 我们可以这种语义来建模更复杂、更贴合实际的汽车，如:
   - 一辆汽车 *有一个* 引擎。
   - 一辆汽车 *有四个* 轮子。
 - 那么*汽车*的最大速度，就可以通过重用*引擎*中的数据或方法来进行计算。
 
- 组合对象的初始化:
+组合对象的初始化:
 
 - 前面提到，对象*引用*的默认值是  `null` ，对其进行任何访问都会引发空指针异常 `java.lang.NullPointerException`  。
 
@@ -294,8 +282,6 @@ class Demo {
    }
 }
 ```
-
-
 
 ### Inheritance 继承
 
@@ -327,6 +313,7 @@ public class Triangle extends Shape { ... }
 ```
 
 在这个例子中:
+
 - 矩形`Rectangle` 圆形`Circle` 三角形`Triangle` 都 *是一个* 几何图形 `Shape` 。
 - `Rectangle` `Circle` `Triangle`都包含了`Shape`提供的三个公开接口，即获取表面积 `area()`  绘制 `draw()`  判断点是否在图形内部 `inside(double, double)` 。
 
@@ -445,8 +432,6 @@ class Child extends Parent {
 }
 ```
 
-
-
 **Inheritance: Upcasting & Polymorphism 向上转型&多态**
 
 继承带来的重要性质是*向上转型  Upcasting*和 *多态  Polymorphism*。
@@ -456,8 +441,6 @@ class Child extends Parent {
 
 *Polymorphism* 指的是对父类函数的调用可能使用的子类的实现，会根据代码运行时，对象的实际类型进行动态分发。
 `shape.area();  // Invoking Circle#area()`
-
-
 
 **Inheritance: Polymorphism in Depth**
 
@@ -579,8 +562,6 @@ class Bus {
 ```
 
 在 Java 中，可以通过组合+手动转发的方法实现 delegate。
-
-
 
 ### Abstract Class
 
