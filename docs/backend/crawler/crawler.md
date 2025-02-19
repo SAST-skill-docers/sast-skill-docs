@@ -1051,6 +1051,7 @@ Disallow: /
 - [Python selenium 库官方文档](https://selenium-python.readthedocs.io/)
 - [Python BeautifulSoup4 库官方文档](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Python scrapy 库官方文档](https://docs.scrapy.org/en/latest/)
+- [Node.js 官方网站](https://nodejs.cn/)
 - [Postman 官方网站](https://www.postman.com/)
 
 ??? note "写给计算机系大一同学"
