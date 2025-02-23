@@ -117,6 +117,7 @@ g++ --version
 + Code Runner：调试用
 + C/C++：支持在 Code 中调试 C/C++ 程序
 + Remote - SSH：之后进行远程开发会用到，这里不多做介绍
++ CodeGeex - 国内可用的代码自动补全工具
 
 在安装了简体中文插件后，我们可以按 `Ctrl + Shift + P`，打开输入框，输入 `Configurate display language`，选择中文后重新启动即可。
 
