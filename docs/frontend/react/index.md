@@ -23,7 +23,9 @@ React 作为广泛运用的网页前端框架，基本上可以应对大部分�
 
 ## 资源链接
 
-- React 官方中文文档 <https://zh-hans.react.dev/>
+- [2024 年酒井科协暑培讲义](https://summer24.net9.org/frontend/react/handout)
+- [2023 年酒井科协暑培讲义](https://summer23.net9.org/frontend/react/)
+- [React 官方中文文档](https://zh-hans.react.dev/)
 
 !!! note "官方文档与我们的文档"
 
