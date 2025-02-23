@@ -1,32 +1,72 @@
 # Android 项目的构成
 
-## 项目概览
+## Manifests
 
-在 Android Studio 中新建一个空项目，可以看到项目结构如下
+在 Android 应用中，`AndroidManifest.xml` 文件是必不可少的。它是 Android 应用的核心配置文件，它包含了应用的元数据和配置信息，用于描述应用的结构和行为。这个文件为系统提供了关于应用的各种关键信息，如应用的**包名**、**应用图标**、**版本信息**、**支持的 Android 版本**、**对外暴露的组件**（如 Activity、Service、BroadcastReceiver 等），以及其他系统需要知道的设置和权限。
 
-<center>
-    <img src="https://i.imgs.ovh/2023/11/24/MBny0.png" width="30%">
-</center>
+以下是一个 `AndroidManifest.xml` 文件的示例：
 
-## 项目文件
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-项目中最关键的就是 app 目录下的项目文件，它包含几个重要的部分：
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Wordle"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-- `AndroidManifest.xml` 是应用清单文件，需要声明以下内容：
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
-    - 应用的软件包名称，如 com.example.myapp。
-    - 应用的组件，如应用中使用的 Activity 和 Service。
-    - 应用为访问系统或其他应用的受保护部分所需的权限，如使用网络连接的权限、读取外部储存的权限等等，具体的权限清单可以查看 [权限 API 参考文档页面](https://developer.android.com/reference/android/Manifest.permission)。
-    - 应用需要的硬件和软件功能，特别是 **minSdkversion** 和 **targetSdkversion**，前者定义了 APP 所需要的最低 API 级别，后者指定了应用的目标 API 级别，API 级别与 Android 的系统版本相对应，对应关系可查看 [什么是 API 级别](https://developer.android.com/guide/topics/manifest/uses-sdk-element?hl=zh-cn#ApiLevels)。
+</manifest>
+```
 
-- `java` 目录下存放的是 Java 源代码文件。
-- `res` 目录下包含所有非代码资源（例如 XML 布局、界面字符串和位图图像），我们将在下一节介绍 Android 的资源文件。
-- `build.gradle` 是构建工具包 Gradle 执行应用构建过程的配置文件，除了指定使用的 Java 版本以及 API 级别外，应用所使用的依赖项也需要添加到 `build.gradle` 中，如
-    ```text
-    dependencies {
-        implementation 'com.google.android.material:material:1.8.0'
-        implementation 'com.squareup.okhttp3:okhttp:4.9.2'
-    }
-    ```
+## Fragments/Activities/Services/Adapters/Intents
 
-其他文件在创建项目时就已经由 Android Studio 帮助你完成了，几乎不需要更多的修改。
+这些组件是 Android 应用的基本组成部分，位于 `app/src/main/java/` 文件夹里。
+
+- **Fragments**：可以看作是活动的一部分，用于管理用户界面的一部分。
+- **Activities**：是应用中的一个单独的屏幕，用户可以与之交互。
+- **Services**：用于在后台执行长时间运行的操作，而不会干扰用户界面。
+- **Adapters**：用于将数据绑定到视图组件，如列表视图或网格视图。
+- **Intents**：用于启动活动、服务或广播，还可以在应用之间传递数据。
+
+其中，`MainActivity.java` 通常作为应用的主入口点，它是一个继承自 `Activity` 的类，用于定义应用的主界面和用户交互逻辑。
+
+## Tests
+
+测试是确保应用质量和稳定性的重要部分。测试文件通常位于以下两个目录：
+
+- `app/src/test/`：包含单元测试，这些测试在开发人员的机器上运行。
+- `app/src/androidTest/`：包含仪器测试，这些测试在设备或模拟器上运行。
+
+## Resources
+
+资源文件是应用的非代码部分，包括图像、字符串、颜色定义等。资源文件位于 `app/src/main/res/` 文件夹中，主要包括：
+
+- `drawable/`：存放图像资源。
+- `values/`：存放字符串、颜色定义、尺寸定义等。
+- `layout/`：存放应用的布局文件，如 XML 文件。
+
+## Gradle Scripts
+
+Gradle 是 Android 应用的构建系统。Gradle Scripts 用于定义项目的构建过程和依赖关系。主要文件包括：
+
+- `gradle.properties`：定义全局配置，如最小 SDK 版本。
+- `gradle-wrapper.properties`：定义 Gradle 包装器的配置。
+- `settings.gradle.kts`：定义项目设置，如模块名称。
+- `build.gradle.kts`：定义模块的构建逻辑，包括依赖项和插件。
