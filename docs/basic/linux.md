@@ -142,6 +142,9 @@ training@SAST:~$ which echo
 - `/home` 这个文件夹下是各个用户的家目录。
 - `/mnt` 是数据卷的挂载点；通过 USB 等接口连接的外部媒体也可能出现在 `/media` 文件夹中。
 - `/srv` 存放这个服务器提供的服务所需的文件（如网站资源）。
+- `/proc`：虚拟文件系统，用于存储内核和进程的运行时信息，例如 `/proc/cpuinfo` 查看 CPU 信息，`/proc/meminfo` 查看内存信息。
+- `/sys`：虚拟文件系统，提供设备和驱动相关的系统信息。
+- `/dev`：设备文件目录，例如 `/dev/null`（空设备文件）和 `/dev/sda`（磁盘设备文件）。
 
 ### Permissions
 
@@ -325,12 +328,39 @@ Ctrl+B 方向键  # Switch between panes
 
 附：https://tmuxcheatsheet.com/
 
+### Network
+
+- `ifconfig` 或 `ip addr`：查看和配置网络接口。
+- `ping`：测试网络连通性。
+- `curl` 和 `wget`：发送 HTTP 请求。
+- `netstat` 或 `ss`：查看网络连接状态。
+- `scp`：远程拷贝文件。
+
+```bash
+ping www.baidu.com # 经常被拿来测试网络是否连通
+curl https://net9.org/home/
+```
+
+### Process Management
+
+- `ps`：查看当前进程。
+- `top` 和 `htop`：实时监控系统资源。
+- `kill` 和 `killall`：终止进程。
+
+```bash
+ps aux | grep nginx
+kill -9 <PID>
+```
+
+
+
 ## 后续拓展
 
 想要学习更多 Linux 内容？
 
 + TryHackMe "Linux Fundamentals" Series https://www.tryhackme.com
 + Missing Semester https://missing.csail.mit.edu/
++ Linux Journey https://linuxjourney.com
 
 ## 参考资料
 
