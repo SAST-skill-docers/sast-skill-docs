@@ -3331,6 +3331,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化与反序列化：JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="序列化与反序列化：JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsonobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSONObject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsonarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSONArray
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    <span class="md-ellipsis">
+      输出日志：Log
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3942,6 +3993,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化与反序列化：JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="序列化与反序列化：JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsonobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSONObject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsonarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSONArray
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    <span class="md-ellipsis">
+      输出日志：Log
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4227,6 +4329,176 @@
 <span class="n">videoView</span><span class="p">.</span><span class="na">setMediaController</span><span class="p">(</span><span class="n">mediaController</span><span class="p">);</span>
 <span class="n">videoView</span><span class="p">.</span><span class="na">requestFocus</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="json">序列化与反序列化：JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
+<p>JSONObject 和 JSONArray 是在处理 JSON 数据时使用的两种基本数据结构。它们是轻量级的，并且通常用于在 Web 服务和移动应用之间传输数据。在 Android 开发中，这两个类通常由 <code>org.json</code> 库提供，这个库不是 Android 标准库的一部分，因此需要单独添加到项目中。</p>
+<h3 id="jsonobject">JSONObject<a class="headerlink" href="#jsonobject" title="Permanent link">&para;</a></h3>
+<p>JSONObject 是一个映射表，用来存储键值对，其中键是字符串，值可以是以下类型之一：</p>
+<ul>
+<li><code>String</code></li>
+<li><code>Number</code></li>
+<li><code>JSONObject</code></li>
+<li><code>JSONArray</code></li>
+<li><code>Boolean</code></li>
+<li><code>null</code></li>
+</ul>
+<p><strong>基本用法</strong>:</p>
+<ol>
+<li><strong>创建 JSONObject</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">JSONObject</span><span class="w"> </span><span class="n">jsonObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JSONObject</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>添加数据</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span>
+<span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="p">);</span>
+<span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">anotherJsonObject</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>获取数据</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">&quot;key2&quot;</span><span class="p">);</span>
+<span class="n">JSONObject</span><span class="w"> </span><span class="n">jobj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">getJSONObject</span><span class="p">(</span><span class="s">&quot;key3&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>遍历 JSONObject</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">keys</span><span class="p">();</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keys</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 处理 key 和 value</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="jsonarray">JSONArray<a class="headerlink" href="#jsonarray" title="Permanent link">&para;</a></h3>
+<p>JSONArray 是一个列表，用于存储有序的值集合。与 JSONObject 类似，JSONArray 中的值也可以是字符串、数字、布尔值、另一个 JSONObject 或 JSONArray。</p>
+<p><strong>基本用法</strong>:</p>
+<ol>
+<li><strong>创建 JSONArray</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">JSONArray</span><span class="w"> </span><span class="n">jsonArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JSONArray</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>添加数据</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;value1&quot;</span><span class="p">);</span>
+<span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">anotherJsonObject</span><span class="p">);</span>
+<span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">anotherJsonArray</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>获取数据</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">JSONObject</span><span class="w"> </span><span class="n">jobj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">getJSONObject</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">JSONArray</span><span class="w"> </span><span class="n">jarray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">getJSONArray</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>访问长度</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>遍历 JSONArray</strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 处理 value</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_4">示例代码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下是一个简单的示例，演示了如何创建和使用 <code>JSONObject</code> 和 <code>JSONArray</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.json.JSONArray</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.json.JSONObject</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JsonExample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 创建 JSONObject</span>
+<span class="w">        </span><span class="n">JSONObject</span><span class="w"> </span><span class="n">jsonObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JSONObject</span><span class="p">();</span>
+<span class="w">        </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;John Doe&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 创建 JSONArray</span>
+<span class="w">        </span><span class="n">JSONArray</span><span class="w"> </span><span class="n">jsonArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JSONArray</span><span class="p">();</span>
+<span class="w">        </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Banana&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">jsonArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Cherry&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 将 JSONArray 添加到 JSONObject</span>
+<span class="w">        </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;fruits&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jsonArray</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 输出整个 JSON 对象</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 获取并输出 name</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// 获取并遍历 fruits</span>
+<span class="w">        </span><span class="n">JSONArray</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonObject</span><span class="p">.</span><span class="na">getJSONArray</span><span class="p">(</span><span class="s">&quot;fruits&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fruits</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="log">输出日志：Log<a class="headerlink" href="#log" title="Permanent link">&para;</a></h2>
+<p>在 Android 开发中，Log 类是用于输出日志信息的非常有用的工具。它属于 <code>android.util</code> 包，提供了多种方法来打印不同级别的日志信息，帮助开发者调试应用。</p>
+<p>日志信息通常包括一个标签（tag）和一个消息（message）。标签是一个简短的字符串，用于标识日志信息的来源，而消息则是要输出的具体内容。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;preferenceTest&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;This is a debug message.&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Log 类输出的日志可以在 Android Studio 的 Logcat 窗口中查看。Logcat 是一个实时日志查看工具，允许开发者根据日志级别、标签等条件过滤日志信息。</p>
+<p>使用 Log 类是 Android 开发中调试和监控应用状态的重要手段。合理使用日志可以帮助你快速定位问题并优化应用性能。</p>
 
 
 
@@ -4247,7 +4519,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年11月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月19日</span>
   </span>
 
     
@@ -4258,12 +4530,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:m18965691135@163.com">Andonade</a>
+        <a href="mailto:m18965691135@163.com">Andonade</a>, 
+        <a href="mailto:leverimmy@gmail.com">leverimmy</a>
     </nav>
   </span>
 
@@ -4326,7 +4599,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:m18965691135@163.com'>Andonade</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:m18965691135@163.com'>Andonade</a> (52.09%), <a href='mailto:leverimmy@gmail.com'>leverimmy</a> (47.91%)</span>
             </small>
         </div>
     

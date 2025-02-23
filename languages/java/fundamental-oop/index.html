@@ -4745,12 +4745,8 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="na">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brand</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>
-<p><em>class</em> 的成员方法可以访问类的域和方法而不需要<code>this</code>指定。</p>
-</li>
-<li>
-<p>但是如果出现了变量或者形参名字冲突，则需要<code>this.</code>手动指定。</p>
-</li>
+<li><em>class</em> 的成员方法可以访问类的域和方法而不需要<code>this</code>指定。</li>
+<li>但是如果出现了变量或者形参名字冲突，则需要<code>this.</code>手动指定。</li>
 </ul>
 <h3 id="instance-initialization-block">Instance Initialization Block 实例初始化块<a class="headerlink" href="#instance-initialization-block" title="Permanent link">&para;</a></h3>
 <p>在类中直接使用<code>{}</code>扩起来的部分称为实例初始化块，它会在任何构造器运行之前运行。</p>
@@ -4870,18 +4866,13 @@
 <ul>
 <li>使用<code>.</code>调用对象的方法/接口。</li>
 </ul>
-<hr />
 <h2 id="reuse-classes">Reuse Classes<a class="headerlink" href="#reuse-classes" title="Permanent link">&para;</a></h2>
 <p>所有人都喜欢代码重用。
 在面向对象的语义中，类定义了几乎所有的行为和数据，那么代码重用指的<em>重用类</em>，即<em>用已有的类来生成新的类</em>的过程。</p>
 <p>下面就来介绍面向对象中最基本的<em>重用类</em>方式:</p>
 <ul>
-<li>
-<p>组合 Composition。</p>
-</li>
-<li>
-<p>继承 Inheritance。</p>
-</li>
+<li>组合 Composition。</li>
+<li>继承 Inheritance。</li>
 </ul>
 <h3 id="composition">Composition 组合<a class="headerlink" href="#composition" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4896,7 +4887,7 @@
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>组合描述了 <em>"has-a"</em>  关系。</p>
+<p>组合描述了 <em>"has-a"</em> 关系。</p>
 <ul>
 <li>我们可以这种语义来建模更复杂、更贴合实际的汽车，如:</li>
 <li>一辆汽车 <em>有一个</em> 引擎。</li>
@@ -4956,9 +4947,11 @@
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Triangle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>在这个例子中:
-- 矩形<code>Rectangle</code> 圆形<code>Circle</code> 三角形<code>Triangle</code> 都 <em>是一个</em> 几何图形 <code>Shape</code> 。
-- <code>Rectangle</code> <code>Circle</code> <code>Triangle</code>都包含了<code>Shape</code>提供的三个公开接口，即获取表面积 <code>area()</code>  绘制 <code>draw()</code>  判断点是否在图形内部 <code>inside(double, double)</code> 。</p>
+<p>在这个例子中:</p>
+<ul>
+<li>矩形<code>Rectangle</code> 圆形<code>Circle</code> 三角形<code>Triangle</code> 都 <em>是一个</em> 几何图形 <code>Shape</code> 。</li>
+<li><code>Rectangle</code> <code>Circle</code> <code>Triangle</code>都包含了<code>Shape</code>提供的三个公开接口，即获取表面积 <code>area()</code>  绘制 <code>draw()</code>  判断点是否在图形内部 <code>inside(double, double)</code> 。</li>
+</ul>
 <p><strong>Inheritance:  Override/重载方法</strong></p>
 <p>子类会继承父类的接口，但是大多数情况下，子类需要提供自己的实现。这时就需要 <em>override/重载</em> 方法。比如<code>Shape</code> 的 <code>area()</code>和 <code>inside(double, double)</code> 都是无意义的。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -5697,7 +5690,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年2月10日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月19日</span>
   </span>
 
     
@@ -5708,12 +5701,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:ch-li21@mails.tsinghua.edu.cn">李骋昊</a>
+        <a href="mailto:ch-li21@mails.tsinghua.edu.cn">李骋昊</a>, 
+        <a href="mailto:leverimmy@gmail.com">leverimmy</a>
     </nav>
   </span>
 
@@ -5776,7 +5770,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:ch-li21@mails.tsinghua.edu.cn'>李骋昊</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:ch-li21@mails.tsinghua.edu.cn'>李骋昊</a> (99.7%), <a href='mailto:leverimmy@gmail.com'>leverimmy</a> (0.3%)</span>
             </small>
         </div>
     

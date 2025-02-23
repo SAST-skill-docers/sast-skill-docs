@@ -3239,18 +3239,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#manifests" class="md-nav__link">
     <span class="md-ellipsis">
-      项目概览
+      Manifests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#fragmentsactivitiesservicesadaptersintents" class="md-nav__link">
     <span class="md-ellipsis">
-      项目文件
+      Fragments/Activities/Services/Adapters/Intents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle Scripts
     </span>
   </a>
   
@@ -3907,18 +3934,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#manifests" class="md-nav__link">
     <span class="md-ellipsis">
-      项目概览
+      Manifests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#fragmentsactivitiesservicesadaptersintents" class="md-nav__link">
     <span class="md-ellipsis">
-      项目文件
+      Fragments/Activities/Services/Adapters/Intents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle Scripts
     </span>
   </a>
   
@@ -3945,38 +3999,92 @@
 
 
 <h1 id="android">Android 项目的构成<a class="headerlink" href="#android" title="Permanent link">&para;</a></h1>
-<h2 id="_1">项目概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在 Android Studio 中新建一个空项目，可以看到项目结构如下</p>
-<p><center>
-    <img src="https://i.imgs.ovh/2023/11/24/MBny0.png" width="30%">
-</center></p>
-<h2 id="_2">项目文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>项目中最关键的就是 app 目录下的项目文件，它包含几个重要的部分：</p>
+<h2 id="manifests">Manifests<a class="headerlink" href="#manifests" title="Permanent link">&para;</a></h2>
+<p>在 Android 应用中，<code>AndroidManifest.xml</code> 文件是必不可少的。它是 Android 应用的核心配置文件，它包含了应用的元数据和配置信息，用于描述应用的结构和行为。这个文件为系统提供了关于应用的各种关键信息，如应用的<strong>包名</strong>、<strong>应用图标</strong>、<strong>版本信息</strong>、<strong>支持的 Android 版本</strong>、<strong>对外暴露的组件</strong>（如 Activity、Service、BroadcastReceiver 等），以及其他系统需要知道的设置和权限。</p>
+<p>以下是一个 <code>AndroidManifest.xml</code> 文件的示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+<span class="w">    </span><span class="na">xmlns:tools=</span><span class="s">&quot;http://schemas.android.com/tools&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;application</span>
+<span class="w">        </span><span class="na">android:allowBackup=</span><span class="s">&quot;true&quot;</span>
+<span class="w">        </span><span class="na">android:dataExtractionRules=</span><span class="s">&quot;@xml/data_extraction_rules&quot;</span>
+<span class="w">        </span><span class="na">android:fullBackupContent=</span><span class="s">&quot;@xml/backup_rules&quot;</span>
+<span class="w">        </span><span class="na">android:icon=</span><span class="s">&quot;@mipmap/ic_launcher&quot;</span>
+<span class="w">        </span><span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+<span class="w">        </span><span class="na">android:roundIcon=</span><span class="s">&quot;@mipmap/ic_launcher_round&quot;</span>
+<span class="w">        </span><span class="na">android:supportsRtl=</span><span class="s">&quot;true&quot;</span>
+<span class="w">        </span><span class="na">android:theme=</span><span class="s">&quot;@style/Theme.Wordle&quot;</span>
+<span class="w">        </span><span class="na">tools:targetApi=</span><span class="s">&quot;31&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;activity</span>
+<span class="w">            </span><span class="na">android:name=</span><span class="s">&quot;.MainActivity&quot;</span>
+<span class="w">            </span><span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;intent-filter&gt;</span>
+<span class="w">                </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">                </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/intent-filter&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/activity&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/application&gt;</span>
+
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="fragmentsactivitiesservicesadaptersintents">Fragments/Activities/Services/Adapters/Intents<a class="headerlink" href="#fragmentsactivitiesservicesadaptersintents" title="Permanent link">&para;</a></h2>
+<p>这些组件是 Android 应用的基本组成部分，位于 <code>app/src/main/java/</code> 文件夹里。</p>
 <ul>
-<li>
-<p><code>AndroidManifest.xml</code> 是应用清单文件，需要声明以下内容：</p>
+<li><strong>Fragments</strong>：可以看作是活动的一部分，用于管理用户界面的一部分。</li>
+<li><strong>Activities</strong>：是应用中的一个单独的屏幕，用户可以与之交互。</li>
+<li><strong>Services</strong>：用于在后台执行长时间运行的操作，而不会干扰用户界面。</li>
+<li><strong>Adapters</strong>：用于将数据绑定到视图组件，如列表视图或网格视图。</li>
+<li><strong>Intents</strong>：用于启动活动、服务或广播，还可以在应用之间传递数据。</li>
+</ul>
+<p>其中，<code>MainActivity.java</code> 通常作为应用的主入口点，它是一个继承自 <code>Activity</code> 的类，用于定义应用的主界面和用户交互逻辑。</p>
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
+<p>测试是确保应用质量和稳定性的重要部分。测试文件通常位于以下两个目录：</p>
 <ul>
-<li>应用的软件包名称，如 com.example.myapp。</li>
-<li>应用的组件，如应用中使用的 Activity 和 Service。</li>
-<li>应用为访问系统或其他应用的受保护部分所需的权限，如使用网络连接的权限、读取外部储存的权限等等，具体的权限清单可以查看 <a href="https://developer.android.com/reference/android/Manifest.permission">权限 API 参考文档页面</a>。</li>
-<li>应用需要的硬件和软件功能，特别是 <strong>minSdkversion</strong> 和 <strong>targetSdkversion</strong>，前者定义了 APP 所需要的最低 API 级别，后者指定了应用的目标 API 级别，API 级别与 Android 的系统版本相对应，对应关系可查看 <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element?hl=zh-cn#ApiLevels">什么是 API 级别</a>。</li>
+<li><code>app/src/test/</code>：包含单元测试，这些测试在开发人员的机器上运行。</li>
+<li><code>app/src/androidTest/</code>：包含仪器测试，这些测试在设备或模拟器上运行。</li>
 </ul>
-</li>
-<li>
-<p><code>java</code> 目录下存放的是 Java 源代码文件。</p>
-</li>
-<li><code>res</code> 目录下包含所有非代码资源（例如 XML 布局、界面字符串和位图图像），我们将在下一节介绍 Android 的资源文件。</li>
-<li><code>build.gradle</code> 是构建工具包 Gradle 执行应用构建过程的配置文件，除了指定使用的 Java 版本以及 API 级别外，应用所使用的依赖项也需要添加到 <code>build.gradle</code> 中，如
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>dependencies {
-    implementation &#39;com.google.android.material:material:1.8.0&#39;
-    implementation &#39;com.squareup.okhttp3:okhttp:4.9.2&#39;
-}
-</code></pre></div></td></tr></table></div></li>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p>资源文件是应用的非代码部分，包括图像、字符串、颜色定义等。资源文件位于 <code>app/src/main/res/</code> 文件夹中，主要包括：</p>
+<ul>
+<li><code>drawable/</code>：存放图像资源。</li>
+<li><code>values/</code>：存放字符串、颜色定义、尺寸定义等。</li>
+<li><code>layout/</code>：存放应用的布局文件，如 XML 文件。</li>
 </ul>
-<p>其他文件在创建项目时就已经由 Android Studio 帮助你完成了，几乎不需要更多的修改。</p>
+<h2 id="gradle-scripts">Gradle Scripts<a class="headerlink" href="#gradle-scripts" title="Permanent link">&para;</a></h2>
+<p>Gradle 是 Android 应用的构建系统。Gradle Scripts 用于定义项目的构建过程和依赖关系。主要文件包括：</p>
+<ul>
+<li><code>gradle.properties</code>：定义全局配置，如最小 SDK 版本。</li>
+<li><code>gradle-wrapper.properties</code>：定义 Gradle 包装器的配置。</li>
+<li><code>settings.gradle.kts</code>：定义项目设置，如模块名称。</li>
+<li><code>build.gradle.kts</code>：定义模块的构建逻辑，包括依赖项和插件。</li>
+</ul>
 
 
 
@@ -3997,7 +4105,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年11月24日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月19日</span>
   </span>
 
     
@@ -4008,12 +4116,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:m18965691135@163.com">Andonade</a>
+        <a href="mailto:m18965691135@163.com">Andonade</a>, 
+        <a href="mailto:leverimmy@gmail.com">leverimmy</a>
     </nav>
   </span>
 
@@ -4076,7 +4185,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:m18965691135@163.com'>Andonade</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:m18965691135@163.com'>Andonade</a> (13.89%), <a href='mailto:leverimmy@gmail.com'>leverimmy</a> (86.11%)</span>
             </small>
         </div>
     
