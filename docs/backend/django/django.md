@@ -117,12 +117,17 @@ urlpatterns = [
 !!! question 思考题
 	假如 `<project>/urls.py` 要把所有的请求都转发给 `api/urls.py`，`<project>/urls.py` 中 `path` 应如何填写？
 
+## Django 中的 MVC 框架
+
+我们认为, MVC 中的 M 对应 `Model`, V 对应 `Template`, C 对应 `View`.
 
 
 ## 模型（Models）
 
 !!! note 数据库使用的相关知识
 	如果你对记录、主键、外键、索引、联合主键这些概念并不熟悉，你可以阅读 [这篇文档](https://zhuanlan.zhihu.com/p/64368422) 快速入门。在实际的开发过程中，这些元数据对于数据表的设计以及数据库使用起来的性能是至关重要的。
+
+Model 是后端的核心: 其定义了如何高效保存数据, 使得应用运行时的任意与数据库有关的操作的复杂度能控制在可以接受的范围内
 
 在 Django 中，模型用于数据库中数据表的结构设计以及数据表的元数据（如主键、外键、索引等）管理。我们使用 Django 提供的 ORM 机制来进行对数据表和数据表列属性的管理。具体来说，我们只需要在 `<app>/models.py` 中定义一个类继承 `django.db.models.Model` 即可，比如[官方文档](https://docs.djangoproject.com/zh-hans/4.1/intro/tutorial02/)中给出的定义：
 
@@ -145,7 +150,7 @@ class Choice(models.Model):
 python3 manage.py makemigrations <app_name>
 ```
 
-注意请不要将 migrations 文件夹纳入到 .gitignore 文件中。进而，每次在服务端部署时，在其运行之前，请确保你的部署脚本会执行：
+注意请 **不要** 将 migrations 文件夹纳入到 .gitignore 文件中 (此时在你更改数据库之后你应该运行 makemigrations, 这会定义如何将之前的数据库正确迁移到新的数据表结构中, 以保证数据库的连续性)。进而，每次在服务端部署时，在其运行之前，请确保你的部署脚本会执行：
 
 ```bash
 python3 manage.py migrate
@@ -158,10 +163,103 @@ python3 manage.py migrate
 !!! question 思考题
 	请查阅文档，主键、外键、联合主键、唯一性约束、索引这些元数据都应该如何创建？
 
+!!! tip 自动创建的主键
+    如果没有显式定义主键, Django 会自动创建一个名为 `id` 的主键, 且会自动增加 `unique=True` 约束. 你可以通过 `primary_key=True` 来显式定义主键.
+
 !!! note 参考资料
 	本节对应官方文档 “编写你的第一个 Django 应用，第 2 部分” 中“数据库配置”、“创建模型”、“激活模型”节。
 
+    关于更多字段类型, 参阅 [Django Model Field Reference](https://docs.djangoproject.com/en/5.0/ref/models/fields/).
 
+!!! warning 注意
+    Django 的不同 ORM 后端可能带来不一样的特性! 如在 SQLite 中, 以下定义
+
+    ```python
+    id = models.CharField(max_length=10, primary_key=True)
+    ```
+
+    中虽然 `id` 的 `max_length` 是 10, 你依然可以存一个长度大于 10 的字符串进去而不引发错误. 但这并不代表着在 *任意* DB Backend 中都可以这样! 换句话说, Django 可能并不能完整校验你的数据, 导致你的代码在不同的数据库后端中可能会有不同的行为. 所以 **你需要在代码中显式校验你的数据**
+
+
+在完成字段定义之后, 可以使用 `Question.objects` 这个全局的对象来操作数据库. 这是一个 `<django.db.models.manager.Manager object at 0x7dd182ee0ec0>` 对象, 提供了增 (create) / 删 (delete) / 改 (update) / 查 (filter / get) 等等操作. 同时, 你也可以拿到实例之后和修改 Python 对象一样修改这个实例, 然后调用 `save()` 方法来保存修改.
+
+```python
+# Create
+Question.objects.create(question_text="Q1")
+
+# or
+q = Question(question_text="Q2")
+q.save() # This line raises if any constraints fail
+
+# Query
+Question.objects.filter(question_text='1')
+
+# or
+q = Question.objects.get(id=1) # This line raises if none match / multiple items match
+
+# Update
+Question.objects.filter(id=1).update(question_text='Q?')
+# Returns the number of items updated
+
+# or
+q = Question.objects.get(id=1)
+q.question_text = "Updated Text"
+q.save()
+
+# Delete
+Question.objects.filter(id=1).delete()
+```
+
+更进阶的用法可以参考 [Django ORM](https://docs.djangoproject.com/en/5.0/topics/db/queries/). 我只想在此指出, 由于这些操作 **都是动态完成的** (IDE 没法帮你检查), 所以在更改 Model 的字段名称时, 需要格外小心检查是否所有静态和动态引用都得到了正确的更新.
+
+### 数据库的一致性
+
+在 Django 中, 除了部分操作 (create / update / delete) 之外, 对 object 的修改必须通过调用 `save()` 来保存; 而以上的操作都是实时写入 DB 的 (Auto-Commit).
+
+数据库有关的操作都不可避免地存在可能的异常, 不管是由于网络问题, 由于自身的数据校验问题, 或者并发问题. 如果在部分操作已经写入数据库时出现异常, 则可能导致数据库不一致.
+
+!!! note 什么是数据库不一致
+    举个例子, 如果你在一个事务中, 先创建了一个 User, 然后创建了一个 Profile, 如果在创建 Profile 时出现异常, 则数据库中会有一个 User, 但是没有对应的 Profile. 这种情况下, 数据库就是不一致的.
+
+    数据库不一致会导致你的应用出现各种奇怪的问题, 因为在编写代码时我们常常假定数据库中的数据是正确的. 比如在使用 User 的 Profile 时, 我们一般不会额外检查 User 是否存在 Profile, 而是找到 User 后直接查询 Profile.
+
+因此, 期望的数据库操作应该是 **原子的** (Atomic), 即要么全部成功, 要么全部失败. 可以通过我们自己写 Revert 逻辑, 也可以通过 Django 提供的 [`transaction.atomic`](https://docs.djangoproject.com/en/5.0/topics/db/transactions/) 来实现.
+
+在 `atomic` 块中的所有数据库操作要么全部成功; 要么全部失败. 如果在 `atomic` 块中的某个地方抛出异常, 数据库会回滚到 `atomic` 块开始的状态. 这有效解决了因为奇怪问题导致的数据库不一致错误.
+
+```python
+# All operations in this block are atomic
+with transaction.atomic():
+    u = User.objects.create(username='john')
+    p = Profile.objects.create(user=u)
+```
+
+### Admin 管理面板
+
+Django 提供了一个内建的管理面板以方便管理数据库中的数据.
+
+通过一两句话 (此处以另一个小项目作为例子)
+
+```python
+from .models import Student, Course
+
+admin.site.register(Student)
+admin.site.register(Course)
+```
+
+你就可以在管理面板中对这些 Model 进行增删改查操作了. 但首先, 你需要用
+
+```sh
+./manage.py createsuperuser
+```
+
+来创建一个超级用户, 然后用这个超级用户登录管理面板.
+
+![Django Admin Panel](../../static/backend/django/django-admin-panel.png)
+
+![Django Admin Manage Model](../../static/backend/django/django-admin-manage-model.png)
+
+Django Admin 可以让你在生产环境爆炸的时候迅速修数据库 (x)
 
 ## 视图（Views）
 
@@ -248,7 +346,6 @@ def message(request):  # 这里 request 是 HttpRequest 类型的对象
 
 !!! note 参考资料
 	本节对应官方文档 “编写你的第一个 Django 应用，第 1 部分” 中“编写第一个视图”节，“编写你的第一个 Django 应用，第 3 部分”中“编写更多视图”、“写一个真正有用的视图”、“抛出 404 错误”节。
-
 
 
 ## 单元测试（Unit Tests）
@@ -405,3 +502,4 @@ def index(request):
 
 - [《软件工程》课程小作业讲稿与文档](https://thuse-course.github.io/course-index/)
 - [Django 官方文档](https://docs.djangoproject.com/en/4.2/)
+- [2024 科协暑培文档](https://summer24.net9.org/backend/django/django/)
