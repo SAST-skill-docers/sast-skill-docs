@@ -1,0 +1,4701 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>现代概率机器学习初步 - SAST skill docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="SAST skill docs" class="md-header__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SAST skill docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              现代概率机器学习初步
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  欢迎来到 SAST skill docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../courses/" class="md-tabs__link">
+          
+  
+    
+  
+  课程指引
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic/" class="md-tabs__link">
+          
+  
+    
+  
+  基本技能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../languages/" class="md-tabs__link">
+          
+  
+    
+  
+  编程语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../frontend/" class="md-tabs__link">
+          
+  
+    
+  
+  前端框架
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../backend/" class="md-tabs__link">
+          
+  
+    
+  
+  后端框架
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hardware/" class="md-tabs__link">
+          
+  
+    
+  
+  硬件设计
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  人工智能 & 机器学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../source/" class="md-tabs__link">
+          
+  
+    
+  
+  资源链接
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SAST skill docs" class="md-nav__button md-logo" aria-label="SAST skill docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SAST skill docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Ashitemaru/sast-skill-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SAST skill docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    欢迎来到 SAST skill docs
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            欢迎来到 SAST skill docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    读者须知
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/editor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编辑者须知
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../courses/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    课程指引
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程指引
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../basic/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    基本技能
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            基本技能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/meet-problems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何解决问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VSCode 配置
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/latex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LaTeX 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web 与 Web 应用基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    编程语言
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            编程语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/c-oop/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++ 语言面向对象
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++ 语言面向对象
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编程环境
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 语言函数进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/class-easy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 类语法初步
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/class-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 类语法进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/reference-copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引用与复制
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/combination-and-derivation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组合与继承
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/virtual-function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    虚函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/polymorphism-and-templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多态与模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/templates-and-intro-to-stl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模板进阶与 STL 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/stl-and-string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL 与字符串处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/function-object-and-smart-pointers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    函数对象和智能指针
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/c-oop/behavioral-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式与行为型模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/modern-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    现代 C++ 语言
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/python/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Python 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/python/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 包管理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/python/crawler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 网络请求与爬虫基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML 语言基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/css/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CSS 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            CSS 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/css/bootstrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap 简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/css/mdui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MDUI 简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/java/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Java 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Java 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/java/introduction-and-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction and Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/java/basic-language-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Language Structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/java/fundamental-oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental OOP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/java/design-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/java/advanced-language-feature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Language Feature
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/javascript/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    JavaScript 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的变量与变量类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的控制语句
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的面向对象
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的异步
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/oop-advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript 的面向对象进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/browser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    浏览器中的 JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/typescript/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    TypeScript 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            TypeScript 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/typescript/variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript 的变量与变量类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/typescript/function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript 的函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/typescript/oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript 的面向对象
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/typescript/type/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript 的复杂类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/rust/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Rust 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Rust 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/whyrust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 入门的一点经验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的变量与类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 中的流程控制
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/matching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 模式匹配
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/struct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的结构体
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的引用与借用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/node.js/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Node.js 基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js 基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/node.js/npm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    npm 简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../languages/swift/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Swift 语言基础
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            Swift 语言基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/variable-function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    变量和函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/control-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    流程控制
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    泛型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/internal-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部分内置类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/swift/extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后续拓展
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../frontend/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    前端框架
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            前端框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../frontend/swiftui/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SwiftUI 与 iOS 开发入门
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            SwiftUI 与 iOS 开发入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/swiftui/hello-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/swiftui/build-views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    构建 View
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/swiftui/data-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据流基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/swiftui/declaritive-mvvm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    声明式 UI 与 MVVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/swiftui/extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后续拓展
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../frontend/react/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    React 开发入门
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            React 开发入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组件、属性与状态
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    生命周期
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/dataflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    非常规数据流
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/function-component/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    函数组件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/react/extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后续拓展
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../frontend/android/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Android 开发入门
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android 开发入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/android/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android 项目的构成
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/android/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android 的资源库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/android/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android 的组件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/android/useful-things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些实用组件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/android/extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后续学习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../backend/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    后端框架
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            后端框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/expressjs/express-js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExpressJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/go/go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/django/django/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/crawler/crawler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    爬虫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hardware/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    硬件设计
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            硬件设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/cod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机组成与设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能 & 机器学习
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能 & 机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch 入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adversarial-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对抗搜索
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../source/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    资源链接
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            资源链接
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../source/book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    书目推荐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../source/basic-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础技能培训
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../source/lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AAIA 讲座
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../source/source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外部链接
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 引言
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 引言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      符号含义与其他说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 生成式模型的基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 生成式模型的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 生成式模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 生成式模型的两大任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 隐变量生成模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 隐变量生成模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      隐变量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 隐变量模型的变分推断
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 隐变量模型的变分推断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      命题 1（对数似然的变分下界）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 扩散模型：基于概率统计的数学本质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 扩散模型：基于概率统计的数学本质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 模型的参数化形式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 模型的参数化形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义 2 (去噪扩散概率模型)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 扩散模型的训练（模型参数估计）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 扩散模型的训练（模型参数估计）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 对数似然及其变分下界
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 参数估计的具体目标推导
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2.2 参数估计的具体目标推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      命题 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 扩散模型的推理（从分布中采样）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 扩散模型的推理（从分布中采样）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ddpm-sampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法 1 (DDPM Sampler)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 未尽话题与结语
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习作业
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+    
+                  
+
+
+  
+  
+
+
+<h1 id="_1">现代概率机器学习初步<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1 引言<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>当下，生成式人工智能 (AGI) 广受关注，在文本、图像、视频生成等领域均有不足表现。其中，在图像生成、视频生成等任务中，目前效果最佳的技术路线为扩散模型 (Diffusion Model,DM)，例如 OpenAI 的 Sora 模型。尽管人工智能一向被大多数人视作不可解释的“黑箱”，但具体到扩散模型，却有着极其清晰、深刻的数学本质：可以说在数学视角下，其本质上就是一个统计模型。本文尝试基于概率统计理论，以严格的数学语言，对扩散模型原理进行详细的推导与总结。值得注意的是，当前扩散模型的理论研究，更多已从初等概率论视角演变到随机分析视角，通过运用 ODE、SDE 等工具，将模型本质抽象到更加高等的数学中。但由于本课程的核心内容不涉及随机分析，故本文仅从初等概率论与统计视角出发，以扩散模型的“开山之作”——Jonathan Ho 等于 2020 年发表的 <strong>去噪扩散概率模型</strong> (Denoising Diffusion Probabilistic Models,DDPM)及其延伸话题为讨论对象。</p>
+<p>值得注意的是，由于论文没有以数学的思路来提出、整理命题，并且较多结论没有给出证明（这是因为论文作者认为证明较为简单，不便占用过多篇幅），因此本文不会简单地重复该论文的思路与结构，而是尝试整理其前因后果，对其中出现的结论加以数学化的整理与表达。</p>
+<p>本文将先介绍机器学习中，生成式模型的普遍性概念，再具体探讨扩散模型的数学内涵。</p>
+<h3 id="_2">符号含义与其他说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>对随机向量 <span class="arithmatex"><span class="MathJax_Preview">(X_1, X_2, ..., X_n)^T</span><script type="math/tex">(X_1, X_2, ..., X_n)^T</script></span>，为简洁起见，将之记作 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>。</li>
+<li>对随机向量 <span class="arithmatex"><span class="MathJax_Preview">X = [x_1, x_2, ..., x_n]^T</span><script type="math/tex">X = [x_1, x_2, ..., x_n]^T</script></span>，<span class="arithmatex"><span class="MathJax_Preview">dX := dx_1 dx_2 ... dx_n</span><script type="math/tex">dX := dx_1 dx_2 ... dx_n</script></span>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">p(X)</span><script type="math/tex">p(X)</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">q(X)</span><script type="math/tex">q(X)</script></span> 表示随机变量（向量）<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的 PDF。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">p_{data}(X)</span><script type="math/tex">p_{data}(X)</script></span> 表示数据实际服从的分布；<span class="arithmatex"><span class="MathJax_Preview">p_{model}(X)</span><script type="math/tex">p_{model}(X)</script></span> 表示建模得到的分布。</li>
+<li>如无特殊说明，本文的所有随机变量（向量）的分布均为连续分布，且其 PDF 均连续。</li>
+</ol>
+<h2 id="2">2 生成式模型的基本概念<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>机器学习的两种建模方式分别为判别式建模 (discriminative modeling) 和生成式建模 (generative modeling)，扩散模型即属于后者。因此，我们先来探讨生成式模型的基本概念。</p>
+<h3 id="21">2.1 生成式模型<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>我们先以图像生成为例加以说明。计算机将图像表示成许多像素，如果将每个像素视作一个随机变量，那么整张图片便可以看做一个随机向量 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>。根据 <strong>数据流形的分布假设</strong>，有意义的图像（即现实生活中能够出现的图像）服从某种概率分布，即 <span class="arithmatex"><span class="MathJax_Preview">X \sim P_{data}(X)</span><script type="math/tex">X \sim P_{data}(X)</script></span>。我们的目的是，通过对现实数据的统计方法建立一个统计模型 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(X)</span><script type="math/tex">P_{model}(X)</script></span>，来模拟 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>，这就引出了生成式模型的概念：</p>
+<p><strong>定义 1（生成式模型）</strong>：给定特征空间 <span class="arithmatex"><span class="MathJax_Preview">R^d</span><script type="math/tex">R^d</script></span> 上的数据分布 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>，生成式模型是由参数空间 <span class="arithmatex"><span class="MathJax_Preview">\Theta</span><script type="math/tex">\Theta</script></span> 中参数 <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 定义的一个参数模型，使得模型分布 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(X)</span><script type="math/tex">P_{model}(X)</script></span> 近似于 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>，并可以从 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(X)</span><script type="math/tex">P_{model}(X)</script></span> 中采样，从而生成新的数据。</p>
+<p>生成式模型的一个重要作用，在于模型分布如能足够近似真实数据分布，则通过从模型分布中采样，可以生成近似服从真实分布的数据，从而实现全新数据的获得。例如，在完成图像生成模型的训练后，我们便可以源源不断地获取心目中高质量的图片。</p>
+<h3 id="22">2.2 生成式模型的两大任务<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>根据上述概念，我们可以看出生成式模型的两个任务：
+1. 尽量精确地拟合真实分布 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>，我们将此称作 <strong>训练</strong>；
+2. 从模型分布中采样，以便生成新的数据，我们将此称作 <strong>推理</strong>。对训练而言，要估计 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>，我们有很多方法，此处以最大似然估计为例。给定数据样本 <span class="arithmatex"><span class="MathJax_Preview">\{X_1, X_2, ..., X_n\}</span><script type="math/tex">\{X_1, X_2, ..., X_n\}</script></span>，训练所得参数为<br />
+[
+\theta^* = \argmax_{\theta} \sum_{i=1}^{n} \log p_{model}(X_i).
+]</p>
+<h3 id="23">2.3 隐变量生成模型<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>在明确基本概念后，我们来考虑如何具体参数化 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(X)</span><script type="math/tex">P_{model}(X)</script></span>。当前，包括扩散模型在内的主流生成模型，均为 <strong>隐变量生成模型</strong>。以下将对此加以解释：</p>
+<h4 id="_3">隐变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>首先明确 <strong>隐变量的概念</strong>。隐变量（latent variable）是不能直接观测到的随机变量，它用于描述数据生成过程中的未知因素。举例而言，在统计“北京市市民是否支持五环以内限行”问题时，我们获得的数据只有“支持还是反对”的信息（这就是所谓“观测变量”），而这些调查对象的年龄、居住地等信息，对于我们来说不可知。然而，这些因素却深切影响了“是否支持”这一观测变量，我们称这些因素为“隐变量”。</p>
+<p>然后定义“隐变量生成模型”：</p>
+<p><strong>定义 2（隐变量生成模型）</strong>：对于某个生成模型，设随机向量 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 为观测变量，<span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> 为隐变量，若 <span class="arithmatex"><span class="MathJax_Preview">p_z(z), p_{x|z}(x|z)</span><script type="math/tex">p_z(z), p_{x|z}(x|z)</script></span> 是参数模型，则称这一模型为隐变量生成模型。</p>
+<p><strong>注 1</strong>：通常，隐变量边缘分布 <span class="arithmatex"><span class="MathJax_Preview">p_z(z)</span><script type="math/tex">p_z(z)</script></span> 是已知的或人为设定的先验分布，如标准正态分布。在这种情况下，模型中唯一未定参数是 <span class="arithmatex"><span class="MathJax_Preview">p_{x|z}(x|z)</span><script type="math/tex">p_{x|z}(x|z)</script></span> 中的参数。于是，参数估计（及模型训练）的任务就转化成：根据样本，使用 MLE 方法，确定 <span class="arithmatex"><span class="MathJax_Preview">p_{x|z}(x|z)</span><script type="math/tex">p_{x|z}(x|z)</script></span> 的参数。</p>
+<p>我们来稍作解释。为何要引入隐变量？这可以大大提升模型的表达能力，便于参数化，有利于使用机器学习方法予以拟合。举一个具体例子：</p>
+<p><strong>例 1（变分自编码器的译码器模型，Decoder of VAE）</strong>：设隐变量 <span class="arithmatex"><span class="MathJax_Preview">Z \sim N(Z;0,I)</span><script type="math/tex">Z \sim N(Z;0,I)</script></span>，特征变量（如图像像素）为 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>，定义 <span class="arithmatex"><span class="MathJax_Preview">p_{x|z}(x|z) = N(x;\mu(z),\sigma^2(z)I)</span><script type="math/tex">p_{x|z}(x|z) = N(x;\mu(z),\sigma^2(z)I)</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">\mu(z),\sigma(z)</span><script type="math/tex">\mu(z),\sigma(z)</script></span> 均为 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的函数。则 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的模型分布为 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(x) = \int p_z(z)p_{x|z}(x|z) dz</span><script type="math/tex">P_{model}(x) = \int p_z(z)p_{x|z}(x|z) dz</script></span>。（注：高维正态分布的刻画涉及协方差矩阵，此处是其协方差阵为一个对角阵 <span class="arithmatex"><span class="MathJax_Preview">\sigma^2(z)I</span><script type="math/tex">\sigma^2(z)I</script></span>。下文若无特殊说明，所涉及的正态分布均为高维正态分布）</p>
+<p>对于上例，我们用神经网络来拟合 <span class="arithmatex"><span class="MathJax_Preview">\mu(z), \sigma(z)</span><script type="math/tex">\mu(z), \sigma(z)</script></span> 两个函数。假设 <span class="arithmatex"><span class="MathJax_Preview">\mu(z) = f(z; \theta_1, \theta_2, ..., \theta_k)</span><script type="math/tex">\mu(z) = f(z; \theta_1, \theta_2, ..., \theta_k)</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">\theta_i</span><script type="math/tex">\theta_i</script></span> 为参数，则给定数据样本 <span class="arithmatex"><span class="MathJax_Preview">\{x_1, x_2, ..., x_n\}</span><script type="math/tex">\{x_1, x_2, ..., x_n\}</script></span>，神经网络的训练目标是：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta_i^* = \argmax_{\theta_i} \left( \sum_{i=1}^n \log p_{model}(x_i) \right)   (1)
+</div>
+<script type="math/tex; mode=display">
+\theta_i^* = \argmax_{\theta_i} \left( \sum_{i=1}^n \log p_{model}(x_i) \right)   (1)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p(x_i, z) dz \right)   (2)
+</div>
+<script type="math/tex; mode=display">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p(x_i, z) dz \right)   (2)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p_z(z) p_{X|Z}(x_i|z) dz \right)    (3)
+</div>
+<script type="math/tex; mode=display">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p_z(z) p_{X|Z}(x_i|z) dz \right)    (3)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int N(z; 0, I) N(x_i; \mu(z), \sigma^2(z)I) dz \right)    (4)
+</div>
+<script type="math/tex; mode=display">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int N(z; 0, I) N(x_i; \mu(z), \sigma^2(z)I) dz \right)    (4)
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">N(z; 0, I)</span><script type="math/tex">N(z; 0, I)</script></span> 表示将 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 代入标准正态分布 <span class="arithmatex"><span class="MathJax_Preview">N(0, I)</span><script type="math/tex">N(0, I)</script></span> PDF 后所得结果，<span class="arithmatex"><span class="MathJax_Preview">N(x_i; \mu(z), \sigma^2(z)I)</span><script type="math/tex">N(x_i; \mu(z), \sigma^2(z)I)</script></span> 表示将 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 代入正态分布 <span class="arithmatex"><span class="MathJax_Preview">N(x; \mu(z), \sigma^2(z)I)</span><script type="math/tex">N(x; \mu(z), \sigma^2(z)I)</script></span> 的 PDF 后所得结果。</p>
+<p>显然，相较于直接假设 <span class="arithmatex"><span class="MathJax_Preview">p_{model}(X)</span><script type="math/tex">p_{model}(X)</script></span> 是正态分布 <span class="arithmatex"><span class="MathJax_Preview">N(\mu, \sigma^2 I)</span><script type="math/tex">N(\mu, \sigma^2 I)</script></span>，隐变量模型的参数更多（直接假设，则参数只有 <span class="arithmatex"><span class="MathJax_Preview">\mu, \Sigma</span><script type="math/tex">\mu, \Sigma</script></span> 两个常数，而隐变量模型则可以将 <span class="arithmatex"><span class="MathJax_Preview">\mu(z), \sigma^2(z)</span><script type="math/tex">\mu(z), \sigma^2(z)</script></span> 视作函数，用神经网络的许多参数来拟合它们。我们有理由认为，参数越多，模型的表达能力越强（也就是能够更加逼近真实的数据分布 <span class="arithmatex"><span class="MathJax_Preview">P_{data}(X)</span><script type="math/tex">P_{data}(X)</script></span>）。</p>
+<h3 id="24">2.4 隐变量模型的变分推断<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>隐变量生成模型的训练具体应怎么操作？我们此处一直假定采用 MLE 方法。沿用上述例子，如何来具体求出</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta_i^* = \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p_z(z) p_{X|Z}(x_i|z) dz \right)     (5)
+</div>
+<script type="math/tex; mode=display">
+\theta_i^* = \argmax_{\theta_i} \left( \sum_{i=1}^n \log \int p_z(z) p_{X|Z}(x_i|z) dz \right)     (5)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log p_X(x_i) \right)    (6)
+</div>
+<script type="math/tex; mode=display">
+= \argmax_{\theta_i} \left( \sum_{i=1}^n \log p_X(x_i) \right)    (6)
+</script>
+</div>
+<p>是一个关键问题。显然，想要直接求导数做最大似然，就需要求出上述积分的一个解析解，这无疑非常困难。换言之，隐变量参数模型的训练，不能直接采用对数似然来做 MLE。为此，我们引入 <strong>变分推断</strong> 的方法，以实现 MLE 的具体操作。</p>
+<h4 id="1_1">命题 1（对数似然的变分下界）<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>记对数似然 <span class="arithmatex"><span class="MathJax_Preview">L(\theta) := \sum_{i=1}^n \log p_X(x_i)</span><script type="math/tex">L(\theta) := \sum_{i=1}^n \log p_X(x_i)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">q(z|x; \phi)</span><script type="math/tex">q(z|x; \phi)</script></span> 为另一个分布，其中 <span class="arithmatex"><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span> 是参数。则：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L(\theta) \geq \sum_{i=1}^n E_q [\log p(z, x_i; \theta) - \log q(z|x_i; \phi)] := L(\theta, \phi),    (7)
+</div>
+<script type="math/tex; mode=display">
+L(\theta) \geq \sum_{i=1}^n E_q [\log p(z, x_i; \theta) - \log q(z|x_i; \phi)] := L(\theta, \phi),    (7)
+</script>
+</div>
+<p>且若 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 的函数形式与 <span class="arithmatex"><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span> 的具体取值均无任何限制，则对任意确定的 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>，都存在一个 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 的函数形式与 <span class="arithmatex"><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span> 的取值，使得 <span class="arithmatex"><span class="MathJax_Preview">L(\theta, \phi) = L(\theta)</span><script type="math/tex">L(\theta, \phi) = L(\theta)</script></span>。</p>
+<p>根据此命题，可知 <span class="arithmatex"><span class="MathJax_Preview">\max_{\theta} L(\theta, \phi) = \max_{\theta} L(\theta)</span><script type="math/tex">\max_{\theta} L(\theta, \phi) = \max_{\theta} L(\theta)</script></span>，从而 <span class="arithmatex"><span class="MathJax_Preview">\argmax_{\theta} (\max_{\theta} L(\theta, \phi)) = \argmax_{\theta} (L(\theta))</span><script type="math/tex">\argmax_{\theta} (\max_{\theta} L(\theta, \phi)) = \argmax_{\theta} (L(\theta))</script></span>，因此对 <span class="arithmatex"><span class="MathJax_Preview">L(\theta, \phi)</span><script type="math/tex">L(\theta, \phi)</script></span> 做 MLE 来估计 <span class="arithmatex"><span class="MathJax_Preview">\theta^*</span><script type="math/tex">\theta^*</script></span>，等价于对 <span class="arithmatex"><span class="MathJax_Preview">L(\theta)</span><script type="math/tex">L(\theta)</script></span> 做 MLE。</p>
+<p>基于此，我们对 <span class="arithmatex"><span class="MathJax_Preview">q(z|x;\phi)</span><script type="math/tex">q(z|x;\phi)</script></span> 做一些预设（例如，确定 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 的函数形式，确定其参数个数），使得 <span class="arithmatex"><span class="MathJax_Preview">L(\theta,\phi)</span><script type="math/tex">L(\theta,\phi)</script></span> 易于实际计算，那么我们便将难以实际操作的 <span class="arithmatex"><span class="MathJax_Preview">L(\theta)</span><script type="math/tex">L(\theta)</script></span> MLE 转换成方便计算的 <span class="arithmatex"><span class="MathJax_Preview">L(\theta,\phi)</span><script type="math/tex">L(\theta,\phi)</script></span> MLE。</p>
+<p>当然，由于为了便于计算，我们对 <span class="arithmatex"><span class="MathJax_Preview">q(z|x;\phi)</span><script type="math/tex">q(z|x;\phi)</script></span> 做了一些预设，这些限制可能导致上述的取等无法实现。但事实上，即使不能取等，二者的差异也相对较小。因此，这种方法是进行 MLE 的可行方式。</p>
+<p>实际上，这就是所谓 <strong>变分推断</strong> 的基本思想，扩散模型正是基于这一思路进行参数估计（也即所谓“训练”）的。下面，我们正式进入对扩散模型的讨论。</p>
+<h2 id="3">3 扩散模型：基于概率统计的数学本质<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>扩散模型是一个 <strong>多隐变量生成模型</strong>，在上文隐变量模型的基础上，引入了多个隐变量，从而实现了更优的表达能力。下面先介绍模型的参数化形式，随后在此基础上说明参数估计（即“模型训练”）的具体方法。</p>
+<h3 id="31">3.1 模型的参数化形式<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h4 id="2_1">定义 2 (去噪扩散概率模型)<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<p>设随机向量 <span class="arithmatex"><span class="MathJax_Preview">X_0, X_1, ..., X_T \in R^d</span><script type="math/tex">X_0, X_1, ..., X_T \in R^d</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">R^d</span><script type="math/tex">R^d</script></span> 为特征空间，<span class="arithmatex"><span class="MathJax_Preview">X_0</span><script type="math/tex">X_0</script></span> 为观测变量（eg. 图像像素组成的随机向量），<span class="arithmatex"><span class="MathJax_Preview">X_1, ..., X_T</span><script type="math/tex">X_1, ..., X_T</script></span> 为隐变量。定义隐变量 <span class="arithmatex"><span class="MathJax_Preview">X_i(i=1,2,...,T)</span><script type="math/tex">X_i(i=1,2,...,T)</script></span> 服从的真实分布为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+q_{X_0}(x_0) = p_{data}(x_0),    (8)
+</div>
+<script type="math/tex; mode=display">
+q_{X_0}(x_0) = p_{data}(x_0),    (8)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+q_{X_i|X_{i-1}}(x_i|x_{i-1}) = N(x_i; \sqrt{1-\beta_i}x_{i-1}, \beta_i I),    (9)
+</div>
+<script type="math/tex; mode=display">
+q_{X_i|X_{i-1}}(x_i|x_{i-1}) = N(x_i; \sqrt{1-\beta_i}x_{i-1}, \beta_i I),    (9)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+q_{X_i|X_{i-1},...,X_0}(x_i|x_{i-1},...,x_0) = q_{X_i|X_{i-1}}(x_i|x_{i-1}), \quad i=1,2,...,T,    (10)
+</div>
+<script type="math/tex; mode=display">
+q_{X_i|X_{i-1},...,X_0}(x_i|x_{i-1},...,x_0) = q_{X_i|X_{i-1}}(x_i|x_{i-1}), \quad i=1,2,...,T,    (10)
+</script>
+</div>
+<p>模型分布为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_{X_T}(x_T) = N(x_T; 0,I),   (11)
+</div>
+<script type="math/tex; mode=display">
+p_{X_T}(x_T) = N(x_T; 0,I),   (11)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t,t),\sigma_t^2 I),  (12)
+</div>
+<script type="math/tex; mode=display">
+p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t,t),\sigma_t^2 I),  (12)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_{X_{t-1}|X_t,...,X_T}(x_{t-1}|x_t,...,x_T) = p_{X_{t-1}|X_t}(x_{t-1}|x_t), \quad t=1,2,...,T, (13)
+</div>
+<script type="math/tex; mode=display">
+p_{X_{t-1}|X_t,...,X_T}(x_{t-1}|x_t,...,x_T) = p_{X_{t-1}|X_t}(x_{t-1}|x_t), \quad t=1,2,...,T, (13)
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">\sigma_t</span><script type="math/tex">\sigma_t</script></span> 是预设常数（是不可学习的定值），<span class="arithmatex"><span class="MathJax_Preview">\mu(x_t,t)</span><script type="math/tex">\mu(x_t,t)</script></span> 是关于 <span class="arithmatex"><span class="MathJax_Preview">x_t</span><script type="math/tex">x_t</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的函数，使用神经网络进行模拟。以这个神经网络中的参数作为估计参数，则这个参数模型称作 <strong>去噪扩散概率模型</strong> (Denoising Diffusion Probabilistic Model, DDPM)。</p>
+<p>下面对此概念进行一些直观的解释。<span class="arithmatex"><span class="MathJax_Preview">X_0</span><script type="math/tex">X_0</script></span> 是数据特征变量，例如一张 256*256，由三原色组成的图像，则其中所有像素构成了 <span class="arithmatex"><span class="MathJax_Preview">X_0 \in R^{256\times256\times3}</span><script type="math/tex">X_0 \in R^{256\times256\times3}</script></span>。隐变量 <span class="arithmatex"><span class="MathJax_Preview">X_1,...,X_T</span><script type="math/tex">X_1,...,X_T</script></span> 是人为引入的变量，而既然是人为引入，那么就可以人为指定它们的分布形式，具体而言，<span class="arithmatex"><span class="MathJax_Preview">q_{X_i|X_{i-1}}(x_i|x_{i-1}) = N(x_i; \sqrt{1-\beta_i}x_{i-1}, \beta_i I)</span><script type="math/tex">q_{X_i|X_{i-1}}(x_i|x_{i-1}) = N(x_i; \sqrt{1-\beta_i}x_{i-1}, \beta_i I)</script></span> 这一条件分布，指明了 <span class="arithmatex"><span class="MathJax_Preview">X_i</span><script type="math/tex">X_i</script></span> 的构造方法：根据正态分布性质，联系上式，我们有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+X_t = \sqrt{1-\beta_t}X_{t-1} + \sqrt{\beta_t}\epsilon, \quad \epsilon \sim N(0,I).    (14)
+</div>
+<script type="math/tex; mode=display">
+X_t = \sqrt{1-\beta_t}X_{t-1} + \sqrt{\beta_t}\epsilon, \quad \epsilon \sim N(0,I).    (14)
+</script>
+</div>
+<p>换言之，<span class="arithmatex"><span class="MathJax_Preview">X_t</span><script type="math/tex">X_t</script></span> 其实就是对 <span class="arithmatex"><span class="MathJax_Preview">X_{t-1}</span><script type="math/tex">X_{t-1}</script></span> 与标准正态 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 的线性组合。由于标准正态分布是不含有效信息的高斯噪声，因此获得 <span class="arithmatex"><span class="MathJax_Preview">X_t</span><script type="math/tex">X_t</script></span> 的这一过程，就相当于向 <span class="arithmatex"><span class="MathJax_Preview">X_{t-1}</span><script type="math/tex">X_{t-1}</script></span> 添加一些“噪声”。因此，这个过程被称作 “<strong>加噪过程</strong>”（也称“前向过程”）。为提高模型表达能力，T 往往很大，如 <span class="arithmatex"><span class="MathJax_Preview">T = 1000</span><script type="math/tex">T = 1000</script></span>。至于 10 式所规定的马尔可夫性，则其实也能反应在式 14 中，即：隐变量的分布仅取决于它的直接前驱，与时间序列中的其他祖先无关。</p>
+<p>类似地，我们定义的模型分布 <span class="arithmatex"><span class="MathJax_Preview">p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t, t), \sigma^2_t I)</span><script type="math/tex">p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t, t), \sigma^2_t I)</script></span> (<span class="arithmatex"><span class="MathJax_Preview">t = 1, 2, ..., T</span><script type="math/tex">t = 1, 2, ..., T</script></span>) 可以理解成从一个标准正态分布出发不断迭代，用许多正态分布的“复合”来近似真实的数据分布。具体而言：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_{model}(x_0) = p_{X_0}(x_0)    (15)
+</div>
+<script type="math/tex; mode=display">
+p_{model}(x_0) = p_{X_0}(x_0)    (15)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \int p(x_0, x_1, ..., x_T)dx_1...dx_T     (16)
+</div>
+<script type="math/tex; mode=display">
+= \int p(x_0, x_1, ..., x_T)dx_1...dx_T     (16)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \int p_{X_T}(x_T) \prod_{t=1}^T p_{X_{t-1}|X_t}(x_{t-1}|x_t)dx_1...dx_T,    (17)
+</div>
+<script type="math/tex; mode=display">
+= \int p_{X_T}(x_T) \prod_{t=1}^T p_{X_{t-1}|X_t}(x_{t-1}|x_t)dx_1...dx_T,    (17)
+</script>
+</div>
+<p>其中 16 式到 17 式的等号利用了 13 式规定的马尔可夫性。</p>
+<p>换言之，只要我们能够确定 <span class="arithmatex"><span class="MathJax_Preview">p_{X_{t-1}|X_t}(x_{t-1}|x_t)</span><script type="math/tex">p_{X_{t-1}|X_t}(x_{t-1}|x_t)</script></span>，我们便理论上获得了模型分布 <span class="arithmatex"><span class="MathJax_Preview">p_{model}(x_0)</span><script type="math/tex">p_{model}(x_0)</script></span>。当然，即使确定了这些参数，由于计算的复杂性，我们还是不可能直接积分求 <span class="arithmatex"><span class="MathJax_Preview">p_{model}(x_0)</span><script type="math/tex">p_{model}(x_0)</script></span>，具体如何根据这些隐变量条件分析来实现从 <span class="arithmatex"><span class="MathJax_Preview">p_{model}(x_0)</span><script type="math/tex">p_{model}(x_0)</script></span> 中采样，我们将在后文略作讨论。</p>
+<p>下面，我们从“生成模型的两个任务”（见 2.2），即训练与推理两方面展开。</p>
+<h3 id="32">3.2 扩散模型的训练（模型参数估计）<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>注：在实际应用神经网络进行训练时，为了便于减小误差、更易拟合，原论文并未直接拟合 <span class="arithmatex"><span class="MathJax_Preview">\mu(x_t, t)</span><script type="math/tex">\mu(x_t, t)</script></span>，而是采用了一个等价形式。然而由于其数学本质没有区别，更多是工程上的技巧，因此为了使表达简洁而不冗杂，本文仍直接用 <span class="arithmatex"><span class="MathJax_Preview">\mu(x_t, t)</span><script type="math/tex">\mu(x_t, t)</script></span> 的拟合来推导原理。</p>
+<h4 id="321">3.2.1 对数似然及其变分下界<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<p>我们的目标是通过 <strong>最大似然估计</strong> 来做参数估计。但是，沿用 2.4 提出的观点，由于直接计算边际分布需要积分，但此积分在实际操作中几乎不可积，因此我们不能直接运用 17 式，求出 <span class="arithmatex"><span class="MathJax_Preview">p(X_0)</span><script type="math/tex">p(X_0)</script></span> 之后做 MLE，而该使用 <strong>变分推断</strong> 的方法。具体而言，设训练集为 <span class="arithmatex"><span class="MathJax_Preview">\{x_{01}, x_{02}, ..., x_{0N}\}</span><script type="math/tex">\{x_{01}, x_{02}, ..., x_{0N}\}</script></span>，隐变量 <span class="arithmatex"><span class="MathJax_Preview">X_{ti}</span><script type="math/tex">X_{ti}</script></span> (<span class="arithmatex"><span class="MathJax_Preview">t = 1, ..., T</span><script type="math/tex">t = 1, ..., T</script></span>) 是以 <span class="arithmatex"><span class="MathJax_Preview">X_{0i}</span><script type="math/tex">X_{0i}</script></span> 为基础，根据加噪过程构造的（注：针对训练集的每个 <span class="arithmatex"><span class="MathJax_Preview">X_{0i}</span><script type="math/tex">X_{0i}</script></span>，我们构造许多 <span class="arithmatex"><span class="MathJax_Preview">X_{ti}</span><script type="math/tex">X_{ti}</script></span>，以增强训练效果）。用上述 <span class="arithmatex"><span class="MathJax_Preview">X_{ti}, ..., X_{Ti}</span><script type="math/tex">X_{ti}, ..., X_{Ti}</script></span> 代入式 7 中的隐变量 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span>，可得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum_{i=1}^{N} \log p_{X_0}(x_{0i}) \geq \sum_{i=1}^{N} E_q(x_{1i}, ..., x_{Ti}) \left[ \log p(x_{1i}, x_{2i}, ..., x_{Ti}, x_{0i}; \theta) - \log q(x_{1i}, x_{2i}, ..., x_{Ti}|x_{0i}) \right],  (18)
+</div>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{N} \log p_{X_0}(x_{0i}) \geq \sum_{i=1}^{N} E_q(x_{1i}, ..., x_{Ti}) \left[ \log p(x_{1i}, x_{2i}, ..., x_{Ti}, x_{0i}; \theta) - \log q(x_{1i}, x_{2i}, ..., x_{Ti}|x_{0i}) \right],  (18)
+</script>
+</div>
+<p>这里 RHS 是对 <span class="arithmatex"><span class="MathJax_Preview">X_1, ..., X_T</span><script type="math/tex">X_1, ..., X_T</script></span> 求期望。当 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 极大时，由大数定律，该式近似为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+E_{q(X_0)} \log p_{X_0}(x_0) \geq E_{q(X_0,X_1,...,X_T)} \left[ \log p(x_1,x_2,...,x_T,x_0;\theta) - \log q(x_1,x_2,...,x_T|x_0) \right], (19)
+</div>
+<script type="math/tex; mode=display">
+E_{q(X_0)} \log p_{X_0}(x_0) \geq E_{q(X_0,X_1,...,X_T)} \left[ \log p(x_1,x_2,...,x_T,x_0;\theta) - \log q(x_1,x_2,...,x_T|x_0) \right], (19)
+</script>
+</div>
+<p>这里 LHS 是对 <span class="arithmatex"><span class="MathJax_Preview">X_0</span><script type="math/tex">X_0</script></span> 求期望，RHS 是对 <span class="arithmatex"><span class="MathJax_Preview">X_0,X_1,...,X_T</span><script type="math/tex">X_0,X_1,...,X_T</script></span> 求期望。由于实际训练的 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 非常大，因此下文默认采用此式。</p>
+<p>于是，MLE 中的</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta^* = \argmax_{\theta} E_{q_{X_0}(X_0)} \log p_{X_0}(x_0),   (20)
+</div>
+<script type="math/tex; mode=display">
+\theta^* = \argmax_{\theta} E_{q_{X_0}(X_0)} \log p_{X_0}(x_0),   (20)
+</script>
+</div>
+<p>可以根据 2.4 而近似为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta^* = \argmax_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ \log p(x_1,x_2,...,x_T,x_0;\theta) - \log q(x_1,x_2,...,x_T|x_0) \right], (21)
+</div>
+<script type="math/tex; mode=display">
+\theta^* = \argmax_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ \log p(x_1,x_2,...,x_T,x_0;\theta) - \log q(x_1,x_2,...,x_T|x_0) \right], (21)
+</script>
+</div>
+<p>根据机器学习的优化习惯，我们希望最小化目标函数，故此对上式取反：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta^* = \argmin_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ \log q(x_1,x_2,...,x_T|x_0) - \log p(x_1,x_2,...,x_T,x_0;\theta) \right]. (22)
+</div>
+<script type="math/tex; mode=display">
+\theta^* = \argmin_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ \log q(x_1,x_2,...,x_T|x_0) - \log p(x_1,x_2,...,x_T,x_0;\theta) \right]. (22)
+</script>
+</div>
+<p>根据条件概率定义，联系 10.13 两式，我们可以把 22 式展开为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta^* = \argmin_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ - \log p_{X_T}(X_T) - \sum_{t \geq 1} \log \frac{p_{X_{t-1}|X_t}(x_{t-1}|x_t)}{q_{X_t|X_{t-1}}(x_t|x_{t-1})} \right]   (23)
+</div>
+<script type="math/tex; mode=display">
+\theta^* = \argmin_{\theta} E_{q(X_0,X_1,...,X_T)} \left[ - \log p_{X_T}(X_T) - \sum_{t \geq 1} \log \frac{p_{X_{t-1}|X_t}(x_{t-1}|x_t)}{q_{X_t|X_{t-1}}(x_t|x_{t-1})} \right]   (23)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+:= \argmin_{\theta} L.  (24)
+</div>
+<script type="math/tex; mode=display">
+:= \argmin_{\theta} L.  (24)
+</script>
+</div>
+<p>下面来最小化 <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span>。</p>
+<h3 id="322">3.2.2 参数估计的具体目标推导<a class="headerlink" href="#322" title="Permanent link">&para;</a></h3>
+<h4 id="2_2">命题 2<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L = E_q \left[ KL(q(x_T|x_0)||p(x_T)) + \sum_{t&gt;1} KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t)) - \log p(x_0|x_1) \right], (25)
+</div>
+<script type="math/tex; mode=display">
+L = E_q \left[ KL(q(x_T|x_0)||p(x_T)) + \sum_{t>1} KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t)) - \log p(x_0|x_1) \right], (25)
+</script>
+</div>
+<p>其中</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+KL(p(x)||q(x)) := E_{p(x)} \left[ \log \frac{p(x)}{q(x)} \right], (26)
+</div>
+<script type="math/tex; mode=display">
+KL(p(x)||q(x)) := E_{p(x)} \left[ \log \frac{p(x)}{q(x)} \right], (26)
+</script>
+</div>
+<p>称为两个分布之间的 <strong>KL 散度</strong>。（为简洁起见，上述命题将形如 <span class="arithmatex"><span class="MathJax_Preview">p_{X|Y}(x|y)</span><script type="math/tex">p_{X|Y}(x|y)</script></span> 的条件概率符号记作 <span class="arithmatex"><span class="MathJax_Preview">p(x|y)</span><script type="math/tex">p(x|y)</script></span> 省略了下标）</p>
+<p>考察 25 式中的三个加项，将之分别记作</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_T := E_q[KL(q(x_T|x_0)||p(x_T))], (27)
+</div>
+<script type="math/tex; mode=display">
+L_T := E_q[KL(q(x_T|x_0)||p(x_T))], (27)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_{t-1} := E_q[KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t))],  (28)
+</div>
+<script type="math/tex; mode=display">
+L_{t-1} := E_q[KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t))],  (28)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_0 := E_q[- \log p(x_0|x_1)],   (29)
+</div>
+<script type="math/tex; mode=display">
+L_0 := E_q[- \log p(x_0|x_1)],   (29)
+</script>
+</div>
+<p>则</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L = L_T + \sum_{t&gt;1} L_{t-1} + L_0, (30)
+</div>
+<script type="math/tex; mode=display">
+L = L_T + \sum_{t>1} L_{t-1} + L_0, (30)
+</script>
+</div>
+<p>我们对这三项逐一加以探讨。</p>
+<p><strong>(i). 第一部分: 考察 <span class="arithmatex"><span class="MathJax_Preview">L_T</span><script type="math/tex">L_T</script></span></strong></p>
+<p>考虑如下命题：</p>
+<p><strong>命题3</strong>：加噪过程中，</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+q_{X_T|X_0}(x_T|x_0) = N(x_T; \sqrt{\alpha_T} x_0, (1 - \alpha_T)I), (31)
+</div>
+<script type="math/tex; mode=display">
+q_{X_T|X_0}(x_T|x_0) = N(x_T; \sqrt{\alpha_T} x_0, (1 - \alpha_T)I), (31)
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">\alpha_T := \prod_{i=1}^T (1 - \beta_i)</span><script type="math/tex">\alpha_T := \prod_{i=1}^T (1 - \beta_i)</script></span>。</p>
+<p>根据命题3，我们发现 <span class="arithmatex"><span class="MathJax_Preview">q_{X_T|X_0}(x_T|x_0)</span><script type="math/tex">q_{X_T|X_0}(x_T|x_0)</script></span> 是一个不含可学习参数的分布（如上文所述，<span class="arithmatex"><span class="MathJax_Preview">\beta_i</span><script type="math/tex">\beta_i</script></span> 预先固定），而 <span class="arithmatex"><span class="MathJax_Preview">p_{X_T}(x_T)</span><script type="math/tex">p_{X_T}(x_T)</script></span> 也是人为预设的 <span class="arithmatex"><span class="MathJax_Preview">N(0,I)</span><script type="math/tex">N(0,I)</script></span>，因此 <span class="arithmatex"><span class="MathJax_Preview">L_T</span><script type="math/tex">L_T</script></span> 没有可以推断的参数，是一个常数。</p>
+<p><strong>(ii). 第二部分: 考察 <span class="arithmatex"><span class="MathJax_Preview">L_0</span><script type="math/tex">L_0</script></span></strong></p>
+<p>由于相较于 <span class="arithmatex"><span class="MathJax_Preview">T = 1000</span><script type="math/tex">T = 1000</script></span> 这样庞大的数字，这一项对整体优化影响很小，且在实践中发现优化此项带来的性能提升极少，因此我们暂不考虑 <span class="arithmatex"><span class="MathJax_Preview">L_0</span><script type="math/tex">L_0</script></span> 的优化（事实上 DDPM 的原始论文也未曾考察此项）。</p>
+<p><strong>(iii). 第三部分: 考察 <span class="arithmatex"><span class="MathJax_Preview">L_{t-1}</span><script type="math/tex">L_{t-1}</script></span></strong></p>
+<p>因此，我们只需最小化 <span class="arithmatex"><span class="MathJax_Preview">\sum_{t&gt;1} L_t</span><script type="math/tex">\sum_{t>1} L_t</script></span>，我们这里尝试对每一个 <span class="arithmatex"><span class="MathJax_Preview">t \in \{2,3,4,...,T\}</span><script type="math/tex">t \in \{2,3,4,...,T\}</script></span>，都最小化 <span class="arithmatex"><span class="MathJax_Preview">L_{t-1}</span><script type="math/tex">L_{t-1}</script></span>。事实上，这样做会自然地引发一个问题，即：这些 <span class="arithmatex"><span class="MathJax_Preview">L_{t-1}</span><script type="math/tex">L_{t-1}</script></span> 是否能够同时取最小值？假若不能，那么分别取最小，就不能确保整体之和最小。所以，由于我们的参数是一个拟合 <span class="arithmatex"><span class="MathJax_Preview">\mu(x,t)</span><script type="math/tex">\mu(x,t)</script></span> 函数中的经验条件的参数，而神经网络只要足够深，拟合能力便相当之强，因此足以实拟合对每个 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 都取 <span class="arithmatex"><span class="MathJax_Preview">\min L_{t-1}</span><script type="math/tex">\min L_{t-1}</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">\mu(x,t)</span><script type="math/tex">\mu(x,t)</script></span>。</p>
+<p>先考虑如下两个命题：</p>
+<p><strong>命题4 (离散形式的布朗桥)</strong>：加噪过程中，</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+q(x_{t-1}|x_t,x_0) = N(x_{t-1}; \hat{\mu}_t(x_0,x_t), \hat{\beta}_tI),  (32)
+</div>
+<script type="math/tex; mode=display">
+q(x_{t-1}|x_t,x_0) = N(x_{t-1}; \hat{\mu}_t(x_0,x_t), \hat{\beta}_tI),  (32)
+</script>
+</div>
+<p>其中</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\hat{\mu}_t(x_0,x_t) := \frac{\sqrt{\alpha_{t-1}}\beta_t}{1-\alpha_t}x_0 + \frac{\sqrt{1-\beta_t}(1-\alpha_{t-1})}{1-\alpha_t}x_t,  (33)
+</div>
+<script type="math/tex; mode=display">
+\hat{\mu}_t(x_0,x_t) := \frac{\sqrt{\alpha_{t-1}}\beta_t}{1-\alpha_t}x_0 + \frac{\sqrt{1-\beta_t}(1-\alpha_{t-1})}{1-\alpha_t}x_t,  (33)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\hat{\beta}_t := \frac{1-\alpha_{t-1}}{1-\alpha_t}\beta_t.  (34)
+</div>
+<script type="math/tex; mode=display">
+\hat{\beta}_t := \frac{1-\alpha_{t-1}}{1-\alpha_t}\beta_t.  (34)
+</script>
+</div>
+<p><strong>命题5 (正态分布之间的 KL 散度公式)</strong>：设随机变量 <span class="arithmatex"><span class="MathJax_Preview">X \in R^d</span><script type="math/tex">X \in R^d</script></span>，概率密度函数</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_1(x) = N(\mu_1, \sigma_1^2 I), \quad p_2(x) = N(\mu_2, \sigma_2^2 I), 
+</div>
+<script type="math/tex; mode=display">
+p_1(x) = N(\mu_1, \sigma_1^2 I), \quad p_2(x) = N(\mu_2, \sigma_2^2 I), 
+</script>
+</div>
+<p>则这两个正态分布之间的 KL 散度为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+KL(p_1(x)||p_2(x)) = \frac{1}{2} \log \left( \frac{\sigma_1^2}{\sigma_2^2} \right)^d + \frac{\sigma_1^2 + ||\mu_1 - \mu_2||^2}{2\sigma_2^2} - \frac{d}{2}.  (35)
+</div>
+<script type="math/tex; mode=display">
+KL(p_1(x)||p_2(x)) = \frac{1}{2} \log \left( \frac{\sigma_1^2}{\sigma_2^2} \right)^d + \frac{\sigma_1^2 + ||\mu_1 - \mu_2||^2}{2\sigma_2^2} - \frac{d}{2}.  (35)
+</script>
+</div>
+<p>这里仅给出了正态分布的协方差阵是对角阵的情况，不过对我们的话题已经足够。</p>
+<p>根据命题 4、命题 5，我们可以将 <span class="arithmatex"><span class="MathJax_Preview">L_{t-1}</span><script type="math/tex">L_{t-1}</script></span> 化简：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_{t-1} = E_q[KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t))] (36)
+</div>
+<script type="math/tex; mode=display">
+L_{t-1} = E_q[KL(q(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t))] (36)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= E_q \left[ KL \left( N(x_{t-1}; \hat{\mu}_t(x_0,x_t), \hat{\beta}_tI) || N(x_{t-1}; \mu(x_t,t), \sigma_t^2I) \right) \right]   (37)
+</div>
+<script type="math/tex; mode=display">
+= E_q \left[ KL \left( N(x_{t-1}; \hat{\mu}_t(x_0,x_t), \hat{\beta}_tI) || N(x_{t-1}; \mu(x_t,t), \sigma_t^2I) \right) \right]   (37)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= E_q \left[ \frac{1}{2} \log \left( \frac{\hat{\beta}_t}{\sigma_t^2} \right)^d + \frac{\hat{\beta}_t + ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2}{2\sigma_t^2} - \frac{d}{2} \right] (38)
+</div>
+<script type="math/tex; mode=display">
+= E_q \left[ \frac{1}{2} \log \left( \frac{\hat{\beta}_t}{\sigma_t^2} \right)^d + \frac{\hat{\beta}_t + ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2}{2\sigma_t^2} - \frac{d}{2} \right] (38)
+</script>
+</div>
+<p>38 式中，<span class="arithmatex"><span class="MathJax_Preview">\hat{\beta}_t</span><script type="math/tex">\hat{\beta}_t</script></span> 仅取决于 <span class="arithmatex"><span class="MathJax_Preview">x_0, x_t</span><script type="math/tex">x_0, x_t</script></span>，而这两个变量是训练数据，因此是常数；<span class="arithmatex"><span class="MathJax_Preview">\sigma_t</span><script type="math/tex">\sigma_t</script></span> 是预设常数；<span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是特征空间维度，也是常数。因此，想要最小化 <span class="arithmatex"><span class="MathJax_Preview">L_{t-1}</span><script type="math/tex">L_{t-1}</script></span>，可优化之处只有 <span class="arithmatex"><span class="MathJax_Preview">||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2</span><script type="math/tex">||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2</script></span>。因此：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta_{t-1}^* = \argmin L_{t-1} (39)
+</div>
+<script type="math/tex; mode=display">
+\theta_{t-1}^* = \argmin L_{t-1} (39)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmin E_q \left[ \frac{1}{2} \log \left( \frac{\hat{\beta}_t}{\sigma_t^2} \right)^d + \frac{\hat{\beta}_t + ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2}{2\sigma_t^2} - \frac{d}{2} \right]  (40)
+</div>
+<script type="math/tex; mode=display">
+= \argmin E_q \left[ \frac{1}{2} \log \left( \frac{\hat{\beta}_t}{\sigma_t^2} \right)^d + \frac{\hat{\beta}_t + ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2}{2\sigma_t^2} - \frac{d}{2} \right]  (40)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+= \argmin E_q \left[ ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2 \right] (41)
+</div>
+<script type="math/tex; mode=display">
+= \argmin E_q \left[ ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2 \right] (41)
+</script>
+</div>
+<p>至此，我们终于得到了参数 <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 的表达式（亦即参数估计方法）：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta_{t-1}^* = \argmin E_q \left[ ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2 \right] (42)
+</div>
+<script type="math/tex; mode=display">
+\theta_{t-1}^* = \argmin E_q \left[ ||\hat{\mu}_t(x_0,x_t) - \mu(x_t,t)||^2 \right] (42)
+</script>
+</div>
+<p>有了这个解析式，我们就可以采用梯度下降等方法不断优化我们的神经网络（即 <span class="arithmatex"><span class="MathJax_Preview">\mu(x_t,t)</span><script type="math/tex">\mu(x_t,t)</script></span>），从而完成训练。</p>
+<p><strong>小结</strong>：回顾上述推导过程，我们从最大似然估计出发，由于对数似然包含复杂积分、不能直接计算，因此我们使用变分推断，通过引入对数似然的变分下界，将 MLE 的目标转换成 <span class="arithmatex"><span class="MathJax_Preview">\argmin L</span><script type="math/tex">\argmin L</script></span>。在此基础上，我们通过命题 2（式 25），将 <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 拆分成 <span class="arithmatex"><span class="MathJax_Preview">L_T, \sum_{t&gt;1}L_{t-1}, L_0</span><script type="math/tex">L_T, \sum_{t>1}L_{t-1}, L_0</script></span> 三部分，证明了 <span class="arithmatex"><span class="MathJax_Preview">L_T</span><script type="math/tex">L_T</script></span> 是常数，于是 <span class="arithmatex"><span class="MathJax_Preview">L_0</span><script type="math/tex">L_0</script></span> 的影响极小，可以忽略的前提下，我们的 MLE 等价于最小化 <span class="arithmatex"><span class="MathJax_Preview">\sum_{t&gt;1}L_{t-1}</span><script type="math/tex">\sum_{t>1}L_{t-1}</script></span>。由于神经网络极强的拟合能力，这一目标可以通过令所有 <span class="arithmatex"><span class="MathJax_Preview">L_t</span><script type="math/tex">L_t</script></span> 同时取最小实现。通过证明 <span class="arithmatex"><span class="MathJax_Preview">L_t</span><script type="math/tex">L_t</script></span> 所涉及的两个分布均为正态分布，我们就可以通过正态分布之间的 KL 散度公式来得到 <span class="arithmatex"><span class="MathJax_Preview">\min L_t</span><script type="math/tex">\min L_t</script></span> 的等价的、可操作的形式。由此，我们最终找到了一个可操作的参数估计方法。</p>
+<h3 id="33">3.3 扩散模型的推理（从分布中采样）<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>既已确定参数，我们下面就可以利用这个模型来进行生成。正如上文（3.1）所述，在确定 <span class="arithmatex"><span class="MathJax_Preview">P_{X_{t-1}|X_t}(x_{t-1}|x_t)</span><script type="math/tex">P_{X_{t-1}|X_t}(x_{t-1}|x_t)</script></span> 后，我们不能直接通过 17 式积分来获得 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(x_0)</span><script type="math/tex">P_{model}(x_0)</script></span>。但是我们之所以要训练这样一个模型，正是为了能够从 <span class="arithmatex"><span class="MathJax_Preview">P_{model}(x_0)</span><script type="math/tex">P_{model}(x_0)</script></span> 中采样，以便获得新数据。为此，我们采用如下的采样方法：</p>
+<h4 id="1-ddpm-sampler">算法 1 (DDPM Sampler)<a class="headerlink" href="#1-ddpm-sampler" title="Permanent link">&para;</a></h4>
+<ol>
+<li>从 <span class="arithmatex"><span class="MathJax_Preview">N(0,I)</span><script type="math/tex">N(0,I)</script></span> 采样 <span class="arithmatex"><span class="MathJax_Preview">X_T</span><script type="math/tex">X_T</script></span>；</li>
+<li>遍历 <span class="arithmatex"><span class="MathJax_Preview">t=T,...,1</span><script type="math/tex">t=T,...,1</script></span>，进行如下操作：</li>
+<li>(i). 从 <span class="arithmatex"><span class="MathJax_Preview">N(0,I)</span><script type="math/tex">N(0,I)</script></span> 采样 <span class="arithmatex"><span class="MathJax_Preview">z_t</span><script type="math/tex">z_t</script></span>；</li>
+<li>(ii). 计算 <span class="arithmatex"><span class="MathJax_Preview">X_{t-1} = \mu(X_t,t) + \sigma_t z_t</span><script type="math/tex">X_{t-1} = \mu(X_t,t) + \sigma_t z_t</script></span>；</li>
+<li>获得 <span class="arithmatex"><span class="MathJax_Preview">X_0 \sim P_{model}(X_0)</span><script type="math/tex">X_0 \sim P_{model}(X_0)</script></span>。</li>
+</ol>
+<p>这其实就是利用正态分布的性质把 <span class="arithmatex"><span class="MathJax_Preview">p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t, t), \sigma^2_t I)</span><script type="math/tex">p_{X_{t-1}|X_t}(x_{t-1}|x_t) = N(x_{t-1}; \mu(x_t, t), \sigma^2_t I)</script></span> 重写一遍，但好处是这成为了一个可以实际操作的算法。这个算法的执行过程，由于是从高斯噪声出发，逐渐获得一个清晰的图片，因此被称作“去噪过程”（或反向过程）。值得注意的是，实际应用中 <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> 极大（eg.1000），那么就需要极多的迭代步数，这无疑导致了模型生成速度的下降。为解决这一问题，各种采样加速算法不断提出，如 DDIM, DPM-Solver 等等。篇幅所限，不加陈述。</p>
+<h2 id="4">4 未尽话题与结语<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>尽管本文对扩散模型的基本概念进行了一些讨论，尝试推导了一些公式，但本文把扩散模型的全貌仍相差不多，有太多的未尽话题值得思考：例如，上文的探讨有意回避了“条件生成”的概念，模型所生成的内容可能是任何一种物体，如何控制模型生成我们想要的内容？（例如，如何用文字控制模型的生成内容，eg. 输入“一条狗追逐一只猫”的文字，要求模型成功应对内容的图像）这种条件生成的概念，正是颇具热度的文生图、文生视频等模型必不可少的基础。又如，上文推导基础原理时，曾将加噪过程中的方差强行固定，那么是否存在数学上的最优解，能够解析地确定最优方差？再如，如上文所述，采样阶段的近一千步迭代将大大降低采样速率，这势必导致应用上的极大不便，如何实现既加速采样，又保证生成质量，这些改进的背后又有着怎样的数学本质？这些问题引出的杰出工作，都曾大放异彩。至于如何将模型背后的数学本质提高到更加高等的领域，如何将这些离散的加噪、去噪过程转换成连续过程，这一问题引出了 Score Matching SDE 及与之等价的 ODE，这些视角甫一提出，便成为理论研究领域不可或缺的出发点。时至今日，扩散模型的理论日趋完备，如何设计神经网络的具体结构，如何提高模型的生成质量，则成为工业界最为关心的话题。限于篇幅，本文仅探讨了扩散模型的“开山之作”，未曾涉及这些精彩纷呈的后续内容。然而管中窥豹，可见一斑，通过对其数学本质的探讨，我们可以看到，当代人工智能并非毫无理论的“黑盒”，其背后的统计机器学习原理之深刻精彩，成为动人心魄。</p>
+<h2 id="_4">练习作业<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/sast-summer-training-2024/sast2024-diffusion">https://github.com/sast-summer-training-2024/sast2024-diffusion</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月25日</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:gemy23@mails.tsinghua.edu.cn">GEMqysh</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+<h2 id="__comments">评论</h2>
+<!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="sast-skill-docers/sast-skill-docs"
+        data-repo-id="R_kgDOGHh6LQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGHh6Lc4CXywI"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]")
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette")
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) 
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+      var palette = __md_get("__palette")
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        )
+      }
+    })
+  })
+</script>
+                
+    
+        <div class="md-source-date">
+            <small>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:gemy23@mails.tsinghua.edu.cn'>GEMqysh</a></span>
+            </small>
+        </div>
+    
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
