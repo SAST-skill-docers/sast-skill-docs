@@ -44,6 +44,11 @@ for i in (1 .. 10) { // (a .. b) 创建了一个数字序列 Range，表示半�
     sum += i;
 }
 // 实际上这里的求和可以通过迭代器用更优雅和快速的方法重写，此处仅仅作为演示。
+let word: &str = "World";
+    for letter in word.chars() { // 将 &str 类型转化为迭代器
+        println!("{}", letter);
+}
+// 迭代器的简单示例
 ```
 
 ### `while` 循环
