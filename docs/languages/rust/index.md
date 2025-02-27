@@ -21,10 +21,10 @@
 ## 资源链接
 
 ### 官方参考资料
-- The Rust Programming Language（也被称为 The Book）。Rust 官方网站推荐的 Rust 语言入门书籍 https://doc.rust-lang.org/book/
+- The Rust Programming Language（也被称为 The Book）：Rust 官方网站推荐的 Rust 语言入门书籍 https://doc.rust-lang.org/book/
     - The Book 的中文社区翻译版，更新很及时 https://kaisery.github.io/trpl-zh-cn/
 
-- Rustlings。Rust 官方推荐的另一种入门方式，适合喜欢边学边做的同学 https://github.com/rust-lang/rustlings/
+- Rustlings：Rust 官方推荐的另一种入门方式，适合喜欢边学边做的同学 https://github.com/rust-lang/rustlings/
 
 ### 入门教程
 - Rust 官方文档中文教程。https://rustwiki.org
@@ -32,9 +32,9 @@
 - RUNOOB.COM 的 Rust 教程：简明的入门教程，可作为第一份学习资料。https://www.runoob.com/rust/rust-tutorial.html
 
 ### 阅读材料
-- Effective Rust。Rust 进阶教程，比较详细地介绍了 Rust 中类型（Types）、特型（Trait）及 Rust 语言的设计理念和使用方法。 https://www.lurklurk.org/effective-rust/
+- Effective Rust：Rust 进阶教程，比较详细地介绍了 Rust 中类型（Types）、特型（Trait）及 Rust 语言的设计理念和使用方法。 https://www.lurklurk.org/effective-rust/
 
 ### 课程材料
 - CIS 198: Rust Programming：宾夕法尼亚大学的 Rust 课程。https://cis198-2016s.github.io
 
-- 清华大学程序设计训练（Rust）文档：https://lab.cs.tsinghua.edu.cn/rust/
+- 清华大学程序设计训练（Rust）文档。https://lab.cs.tsinghua.edu.cn/rust/
