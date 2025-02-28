@@ -22,28 +22,24 @@ let coin = Coin {
 };
 ```
 
-Rust 的枚举量中可以保存数据成员，十分强大。
+枚举的每种变体 (variant) 可以:
+
+- 没有数据(单位元变体)
+- 有命名的数据域(结构体变体)
+- 有不命名的有序数据域(元组变体)
 
 ```rust
-enum Coin {
-    Dime(u32),
-    Half(u32),
-    Yuan(u32)
-} // 在一个枚举类型中完成类型和面值的记录
-
-let coin = Coin::Dime(10);
-
-enum AnotherEnum {
-    TypeA(i32),
-    TypeB(u32, f64),
-    TypeC(String),
-    TypeD
-} // 枚举类型的数据成员可以互不相同
+enum Resultish { 
+    Ok,
+    Warning { code: i32, message: String },
+    Err(String)
+}
 ```
 
 !!! note "与 C++ 的对照"
 
-    C/C++ 的枚举类型底层是整数，不能拥有数据成员。这是 Rust 和 C/C++ 的一个很大的区别。枚举类型是 Rust 提供给我们的有力武器。
+    C/C++ 的枚举类型底层是整数，不能拥有数据成员。这是 Rust 和 C/C++ 的一个很大的区别。
+    枚举类型是 Rust 提供给我们的有力武器。善用枚举类，可以便捷地传递很多数据。
 
 ## 匹配
 
