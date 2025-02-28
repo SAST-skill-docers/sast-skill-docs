@@ -110,14 +110,14 @@ fn animal_make_sound<T: CanMakeSound>(animal: T) -> String {
 }
 ```
 
-`Trait Bound` 也可以不仅包含一个 `trait`
+`Trait Bound` 也可以不仅包含一个 `trait`。
 
 ```rust
 fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32;
 // 此处的 Display、Clone 和 Debug 都是 rust 语言提供的 trait
 ```
 
-也可以采用 `where` 从句来简化过长的 `Trait Bound`
+也可以采用 `where` 从句来简化过长的 `Trait Bound`。
 
 ```rust
 fn some_function<T, U>(t: T, u: U) -> i32

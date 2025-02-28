@@ -8,7 +8,9 @@ Rust 引入了**所有权（ownership）**的概念：
 - 同一时刻每个值只有一个所有者。
 - 当所有者失效，值也将被丢弃。
 
-变量通过绑定的方式，获得对数据的所有权。如果一个绑定超出作用域，其绑定的数据将被自动释放
+## 变量绑定
+
+变量通过绑定的方式，获得对数据的所有权。如果一个绑定超出作用域，其绑定的数据将被自动释放。
 
 ```rust
 let a = 1;
@@ -24,29 +26,47 @@ println!("{s1}, world!");
 // 此时将发生编译错误 error: borrow of moved value: `s1`
 ```
 
+!!! note "移动所有权"
+    - 移动所有权是编译时的语义，不涉及程序运行时的数据移动，数据对应的内存区域并没有改变，只是更改了对应的变量名（类似C++的指针）。
+    - 移动是默认行为(通过绑定或赋值)，不需要像 C++ 那样用 std::move 来显式指定。
+
+## 借用
+
 但并非所有语境下的变量赋值都希望移交所有权，这个时候应该采用 Rust 中的**借用（borrow）**概念。
+
+### 借用规则
 
 ```rust
 let v = vec![1, 2, 3];
 let v_ref = &v; // v_ref is a reference to v.
 ```
 
-!!! note "移动所有权"
-    - 移动所有权是编译时的语义，不涉及程序运行时的数据移动，数据对应的内存区域并没有改变，只是更改了对应的变量名（类似C++的指针）。
-    - 移动是默认行为(通过绑定或赋值)，不需要像 C++ 那样用 std::move 来显式指定。
-    - 原来的变量依然拥有对数据的所有权。
+!!! note "借用规则"
 
+    - 可以通过对变量取引用来借用变量中的数据的所有权，此时所有权本身并没有发生变化。
+        - 当引用超过作用域，借用也随之结束。
+        - 原来的变量依然拥有对数据的所有权。
 
-当借用发生时，会对原来的变量增加限制：
-- 当一个变量有引用存在时，不能移交它所绑定的数据的所有权。
+    ```rust
+    let v = vec![1, 2, 3];
+    // v_ref is a reference to v.
+    let v_ref = &v;
+    // use v_ref to access the data in the vector v.
+    assert_eq!(v[1], v_ref[1]);
+    ```
 
-```rust
-let v = vec![1, 2, 3];
-let v_ref = &v; 
-let v_new = v;
-// Moving ownership to v_new would invalidate v_ref.
-// error: cannot move out of `v` because it is borrowed 
-```
+    - 当借用发生时，会对原来的变量增加限制：
+        - 当一个变量有引用存在时，不能移交它所绑定的数据的所有权。
+
+    ```rust
+    let v = vec![1, 2, 3];
+    let v_ref = &v; 
+    let v_new = v;
+    // Moving ownership to v_new would invalidate v_ref.
+    // error: cannot move out of `v` because it is borrowed 
+    ```
+
+### 可变借用与不可变借用
 
 Rust 类型系统中，变量被分为**可变**与**不可变**。在借用中，同理可分为**可变借用** `&mut` 和**不可变借用** `&`。
 ```rust
@@ -59,9 +79,11 @@ fn main() {
 
 !!! note "借用规则"
     - 不能在某个对象不存在后继续保留对它的引用。一个对象可以
-        - 同时存在**多个不可变**引用(&T)
+        - 同时存在**多个不可变**引用(&T)。
         - 或者**仅有一个可变引用**(&mut T)。 
-    - 以上两者不能同时存在
+    - 以上两者不能同时存在。
+
+### 函数参数中的借用
 
 需要注意的是，**函数**的**参数传递**时，采用的是与变量赋值和借用相同的语法规则。如果不指定 `&` 或 `&mut`,变量会直接发生移动。
 ```rust
@@ -99,7 +121,7 @@ fn main() {
     println!("x still works: {}, and so does y: {}", x, y);
     ```
     
-    - 可以通过 `impl Copy for ...` 或 `#[derive(Copy)]` 宏为变量实现 Copy 特型
+    - 可以通过 `impl Copy for ...` 或 `#[derive(Copy)]` 宏为变量实现 Copy 特型。
         - 非基本类型在实现了 Copy 特型后，可以通过 `clone()` 等方法进行拷贝。
     
     ```rust
