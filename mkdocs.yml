@@ -138,6 +138,7 @@ nav:
     - Rust 语言基础:
       - languages/rust/index.md
       - Rust 入门的一点经验: languages/rust/whyrust.md
+      - Rust 快速入门: languages/rust/start.md
       - Rust 的所有权: languages/rust/ownership.md
       - Rust 的变量与类型: languages/rust/variable.md
       - Rust 的引用与借用: languages/rust/reference.md

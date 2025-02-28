@@ -70,7 +70,7 @@ fn divide(a: i32, b: i32) -> Result<i32, String>{
 
     ```rust
     fn main() {
-         let a:Option<String> = Some("hello".to_string());
+        let a:Option<String> = Some("hello".to_string());
         let b: Result<_,&str> = Err("world");
         let content = a.unwrap() + " " + b.expect("Empty content"); // If a is None or b is Err, this will panic.
         // a is None: thread 'main' panicked at ...:
