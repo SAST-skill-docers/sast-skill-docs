@@ -88,3 +88,160 @@ Credit: 原作者 lifeihan
 读者可以尝试阅读下列文档学习 PyTorch 框架：
 
 - [动手学深度学习](https://zh-v2.d2l.ai/)
+
+# 2025年新增内容
+课程材料仓库：
+https://github.com/sast-summer-training-2024/sast2024-DP-and-Pytorch.git
+
+https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&vd_source=5f41358f46c6dc60e03c3ff6ca5a8520
+## Pytorch的训练方法类似八股文，百分之99的模型都是这么训练的
+- 准备数据集
+- 定义模型
+- 定义损失函数与优化器
+- 在模型上进行训练
+- 存储模型参数
+
+https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&vd_source=5f41358f46c6dc60e03c3ff6ca5a8520
+给出了一个具体的训练实例，建议对照着视频链接逐步操作。一些要点如下。
+
+## 一些要点
+
+### 模型定义
+在PyTorch中定义神经网络模型需要继承`torch.nn.Module`类，并实现以下两个核心方法：
+```python
+class TestModel(torch.nn.Module):
+    def __init__(self):
+        super().__init__()  # 必须调用父类初始化
+        self.layer = torch.nn.Linear(5, 2)  # 定义全连接层
+
+    def forward(self, data):
+        return self.layer(data)  # 定义前向传播逻辑
+```
+- `__init__`方法用于定义网络层结构
+- `forward`方法实现具体的前向计算过程
+
+### PyTorch梯度计算与模型优化
+梯度计算示例：
+```python
+test_model = TestModel()
+optimizer = torch.optim.SGD(test_model.parameters(), lr=1)
+loss_fn = torch.nn.MSELoss()
+
+# 前向计算
+data = torch.rand((1, 5))
+y = test_model(data)
+
+# 反向传播
+loss = loss_fn(torch.randn((1, 2)), y)
+loss.backward()  # 自动计算梯度
+
+# 参数更新
+optimizer.step()  # 应用梯度更新
+optimizer.zero_grad()  # 清空梯度缓存
+
+# 无梯度计算模式
+with torch.no_grad():
+    loss = loss_fn(...)  # 不记录计算图
+```
+关键点：
+- `loss.backward()`自动计算梯度并存储在Parameter.grad中
+- 优化器通过`step()`方法更新参数
+- `zero_grad()`防止梯度累加
+- `torch.no_grad()`上下文管理器用于推理阶段
+
+### PyTorch数据集处理
+自定义数据集实现：
+```python
+class MyDataSet(Dataset):
+    def __init__(self, file: str):
+        self.data = []
+        # 多线程数据预处理
+        with open(file) as fin:
+            inputlist = list(fin)
+            tlist = [threading.Thread(target=deal_segment, 
+                     args=(inputlist[1000*i:1000*(i+1)], self.data)) 
+                    for i in range(math.ceil(len(inputlist)/1000))]
+            for t in tqdm(tlist):  # 启动所有线程
+                t.start()
+            for t in tlist:  # 等待线程完成
+                t.join()
+
+    def __getitem__(self, index):
+        return self.data[index]  # 返回单个样本
+    
+    def __len__(self):
+        return len(self.data)
+```
+数据加载器使用：
+```python
+train_loader = DataLoader(
+    dataset=train_set,
+    batch_size=32,
+    shuffle=True  # 训练集需要打乱顺序
+)
+```
+
+### 训练实例
+模型定义：
+```python
+class MyModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.emb = nn.Embedding(50000, 64)  # 词嵌入层
+        self.layer1 = nn.Linear(256*64, 64*128)
+        self.ac1 = nn.ReLU()  # 激活函数
+        self.layer2 = nn.Linear(64*128, 16*16)
+        self.out = nn.Linear(16*16, 2)  # 输出层
+
+    def forward(self, data):
+        hidden = self.emb(data).view(-1, 64*256)
+        return self.out(self.ac2(...))
+```
+
+训练流程：
+```python
+# 初始化训练组件
+model = MyModel().cuda()
+loss_fn = nn.CrossEntropyLoss()
+optimizer = SGD(model.parameters(), lr=1e-3)
+
+# 训练循环
+for epoch in range(EPOCHS):
+    for batch, (X, y) in enumerate(train_loader):
+        pred = model(X.cuda())
+        loss = loss_fn(pred, y.cuda())
+        
+        loss.backward()
+        optimizer.step()
+        optimizer.zero_grad()
+        
+        # 记录训练指标
+        if batch % 20 == 0:
+            wandb.log({
+                "loss": loss,
+                "acc": accuracy...
+            })
+    
+    # 保存模型
+    torch.save(model.state_dict(), "model.pt")
+```
+
+### 模型推理
+```python
+model = MyModel()
+model.load_state_dict(torch.load('model.pt'))
+model.eval()  # 设置评估模式
+
+with torch.no_grad():  # 禁用梯度计算
+    ids = torch.tensor(tokenizer.encode(sentence).ids)
+    out = torch.nn.functional.softmax(model(ids), dim=-1)
+    print("预测概率:", out)
+    print("预测类别:", torch.argmax(out).item())
+```
+
+### 作业要求
+实现RNN文本分类任务：
+1. 使用GRU/LSTM单元（可手写或使用内置类）
+2. 支持可变长度输入（根据实际输入长度循环）
+3. 分类准确率超过80%
+4. 使用可视化工具绘制训练曲线
