@@ -12,7 +12,7 @@
         <link rel="prev" href="../matching/">
       
       
-        <link rel="next" href="../reference/">
+        <link rel="next" href="../trait/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -2139,6 +2139,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -2210,11 +2216,55 @@
   
   
     <li class="md-nav__item">
+      <a href="../ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的所有权
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../variable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Rust 的变量与类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的引用与借用
     
   </span>
   
@@ -2307,6 +2357,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rust 的结构体
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2317,6 +2379,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体方法
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2330,11 +2429,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../trait/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Rust 的引用与借用
+    Rust 的特型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的泛型
     
   </span>
   
@@ -3851,6 +3972,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体方法
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3869,7 +4016,8 @@
   
 
 
-<h1 id="rust">Rust 的结构体与特性<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h1>
+<h1 id="rust">Rust 的结构体<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h1>
+<h2 id="_1">结构体类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">与 C++ 的对照</p>
 <p>C++ 的 <code>struct</code> 本质上是默认 <code>public</code> 的 <code>class</code>，因此我们接下来仅讨论 Rust <code>struct</code> 和 C++ <code>class</code> 的区别。</p>
@@ -3893,6 +4041,7 @@
 <span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="_2">结构体方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>结构体可以有方法和关联函数，在 <code>impl</code> 块中实现。包含 <code>self</code>、<code>&amp;self</code> 或 <code>&amp;mut self</code> 的函数为方法，由 <code>结构体.方法名()</code> 调用；不包含的为关联函数，用 <code>结构体名::关联函数名()</code> 的方式调用。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3930,107 +4079,6 @@
 <p>上文所述的方法和关联函数分别类似 C++ 中的方法和类方法（即在类中由 <code>static</code> 修饰的函数，不关联实例对象而关联类本身）。</p>
 <p>在构造和析构方面，由于 C++ 采用 <a href="https://zh.wikipedia.org/wiki/RAII">RAII</a> 进行内存管理，每一个类都包含一个或多个构造函数以及一个析构函数。Rust 没有构造函数，但我们常用一个关联函数来进行结构体对象的构建（如上文的 <code>Person::new</code>）。Rust 采用 <code>Drop</code> trait 来管理对象的销毁，关于 trait 的讨论将在后续展开。 </p>
 </div>
-<p>对于“不同类共享相同的行为”这样的要求，Rust 使用一个叫做 <code>trait</code> 的机制来实现。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="k">struct</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="k">trait</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>上文定义了一个叫做 <code>CanMakeSound</code> 的 <code>trait</code>，在其中声明了 <code>make_sound</code> 方法而没有实现。如果要为一个类型实现 <code>trait</code>，则需要实现该 <code>trait</code> 的所有方法。实现 <code>trait</code> 的语法形如 <code>impl 特性名 for 类型名</code>。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Meow&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">impl</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Woof&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>在一个类型实现该 <code>trait</code> 后，这个类型的变量就可以使用其方法。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="p">{};</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{};</span>
-
-<span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cat</span><span class="p">.</span><span class="n">make_sound</span><span class="p">(),</span><span class="w"> </span><span class="n">dog</span><span class="p">.</span><span class="n">make_sound</span><span class="p">());</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">与 C++ 的对照</p>
-<p>在 C++ 中，不同类要想共享行为，则需要声明一个基类，将希望共享的行为声明为基类中的虚函数，然后分别继承该基类并重载希望共享的函数。例如，对上文的 <code>Cat</code> 和 <code>Dog</code>，在 C++ 中会这样实现：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CanMakeSound</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Meow&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Woof&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<p>如果仅仅是直接进行方法调用，那么使用或不使用 <code>trait</code> 看起来并无太大区别。但 <code>trait</code> 还可以用于函数参数的声明，这样就可以对参数类型加以限定而不需要完全确定类型：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">animal_make_sound</span><span class="p">(</span><span class="n">animal</span><span class="p">:</span><span class="w"> </span><span class="nc">impl</span><span class="w"> </span><span class="n">CanMakeSound</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">animal</span><span class="p">.</span><span class="n">make_sound</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p>事实上，这是 <code>Trait Bound</code> 语法的一个语法糖。如果展开写则形式如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">animal_make_sound</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="nc">CanMakeSound</span><span class="o">&gt;</span><span class="p">(</span><span class="n">animal</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">animal</span><span class="p">.</span><span class="n">make_sound</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<p><code>Trait Bound</code> 也可以不仅包含一个 <code>trait</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">some_function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Clone</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">:</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Debug</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">:</span><span class="w"> </span><span class="nc">U</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span>
-<span class="c1">// 此处的 Display、Clone 和 Debug 都是 rust 语言提供的 trait</span>
-</code></pre></div></td></tr></table></div>
-<p>也可以采用 <code>where</code> 从句来简化过长的 <code>Trait Bound</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">some_function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">:</span><span class="w"> </span><span class="nc">U</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span>
-<span class="w">    </span><span class="nc">where</span><span class="w"> </span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Clone</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">:</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Debug</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div>
 
 
 
@@ -4051,7 +4099,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月17日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月27日</span>
   </span>
 
     
@@ -4068,7 +4116,8 @@
     <nav>
       
         <a href="mailto:qhd19@mails.tsinghua.edu.cn">Ashitemaru</a>, 
-        <a href="mailto:zcyjim@outlook.com">ChrisZhang</a>
+        <a href="mailto:zcyjim@outlook.com">ChrisZhang</a>, 
+        <a href="mailto:chencyuch23@mails.tsinghua.edu.cn">chenyuchun</a>
     </nav>
   </span>
 
@@ -4131,7 +4180,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (3.65%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (96.35%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.66%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (88.68%), <a href='mailto:chencyuch23@mails.tsinghua.edu.cn'>chenyuchun</a> (5.66%)</span>
             </small>
         </div>
     

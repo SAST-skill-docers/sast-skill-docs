@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../whyrust/">
+        <link rel="prev" href="../ownership/">
       
       
-        <link rel="next" href="../control/">
+        <link rel="next" href="../reference/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -2139,6 +2139,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -2193,6 +2199,28 @@
   
   <span class="md-ellipsis">
     Rust 入门的一点经验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的所有权
     
   </span>
   
@@ -2357,6 +2385,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的引用与借用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../control/" class="md-nav__link">
         
   
@@ -2445,11 +2495,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../trait/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Rust 的引用与借用
+    Rust 的特型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的泛型
     
   </span>
   
@@ -4150,11 +4222,15 @@
 <span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="n">num</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">变量遮蔽的原理</p>
+<p>Rust 中变量遮蔽的本质其实是 Rust 的所有权系统。Rust 的变量更接近于 C++ 的指针，表示对内存的引用。</p>
+</div>
 <h2 id="_5">变量类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">基本类型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><strong>整数</strong></p>
 <p>Rust 中的整数有许多种，按照长度不同、有无符号进行区分。</p>
-<p>Rust的多数整数命名遵循“字母 + 数字”这一结构。其中，以字母 <code>i</code> 开头的类型表示它是<strong>有符号整数</strong>，而以字母 <code>u</code> 开头的类型表示它是<strong>无符号整数</strong>，字母后面的数字则表示这一类型的长度，从最短的 8 字节到最长的 128 字节，有 <code>i8, u8, i16, u16, i32, u32, i64, u64, i128, u128</code> 这一系列类型。</p>
+<p>Rust的多数整数命名遵循“<strong>字母 + 数字</strong>”这一结构。其中，以字母 <code>i</code> 开头的类型表示它是<strong>有符号整数</strong>，而以字母 <code>u</code> 开头的类型表示它是<strong>无符号整数</strong>，字母后面的数字则表示这一类型的长度，从最短的 8 字节到最长的 128 字节，有 <code>i8, u8, i16, u16, i32, u32, i64, u64, i128, u128</code> 这一系列类型。</p>
 <p>编译器将整形字面量默认类型推导为 <code>i32</code>。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// a 的类型为（隐式推导为）i32</span>
@@ -4227,6 +4303,10 @@
 <span class="c1">// arr_long 的类型为 [i32; 100]，而且这 100 个元素都是 0</span>
 </code></pre></div></td></tr></table></div>
 <p>如果需要一个可变长的数组，那么可以使用 <code>Vec</code>。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">arr_vec</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+<span class="c1">// Vec::new() 返回一个新的 Vec&lt;i32&gt; 结构体</span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">与 C++ 的对照</p>
 <p>Rust 的数组可以直接作为参数传递，这一点与 C/C++ 不同（C++ 中的 <code>std::tuple</code> 与 Rust 的数组更加类似）。这是因为 Rust 的数组是在栈上分配的。与 C/C++ 类似的是，数组的长度都是不可变的，变长的线性容器在两门语言中分别叫做 <code>std::Vec</code> 和 <code>std::vector</code>。 </p>
@@ -4255,7 +4335,7 @@
 <span class="fm">println!</span><span class="p">(</span><span class="s">&quot;The value of element is: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">);</span><span class="w"> </span><span class="c1">// 该行不会被执行</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="_8">单元类型<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>Rust 中有一个特殊的<strong>单元类型 （Unit Type）</strong>，它的类型是 <code>()</code>，而且它唯一的值也是 <code>()</code>。例如，当一个表达式或函数什么也不返回时，它的返回类型和返回值就都是 <code>()</code>。</p>
+<p>Rust 中有一个特殊的<strong>单元类型 （Unit Type）</strong>，亦称 <strong>单位元</strong>，它的类型是 <code>()</code>，而且它唯一的值也是 <code>()</code>。例如，当一个表达式或函数什么也不返回时，它的返回类型和返回值就都是 <code>()</code>。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">some_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4291,7 +4371,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年7月25日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月27日</span>
   </span>
 
     
@@ -4309,6 +4389,7 @@
       
         <a href="mailto:qhd19@mails.tsinghua.edu.cn">Ashitemaru</a>, 
         <a href="mailto:zcyjim@outlook.com">ChrisZhang</a>, 
+        <a href="mailto:chencyuch23@mails.tsinghua.edu.cn">chenyuchun</a>, 
         <a href="mailto:hobartlin23@gmail.com">Ethkuil</a>
     </nav>
   </span>
@@ -4372,7 +4453,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (10.92%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (62.01%), <a href='mailto:hobartlin23@gmail.com'>Ethkuil</a> (27.07%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (9.66%), <a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (59.66%), <a href='mailto:chencyuch23@mails.tsinghua.edu.cn'>chenyuchun</a> (4.62%), <a href='mailto:hobartlin23@gmail.com'>Ethkuil</a> (26.05%)</span>
             </small>
         </div>
     

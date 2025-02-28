@@ -2139,6 +2139,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -2210,11 +2216,55 @@
   
   
     <li class="md-nav__item">
+      <a href="../ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的所有权
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../variable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Rust 的变量与类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的引用与借用
     
   </span>
   
@@ -2379,11 +2429,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../trait/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Rust 的引用与借用
+    Rust 的特型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 的泛型
     
   </span>
   
@@ -3964,9 +4036,11 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
 <span class="p">}</span><span class="w"> </span><span class="c1">// 无参数，无返回值的函数</span>
+<span class="c1">// 无返回值的函数，会默认返回 单位元 ()</span>
 
 <span class="k">fn</span><span class="w"> </span><span class="nf">func_with_param</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;I love you {} times&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
@@ -3986,6 +4060,12 @@
 <div class="admonition note">
 <p class="admonition-title">与 C++ 的对照</p>
 <p>在 C/C++ 中，函数的声明的类型在前，没有额外关键字。读者可能需要一些时间来适应 Rust 的语法。</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">函数返回值</p>
+<p>无返回值的函数会默认返回 <strong>单位元</strong> <code>()</code>，并非真实语义下的“无返回值”。</p>
+<p>Rust 编译器具有严格的类型检查，如果函数指定了返回值类型，但没有给出返回值或 return 语句，编译器将给出 <code>mismatched types</code> 报错。</p>
+<p>类似的，如果没给定返回值类型，但返回了 <strong>非单位元</strong> 类型的值，编译器也会给出 <code>mismatched types</code> 报错。</p>
 </div>
 <h2 id="_2">函数调用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Rust 的函数调用语法与 C/C++ 没有太大区别。</p>
@@ -4015,7 +4095,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年12月20日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月27日</span>
   </span>
 
     
@@ -4026,12 +4106,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:zcyjim@outlook.com">ChrisZhang</a>
+        <a href="mailto:zcyjim@outlook.com">ChrisZhang</a>, 
+        <a href="mailto:chencyuch23@mails.tsinghua.edu.cn">chenyuchun</a>
     </nav>
   </span>
 
@@ -4094,7 +4175,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:zcyjim@outlook.com'>ChrisZhang</a></span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:zcyjim@outlook.com'>ChrisZhang</a> (81.63%), <a href='mailto:chencyuch23@mails.tsinghua.edu.cn'>chenyuchun</a> (18.37%)</span>
             </small>
         </div>
     

@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../oop-advance/">
+        <link rel="prev" href="../trait/">
       
       
-        <link rel="next" href="../../typescript/">
+        <link rel="next" href="../../node.js/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>浏览器中的 JavaScript - SAST skill docs</title>
+        <title>Rust 的泛型 - SAST skill docs</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javascript" class="md-skip">
+        <a href="#rust" class="md-skip">
           跳转至
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              浏览器中的 JavaScript
+              Rust 的泛型
             
           </span>
         </div>
@@ -1724,8 +1724,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1755,16 +1753,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../javascript/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1782,7 +1780,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             JavaScript 语言基础
@@ -1798,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../variable/" class="md-nav__link">
+      <a href="../../javascript/variable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1820,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control/" class="md-nav__link">
+      <a href="../../javascript/control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1842,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../function/" class="md-nav__link">
+      <a href="../../javascript/function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1864,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../javascript/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1886,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../async/" class="md-nav__link">
+      <a href="../../javascript/async/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1908,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop-advance/" class="md-nav__link">
+      <a href="../../javascript/oop-advance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1927,31 +1925,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    浏览器中的 JavaScript
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../javascript/browser/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1961,119 +1938,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      浏览器内置对象
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dom" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 树节点常用方法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DOM 树节点常用方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dom_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      查找 DOM 节点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      更新 DOM 树节点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      调整 DOM 树结构
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jquery" class="md-nav__link">
-    <span class="md-ellipsis">
-      jQuery
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="jQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      选择器
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      修改 DOM 树
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      事件
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2250,6 +2114,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2285,16 +2151,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../rust/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2312,7 +2178,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
             Rust 语言基础
@@ -2328,7 +2194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/whyrust/" class="md-nav__link">
+      <a href="../whyrust/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2350,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/ownership/" class="md-nav__link">
+      <a href="../ownership/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2372,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/variable/" class="md-nav__link">
+      <a href="../variable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2394,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/reference/" class="md-nav__link">
+      <a href="../reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2416,7 +2282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/control/" class="md-nav__link">
+      <a href="../control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2438,7 +2304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/function/" class="md-nav__link">
+      <a href="../function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2460,7 +2326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/matching/" class="md-nav__link">
+      <a href="../matching/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2482,7 +2348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/struct/" class="md-nav__link">
+      <a href="../struct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2504,7 +2370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rust/trait/" class="md-nav__link">
+      <a href="../trait/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2523,10 +2389,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../rust/generics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rust 的泛型
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2536,6 +2423,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型枚举
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型结构体
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 和 Result 类型
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4056,93 +3999,36 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      浏览器内置对象
+      泛型函数
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dom" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 树节点常用方法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DOM 树节点常用方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dom_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      查找 DOM 节点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      更新 DOM 树节点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      调整 DOM 树结构
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jquery" class="md-nav__link">
-    <span class="md-ellipsis">
-      jQuery
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="jQuery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      选择器
+      泛型枚举
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      修改 DOM 树
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      事件
+      泛型结构体
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#option-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 和 Result 类型
+    </span>
+  </a>
   
 </li>
       
@@ -4166,285 +4052,70 @@
   
 
 
-<h1 id="javascript">浏览器中的 JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h1>
-<p>JavaScript 最初设计的目的就是运行在浏览器中给静态 HTML 赋予动态效果，而即使经历了若干年代，现在的浏览器中通用的脚本语言依然是 JavaScript。</p>
-<p>即使你使用前端框架搭建网页应用，我们依然建议你阅读这一部分内容。这是因为前端框架最终依然是将你的代码翻译为浏览器中的 JavaScript 并运行，掌握这一部分内容可以帮助你更好地理解框架运作流程和 debug。</p>
-<h2 id="_1">浏览器内置对象<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>浏览器内置了部分全局对象，这些对象往往与窗口、屏幕、浏览记录等信息有关。编写相关 JavaScript 代码的时候可以通过这些对象获取相关信息，也可以通过这些调用对象的方法来实现一些和浏览器相关的操作。</p>
-<p><code>window</code> 对象是最常用的内置全局变量之一。该变量的一大重要作用是<strong>充当全局作用域</strong>，也就是将所有全局变量和函数绑定为其属性，这一点在先前讲解 <code>this</code> 指向的时候提到过，参见 <a href="/languages/javascript/oop">JavaScript 的面向对象</a> 部分的“全局对象”注解。</p>
-<p>除此之外，<code>window</code> 对象有 <code>innerHeight, innerWidth, outerHeight, outerWidth</code> 等与窗口尺寸有关的属性，比如你可以在浏览器控制台中运行下述代码获取浏览器内窗口的宽高：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Inner window size: </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="si">}</span><span class="sb"> x </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>你可以尝试最大化或拖动缩放浏览器窗口后再运行上述代码，观察输出的改变。</p>
-<p><code>screen</code> 对象保存的则是屏幕相关的信息，如屏幕宽高和颜色位数等：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Screen size: </span><span class="si">${</span><span class="nx">screen</span><span class="p">.</span><span class="nx">width</span><span class="si">}</span><span class="sb"> x </span><span class="si">${</span><span class="nx">screen</span><span class="p">.</span><span class="nx">height</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p><code>navigator</code> 对象保存了浏览器相关的大量信息，比如说浏览器名称、语言、版本、操作系统类型等等：</p>
+<h1 id="rust">Rust 的泛型<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h1>
+<p>Rust 中的泛型通过如下方式实现：</p>
+<h2 id="_1">泛型函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`{</span>
-<span class="sb">    name: </span><span class="si">${</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">appName</span><span class="si">}</span><span class="sb">,</span>
-<span class="sb">    version: </span><span class="si">${</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">appVersion</span><span class="si">}</span><span class="sb">,</span>
-<span class="sb">    language: </span><span class="si">${</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="si">}</span><span class="sb">,</span>
-<span class="sb">    platform: </span><span class="si">${</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">platform</span><span class="si">}</span><span class="sb">,</span>
-<span class="sb">    userAgent: </span><span class="si">${</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="si">}</span><span class="sb">,</span>
-<span class="sb">}`</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p><code>location</code> 对象保存了和 URL 相关的一些信息。假设当前页面的 URL 为下述，其包含了协议、主机名、端口号、参数等等信息：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://www.test.com:8000/static/path?key=114514
-</code></pre></div></td></tr></table></div>
-<p>此时 <code>location</code> 对象中的各个属性存储着这个 URL 的各部分：</p>
-<ul>
-<li><code>location.href</code> 存储 URL 本身。即 <code>https://www.test.com:8000/static/path?key=114514</code></li>
-<li><code>location.protocol</code> 存储 URL 使用的协议。即 <code>https</code></li>
-<li><code>location.host</code> 存储当前的主机名。即 <code>www.host.com</code></li>
-<li><code>location.port</code> 存储当前使用的端口。即 <code>8000</code></li>
-<li><code>location.pathname</code> 存储当前访问的资源路径。即 <code>/static/path</code></li>
-<li><code>location.search</code> 存储当前传递的参数列表。即 <code>?key=114514</code>，注意 <code>?</code> 字符也包含在内</li>
-</ul>
-<p><code>location</code> 对象还有两个常用方法，即 <code>location.assign</code> 和 <code>location.reload</code>。前者用于强制页面跳转，后者则用于强制重新载入当前页面。读者可以自行尝试在控制台中运行下述代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">location</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="s2">&quot;https://docs.net9.org&quot;</span><span class="p">);</span>
-<span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
-</code></pre></div></td></tr></table></div>
-<p><code>document</code> 对象是当前页面整个 DOM 树的根节点。</p>
-<div class="admonition note">
-<p class="admonition-title">什么是 DOM 树</p>
-<p>HTML 所表示的页面中各个元素是按照树的结构安排的，树上的每一个节点都是一个 HTML 元素，而这棵树就是所谓的 DOM 树（英语：Document Object Module Tree）。</p>
-<p>相关知识可以参考 <a href="/languages/html">HTML 语言基础</a>。</p>
-</div>
-<p>在后续部分我们会具体介绍该如何利用好 <code>document</code> 对象来查询、修改 DOM 树。</p>
-<h2 id="dom">DOM 树节点常用方法<a class="headerlink" href="#dom" title="Permanent link">&para;</a></h2>
-<div class="admonition caution">
-<p class="admonition-title">很多时候你不需要直接操作 DOM 树</p>
-<p>JavaScript 语言本身开放了相当多且功能强劲的函数以操作 DOM 树，但是如果利用不当，很有可能造成网页崩溃等意料之外的结果。为了避免这种情况以及方便编程人员，许多网页前端框架已经将对 DOM 树的操作封装成相关的函数或者语法。</p>
-<p>如果你只需要学习具体的框架以完成特定的前端项目，请尽量减少对 DOM 树的直接操作。但是为了构建完整的 JavaScript 逻辑体系，我们还是建议至少了解、知晓这些 DOM 树语法。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">使用我们提供的样例</p>
-<p>在学习这一小节的时候，可以点击进入 <a href="/static/languages/javascript/dom-html.html">我们的样例网页</a> 并按下 <span class="keys"><kbd class="key-f12">F12</kbd></span> 打开控制台，在控制台里运行这一节提供的样例代码来理解 DOM 树操作。</p>
-</div>
-<h3 id="dom_1">查找 DOM 节点<a class="headerlink" href="#dom_1" title="Permanent link">&para;</a></h3>
-<p>我们可以使用下述内置方法查找符合要求的 DOM 节点：</p>
-<ul>
-<li><code>document.getElementById</code>。根据节点 ID 查找，节点 ID 是唯一的，故该方法返回的是具体的 DOM 节点。比如说：</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;red-block&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码会返回一个 DOM 元素，在控制台里显示为一个 HTML 标签，鼠标悬浮于标签上可以看到网页上对应元素高亮显示。</p>
-<ul>
-<li><code>getElementsByClassName</code>。该方法为 DOM 节点对象内置方法，含义为在以该节点为根的子树内查找所有 <code>class</code> 属性为给定值的节点，其返回的是一个 DOM 节点的列表。比如说：</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&quot;block&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>该方法返回了所有 <code>class</code> 为 <code>square</code> 的 DOM 节点构成的列表。</p>
-<p>上述两个方法可以联合使用：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">).</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&quot;circle&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>这段代码意味着先根据 ID 查找到一个 DOM 节点，再在其内部查找所有 <code>class</code> 属性为 <code>circle</code> 的节点。</p>
-<ul>
-<li><code>getElementsByTagName</code>。该方法为 DOM 节点对象内置方法，含义为在以该节点为根的子树内查找所有标签名为给定值的节点（如 <code>&lt;p /&gt;</code> 节点的标签名就是 <code>'p'</code>），其返回的是一个 DOM 节点的列表。比如说：</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">).</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<hr />
-<p>除此以外，我们还可以使用 DOM 节点对象内置的 <code>querySelector</code> 与 <code>querySelectorAll</code> 方法，利用选择器语法来进行更精确的查找。</p>
-<p><code>querySelector</code> 搜索范围是以该 DOM 节点为根的子树中满足选择器要求的<strong>第一个</strong> DOM 节点。而 <code>querySelectorAll</code> 会返回子树内所有满足选择器要求的 DOM 节点构成的列表。</p>
-<p>具体的选择器语法可以参考 <a href="/languages/css#_3">CSS 语言基础文档中相关部分</a>。</p>
-<h3 id="dom_2">更新 DOM 树节点<a class="headerlink" href="#dom_2" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">边做边学</p>
-<p>这一节中，读者可以先在控制台中运行：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;test-text&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>来获取我们用于演示的 DOM 节点。</p>
-</div>
-<p>DOM 节点对象有一个相当重要的属性，即 <code>innerHTML</code>，其值就是一对闭合的 HTML 标签之间的文本。比如说下述 HTML 的 <code>&lt;p&gt;</code> 节点：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> The color is <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red&quot;</span><span class="p">&gt;</span> RED <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> ! <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div></td></tr></table></div>
-<p>其 <code>innerHTML</code> 属性值就是 <code>' The color is &lt;span style="color:red"&gt; RED &lt;/span&gt; ! '</code>。</p>
-<p>这个属性是可以随意读写的，所以我们完全可以通过修改这个属性值来直接调整 DOM 节点。比如说在控制台中运行下述代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">node</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39; The color is &lt;span style=&quot;color:red&quot;&gt; RED &lt;/span&gt; ! &#39;</span>
-</code></pre></div></td></tr></table></div>
-<p>就会发现原先的文本 <code>This is a test text node.</code> 替换成了我们设置的文本。</p>
-<div class="admonition caution">
-<p class="admonition-title">XSS 攻击（英文：Cross-Site Scripting）</p>
-<p>你可能已经意识到了，赋给 <code>innerHTML</code> 属性的字符串值中可以包括新的 HTML 节点，这意味着通过编写特定的字符串值，我们可以给 DOM 树插入新节点，甚至通过 <code>&lt;script&gt;</code> 标签引入恶意 JavaScript 代码。</p>
-<p>这也就是我们需要注意的 XSS 攻击。防范这种攻击的最简单的方法就是，严格控制 <code>innerHTML</code> 属性的赋值（最好不手动给这个属性赋值，尤其是给其赋予从网络上获取的字符串值）或者使用 <code>innerText</code> 属性。</p>
-</div>
-<p>另外一个常用的属性是 <code>innerText</code>，其和 <code>innerHTML</code> 属性基本类似，但是不同之处是其会进行字符转义，比如说 <code>&lt;</code> 字符会转义为 <code>&amp;lt;</code>，这样就保证了字符串就是字符串，不会被解读为新 DOM 节点。</p>
-<p>此外，我们还可以修改节点的样式，只需要修改其 <code>style</code> 属性即可。不过注意，CSS 中允许属性名中包含短划线 <code>-</code>，但是 JavaScript 中不允许，所以遇到这类属性名时，请使用驼峰命名法转写：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">;</span>
-<span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;20px&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;font-size&quot; in CSS</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="dom_3">调整 DOM 树结构<a class="headerlink" href="#dom_3" title="Permanent link">&para;</a></h3>
-<p>我们可以通过 DOM 节点对象的 <code>appendChild</code> 方法来为该节点增添一个子节点。不过注意，如果增添的子节点是原先 DOM 树上具有的节点，则首先会将这个节点摘除后添加到指定的位置。</p>
-<p>在控制台中运行以下代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">redCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;red-circle&quot;</span><span class="p">);</span>
-<span class="nx">wrapper</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">redCircle</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>可以发现三个圆形调换了位置，红色的圆形成为了位于最底部的圆形。</p>
-<p>但是我们可以发现 <code>appendChild</code> 方法永远将该节点插入为指定节点的最后一个子节点，如果我们需要具体指定插入位置，就需要使用 <code>insertBefore</code> 方法，该方法需要指定节点的一个子节点作为参考子节点：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">redCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;red-circle&quot;</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">blueCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;blue-circle&quot;</span><span class="p">);</span>
-<span class="nx">wrapper</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">redCircle</span><span class="p">,</span><span class="w"> </span><span class="nx">blueCircle</span><span class="p">);</span><span class="w"> </span><span class="c1">// The 2nd param is the reference node</span>
-</code></pre></div></td></tr></table></div>
-<p>这样，红色的圆形就插入在蓝色的圆形之前。</p>
-<hr />
-<p>有时我们需要给 DOM 树增添节点，这个时候就需要使用 <code>document.createElement</code> 方法，该方法能创造一个指定类型的 DOM 树节点。随后我们可以设置其各种属性值，最后可以使用各种插入方法将这个新节点插入到 DOM 树中。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">purpleCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
-<span class="nx">purpleCircle</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;purple-circle&quot;</span><span class="p">;</span>
-<span class="nx">purpleCircle</span><span class="p">.</span><span class="nx">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span><span class="p">;</span>
-<span class="nx">purpleCircle</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;purple&quot;</span><span class="p">;</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">);</span>
-<span class="nx">wrapper</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">purpleCircle</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<hr />
-<p>删除某一个节点则较为简单，我们只需要获取需要删除的节点的引用以及其父节点的引用，然后在父结点上调用 <code>removeChild</code> 方法即可删除。参考以下代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;circle-wrapper&quot;</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">redCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;red-circle&quot;</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">removedCircle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">redCircle</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">redCircle</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">removedCircle</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
-</code></pre></div></td></tr></table></div>
-<p>可以发现，<code>removedChild</code> 方法具有返回值，其返回值是删除掉的节点的引用。</p>
-<h2 id="jquery">jQuery<a class="headerlink" href="#jquery" title="Permanent link">&para;</a></h2>
-<p>你或许听闻过 jQuery 这个第三方库，其如此流行的原因是其简化了 JavaScript 语言操作 DOM 树、修改 CSS 的语法，并且消除浏览器差异，可以将统一的语法运用于任何一个主流浏览器。</p>
-<div class="admonition note">
-<p class="admonition-title">Web 前端的更新换代</p>
-<p>最初的前端是没有 jQuery 的，所以都需要使用 <code>getElementById</code> 等 DOM 节点内置方法来完成 DOM 树操作。而随后，jQuery 出现，这种跨浏览器且语法简洁的第三方库立刻得到了广泛运用。</p>
-<p>但是近年来随着前端框架流行，编写裸 JavaScript 的机会越来越少，修改 DOM 树等操作也在前端框架内被封装为各种框架方法，jQuery 也渐渐淡出。但是由于历史原因，我们现在还是能看到大量的需要手写裸 JavaScript 的前端，这些前端往往应用了 jQuery。所以，学习 jQuery 的基础知识还是有一定的必要。</p>
-</div>
-<p>我们提供的 <a href="/static/languages/javascript/dom-html.html">样例网页</a> 已经为你引用了 jQuery，可以运行下述代码来确定是否引用成功：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">jquery</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2.1.4</span>
-</code></pre></div></td></tr></table></div>
-<p>这里 <code>$</code> 就是 jQuery 的全局封装对象，其提供的所有功能全都是 <code>$</code> 的成员函数实现的。</p>
-<h3 id="_2">选择器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>具体的选择器语法可以参考 <a href="/languages/css#_3">CSS 语言基础文档中相关部分</a>。</p>
-<p>我们可以在 jQuery 中使用选择器语法来获取 DOM 树节点，注意通过下述方法获取的是一个 DOM 树节点的列表，如果没有符合选择器要求的节点则返回空列表。如：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#circle-wrapper&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Find nodes with &#39;id=circle-wrapper&#39;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
-</code></pre></div></td></tr></table></div>
-<p>除了按照 ID 查找，下面还举出了一些常用的选择器：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">circles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.circle&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Find nodes with &#39;class=circle&#39;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">circles</span><span class="p">);</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">divs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Find nodes which are &lt;div&gt;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">divs</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>可以注意到这里输出的列表并不是我们之前见过的 DOM 树节点。实际上，其返回的是包装过一层的 jQuery 对象。如果需要得到最基本的 DOM 树节点对象，可以使用下标运算符 <code>[]</code> 取出具体的元素或者使用 <code>.get()</code> 方法。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">circles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.circle&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Find nodes with &#39;class=circle&#39;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">circles</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">circles</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">circles</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="dom_4">修改 DOM 树<a class="headerlink" href="#dom_4" title="Permanent link">&para;</a></h3>
-<p>在获取到 DOM 树节点后，如果需要修改这个节点的内容，我们可以使用 <code>.text()</code> 或者 <code>.html()</code> 方法。这两个方法的共同点是如果无参数调用，则是获取这个节点的内容。如果有参数调用，则是将节点的内容修改为传入的参数。</p>
-<p><code>.text()</code> 与 <code>.html()</code> 分别对应着 <code>innerText</code> 和 <code>innerHTML</code> 属性。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-text&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;This is a test text node.&quot;</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-text&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>此外，我们还可以修改某个节点的 CSS：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#red-circle&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p><code>.css()</code> 不能完全无参调用，至少需要在第一个参数中传递 CSS 属性名。如果第二个参数不传入，则表示获取这个节点某个 CSS 属性的值。如果第二个参数是空字符串，则表示删去这个 CSS 属性。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#red-circle&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;rgb(255, 0, 0)&quot;</span>
-</code></pre></div></td></tr></table></div>
-<p>我们之前提过，使用选择器获取的是 DOM 树节点的列表而非单个节点。所以如果在含有多个 DOM 树节点的 jQuery 对象上使用 <code>.text()</code> 等方法修改内容，该修改会对这个列表内所有的 DOM 树节点生效。</p>
-<p>比如我想把三个圆都变为黑色，就可以：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.circle&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<hr />
-<p>除去 <code>.text()</code>、<code>.html()</code> 以及 <code>.css()</code>，获取其余的 HTML 标签属性可以使用 <code>.attr()</code>，这里可以参考 <a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023023660400160">廖雪峰的教程</a>。</p>
-<hr />
-<p>增添和删除节点也是简单的。增添节点只需要对父节点调用 <code>.append()</code> 方法，删除则是对要删除的节点调用 <code>.remove()</code> 方法：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#circle-wrapper&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#red-circle&quot;</span><span class="p">));</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#red-circle&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-</code></pre></div></td></tr></table></div>
-<p>要在指定节点的前面或后面增添兄弟节点，则可以使用 <code>.after()</code> 或者 <code>.before()</code> 方法：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#red-circle&quot;</span><span class="p">).</span><span class="nx">after</span><span class="p">(</span>
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">))</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>可以注意到这里将一个 DOM 树节点对象传入了 <code>$()</code> 之中，其作用是将 DOM 树节点包装为 jQuery 对象以使用 <code>.attr()</code> 等方法。</p>
-<h3 id="_3">事件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>我们现在考虑网页如何与用户交互，也就是说用户是如何触发描述交互行为的 JavaScript 的。这里，就需要引入<strong>事件</strong>这个概念。</p>
-<p>用户点击某一个 HTML 组件或者在文本框中输入、文档树加载等行为都可以是事件，这些事件的相关信息（比如鼠标点击事件中鼠标点击位置的横纵坐标等）将会被包装为一个对象传入到 JavaScript 的事件处理循环，JavaScript 引擎接受到事件后就会调用相应的回调函数，而交互行为就定义在这些回调函数之中。</p>
-<p>现在就以按钮点击事件为例，介绍如何利用 jQuery 编写点击事件的回调函数。</p>
-<div class="admonition note">
-<p class="admonition-title">使用我们提供的样例</p>
-<p>在学习这一小节的时候，可以点击进入 <a href="/static/languages/javascript/event-1.html">我们的样例网页</a> 并按下 <span class="keys"><kbd class="key-f12">F12</kbd></span> 打开控制台，在控制台里运行这一节提供的样例代码来理解 DOM 树操作。</p>
-</div>
-<p>我们现在希望我们点击这个按钮后，网页能弹窗显示对我们的问候。显示弹窗的回调函数可以规定为：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">foo</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="nc">U</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>我们可以这样将上述回调函数绑定到按钮上：</p>
+<h2 id="_2">泛型枚举<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">E</span><span class="p">),</span><span class="w"> </span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>这里 <code>$("#test-button")</code> 是先前提到过的选择器，用于选择出需要绑定事件回调函数的按钮。之后调用其 <code>.on()</code> 方法，第一个参数指示需要给何种事件绑定回调，这里 <code>"click"</code> 表示给点击事件绑定。第二个参数则是需要执行的回调函数，在这里，按钮被点击的时候，该回调就会执行。</p>
-<p>由于点击事件很常用，所以还有这样的简写：</p>
+<h2 id="_3">泛型结构体<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// 在 impl 代码段开头声明泛型</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="nc">std</span><span class="p">::</span><span class="n">ops</span><span class="p">::</span><span class="n">Add</span><span class="o">&lt;</span><span class="n">Output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">ops</span><span class="p">::</span><span class="n">Mul</span><span class="o">&lt;</span><span class="n">Output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Copy</span><span class="p">,</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">distance_from_origin</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">y</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="option-result">Option 和 Result 类型<a class="headerlink" href="#option-result" title="Permanent link">&para;</a></h2>
+<p>Rust 提供了两个非常方便的枚举类型：<code>Option</code> 和 <code>Result</code>。
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="w"> </span>
+<span class="p">}</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">E</span><span class="p">),</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>我们先前提到了，和事件相关的所有参数都会被包装为对象传入处理引擎，而这个对象就会进一步作为回调函数的参数传入，我们可以将其打印出来：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>这个时候点击按钮就可以看到控制台上输出的事件相关参数了。</p>
-<hr />
-<p>但是如果我们需要真正自己编写一个有交互行为的网页，我们就需要把上面提到的代码嵌入 HTML 之中，因为我们要求这些交互行为随着网页加载就定义好，否则就需要用户手动在网页加载后在控制台定义，这显然违反常理。</p>
-<p>你可能已经了解，HTML 中可以使用 <code>&lt;script /&gt;</code> 标签插入 JavaScript 代码，所以你可能打算这样写：</p>
+合理地运用这两个枚举类型，可以便捷地传递参数、捕获错误。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4458,53 +4129,45 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;zh&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>按钮点击事件演示网页<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//code.jquery.com/jquery-2.1.4.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
-<span class="w">            </span><span class="p">});</span>
-<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">);</span>
-<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test-button&quot;</span><span class="p">&gt;</span>Click me!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="n">food</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">food</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Some</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Nice {}! I&#39;m full.&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">),</span>
+<span class="w">        </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Nothing to eat. I&#39;m hungry!&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Division by zero&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>上述 HTML 代码已经放在 <a href="/static/languages/javascript/event-2.html">我们的样例网页之中</a>。如果你浏览后点击按钮，你会发现并没有按照预期弹出弹窗。</p>
-<p>这里就需要提到 <code>&lt;script /&gt;</code> 标签中代码的执行时机。实际上，这些代码将会在文档加载完毕之前就执行完毕，此时的 DOM 上还未有按钮对象，也就是说，选择器应该什么都获得不到，从而绑定失败。</p>
-<p>实际上上述代码里，我们留下了一句 <code>console.log($("#test-button").length)</code>，所以可以在控制台里发现，此时选择器什么都没有选择到（输出为 <code>0</code>），符合我们的讲解。</p>
-<p>那么如何解决这个问题呢，事实上我们先前提到过 DOM 加载完毕也是一个事件，所以我们可以将绑定按钮点击事件写为 DOM 加载完毕的回调：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;ready&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">});</span>
+<div class="admonition note">
+<p class="admonition-title">Option 与 Result 的数据获取</p>
+<p>Rust 为 <code>Option</code> 和 <code>Result</code> 类型提供了 <code>unwrap()</code> 和 <code>expect()</code> 等方法进行快速的数据获取，可以绕开冗余的模式匹配。但程序员需要自己确保 <code>Option</code> 对应的类型为 <code>Some(_)</code>（<code>Result</code> 为 <code>Ok(_)</code>），否则会导致程序<code>panic</code>退出。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">_</span><span class="p">,</span><span class="o">&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Empty content&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// If a is None or b is Err, this will panic.</span>
+<span class="w">    </span><span class="c1">// a is None: thread &#39;main&#39; panicked at ...:</span>
+<span class="w">    </span><span class="c1">// called `Option::unwrap()` on a `None` value</span>
+<span class="w">    </span><span class="c1">// b is Err:thread &#39;main&#39; panicked at ...:</span>
+<span class="w">    </span><span class="c1">// Empty content: &quot;world&quot;</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="n">content</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>由于在 DOM 加载完毕后挂载各种回调函数是相当常见的需求，所以上述写法一般可以简化为：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">$</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#test-button&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div></td></tr></table></div>
-<p>这样修改后的代码可以参见 <a href="/static/languages/javascript/event-3.html">我们的样例网页</a>。</p>
+</div>
 
 
 
@@ -4525,7 +4188,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年2月11日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月27日</span>
   </span>
 
     
@@ -4536,13 +4199,12 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:qhd19@mails.tsinghua.edu.cn">Ashitemaru</a>, 
-        <a href="mailto:l-zh22@mails.tsinghua.edu.cn">FLOW2090</a>
+        <a href="mailto:chencyuch23@mails.tsinghua.edu.cn">chenyuchun</a>
     </nav>
   </span>
 
@@ -4605,7 +4267,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (99.76%), <a href='mailto:l-zh22@mails.tsinghua.edu.cn'>FLOW2090</a> (0.24%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:chencyuch23@mails.tsinghua.edu.cn'>chenyuchun</a></span>
             </small>
         </div>
     
