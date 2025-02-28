@@ -2138,6 +2138,8 @@
       
         
       
+        
+      
     
     
       
@@ -2192,6 +2194,28 @@
   
   <span class="md-ellipsis">
     Rust 入门的一点经验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/rust/start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 快速入门
     
   </span>
   
@@ -4191,6 +4215,235 @@
 <ul>
 <li><a href="https://zh-v2.d2l.ai/">动手学深度学习</a></li>
 </ul>
+<h1 id="2025">2025年新增内容<a class="headerlink" href="#2025" title="Permanent link">&para;</a></h1>
+<p>课程材料仓库：
+<a href="https://github.com/sast-summer-training-2024/sast2024-DP-and-Pytorch.git">https://github.com/sast-summer-training-2024/sast2024-DP-and-Pytorch.git</a></p>
+<p><a href="https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&amp;vd_source=5f41358f46c6dc60e03c3ff6ca5a8520">https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&amp;vd_source=5f41358f46c6dc60e03c3ff6ca5a8520</a></p>
+<h2 id="pytorch99">Pytorch的训练方法类似八股文，百分之99的模型都是这么训练的<a class="headerlink" href="#pytorch99" title="Permanent link">&para;</a></h2>
+<ul>
+<li>准备数据集</li>
+<li>定义模型</li>
+<li>定义损失函数与优化器</li>
+<li>在模型上进行训练</li>
+<li>存储模型参数</li>
+</ul>
+<p><a href="https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&amp;vd_source=5f41358f46c6dc60e03c3ff6ca5a8520">https://www.bilibili.com/video/BV1FSYueTEWw/?share_source=copy_web&amp;vd_source=5f41358f46c6dc60e03c3ff6ca5a8520</a>
+给出了一个具体的训练实例，建议对照着视频链接逐步操作。一些要点如下。</p>
+<h2 id="_6">一些要点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">模型定义<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>在PyTorch中定义神经网络模型需要继承<code>torch.nn.Module</code>类，并实现以下两个核心方法：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TestModel</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># 必须调用父类初始化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 定义全连接层</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># 定义前向传播逻辑</span>
+</code></pre></div></td></tr></table></div>
+- <code>__init__</code>方法用于定义网络层结构
+- <code>forward</code>方法实现具体的前向计算过程</p>
+<h3 id="pytorch_2">PyTorch梯度计算与模型优化<a class="headerlink" href="#pytorch_2" title="Permanent link">&para;</a></h3>
+<p>梯度计算示例：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">test_model</span> <span class="o">=</span> <span class="n">TestModel</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">test_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="c1"># 前向计算</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">test_model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 反向传播</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>  <span class="c1"># 自动计算梯度</span>
+
+<span class="c1"># 参数更新</span>
+<span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>  <span class="c1"># 应用梯度更新</span>
+<span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>  <span class="c1"># 清空梯度缓存</span>
+
+<span class="c1"># 无梯度计算模式</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># 不记录计算图</span>
+</code></pre></div></td></tr></table></div>
+关键点：
+- <code>loss.backward()</code>自动计算梯度并存储在Parameter.grad中
+- 优化器通过<code>step()</code>方法更新参数
+- <code>zero_grad()</code>防止梯度累加
+- <code>torch.no_grad()</code>上下文管理器用于推理阶段</p>
+<h3 id="pytorch_3">PyTorch数据集处理<a class="headerlink" href="#pytorch_3" title="Permanent link">&para;</a></h3>
+<p>自定义数据集实现：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyDataSet</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># 多线程数据预处理</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="n">inputlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+            <span class="n">tlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">deal_segment</span><span class="p">,</span> 
+                     <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">inputlist</span><span class="p">[</span><span class="mi">1000</span><span class="o">*</span><span class="n">i</span><span class="p">:</span><span class="mi">1000</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> 
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputlist</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">))]</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">tlist</span><span class="p">):</span>  <span class="c1"># 启动所有线程</span>
+                <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlist</span><span class="p">:</span>  <span class="c1"># 等待线程完成</span>
+                <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>  <span class="c1"># 返回单个样本</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+数据加载器使用：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">train_set</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># 训练集需要打乱顺序</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_8">训练实例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>模型定义：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>  <span class="c1"># 词嵌入层</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="o">*</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="o">*</span><span class="mi">128</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ac1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>  <span class="c1"># 激活函数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="o">*</span><span class="mi">128</span><span class="p">,</span> <span class="mi">16</span><span class="o">*</span><span class="mi">16</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">16</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 输出层</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">emb</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="o">*</span><span class="mi">256</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ac2</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div></p>
+<p>训练流程：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 初始化训练组件</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">()</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="c1"># 训练循环</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">cuda</span><span class="p">())</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">cuda</span><span class="p">())</span>
+
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+        <span class="c1"># 记录训练指标</span>
+        <span class="k">if</span> <span class="n">batch</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wandb</span><span class="o">.</span><span class="n">log</span><span class="p">({</span>
+                <span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span>
+                <span class="s2">&quot;acc&quot;</span><span class="p">:</span> <span class="n">accuracy</span><span class="o">...</span>
+            <span class="p">})</span>
+
+    <span class="c1"># 保存模型</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&quot;model.pt&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_9">模型推理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.pt&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># 设置评估模式</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>  <span class="c1"># 禁用梯度计算</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;预测概率:&quot;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;预测类别:&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_10">作业要求<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>实现RNN文本分类任务：
+1. 使用GRU/LSTM单元（可手写或使用内置类）
+2. 支持可变长度输入（根据实际输入长度循环）
+3. 分类准确率超过80%
+4. 使用可视化工具绘制训练曲线</p>
 
 
 
@@ -4211,7 +4464,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年8月29日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月28日</span>
   </span>
 
     
@@ -4228,7 +4481,8 @@
     <nav>
       
         <a href="mailto:qhd19@mails.tsinghua.edu.cn">Ashitemaru</a>, 
-        <a href="mailto:wangbw21@mails.tsinghua.edu.cn">abmfy</a>
+        <a href="mailto:wangbw21@mails.tsinghua.edu.cn">abmfy</a>, 
+        <a href="mailto:161911583+suxunzong@users.noreply.github.com">欧阳霄</a>
     </nav>
   </span>
 
@@ -4291,7 +4545,7 @@
     
         <div class="md-source-date">
             <small>
-                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (5.56%), <a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (94.44%)</span>
+                作者: <span class='git-page-authors git-authors'><a href='mailto:qhd19@mails.tsinghua.edu.cn'>Ashitemaru</a> (2.02%), <a href='mailto:wangbw21@mails.tsinghua.edu.cn'>abmfy</a> (34.41%), <a href='mailto:161911583+suxunzong@users.noreply.github.com'>欧阳霄</a> (63.56%)</span>
             </small>
         </div>
     

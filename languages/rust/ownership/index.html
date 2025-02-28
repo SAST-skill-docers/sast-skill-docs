@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../whyrust/">
+        <link rel="prev" href="../start/">
       
       
         <link rel="next" href="../variable/">
@@ -2145,6 +2145,8 @@
       
         
       
+        
+      
     
     
       
@@ -2213,6 +2215,28 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust 快速入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2225,6 +2249,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rust 的所有权
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2235,6 +2271,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量绑定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      借用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="借用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      借用规则
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变借用与不可变借用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数参数中的借用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3923,6 +4029,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量绑定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      借用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="借用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      借用规则
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变借用与不可变借用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数参数中的借用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3949,7 +4114,8 @@
 <li>同一时刻每个值只有一个所有者。</li>
 <li>当所有者失效，值也将被丢弃。</li>
 </ul>
-<p>变量通过绑定的方式，获得对数据的所有权。如果一个绑定超出作用域，其绑定的数据将被自动释放</p>
+<h2 id="_1">变量绑定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>变量通过绑定的方式，获得对数据的所有权。如果一个绑定超出作用域，其绑定的数据将被自动释放。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>变量之间的<strong>赋值</strong>行为，将会直接导致绑定关系的变化，这一语义被称为<strong>移动所有权</strong>，亦即<strong>掩盖 (shadowing)</strong>。</p>
@@ -3963,21 +4129,45 @@
 <span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{s1}, world!&quot;</span><span class="p">);</span>
 <span class="c1">// 此时将发生编译错误 error: borrow of moved value: `s1`</span>
 </code></pre></div></td></tr></table></div>
-<p>但并非所有语境下的变量赋值都希望移交所有权，这个时候应该采用 Rust 中的<strong>借用（borrow）</strong>概念。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">v_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// v_ref is a reference to v.</span>
-</code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">移动所有权</p>
 <ul>
 <li>移动所有权是编译时的语义，不涉及程序运行时的数据移动，数据对应的内存区域并没有改变，只是更改了对应的变量名（类似C++的指针）。</li>
 <li>移动是默认行为(通过绑定或赋值)，不需要像 C++ 那样用 std::move 来显式指定。</li>
-<li>原来的变量依然拥有对数据的所有权。</li>
 </ul>
 </div>
-<p>当借用发生时，会对原来的变量增加限制：
-- 当一个变量有引用存在时，不能移交它所绑定的数据的所有权。</p>
+<h2 id="_2">借用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>但并非所有语境下的变量赋值都希望移交所有权，这个时候应该采用 Rust 中的<strong>借用（borrow）</strong>概念。</p>
+<h3 id="_3">借用规则<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">v_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// v_ref is a reference to v.</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">借用规则</p>
+<ul>
+<li>可以通过对变量取引用来借用变量中的数据的所有权，此时所有权本身并没有发生变化。<ul>
+<li>当引用超过作用域，借用也随之结束。</li>
+<li>原来的变量依然拥有对数据的所有权。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+<span class="c1">// v_ref is a reference to v.</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">v_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">;</span>
+<span class="c1">// use v_ref to access the data in the vector v.</span>
+<span class="fm">assert_eq!</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">v_ref</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>当借用发生时，会对原来的变量增加限制：<ul>
+<li>当一个变量有引用存在时，不能移交它所绑定的数据的所有权。</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3988,6 +4178,8 @@
 <span class="c1">// Moving ownership to v_new would invalidate v_ref.</span>
 <span class="c1">// error: cannot move out of `v` because it is borrowed </span>
 </code></pre></div></td></tr></table></div>
+</div>
+<h3 id="_4">可变借用与不可变借用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Rust 类型系统中，变量被分为<strong>可变</strong>与<strong>不可变</strong>。在借用中，同理可分为<strong>可变借用</strong> <code>&amp;mut</code> 和<strong>不可变借用</strong> <code>&amp;</code>。
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -4003,13 +4195,14 @@
 <p class="admonition-title">借用规则</p>
 <ul>
 <li>不能在某个对象不存在后继续保留对它的引用。一个对象可以<ul>
-<li>同时存在<strong>多个不可变</strong>引用(&amp;T)</li>
+<li>同时存在<strong>多个不可变</strong>引用(&amp;T)。</li>
 <li>或者<strong>仅有一个可变引用</strong>(&amp;mut T)。 </li>
 </ul>
 </li>
-<li>以上两者不能同时存在</li>
+<li>以上两者不能同时存在。</li>
 </ul>
 </div>
+<h3 id="_5">函数参数中的借用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>需要注意的是，<strong>函数</strong>的<strong>参数传递</strong>时，采用的是与变量赋值和借用相同的语法规则。如果不指定 <code>&amp;</code> 或 <code>&amp;mut</code>,变量会直接发生移动。
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -4063,7 +4256,7 @@
 <span class="fm">println!</span><span class="p">(</span><span class="s">&quot;x still works: {}, and so does y: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>可以通过 <code>impl Copy for ...</code> 或 <code>#[derive(Copy)]</code> 宏为变量实现 Copy 特型<ul>
+<li>可以通过 <code>impl Copy for ...</code> 或 <code>#[derive(Copy)]</code> 宏为变量实现 Copy 特型。<ul>
 <li>非基本类型在实现了 Copy 特型后，可以通过 <code>clone()</code> 等方法进行拷贝。</li>
 </ul>
 </li>
@@ -4096,7 +4289,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年2月28日</span>
   </span>
 
     
