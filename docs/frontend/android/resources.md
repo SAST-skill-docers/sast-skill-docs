@@ -3,7 +3,7 @@
 Android 的资源库存储着 APP 的本地资源，包括布局文件、图片、音频、字符串、颜色等内容，这些资源使用 XML 语法编写，被存储在项目文件的 res 目录下，在 APP 运行时可以被调用。
 
 <center>
-    <img src="../../static/frontend/android/resources.png" width="50%">
+    <img src="../../../static/frontend/android/resources.png" width="50%">
 </center>
 
 ## 布局文件
@@ -83,7 +83,7 @@ Android 的资源库存储着 APP 的本地资源，包括布局文件、图片�
 得到的布局如下图，如你所见，前后两个 View 是上下占位边框，中间的部分是一组横向线性排列，权重为 $2:1$；左边是两个文本框组成的，右边是一张图片。布局文件的编写还是比较直观的，更多地需要在实践中提高使用的熟练度，这里不再赘述。
 
 <center>
-    <img src="../../static/frontend/android/layout.png" width="70%">
+    <img src="../../../static/frontend/android/layout.png" width="70%">
 </center>
 
 !!! tip "几点关于布局文件的 tip"
