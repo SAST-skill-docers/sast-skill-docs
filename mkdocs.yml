@@ -86,6 +86,7 @@ nav:
     - Markdown 入门: basic/markdown.md
     - LaTeX 入门: basic/latex.md
     - Web 与 Web 应用基础: basic/web.md
+    - 数据库 与 SQL: basic/sql.md
   - 编程语言:
     - languages/index.md
     - C++ 语言面向对象:
